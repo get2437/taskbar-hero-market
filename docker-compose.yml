@@ -1,0 +1,107 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-taskbar}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-taskbar_secret}
+      POSTGRES_DB: ${POSTGRES_DB:-taskbar_hero}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # ローカルからのみ接続可 (本番では外部公開しない)。完全に閉じるならこの ports ごと削除
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-taskbar} -d ${POSTGRES_DB:-taskbar_hero}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redisdata:/data
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # NEXT_PUBLIC_* はビルド時に埋め込む必要があるため build args で渡す (.env から自動読込)。
+      args:
+        NEXT_PUBLIC_ADS_ENABLED: ${NEXT_PUBLIC_ADS_ENABLED:-false}
+        NEXT_PUBLIC_ADS_PLACEHOLDER: ${NEXT_PUBLIC_ADS_PLACEHOLDER:-false}
+        NEXT_PUBLIC_ADSENSE_CLIENT: ${NEXT_PUBLIC_ADSENSE_CLIENT:-}
+        NEXT_PUBLIC_AD_SLOT_DEFAULT: ${NEXT_PUBLIC_AD_SLOT_DEFAULT:-}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-}
+        NEXT_PUBLIC_STEAM_APP_ID: ${STEAM_APP_ID:-3678970}
+        NEXT_PUBLIC_STEAM_CURRENCY: ${STEAM_CURRENCY:-8}
+        NEXT_PUBLIC_PLAUSIBLE_DOMAIN: ${NEXT_PUBLIC_PLAUSIBLE_DOMAIN:-}
+        NEXT_PUBLIC_PLAUSIBLE_SRC: ${NEXT_PUBLIC_PLAUSIBLE_SRC:-}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-taskbar}:${POSTGRES_PASSWORD:-taskbar_secret}@db:5432/${POSTGRES_DB:-taskbar_hero}?schema=public
+      REDIS_URL: redis://redis:6379
+      STEAM_APP_ID: ${STEAM_APP_ID:-3678970}
+      STEAM_CURRENCY: ${STEAM_CURRENCY:-8}
+      STEAM_REQUEST_INTERVAL_MS: ${STEAM_REQUEST_INTERVAL_MS:-3500}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-change_me_admin_token}
+      MARKET_REFRESH_CRON: ${MARKET_REFRESH_CRON:-*/15 * * * *}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      SEED_ON_START: ${SEED_ON_START:-true}
+      NODE_ENV: production
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      MONITORING_WEBHOOK_URL: ${MONITORING_WEBHOOK_URL:-}
+      APP_RELEASE: ${APP_RELEASE:-}
+    ports:
+      # localhost のみ公開。外部からは Nginx 経由でアクセス (db/redis と同じ方針)。
+      - "127.0.0.1:3000:3000"
+
+  # 15分毎の自動更新ワーカー (Steam取得 → 分析 → 通知判定)
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      app:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-taskbar}:${POSTGRES_PASSWORD:-taskbar_secret}@db:5432/${POSTGRES_DB:-taskbar_hero}?schema=public
+      REDIS_URL: redis://redis:6379
+      STEAM_APP_ID: ${STEAM_APP_ID:-3678970}
+      STEAM_CURRENCY: ${STEAM_CURRENCY:-8}
+      STEAM_REQUEST_INTERVAL_MS: ${STEAM_REQUEST_INTERVAL_MS:-3500}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      MARKET_REFRESH_CRON: ${MARKET_REFRESH_CRON:-*/15 * * * *}
+      HOT_REFRESH_MS: ${HOT_REFRESH_MS:-20000}
+      # ステータス(説明文)の更新間隔。既定 24h。初回/アップグレード時は DESC_REFRESH_ON_START=true で起動後1回取得。
+      DESC_REFRESH_MS: ${DESC_REFRESH_MS:-86400000}
+      DESC_REFRESH_ON_START: ${DESC_REFRESH_ON_START:-false}
+      SEED_ON_START: "false"
+      NODE_ENV: production
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      MONITORING_WEBHOOK_URL: ${MONITORING_WEBHOOK_URL:-}
+      APP_RELEASE: ${APP_RELEASE:-}
+    entrypoint: ["node_modules/.bin/tsx", "scripts/worker.ts"]
+
+volumes:
+  pgdata:
+  redisdata:

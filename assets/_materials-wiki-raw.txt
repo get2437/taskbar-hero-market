@@ -1,0 +1,115 @@
+Minor Ruby | Gems | COMMON | /tbh-task-bar-hero/items/minor-ruby | /game/items/materials/Item_110001.png
+Minor Sapphire | Gems | COMMON | /tbh-task-bar-hero/items/minor-sapphire | /game/items/materials/Item_110002.png
+Minor Topaz | Gems | COMMON | /tbh-task-bar-hero/items/minor-topaz | /game/items/materials/Item_110003.png
+Minor Emerald | Gems | COMMON | /tbh-task-bar-hero/items/minor-emerald | /game/items/materials/Item_110004.png
+Minor Amethyst | Gems | COMMON | /tbh-task-bar-hero/items/minor-amethyst | /game/items/materials/Item_110005.png
+Obsidian Shard | Gems | UNCOMMON | /tbh-task-bar-hero/items/obsidian-shard | /game/items/materials/Item_111001.png
+Coral Piece | Gems | UNCOMMON | /tbh-task-bar-hero/items/coral-piece | /game/items/materials/Item_111002.png
+Jade Stone | Gems | UNCOMMON | /tbh-task-bar-hero/items/jade-stone | /game/items/materials/Item_111003.png
+Amber Gem | Gems | UNCOMMON | /tbh-task-bar-hero/items/amber-gem | /game/items/materials/Item_111004.png
+Ruby | Gems | RARE | /tbh-task-bar-hero/items/ruby | /game/items/materials/Item_112001.png
+Sapphire | Gems | RARE | /tbh-task-bar-hero/items/sapphire | /game/items/materials/Item_112002.png
+Topaz | Gems | RARE | /tbh-task-bar-hero/items/topaz | /game/items/materials/Item_112003.png
+Emerald | Gems | RARE | /tbh-task-bar-hero/items/emerald | /game/items/materials/Item_112004.png
+Amethyst | Gems | RARE | /tbh-task-bar-hero/items/amethyst | /game/items/materials/Item_112005.png
+Crystal Quartz | Gems | LEGENDARY | /tbh-task-bar-hero/items/crystal-quartz | /game/items/materials/Item_113001.png
+Pearl | Gems | LEGENDARY | /tbh-task-bar-hero/items/pearl | /game/items/materials/Item_113002.png
+Turquoise | Gems | LEGENDARY | /tbh-task-bar-hero/items/turquoise | /game/items/materials/Item_113003.png
+Garnet | Gems | LEGENDARY | /tbh-task-bar-hero/items/garnet | /game/items/materials/Item_113004.png
+Diamond | Gems | IMMORTAL | /tbh-task-bar-hero/items/diamond | /game/items/materials/Item_114001.png
+Opal | Gems | IMMORTAL | /tbh-task-bar-hero/items/opal | /game/items/materials/Item_114002.png
+Lapis Lazuli | Gems | IMMORTAL | /tbh-task-bar-hero/items/lapis-lazuli | /game/items/materials/Item_114003.png
+Black Pearl | Gems | IMMORTAL | /tbh-task-bar-hero/items/black-pearl | /game/items/materials/Item_114004.png
+Arcane Crystal | Gems | ARCANA | /tbh-task-bar-hero/items/arcane-crystal | /game/items/materials/Item_115001.png
+Mystic Topaz | Gems | ARCANA | /tbh-task-bar-hero/items/mystic-topaz | /game/items/materials/Item_115002.png
+Enchanted Ruby | Gems | ARCANA | /tbh-task-bar-hero/items/enchanted-ruby | /game/items/materials/Item_115003.png
+Starlight Sapphire | Gems | ARCANA | /tbh-task-bar-hero/items/starlight-sapphire | /game/items/materials/Item_115004.png
+Void Opal | Gems | BEYOND | /tbh-task-bar-hero/items/void-opal | /game/items/materials/Item_116001.png
+Astral Diamond | Gems | BEYOND | /tbh-task-bar-hero/items/astral-diamond | /game/items/materials/Item_116002.png
+Phantom Emerald | Gems | BEYOND | /tbh-task-bar-hero/items/phantom-emerald | /game/items/materials/Item_116003.png
+Twilight Amethyst | Gems | BEYOND | /tbh-task-bar-hero/items/twilight-amethyst | /game/items/materials/Item_116004.png
+Celestial Pearl | Gems | CELESTIAL | /tbh-task-bar-hero/items/celestial-pearl | /game/items/materials/Item_117001.png
+Dragonite Crystal | Gems | CELESTIAL | /tbh-task-bar-hero/items/dragonite-crystal | /game/items/materials/Item_117002.png
+Void Crystal | Gems | DIVINE | /tbh-task-bar-hero/items/void-crystal | /game/items/materials/Item_118001.png
+Abyssal Pearl | Gems | DIVINE | /tbh-task-bar-hero/items/abyssal-pearl | /game/items/materials/Item_118002.png
+Ethereal Gem | Gems | COSMIC | /tbh-task-bar-hero/items/ethereal-gem | /game/items/materials/Item_119001.png
+Chaos Diamond | Gems | COSMIC | /tbh-task-bar-hero/items/chaos-diamond | /game/items/materials/Item_119002.png
+Goblin Hide | Creature | COMMON | /tbh-task-bar-hero/items/goblin-hide | /game/items/materials/Item_120001.png
+Skeleton Bone | Creature | COMMON | /tbh-task-bar-hero/items/skeleton-bone | /game/items/materials/Item_120002.png
+Slime Jelly | Creature | COMMON | /tbh-task-bar-hero/items/slime-jelly | /game/items/materials/Item_120003.png
+Wolf Fang | Creature | UNCOMMON | /tbh-task-bar-hero/items/wolf-fang | /game/items/materials/Item_121001.png
+Spider Silk | Creature | UNCOMMON | /tbh-task-bar-hero/items/spider-silk | /game/items/materials/Item_121002.png
+Poisonous Herb | Creature | UNCOMMON | /tbh-task-bar-hero/items/poisonous-herb | /game/items/materials/Item_121003.png
+Healing Herb | Creature | UNCOMMON | /tbh-task-bar-hero/items/healing-herb | /game/items/materials/Item_121004.png
+Bat Wing Membrane | Creature | RARE | /tbh-task-bar-hero/items/bat-wing-membrane | /game/items/materials/Item_122001.png
+Ogre Blood | Creature | RARE | /tbh-task-bar-hero/items/ogre-blood | /game/items/materials/Item_122002.png
+Mushroom Spore | Creature | RARE | /tbh-task-bar-hero/items/mushroom-spore | /game/items/materials/Item_122003.png
+Ancient Tree Sap | Creature | RARE | /tbh-task-bar-hero/items/ancient-tree-sap | /game/items/materials/Item_122004.png
+Skull | Creature | LEGENDARY | /tbh-task-bar-hero/items/skull | /game/items/materials/Item_123001.png
+Harpy Feather | Creature | LEGENDARY | /tbh-task-bar-hero/items/harpy-feather | /game/items/materials/Item_123002.png
+Mandrake Root | Creature | LEGENDARY | /tbh-task-bar-hero/items/mandrake-root | /game/items/materials/Item_123003.png
+Nightshade Extract | Creature | LEGENDARY | /tbh-task-bar-hero/items/nightshade-extract | /game/items/materials/Item_123004.png
+Basilisk Scale | Creature | IMMORTAL | /tbh-task-bar-hero/items/basilisk-scale | /game/items/materials/Item_124001.png
+Wyvern Claw | Creature | IMMORTAL | /tbh-task-bar-hero/items/wyvern-claw | /game/items/materials/Item_124002.png
+Dice | Creature | IMMORTAL | /tbh-task-bar-hero/items/dice | /game/items/materials/Item_124003.png
+Demon Blood | Creature | IMMORTAL | /tbh-task-bar-hero/items/demon-blood | /game/items/materials/Item_124004.png
+Minotaur Horn | Creature | ARCANA | /tbh-task-bar-hero/items/minotaur-horn | /game/items/materials/Item_125001.png
+Griffin Beak | Creature | ARCANA | /tbh-task-bar-hero/items/griffin-beak | /game/items/materials/Item_125002.png
+Phoenix Ash | Creature | ARCANA | /tbh-task-bar-hero/items/phoenix-ash | /game/items/materials/Item_125003.png
+Dragon Bile | Creature | ARCANA | /tbh-task-bar-hero/items/dragon-bile | /game/items/materials/Item_125004.png
+Wraith Essence | Creature | BEYOND | /tbh-task-bar-hero/items/wraith-essence | /game/items/materials/Item_126001.png
+Kraken Ink | Creature | BEYOND | /tbh-task-bar-hero/items/kraken-ink | /game/items/materials/Item_126002.png
+Titan Marrow | Creature | BEYOND | /tbh-task-bar-hero/items/titan-marrow | /game/items/materials/Item_126003.png
+Void Ichor | Creature | BEYOND | /tbh-task-bar-hero/items/void-ichor | /game/items/materials/Item_126004.png
+Abyssal Mucus | Creature | CELESTIAL | /tbh-task-bar-hero/items/abyssal-mucus | /game/items/materials/Item_127001.png
+Chaos Spore | Creature | CELESTIAL | /tbh-task-bar-hero/items/chaos-spore | /game/items/materials/Item_127002.png
+Primordial Sap | Creature | DIVINE | /tbh-task-bar-hero/items/primordial-sap | /game/items/materials/Item_128001.png
+Eldritch Venom | Creature | DIVINE | /tbh-task-bar-hero/items/eldritch-venom | /game/items/materials/Item_128002.png
+Chaso Dice | Creature | COSMIC | /tbh-task-bar-hero/items/chaso-dice | /game/items/materials/Item_129001.png
+Void Tendril | Creature | COSMIC | /tbh-task-bar-hero/items/void-tendril | /game/items/materials/Item_129002.png
+Scroll of Common Inscription | Inscription | COMMON | /tbh-task-bar-hero/items/scroll-of-common-inscription | /game/items/materials/Item_130001.png
+Scroll of Uncommon Inscription | Inscription | UNCOMMON | /tbh-task-bar-hero/items/scroll-of-uncommon-inscription | /game/items/materials/Item_131001.png
+Scroll of Rare Inscription | Inscription | RARE | /tbh-task-bar-hero/items/scroll-of-rare-inscription | /game/items/materials/Item_132001.png
+Scroll of Legendary Inscription | Inscription | LEGENDARY | /tbh-task-bar-hero/items/scroll-of-legendary-inscription | /game/items/materials/Item_133001.png
+Scroll of Immortal Inscription | Inscription | IMMORTAL | /tbh-task-bar-hero/items/scroll-of-immortal-inscription | /game/items/materials/Item_134001.png
+Scroll of Arcana Inscription | Inscription | ARCANA | /tbh-task-bar-hero/items/scroll-of-arcana-inscription | /game/items/materials/Item_135001.png
+Scroll of Beyond Inscription | Inscription | BEYOND | /tbh-task-bar-hero/items/scroll-of-beyond-inscription | /game/items/materials/Item_136001.png
+Scroll of Celestial Inscription | Inscription | CELESTIAL | /tbh-task-bar-hero/items/scroll-of-celestial-inscription | /game/items/materials/Item_137001.png
+Scroll of Divine Inscription | Inscription | DIVINE | /tbh-task-bar-hero/items/scroll-of-divine-inscription | /game/items/materials/Item_138001.png
+Scroll of Cosmic Inscription | Inscription | COSMIC | /tbh-task-bar-hero/items/scroll-of-cosmic-inscription | /game/items/materials/Item_139001.png
+Wood | Crafting | COMMON | /tbh-task-bar-hero/items/wood | /game/items/materials/Item_140001.png
+Stone | Crafting | COMMON | /tbh-task-bar-hero/items/stone | /game/items/materials/Item_140002.png
+Leather | Crafting | COMMON | /tbh-task-bar-hero/items/leather | /game/items/materials/Item_140003.png
+Copper Nugget | Crafting | COMMON | /tbh-task-bar-hero/items/copper-nugget | /game/items/materials/Item_140004.png
+Bronze Ingot | Crafting | UNCOMMON | /tbh-task-bar-hero/items/bronze-ingot | /game/items/materials/Item_141001.png
+Iron Ingot | Crafting | UNCOMMON | /tbh-task-bar-hero/items/iron-ingot | /game/items/materials/Item_141002.png
+Silver Ingot | Crafting | RARE | /tbh-task-bar-hero/items/silver-ingot | /game/items/materials/Item_142001.png
+Gold Ingot | Crafting | RARE | /tbh-task-bar-hero/items/gold-ingot | /game/items/materials/Item_142002.png
+Stardust Ingot | Crafting | LEGENDARY | /tbh-task-bar-hero/items/stardust-ingot | /game/items/materials/Item_143001.png
+Void Iron | Crafting | LEGENDARY | /tbh-task-bar-hero/items/void-iron | /game/items/materials/Item_143002.png
+Bloodstone | Crafting | IMMORTAL | /tbh-task-bar-hero/items/bloodstone | /game/items/materials/Item_144001.png
+Thunderstone | Crafting | IMMORTAL | /tbh-task-bar-hero/items/thunderstone | /game/items/materials/Item_144002.png
+Chaos Shard | Crafting | ARCANA | /tbh-task-bar-hero/items/chaos-shard | /game/items/materials/Item_145001.png
+Arcane Ore | Crafting | ARCANA | /tbh-task-bar-hero/items/arcane-ore | /game/items/materials/Item_145002.png
+Darksteel Ingot | Crafting | BEYOND | /tbh-task-bar-hero/items/darksteel-ingot | /game/items/materials/Item_146001.png
+Orichalcum Ore | Crafting | BEYOND | /tbh-task-bar-hero/items/orichalcum-ore | /game/items/materials/Item_146002.png
+Moonstone | Crafting | CELESTIAL | /tbh-task-bar-hero/items/moonstone | /game/items/materials/Item_147001.png
+Sunstone | Crafting | CELESTIAL | /tbh-task-bar-hero/items/sunstone | /game/items/materials/Item_147002.png
+Mithril Ore | Crafting | DIVINE | /tbh-task-bar-hero/items/mithril-ore | /game/items/materials/Item_148001.png
+Ethereal Ingot | Crafting | DIVINE | /tbh-task-bar-hero/items/ethereal-ingot | /game/items/materials/Item_148002.png
+Adamantium Ore | Crafting | COSMIC | /tbh-task-bar-hero/items/adamantium-ore | /game/items/materials/Item_149001.png
+Aeon Ingot | Crafting | COSMIC | /tbh-task-bar-hero/items/aeon-ingot | /game/items/materials/Item_149002.png
+Kingdom 1st Anniversary Coin | Anniversary | COMMON | /tbh-task-bar-hero/items/kingdom-1st-anniversary-coin | /game/items/materials/Item_160001.png
+Empire 1st Anniversary Coin | Anniversary | UNCOMMON | /tbh-task-bar-hero/items/empire-1st-anniversary-coin | /game/items/materials/Item_160002.png
+Kingdom 10th Anniversary Coin | Anniversary | RARE | /tbh-task-bar-hero/items/kingdom-10th-anniversary-coin | /game/items/materials/Item_160003.png
+Empire 10th Anniversary Coin | Anniversary | LEGENDARY | /tbh-task-bar-hero/items/empire-10th-anniversary-coin | /game/items/materials/Item_160004.png
+Kingdom 50th Anniversary Coin | Anniversary | IMMORTAL | /tbh-task-bar-hero/items/kingdom-50th-anniversary-coin | /game/items/materials/Item_160005.png
+Empire 50th Anniversary Coin | Anniversary | ARCANA | /tbh-task-bar-hero/items/empire-50th-anniversary-coin | /game/items/materials/Item_160006.png
+Kingdom 100th Anniversary Coin | Anniversary | BEYOND | /tbh-task-bar-hero/items/kingdom-100th-anniversary-coin | /game/items/materials/Item_160007.png
+Empire 100th Anniversary Coin | Anniversary | CELESTIAL | /tbh-task-bar-hero/items/empire-100th-anniversary-coin | /game/items/materials/Item_160008.png
+Sacred Kingdom 1000th Anniversary Coin | Anniversary | DIVINE | /tbh-task-bar-hero/items/sacred-kingdom-1000th-anniversary-coin | /game/items/materials/Item_160009.png
+Eternal Empire 1000th Anniversary Coin | Anniversary | COSMIC | /tbh-task-bar-hero/items/eternal-empire-1000th-anniversary-coin | /game/items/materials/Item_160010.png
+Soulstone - Normal | Soulstone | IMMORTAL | /tbh-task-bar-hero/items/soulstone-normal | /game/items/materials/Item_190001.png
+Soulstone - Nightmare | Soulstone | ARCANA | /tbh-task-bar-hero/items/soulstone-nightmare | /game/items/materials/Item_190002.png
+Soulstone - Hell | Soulstone | BEYOND | /tbh-task-bar-hero/items/soulstone-hell | /game/items/materials/Item_190003.png
+Soulstone - Torment | Soulstone | CELESTIAL | /tbh-task-bar-hero/items/soulstone-torment | /game/items/materials/Item_190004.png

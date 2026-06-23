@@ -1,0 +1,6836 @@
+{
+ "Wood": {
+  "grade": "Common",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A common material that can be used to craft something."
+ },
+ "Leather": {
+  "grade": "Common",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A common material that can be used to craft something."
+ },
+ "Coral Piece": {
+  "grade": "Uncommon",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 100,
+    "valueMax": 200,
+    "unit": "FLAT",
+    "raw": "- [T3] HP Per Hit +1~2",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 150,
+    "valueMax": 200,
+    "unit": "FLAT",
+    "raw": "- [T2] HP Regen Per Sec +1.5~2.0",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 150,
+    "valueMax": 250,
+    "unit": "PCT",
+    "raw": "- [T2] Life Leech +1.5~2.5%",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Wolf Fang": {
+  "grade": "Uncommon",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 900,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T3] 9~10% Increased Area of Effect",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T3] 20~25% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T2] Lightning Resistance +10~15%",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T2] 15~20% Increased Armor",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 200,
+    "valueMax": 400,
+    "unit": "FLAT",
+    "raw": "- [T2] HP Per Hit +2~4",
+    "target": "ACCESSORY",
+    "tier": 2
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 200,
+    "valueMax": 300,
+    "unit": "FLAT",
+    "raw": "- [T2] Attack Damage +2~3",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic engraving material. Used to engrave an item, randomly granting one of two minor stat boosts preset by equipment type."
+ },
+ "Minor Amethyst": {
+  "grade": "Common",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "physical_damage",
+    "label": "Physical Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Physical Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 1000,
+    "valueMax": 3000,
+    "unit": "FLAT",
+    "raw": "- [T1] Max HP +10~30",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 100,
+    "valueMax": 250,
+    "unit": "PCT",
+    "raw": "- [T1] Cooldown Reduction +1.0~2.5%",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Minor Sapphire": {
+  "grade": "Common",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Cold Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 2500,
+    "valueMax": 5000,
+    "unit": "FLAT",
+    "raw": "- [T1] Armor +25~50",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T1] 10~15% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Amber Gem": {
+  "grade": "Uncommon",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T3] Critical Damage +20~25%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 800,
+    "valueMax": 1100,
+    "unit": "PCT",
+    "raw": "- [T2] 8~11% Increased Max HP",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 800,
+    "valueMax": 900,
+    "unit": "PCT",
+    "raw": "- [T2] 8~9% Increased Area of Effect",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Obsidian Shard": {
+  "grade": "Uncommon",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 300,
+    "valueMax": 600,
+    "unit": "FLAT",
+    "raw": "- [T3] Attack Damage +3~6",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 350,
+    "valueMax": 450,
+    "unit": "PCT",
+    "raw": "- [T2] Block Chance +3.5~4.5%",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T2] 10~15% Increased Attack Damage",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Minor Topaz": {
+  "grade": "Common",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Lightning Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T1] 10~15% Increased Armor",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 800,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T1] 8~10% Increased Cast Speed",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Jade Stone": {
+  "grade": "Uncommon",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T3] 20~25% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "dodge_chance",
+    "label": "Dodge Chance",
+    "valueMin": 350,
+    "valueMax": 450,
+    "unit": "PCT",
+    "raw": "- [T2] Dodge Chance +3.5~4.5%",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 500,
+    "valueMax": 600,
+    "unit": "PCT",
+    "raw": "- [T2] 5~6% Increased Attack Speed",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Healing Herb": {
+  "grade": "Uncommon",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T3] Fire Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T3] Cold Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "dodge_chance",
+    "label": "Dodge Chance",
+    "valueMin": 350,
+    "valueMax": 450,
+    "unit": "PCT",
+    "raw": "- [T2] Dodge Chance +3.5~4.5%",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 800,
+    "valueMax": 1100,
+    "unit": "PCT",
+    "raw": "- [T2] 8~11% Increased Max HP",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T2] 15~20% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 2
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 200,
+    "valueMax": 300,
+    "unit": "FLAT",
+    "raw": "- [T2] Attack Damage +2~3",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic engraving material. Used to engrave an item, randomly granting one of two minor stat boosts preset by equipment type."
+ },
+ "Poisonous Herb": {
+  "grade": "Uncommon",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 200,
+    "valueMax": 300,
+    "unit": "PCT",
+    "raw": "- [T3] Life Leech +2.0~3.0%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T3] Lightning Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 5000,
+    "valueMax": 10000,
+    "unit": "FLAT",
+    "raw": "- [T2] Armor +50~100",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 100,
+    "valueMax": 140,
+    "unit": "FLAT",
+    "raw": "- [T2] Damage Absorption +1~1.4",
+    "target": "ARMOR",
+    "tier": 2
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 200,
+    "valueMax": 300,
+    "unit": "FLAT",
+    "raw": "- [T2] Attack Damage +2~3",
+    "target": "ACCESSORY",
+    "tier": 2
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T2] 15~20% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 2
+   }
+  ],
+  "flavor": "Common basic engraving material. Used to engrave an item, randomly granting one of two minor stat boosts preset by equipment type."
+ },
+ "Sapphire": {
+  "grade": "Rare",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T3] Cold Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T3] Cold Resistance +15~20%",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T3] 20~25% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 3
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Goblin Hide": {
+  "grade": "Common",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Fire Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Lightning Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 500,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T1] Cold Resistance +5~10%",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "fire_resistance",
+    "label": "Fire Resistance",
+    "valueMin": 500,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T1] Fire Resistance +5~10%",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 400,
+    "valueMax": 500,
+    "unit": "PCT",
+    "raw": "- [T1] 4~5% Increased Attack Speed",
+    "target": "ACCESSORY",
+    "tier": 1
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 1000,
+    "valueMax": 3000,
+    "unit": "FLAT",
+    "raw": "- [T1] Max HP +10~30",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic engraving material. Used to engrave an item, randomly granting one of two minor stat boosts preset by equipment type."
+ },
+ "Slime Jelly": {
+  "grade": "Common",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 500,
+    "valueMax": 600,
+    "unit": "PCT",
+    "raw": "- [T2] 5~6% Increased Attack Speed",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 200,
+    "valueMax": 300,
+    "unit": "FLAT",
+    "raw": "- [T2] Attack Damage +2~3",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- [T1] Damage Absorption +1",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 250,
+    "valueMax": 350,
+    "unit": "PCT",
+    "raw": "- [T1] Block Chance +2.5~3.5%",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 1000,
+    "valueMax": 3000,
+    "unit": "FLAT",
+    "raw": "- [T1] Max HP +10~30",
+    "target": "ACCESSORY",
+    "tier": 1
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T1] 10~15% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic engraving material. Used to engrave an item, randomly granting one of two minor stat boosts preset by equipment type."
+ },
+ "Topaz": {
+  "grade": "Rare",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T3] Lightning Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T3] Lightning Resistance +15~20%",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 1200,
+    "valueMax": 1400,
+    "unit": "PCT",
+    "raw": "- [T3] 12~14% Increased Cast Speed",
+    "target": "ACCESSORY",
+    "tier": 3
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Skeleton Bone": {
+  "grade": "Common",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T2] Critical Damage +15~20%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Fire Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 2500,
+    "valueMax": 5000,
+    "unit": "FLAT",
+    "raw": "- [T1] Armor +25~50",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T1] 10~15% Increased Armor",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 100,
+    "valueMax": 200,
+    "unit": "FLAT",
+    "raw": "- [T1] HP Per Hit +1~2",
+    "target": "ACCESSORY",
+    "tier": 1
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 400,
+    "valueMax": 500,
+    "unit": "PCT",
+    "raw": "- [T1] 4~5% Increased Attack Speed",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic engraving material. Used to engrave an item, randomly granting one of two minor stat boosts preset by equipment type."
+ },
+ "Soulstone - Normal": {
+  "grade": "Immortal",
+  "itemType": "Soulstone",
+  "materialCategory": "SOULSTONE",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "Material required to summon Normal difficulty bosses."
+ },
+ "Minor Ruby": {
+  "grade": "Common",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 2000,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T2] Fire Damage +20~30%",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "fire_resistance",
+    "label": "Fire Resistance",
+    "valueMin": 500,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T1] Fire Resistance +5~10%",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 100,
+    "valueMax": 200,
+    "unit": "FLAT",
+    "raw": "- [T1] Attack Damage +1~2",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Starlight Sapphire": {
+  "grade": "Arcana",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 8000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T7] Cold Damage +80~100%",
+    "target": "WEAPON",
+    "tier": 7
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T6] Cold Resistance +30~35%",
+    "target": "ARMOR",
+    "tier": 6
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T6] 35~40% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 6
+   }
+  ],
+  "flavor": "Intermediate decoration material. Used to decorate an item, granting a special stat boost preset by equipment type."
+ },
+ "Dimensional Sword (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Sword - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 114300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 1143"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 133,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.33"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 13800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 138% Increased Attack Damage"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 10900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +109%"
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 27600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +276"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Chaos Shard": {
+  "grade": "Arcana",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "An intermediate material that can be used to craft something."
+ },
+ "Fighter's Helmet (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Helmet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 193900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 1939"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 18300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +183"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 530,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.3%"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 138600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +1386"
+   }
+  ],
+  "uniqueStats": [
+   {
+    "key": "snowstorm_deals_100_additional_damage_to_frozen_enemies",
+    "label": "Snowstorm deals 100% additional damage to frozen enemies.",
+    "valueMin": null,
+    "valueMax": null,
+    "unit": "TEXT",
+    "raw": "- Snowstorm deals 100% additional damage to frozen enemies."
+   }
+  ],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Warrior's Tome (Divine) A": {
+  "grade": "Divine",
+  "itemType": "Tome - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 42300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 423"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 3690,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Damage Absorption +36.9"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1450,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +14.5"
+   },
+   {
+    "key": "skill_heal",
+    "label": "Skill Heal",
+    "valueMin": 3800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Skill Heal +38%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dimensional Arrow (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Arrow - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 6100,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Attack Speed 61%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 18600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +186"
+   },
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 410,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Life Leech +4.1%"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 690,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +6.9%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Celestial Pearl": {
+  "grade": "Celestial",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 5000,
+    "valueMax": 5500,
+    "unit": "PCT",
+    "raw": "- [T9] 50~55% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 9
+   },
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 400,
+    "valueMax": 500,
+    "unit": "FLAT",
+    "raw": "- [T8] Damage Absorption +4~5",
+    "target": "ARMOR",
+    "tier": 8
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 4000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T7] 40~45% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 7
+   }
+  ],
+  "flavor": "Advanced decoration material. Used to decorate an item, granting a powerful stat boost preset by equipment type."
+ },
+ "Dimensional Armor (Divine) A": {
+  "grade": "Divine",
+  "itemType": "Armor - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 1079100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 10791"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 49400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +494"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 49400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 494% Increased Armor"
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 5000,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 50% Increased Max HP"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Ethereal Earring (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Earing - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_exp_gain",
+    "label": "Increased Exp Gain",
+    "valueMin": 870,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 8.7% Increased Exp Gain"
+   },
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 130,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Life Leech +1.3%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Fate Tome (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Tome - Lv. 50",
+  "materialCategory": null,
+  "requiredLevel": 50,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 23400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 234"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "skill_heal",
+    "label": "Skill Heal",
+    "valueMin": 2400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Skill Heal +24%"
+   },
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 2090,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Damage Absorption +20.9"
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Block Chance +9.0%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Limitless Hatchet (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Hatchet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 11240,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Attack Damage +112.4%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 4600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 46% Increased Attack Damage"
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 28% Increased Critical Chance Multiplier"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 4600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +46%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Shine Boots (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Boots - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 110700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 1107"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "movement_speed",
+    "label": "Movement Speed",
+    "valueMin": 15800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Movement Speed +158"
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 18300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +183"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1180,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +11.8"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Abyssal Mucus": {
+  "grade": "Celestial",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 13000,
+    "valueMax": 18000,
+    "unit": "PCT",
+    "raw": "- [T9] Fire Damage +130~180%",
+    "target": "WEAPON",
+    "tier": 9
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 1300,
+    "valueMax": 1450,
+    "unit": "PCT",
+    "raw": "- [T9] Cooldown Reduction +13.0~14.5%",
+    "target": "WEAPON",
+    "tier": 9
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 4500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T8] 45~50% Increased Armor",
+    "target": "ARMOR",
+    "tier": 8
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 1300,
+    "valueMax": 1600,
+    "unit": "PCT",
+    "raw": "- [T8] Block Chance +13.0~16.0%",
+    "target": "ARMOR",
+    "tier": 8
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 1500,
+    "valueMax": 1700,
+    "unit": "PCT",
+    "raw": "- [T8] 15~17% Increased Attack Speed",
+    "target": "ACCESSORY",
+    "tier": 8
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 4500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T8] 45~50% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 8
+   }
+  ],
+  "flavor": "Advanced engraving material. Used to engrave an item, randomly granting one of two powerful stat boosts preset by equipment type."
+ },
+ "Dimensional Armor (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Armor - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 814400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 8144"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 41000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +410"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 4080,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +40.8"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 40800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 408% Increased Armor"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Shine Boots (Divine) A": {
+  "grade": "Divine",
+  "itemType": "Boots - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 146700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 1467"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "movement_speed",
+    "label": "Movement Speed",
+    "valueMin": 18600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Movement Speed +186"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 122300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +1223"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1430,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +14.3"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dimensional Scepter (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Scepter - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 101600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 1016"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 118,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.18"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 960,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +9.6%"
+   },
+   {
+    "key": "critical_chance",
+    "label": "Critical Chance",
+    "valueMin": 350,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Chance +3.5%"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 10900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +109%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Rune Tome (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Tome - Lv. 40",
+  "materialCategory": null,
+  "requiredLevel": 40,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 20200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 202"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 750,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Block Chance +7.5%"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +6.0"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 550,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.5%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Eclipse Amulet (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Amulet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 1600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 16% Increased Attack Speed"
+   },
+   {
+    "key": "basic_attack_requirement_reduction",
+    "label": "Basic Attack Requirement Reduction",
+    "valueMin": 100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Basic Attack Requirement Reduction +1"
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3200,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 32% Increased Critical Chance Multiplier"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dimensional Tome (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Tome - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 46700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 467"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 2880,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Damage Absorption +28.8"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1110,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +11.1"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 890,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +8.9%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dimensional Boots (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Boots - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 66000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 660"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "movement_speed",
+    "label": "Movement Speed",
+    "valueMin": 10400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Movement Speed +104"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 42300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +423"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Basilisk Scale": {
+  "grade": "Immortal",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 350,
+    "valueMax": 450,
+    "unit": "PCT",
+    "raw": "- [T6] Life Leech +3.5~4.5%",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1500,
+    "valueMax": 3000,
+    "unit": "FLAT",
+    "raw": "- [T6] Attack Damage +15~30",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 12000,
+    "valueMax": 15000,
+    "unit": "FLAT",
+    "raw": "- [T5] Max HP +120~150",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "damage_reduction",
+    "label": "Damage Reduction",
+    "valueMin": 550,
+    "valueMax": 700,
+    "unit": "PCT",
+    "raw": "- [T5] Damage Reduction +5.5~7.0%",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T5] 30~35% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 5
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 1600,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T5] 16~20% Increased Cast Speed",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate engraving material. Used to engrave an item, randomly granting one of two special stat boosts preset by equipment type."
+ },
+ "Dimensional Helmet (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Helmet - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 301600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 3016"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 20400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +204"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1990,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +19.9"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 19900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 199% Increased Armor"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Prayer Tome (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Tome - Lv. 1",
+  "materialCategory": null,
+  "requiredLevel": 1,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 8500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 85"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 540,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Damage Absorption +5.4"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 120,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +1.2"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Garnet": {
+  "grade": "Legendary",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T5] Critical Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 5
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 2500,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T4] 25~30% Increased Armor",
+    "target": "ARMOR",
+    "tier": 4
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 700,
+    "valueMax": 900,
+    "unit": "PCT",
+    "raw": "- [T4] 7~9% Increased Attack Speed",
+    "target": "ACCESSORY",
+    "tier": 4
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Vengeance Sword (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Sword - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 36900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 369"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 120,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.20"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 9000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +90"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 6600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +66%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Rune Sword (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Sword - Lv. 40",
+  "materialCategory": null,
+  "requiredLevel": 40,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 11800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 118"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 120,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.20"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 4400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 44% Increased Attack Damage"
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Per Hit +4"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Emerald": {
+  "grade": "Rare",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 700,
+    "valueMax": 900,
+    "unit": "PCT",
+    "raw": "- [T4] 7~9% Increased Attack Speed",
+    "target": "WEAPON",
+    "tier": 4
+   },
+   {
+    "key": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T3] Chaos Resistance +15~20%",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T3] 20~25% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 3
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Bloodstone": {
+  "grade": "Immortal",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "An intermediate material that can be used to craft something."
+ },
+ "Orichalcum Ore": {
+  "grade": "Beyond",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A high-quality material that can be used to craft something."
+ },
+ "Gold Ingot": {
+  "grade": "Rare",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A material that can be used to craft something."
+ },
+ "Silver Ingot": {
+  "grade": "Rare",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A material used to create something."
+ },
+ "Iron Boots (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Boots - Lv. 10",
+  "materialCategory": null,
+  "requiredLevel": 10,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 3000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 30"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 1000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +10"
+   },
+   {
+    "key": "movement_speed",
+    "label": "Movement Speed",
+    "valueMin": 3400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Movement Speed +34"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Knight Gloves (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Gloves - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 5600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 56"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 2700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +27"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 1400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +14"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Diamond": {
+  "grade": "Immortal",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1500,
+    "valueMax": 3000,
+    "unit": "FLAT",
+    "raw": "- [T6] Attack Damage +15~30",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "valueMin": 1300,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T5] All Elemental Resistance +13~15%",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 1200,
+    "valueMax": 1400,
+    "unit": "PCT",
+    "raw": "- [T5] 12~14% Increased Area of Effect",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate decoration material. Used to decorate an item, granting a special stat boost preset by equipment type."
+ },
+ "Harpy Feather": {
+  "grade": "Legendary",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 5000,
+    "valueMax": 6000,
+    "unit": "PCT",
+    "raw": "- [T5] Fire Damage +50~60%",
+    "target": "WEAPON",
+    "tier": 5
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 2500,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T5] 25~30% Increased Attack Damage",
+    "target": "WEAPON",
+    "tier": 5
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 550,
+    "valueMax": 700,
+    "unit": "PCT",
+    "raw": "- [T4] Block Chance +5.5~7.0%",
+    "target": "ARMOR",
+    "tier": 4
+   },
+   {
+    "key": "damage_reduction",
+    "label": "Damage Reduction",
+    "valueMin": 400,
+    "valueMax": 550,
+    "unit": "PCT",
+    "raw": "- [T4] Damage Reduction +4.0~5.5%",
+    "target": "ARMOR",
+    "tier": 4
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 600,
+    "valueMax": 1000,
+    "unit": "FLAT",
+    "raw": "- [T4] Attack Damage +6~10",
+    "target": "ACCESSORY",
+    "tier": 4
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 9000,
+    "valueMax": 12000,
+    "unit": "FLAT",
+    "raw": "- [T4] Max HP +90~120",
+    "target": "ACCESSORY",
+    "tier": 4
+   }
+  ],
+  "flavor": "Basic engraving material. Used to engrave an item, randomly granting one of two stat boosts preset by equipment type."
+ },
+ "Thunderstone": {
+  "grade": "Immortal",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "An intermediate material used to create something."
+ },
+ "Dimensional Helmet (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Helmet - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 221500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 2215"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 16800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +168"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 121400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +1214"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1610,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +16.1"
+   }
+  ],
+  "uniqueStats": [
+   {
+    "key": "skewer_shot_deals_double_damage_to_bleeding_enemies",
+    "label": "Skewer Shot deals double damage to bleeding enemies.",
+    "valueMin": null,
+    "valueMax": null,
+    "unit": "TEXT",
+    "raw": "- Skewer Shot deals double damage to bleeding enemies."
+   }
+  ],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Stardust Ingot": {
+  "grade": "Legendary",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A material that can be used to craft something."
+ },
+ "Black Pearl": {
+  "grade": "Immortal",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 1400,
+    "valueMax": 1700,
+    "unit": "PCT",
+    "raw": "- [T6] 14~17% Increased Area of Effect",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 700,
+    "valueMax": 900,
+    "unit": "PCT",
+    "raw": "- [T5] Block Chance +7.0~9.0%",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 1600,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T5] 16~20% Increased Cast Speed",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate decoration material. Used to decorate an item, granting a special stat boost preset by equipment type."
+ },
+ "Radiant Shield (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Shield - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 3250,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Block Chance 32.5%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 48200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +482"
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 3900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 39% Increased Area of Effect"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 462100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +4621"
+   }
+  ],
+  "uniqueStats": [
+   {
+    "key": "equipped_skill_s_cooldown_is_reduced",
+    "label": "Equipped skill's cooldown is reduced.",
+    "valueMin": null,
+    "valueMax": null,
+    "unit": "TEXT",
+    "raw": "- Equipped skill's cooldown is reduced."
+   }
+  ],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Sacred Staff (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Staff - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 138500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 1385"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 87,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.87"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 23200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +232"
+   },
+   {
+    "key": "critical_chance",
+    "label": "Critical Chance",
+    "valueMin": 310,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Chance +3.1%"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 10000,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +100%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Amber Ring (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Ring - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 280,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +2.8%"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 1400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +14%"
+   },
+   {
+    "key": "add_hp_per_kill",
+    "label": "Add Hp Per Kill",
+    "valueMin": 1800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Add Hp Per Kill +18"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Soulstone - Torment": {
+  "grade": "Celestial",
+  "itemType": "Soulstone",
+  "materialCategory": "SOULSTONE",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "Material required to summon Torment difficulty bosses."
+ },
+ "Scroll of Arcana Inscription": {
+  "grade": "Arcana",
+  "itemType": "Inscription Material",
+  "materialCategory": "INSCRIPTION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1500,
+    "valueMax": 10000,
+    "unit": "FLAT",
+    "raw": "- [T6-T8] Attack Damage +15~100",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 3000,
+    "valueMax": 7000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 30~70% Increased Attack Damage",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 25000,
+    "valueMax": 40000,
+    "unit": "FLAT",
+    "raw": "- [T6-T8] Armor +250~400",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 3500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 35~50% Increased Armor",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 2000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 20~35% Increased Max HP",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 850,
+    "valueMax": 1300,
+    "unit": "PCT",
+    "raw": "- [T6-T8] Cooldown Reduction +8.5~13.0%",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 35~50% Increased Critical Chance Multiplier",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 4000,
+    "valueMax": 8000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] Critical Damage +40~80%",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_area_of_effect_damage",
+    "label": "Increased Area of Effect Damage",
+    "valueMin": 6000,
+    "valueMax": 13000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 60~130% Increased Area of Effect Damage",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_melee_damage",
+    "label": "Increased Melee Damage",
+    "valueMin": 6000,
+    "valueMax": 13000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 60~130% Increased Melee Damage",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_projectile_damage",
+    "label": "Increased Projectile Damage",
+    "valueMin": 6000,
+    "valueMax": 13000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 60~130% Increased Projectile Damage",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_summon_damage",
+    "label": "Increased Summon Damage",
+    "valueMin": 6000,
+    "valueMax": 13000,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 60~130% Increased Summon Damage",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "fire_resistance",
+    "label": "Fire Resistance",
+    "valueMin": 3000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T6-T8] Fire Resistance +30~45%",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 3000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T6-T8] Cold Resistance +30~45%",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 3000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T6-T8] Lightning Resistance +30~45%",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "valueMin": 3000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T6-T8] Chaos Resistance +30~45%",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 400,
+    "valueMax": 1000,
+    "unit": "FLAT",
+    "raw": "- [T6-T8] HP Regen Per Sec +4.0~10.0",
+    "target": "NONE",
+    "tier": 6
+   },
+   {
+    "key": "increased_skill_heal",
+    "label": "Increased Skill Heal",
+    "valueMin": 2700,
+    "valueMax": 4100,
+    "unit": "PCT",
+    "raw": "- [T6-T8] 27~41% Increased Skill Heal",
+    "target": "NONE",
+    "tier": 6
+   }
+  ],
+  "flavor": "A scroll containing special powers. Inscribed onto an item to randomly grant one of several stat boosts."
+ },
+ "Amethyst": {
+  "grade": "Rare",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "physical_damage",
+    "label": "Physical Damage",
+    "valueMin": 3000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T3] Physical Damage +30~40%",
+    "target": "WEAPON",
+    "tier": 3
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 6000,
+    "valueMax": 9000,
+    "unit": "FLAT",
+    "raw": "- [T3] Max HP +60~90",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 400,
+    "valueMax": 550,
+    "unit": "PCT",
+    "raw": "- [T3] Cooldown Reduction +4.0~5.5%",
+    "target": "ACCESSORY",
+    "tier": 3
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Sage Staff (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Staff - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 9200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 92"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 75,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.75"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +15"
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Per Hit +2"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "War Gloves (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Gloves - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 16300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 163"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 9% Increased Attack Speed"
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 4900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +49"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Chain Mail (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Armor - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 13100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 131"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 230,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +2.3"
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 8% Increased Max HP"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dice": {
+  "grade": "Immortal",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "physical_damage",
+    "label": "Physical Damage",
+    "valueMin": 6000,
+    "valueMax": 8000,
+    "unit": "PCT",
+    "raw": "- [T6] Physical Damage +60~80%",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 6000,
+    "valueMax": 8000,
+    "unit": "PCT",
+    "raw": "- [T6] Cold Damage +60~80%",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 220,
+    "valueMax": 260,
+    "unit": "FLAT",
+    "raw": "- [T5] Damage Absorption +2.2~2.6",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 700,
+    "valueMax": 900,
+    "unit": "PCT",
+    "raw": "- [T5] Block Chance +7.0~9.0%",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 700,
+    "valueMax": 850,
+    "unit": "PCT",
+    "raw": "- [T5] Cooldown Reduction +7.0~8.5%",
+    "target": "ACCESSORY",
+    "tier": 5
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T5] 30~35% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate engraving material. Used to engrave an item, randomly granting one of two special stat boosts preset by equipment type."
+ },
+ "Sunstone": {
+  "grade": "Celestial",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A high-grade material that can be used to craft something."
+ },
+ "Griffin Beak": {
+  "grade": "Arcana",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 8000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T7] Cold Damage +80~100%",
+    "target": "WEAPON",
+    "tier": 7
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 3000,
+    "valueMax": 5000,
+    "unit": "FLAT",
+    "raw": "- [T7] Attack Damage +30~50",
+    "target": "WEAPON",
+    "tier": 7
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T6] Lightning Resistance +30~35%",
+    "target": "ARMOR",
+    "tier": 6
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T6] 20~25% Increased Max HP",
+    "target": "ARMOR",
+    "tier": 6
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T6] 20~25% Increased Cast Speed",
+    "target": "ACCESSORY",
+    "tier": 6
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 4000,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T6] Critical Damage +40~50%",
+    "target": "ACCESSORY",
+    "tier": 6
+   }
+  ],
+  "flavor": "Intermediate engraving material. Used to engrave an item, randomly granting one of two special stat boosts preset by equipment type."
+ },
+ "Short Hatchet (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Hatchet - Lv. 1",
+  "materialCategory": null,
+  "requiredLevel": 1,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 2360,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Attack Damage +23.6%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +2"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 1300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 13% Increased Attack Damage"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Fighter's Helmet (Cosmic) A": {
+  "grade": "Cosmic",
+  "itemType": "Helmet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 333900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 3339"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 25800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +258"
+   },
+   {
+    "key": "critical_chance",
+    "label": "Critical Chance",
+    "valueMin": 430,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Chance +4.3%"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 25600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 256% Increased Armor"
+   }
+  ],
+  "uniqueStats": [
+   {
+    "key": "while_under_wrath_of_heaven_buff_attacking_enemies_also_casts_heal_on_allies",
+    "label": "While under Wrath of Heaven buff, attacking enemies also casts Heal on allies.",
+    "valueMin": null,
+    "valueMax": null,
+    "unit": "TEXT",
+    "raw": "- While under Wrath of Heaven buff, attacking enemies also casts Heal on allies."
+   }
+  ],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Empire 50th Anniversary Coin": {
+  "grade": "Arcana",
+  "itemType": "Offering Material",
+  "materialCategory": null,
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A commemorative coin. Toss it into the Cube with a heartfelt wish."
+ },
+ "Radiant Shield (Divine) A": {
+  "grade": "Divine",
+  "itemType": "Shield - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 3790,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Block Chance 37.9%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 611600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +6116"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 2880,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +28.8"
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 57800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +578"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dimensional Tome (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Tome - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 72500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 725"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 1680,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Block Chance +16.8%"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 1640,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +16.4"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 1260,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +12.6%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Ethereal Earring (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Earing - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 2000,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 20% Increased Movement Speed"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 3400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +34%"
+   },
+   {
+    "key": "increased_skill_duration",
+    "label": "Increased Skill Duration",
+    "valueMin": 2000,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 20% Increased Skill Duration"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Shine Gloves (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Gloves - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 123000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 1230"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 1800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 18% Increased Attack Speed"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 68500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +685"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 970,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +9.7"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Fighter's Helmet (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Helmet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 106900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 1069"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 12700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +127"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 76700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +767"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 11800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 118% Increased Armor"
+   }
+  ],
+  "uniqueStats": [
+   {
+    "key": "hydra_s_attack_speed_increases_by_200",
+    "label": "Hydra's attack speed increases by 200%.",
+    "valueMin": null,
+    "valueMax": null,
+    "unit": "TEXT",
+    "raw": "- Hydra's attack speed increases by 200%."
+   }
+  ],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "War Tome (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Tome - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 17700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 177"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 1250,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Damage Absorption +12.5"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 420,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +4.2"
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 580,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Block Chance +5.8%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Scroll of Immortal Inscription": {
+  "grade": "Immortal",
+  "itemType": "Inscription Material",
+  "materialCategory": "INSCRIPTION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1000,
+    "valueMax": 5000,
+    "unit": "FLAT",
+    "raw": "- [T5-T7] Attack Damage +10~50",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 2500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] 25~50% Increased Attack Damage",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 12000,
+    "valueMax": 21000,
+    "unit": "FLAT",
+    "raw": "- [T5-T7] Max HP +120~210",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 900,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T5-T7] 9~15% Increased Attack Speed",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 1600,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] 16~30% Increased Cast Speed",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 1200,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] 12~20% Increased Area of Effect",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "increased_skill_duration",
+    "label": "Increased Skill Duration",
+    "valueMin": 2200,
+    "valueMax": 3600,
+    "unit": "PCT",
+    "raw": "- [T5-T7] 22~36% Increased Skill Duration",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "physical_damage",
+    "label": "Physical Damage",
+    "valueMin": 5000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Physical Damage +50~100%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 5000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Fire Damage +50~100%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 5000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Cold Damage +50~100%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 5000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Lightning Damage +50~100%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "fire_resistance",
+    "label": "Fire Resistance",
+    "valueMin": 2500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Fire Resistance +25~40%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 2500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Cold Resistance +25~40%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 2500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Lightning Resistance +25~40%",
+    "target": "NONE",
+    "tier": 5
+   },
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 300,
+    "valueMax": 500,
+    "unit": "PCT",
+    "raw": "- [T5-T7] Life Leech +3.0~5.0%",
+    "target": "NONE",
+    "tier": 5
+   }
+  ],
+  "flavor": "A scroll containing special powers. Inscribed onto an item to randomly grant one of several stat boosts."
+ },
+ "Leather Hatchet (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Hatchet - Lv. 5",
+  "materialCategory": null,
+  "requiredLevel": 5,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 3220,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Attack Damage +32.2%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 1400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +14%"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 210,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +2.1%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dimensional Gloves (Celestial) A": {
+  "grade": "Celestial",
+  "itemType": "Gloves - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 349000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 3490"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 2600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 26% Increased Attack Speed"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 148500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +1485"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 8300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +83%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Ancient Orb (Cosmic) A": {
+  "grade": "Cosmic",
+  "itemType": "Orb - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 3200,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +32.00%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 19900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +199"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 8700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +87%"
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 4500,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 45% Increased Critical Chance Multiplier"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Ruby Pendant (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Amulet - Lv. 40",
+  "materialCategory": null,
+  "requiredLevel": 40,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 380,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +3.8%"
+   },
+   {
+    "key": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "valueMin": 1100,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- All Elemental Resistance +11%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dusk Bow (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Bow - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 6400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 64"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 150,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.50"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +15"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 3400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 34% Increased Attack Damage"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Limitless Crossbow (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Crossbow - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 102600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 1026"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 98,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.98"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 17200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +172"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 8700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +87%"
+   },
+   {
+    "key": "more_attack_speed",
+    "label": "More Attack Speed",
+    "valueMin": 2100,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 21% More Attack Speed"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Scroll of Beyond Inscription": {
+  "grade": "Beyond",
+  "itemType": "Inscription Material",
+  "materialCategory": "INSCRIPTION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 3000,
+    "valueMax": 15000,
+    "unit": "FLAT",
+    "raw": "- [T7-T9] Attack Damage +30~150",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 4000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] 40~100% Increased Attack Damage",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 30000,
+    "valueMax": 45000,
+    "unit": "FLAT",
+    "raw": "- [T7-T9] Armor +300~450",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 4000,
+    "valueMax": 5500,
+    "unit": "PCT",
+    "raw": "- [T7-T9] 40~55% Increased Armor",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 18000,
+    "valueMax": 27000,
+    "unit": "FLAT",
+    "raw": "- [T7-T9] Max HP +180~270",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 1300,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] 13~20% Increased Attack Speed",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 2500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] 25~40% Increased Cast Speed",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 1700,
+    "valueMax": 2800,
+    "unit": "PCT",
+    "raw": "- [T7-T9] 17~28% Increased Area of Effect",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "physical_damage",
+    "label": "Physical Damage",
+    "valueMin": 8000,
+    "valueMax": 18000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Physical Damage +80~180%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 8000,
+    "valueMax": 18000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Fire Damage +80~180%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 8000,
+    "valueMax": 18000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Cold Damage +80~180%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 8000,
+    "valueMax": 18000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Lightning Damage +80~180%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "fire_resistance",
+    "label": "Fire Resistance",
+    "valueMin": 3500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Fire Resistance +35~50%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 3500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Cold Resistance +35~50%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 3500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Lightning Resistance +35~50%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "valueMin": 3500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T7-T9] Chaos Resistance +35~50%",
+    "target": "NONE",
+    "tier": 7
+   },
+   {
+    "key": "add_hp_per_kill",
+    "label": "Add Hp Per Kill",
+    "valueMin": 1600,
+    "valueMax": 3000,
+    "unit": "FLAT",
+    "raw": "- [T7-T9] Add Hp Per Kill +16~30",
+    "target": "NONE",
+    "tier": 7
+   }
+  ],
+  "flavor": "A scroll containing special powers. Inscribed onto an item to randomly grant one of several stat boosts."
+ },
+ "Void Ichor": {
+  "grade": "Beyond",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 4500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T8] 45~50% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 8
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 800,
+    "valueMax": 1000,
+    "unit": "FLAT",
+    "raw": "- [T8] HP Per Hit +8~10",
+    "target": "WEAPON",
+    "tier": 8
+   },
+   {
+    "key": "damage_reduction",
+    "label": "Damage Reduction",
+    "valueMin": 850,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T7] Damage Reduction +8.5~10.0%",
+    "target": "ARMOR",
+    "tier": 7
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 3500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T7] Cold Resistance +35~40%",
+    "target": "ARMOR",
+    "tier": 7
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 4000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T7] 40~45% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 7
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 4000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T7] 40~45% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 7
+   }
+  ],
+  "flavor": "Advanced engraving material. Used to engrave an item, randomly granting one of two powerful stat boosts preset by equipment type."
+ },
+ "Fate Arrow (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Arrow - Lv. 50",
+  "materialCategory": null,
+  "requiredLevel": 50,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 4000,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Attack Speed 40%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 27% Increased Critical Chance Multiplier"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 4300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +43%"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 410,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +4.1%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Eclipse Amulet (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Amulet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 450,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +4.5%"
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 1700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 17% Increased Cast Speed"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Moonstone": {
+  "grade": "Celestial",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "An advanced material used to create something."
+ },
+ "Dimensional Armor (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Armor - Lv. 80",
+  "materialCategory": null,
+  "requiredLevel": 80,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 603300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 6033"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 33600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +336"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 3320,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +33.2"
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 3500,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 35% Increased Max HP"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Barbed Bolt (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Bolt - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 7300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage 73%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +6"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 1700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 17% Increased Attack Damage"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 1700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +17%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dragonite Crystal": {
+  "grade": "Celestial",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 8000,
+    "valueMax": 10000,
+    "unit": "PCT",
+    "raw": "- [T9] Critical Damage +80~100%",
+    "target": "WEAPON",
+    "tier": 9
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 4500,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T8] 45~50% Increased Armor",
+    "target": "ARMOR",
+    "tier": 8
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 6000,
+    "valueMax": 8000,
+    "unit": "PCT",
+    "raw": "- [T8] Critical Damage +60~80%",
+    "target": "ACCESSORY",
+    "tier": 8
+   }
+  ],
+  "flavor": "Advanced decoration material. Used to decorate an item, granting a powerful stat boost preset by equipment type."
+ },
+ "Fighter's Helmet (Divine) A": {
+  "grade": "Divine",
+  "itemType": "Helmet - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 2
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 256900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 2569"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 21800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +218"
+   },
+   {
+    "key": "increased_skill_range",
+    "label": "Increased Skill Range",
+    "valueMin": 17900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 179% Increased Skill Range"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 21400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 214% Increased Armor"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Ruby Pendant (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Amulet - Lv. 40",
+  "materialCategory": null,
+  "requiredLevel": 40,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 1300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 13% Increased Attack Speed"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 410,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +4.1%"
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2500,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 25% Increased Critical Chance Multiplier"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Copper Amulet (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Amulet - Lv. 1",
+  "materialCategory": null,
+  "requiredLevel": 1,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 8% Increased Attack Speed"
+   },
+   {
+    "key": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "valueMin": 900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- All Elemental Resistance +9%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Celestial Earring (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Earing - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_skill_duration",
+    "label": "Increased Skill Duration",
+    "valueMin": 1600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 16% Increased Skill Duration"
+   },
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 150,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Life Leech +1.5%"
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 1800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 18% Increased Movement Speed"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Emerald Earring (Beyond) A": {
+  "grade": "Beyond",
+  "itemType": "Earing - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": 2,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 90,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Life Leech +0.9%"
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 1600,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 16% Increased Movement Speed"
+   },
+   {
+    "key": "increased_skill_duration",
+    "label": "Increased Skill Duration",
+    "valueMin": 1200,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 12% Increased Skill Duration"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Iron Scepter (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Scepter - Lv. 5",
+  "materialCategory": null,
+  "requiredLevel": 5,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 7"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.00"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +3"
+   },
+   {
+    "key": "critical_chance",
+    "label": "Critical Chance",
+    "valueMin": 60,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Chance +0.6%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Tiger Eye Earring (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Earing - Lv. 40",
+  "materialCategory": null,
+  "requiredLevel": 40,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "life_leech",
+    "label": "Life Leech",
+    "valueMin": 100,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Life Leech +1.0%"
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 1100,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 11% Increased Area of Effect"
+   },
+   {
+    "key": "increased_skill_duration",
+    "label": "Increased Skill Duration",
+    "valueMin": 1300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 13% Increased Skill Duration"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Emerald Earring (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Earing - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 1500,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 15% Increased Movement Speed"
+   },
+   {
+    "key": "increased_exp_gain",
+    "label": "Increased Exp Gain",
+    "valueMin": 430,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 4.3% Increased Exp Gain"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Devout Scepter (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Scepter - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 5600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 56"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 110,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.10"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 560,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.6%"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 3400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 34% Increased Attack Damage"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Chain Helmet (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Helmet - Lv. 20",
+  "materialCategory": null,
+  "requiredLevel": 20,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 10700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 107"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 3600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +36"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 2200,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 22% Increased Armor"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Dragon Bile": {
+  "grade": "Arcana",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 5000,
+    "valueMax": 6000,
+    "unit": "PCT",
+    "raw": "- [T7] Critical Damage +50~60%",
+    "target": "WEAPON",
+    "tier": 7
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 4000,
+    "valueMax": 4500,
+    "unit": "PCT",
+    "raw": "- [T7] 40~45% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 7
+   },
+   {
+    "key": "dodge_chance",
+    "label": "Dodge Chance",
+    "valueMin": 900,
+    "valueMax": 1100,
+    "unit": "PCT",
+    "raw": "- [T6] Dodge Chance +9.0~11.0%",
+    "target": "ARMOR",
+    "tier": 6
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 900,
+    "valueMax": 1100,
+    "unit": "PCT",
+    "raw": "- [T6] Block Chance +9.0~11.0%",
+    "target": "ARMOR",
+    "tier": 6
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T6] 35~40% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 6
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 600,
+    "valueMax": 800,
+    "unit": "FLAT",
+    "raw": "- [T6] HP Per Hit +6~8",
+    "target": "ACCESSORY",
+    "tier": 6
+   }
+  ],
+  "flavor": "Intermediate engraving material. Used to engrave an item, randomly granting one of two special stat boosts preset by equipment type."
+ },
+ "Turquoise": {
+  "grade": "Legendary",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T5] 30~35% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 5
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 550,
+    "valueMax": 700,
+    "unit": "PCT",
+    "raw": "- [T4] Cooldown Reduction +5.5~7.0%",
+    "target": "ARMOR",
+    "tier": 4
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 9000,
+    "valueMax": 12000,
+    "unit": "FLAT",
+    "raw": "- [T4] Max HP +90~120",
+    "target": "ACCESSORY",
+    "tier": 4
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Limitless Crossbow (Arcana) A": {
+  "grade": "Arcana",
+  "itemType": "Crossbow - Lv. 65",
+  "materialCategory": null,
+  "requiredLevel": 65,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": 1
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 76400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 764"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 94,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.94"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "more_attack_speed",
+    "label": "More Attack Speed",
+    "valueMin": 1800,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 18% More Attack Speed"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 8900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 89% Increased Attack Damage"
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 12900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +129"
+   }
+  ],
+  "uniqueStats": [
+   {
+    "key": "crossbow_turret_cooldown_is_reduced_by_50",
+    "label": "Crossbow Turret cooldown is reduced by 50%.",
+    "valueMin": null,
+    "valueMax": null,
+    "unit": "TEXT",
+    "raw": "- Crossbow Turret cooldown is reduced by 50%."
+   }
+  ],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Frozen Orb (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Orb - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 1150,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +11.50%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +3"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 1400,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +14%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Chain Gloves (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Gloves - Lv. 20",
+  "materialCategory": null,
+  "requiredLevel": 20,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 9200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 92"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 3600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +36"
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 3600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +36"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Crystal Quartz": {
+  "grade": "Legendary",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "FLAT",
+    "raw": "- [T5] Attack Damage +10~15",
+    "target": "WEAPON",
+    "tier": 5
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 250,
+    "valueMax": 300,
+    "unit": "FLAT",
+    "raw": "- [T4] HP Regen Per Sec +2.5~3.0",
+    "target": "ARMOR",
+    "tier": 4
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 2500,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T4] Critical Damage +25~30%",
+    "target": "ACCESSORY",
+    "tier": 4
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Pearl": {
+  "grade": "Legendary",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 700,
+    "valueMax": 850,
+    "unit": "PCT",
+    "raw": "- [T5] Cooldown Reduction +7.0~8.5%",
+    "target": "WEAPON",
+    "tier": 5
+   },
+   {
+    "key": "damage_reduction",
+    "label": "Damage Reduction",
+    "valueMin": 400,
+    "valueMax": 550,
+    "unit": "PCT",
+    "raw": "- [T4] Damage Reduction +4.0~5.5%",
+    "target": "ARMOR",
+    "tier": 4
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 2500,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T4] 25~30% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 4
+   }
+  ],
+  "flavor": "Basic decoration material. Used to decorate an item, granting a stat boost preset by equipment type."
+ },
+ "Lapis Lazuli": {
+  "grade": "Immortal",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3500,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T6] 35~40% Increased Critical Chance Multiplier",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "dodge_chance",
+    "label": "Dodge Chance",
+    "valueMin": 700,
+    "valueMax": 900,
+    "unit": "PCT",
+    "raw": "- [T5] Dodge Chance +7.0~9.0%",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T5] 30~35% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate decoration material. Used to decorate an item, granting a special stat boost preset by equipment type."
+ },
+ "Composite Bow (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Bow - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 2100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 21"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 140,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.40"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "critical_chance",
+    "label": "Critical Chance",
+    "valueMin": 60,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Chance +0.6%"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 3300,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +33%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Chain Boots (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Boots - Lv. 20",
+  "materialCategory": null,
+  "requiredLevel": 20,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 4200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 42"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 2200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor +22"
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 3100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP +31"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Long Bow (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Bow - Lv. 10",
+  "materialCategory": null,
+  "requiredLevel": 10,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 15"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 140,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.40"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +4"
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 3200,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +32%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Iron Ingot": {
+  "grade": "Uncommon",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A common material that can be used to craft something."
+ },
+ "Arcane Ore": {
+  "grade": "Arcana",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "An intermediate material that can be used to craft something."
+ },
+ "Iron Plate (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Armor - Lv. 10",
+  "materialCategory": null,
+  "requiredLevel": 10,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 10600,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Armor 106"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 190,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +1.9"
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 1900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 19% Increased Armor"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Mushroom Spore": {
+  "grade": "Rare",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 550,
+    "valueMax": 700,
+    "unit": "PCT",
+    "raw": "- [T4] Cooldown Reduction +5.5~7.0%",
+    "target": "WEAPON",
+    "tier": 4
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 400,
+    "valueMax": 600,
+    "unit": "FLAT",
+    "raw": "- [T4] HP Per Hit +4~6",
+    "target": "WEAPON",
+    "tier": 4
+   },
+   {
+    "key": "block_chance",
+    "label": "Block Chance",
+    "valueMin": 450,
+    "valueMax": 550,
+    "unit": "PCT",
+    "raw": "- [T3] Block Chance +4.5~5.5%",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 1500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T3] Lightning Resistance +15~20%",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 200,
+    "valueMax": 250,
+    "unit": "FLAT",
+    "raw": "- [T3] HP Regen Per Sec +2.0~2.5",
+    "target": "ACCESSORY",
+    "tier": 3
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 6000,
+    "valueMax": 9000,
+    "unit": "FLAT",
+    "raw": "- [T3] Max HP +60~90",
+    "target": "ACCESSORY",
+    "tier": 3
+   }
+  ],
+  "flavor": "Basic engraving material. Used to engrave an item, randomly granting one of two stat boosts preset by equipment type."
+ },
+ "Knight's Tome (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Tome - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 11500,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Max HP 115"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 620,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Damage Absorption +6.2"
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 150,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- HP Regen Per Sec +1.5"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Wyvern Claw": {
+  "grade": "Immortal",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 6000,
+    "valueMax": 8000,
+    "unit": "PCT",
+    "raw": "- [T6] Cold Damage +60~80%",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 600,
+    "valueMax": 800,
+    "unit": "FLAT",
+    "raw": "- [T6] HP Per Hit +6~8",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 2500,
+    "valueMax": 3000,
+    "unit": "PCT",
+    "raw": "- [T5] Cold Resistance +25~30%",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 20000,
+    "valueMax": 25000,
+    "unit": "FLAT",
+    "raw": "- [T5] Armor +200~250",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "valueMin": 3000,
+    "valueMax": 3500,
+    "unit": "PCT",
+    "raw": "- [T5] 30~35% Increased Critical Chance Multiplier",
+    "target": "ACCESSORY",
+    "tier": 5
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 300,
+    "valueMax": 400,
+    "unit": "FLAT",
+    "raw": "- [T5] HP Regen Per Sec +3.0~4.0",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate engraving material. Used to engrave an item, randomly granting one of two special stat boosts preset by equipment type."
+ },
+ "Bastard Sword (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Sword - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 18"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 110,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.10"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 2500,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 25% Increased Attack Damage"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 520,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.2%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Copper Nugget": {
+  "grade": "Common",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A common material that can be used to craft something."
+ },
+ "Scroll of Common Inscription": {
+  "grade": "Common",
+  "itemType": "Inscription Material",
+  "materialCategory": "INSCRIPTION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 100,
+    "valueMax": 600,
+    "unit": "FLAT",
+    "raw": "- [T1-T3] Attack Damage +1~6",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] 5~20% Increased Attack Damage",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "armor",
+    "label": "Armor",
+    "valueMin": 2500,
+    "valueMax": 15000,
+    "unit": "FLAT",
+    "raw": "- [T1-T3] Armor +25~150",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "increased_armor",
+    "label": "Increased Armor",
+    "valueMin": 1000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T1-T3] 10~25% Increased Armor",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 1000,
+    "valueMax": 9000,
+    "unit": "FLAT",
+    "raw": "- [T1-T3] Max HP +10~90",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 400,
+    "valueMax": 700,
+    "unit": "PCT",
+    "raw": "- [T1-T3] 4~7% Increased Attack Speed",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "valueMin": 800,
+    "valueMax": 1400,
+    "unit": "PCT",
+    "raw": "- [T1-T3] 8~14% Increased Cast Speed",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "valueMin": 700,
+    "valueMax": 1000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] 7~10% Increased Area of Effect",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "physical_damage",
+    "label": "Physical Damage",
+    "valueMin": 1000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Physical Damage +10~40%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 1000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Fire Damage +10~40%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "cold_damage",
+    "label": "Cold Damage",
+    "valueMin": 1000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Cold Damage +10~40%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 1000,
+    "valueMax": 4000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Lightning Damage +10~40%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "fire_resistance",
+    "label": "Fire Resistance",
+    "valueMin": 500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Fire Resistance +5~20%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "cold_resistance",
+    "label": "Cold Resistance",
+    "valueMin": 500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Cold Resistance +5~20%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "valueMin": 500,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T1-T3] Lightning Resistance +5~20%",
+    "target": "NONE",
+    "tier": 1
+   },
+   {
+    "key": "add_hp_per_kill",
+    "label": "Add Hp Per Kill",
+    "valueMin": 200,
+    "valueMax": 800,
+    "unit": "FLAT",
+    "raw": "- [T1-T3] Add Hp Per Kill +2~8",
+    "target": "NONE",
+    "tier": 1
+   }
+  ],
+  "flavor": "A scroll containing special powers. Inscribed onto an item to randomly grant one of several stat boosts."
+ },
+ "Bastard Sword (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Sword - Lv. 15",
+  "materialCategory": null,
+  "requiredLevel": 15,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 2800,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 28"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 110,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.10"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +7"
+   },
+   {
+    "key": "critical_chance",
+    "label": "Critical Chance",
+    "valueMin": 70,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Chance +0.7%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Sage Staff (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Staff - Lv. 30",
+  "materialCategory": null,
+  "requiredLevel": 30,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 13400,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 134"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 75,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.75"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 570,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.7%"
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 2200,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +22"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Azure Staff (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Staff - Lv. 20",
+  "materialCategory": null,
+  "requiredLevel": 20,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 4300,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 43"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 75,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.75"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 530,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.3%"
+   },
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 700,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +7"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Great Sword (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Sword - Lv. 20",
+  "materialCategory": null,
+  "requiredLevel": 20,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 3000,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 30"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 120,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 1.20"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "more_attack_speed",
+    "label": "More Attack Speed",
+    "valueMin": 900,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 9% More Attack Speed"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 2700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 27% Increased Attack Damage"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Void Iron": {
+  "grade": "Legendary",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A crafting material used to make something."
+ },
+ "Arcane Orb (Immortal) A": {
+  "grade": "Immortal",
+  "itemType": "Orb - Lv. 40",
+  "materialCategory": null,
+  "requiredLevel": 40,
+  "slots": {
+   "decoration": 2,
+   "engraving": 1,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 1700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +17.00%"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 2100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage +21"
+   },
+   {
+    "key": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "valueMin": 2700,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- 27% Increased Attack Damage"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Bat Wing Membrane": {
+  "grade": "Rare",
+  "itemType": "Engraving Material",
+  "materialCategory": "ENGRAVING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "lightning_damage",
+    "label": "Lightning Damage",
+    "valueMin": 4000,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T4] Lightning Damage +40~50%",
+    "target": "WEAPON",
+    "tier": 4
+   },
+   {
+    "key": "fire_damage",
+    "label": "Fire Damage",
+    "valueMin": 4000,
+    "valueMax": 5000,
+    "unit": "PCT",
+    "raw": "- [T4] Fire Damage +40~50%",
+    "target": "WEAPON",
+    "tier": 4
+   },
+   {
+    "key": "damage_reduction",
+    "label": "Damage Reduction",
+    "valueMin": 300,
+    "valueMax": 400,
+    "unit": "PCT",
+    "raw": "- [T3] Damage Reduction +3.0~4.0%",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "max_hp",
+    "label": "Max HP",
+    "valueMin": 6000,
+    "valueMax": 9000,
+    "unit": "FLAT",
+    "raw": "- [T3] Max HP +60~90",
+    "target": "ARMOR",
+    "tier": 3
+   },
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 2000,
+    "valueMax": 2500,
+    "unit": "PCT",
+    "raw": "- [T3] Critical Damage +20~25%",
+    "target": "ACCESSORY",
+    "tier": 3
+   },
+   {
+    "key": "hp_per_hit",
+    "label": "HP Per Hit",
+    "valueMin": 100,
+    "valueMax": 200,
+    "unit": "FLAT",
+    "raw": "- [T3] HP Per Hit +1~2",
+    "target": "ACCESSORY",
+    "tier": 3
+   }
+  ],
+  "flavor": "Basic engraving material. Used to engrave an item, randomly granting one of two stat boosts preset by equipment type."
+ },
+ "Minor Emerald": {
+  "grade": "Common",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 500,
+    "valueMax": 600,
+    "unit": "PCT",
+    "raw": "- [T2] 5~6% Increased Attack Speed",
+    "target": "WEAPON",
+    "tier": 2
+   },
+   {
+    "key": "damage_absorption",
+    "label": "Damage Absorption",
+    "valueMin": 100,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- [T1] Damage Absorption +1",
+    "target": "ARMOR",
+    "tier": 1
+   },
+   {
+    "key": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "valueMin": 1000,
+    "valueMax": 1500,
+    "unit": "PCT",
+    "raw": "- [T1] 10~15% Increased Movement Speed",
+    "target": "ACCESSORY",
+    "tier": 1
+   }
+  ],
+  "flavor": "Common basic decoration material. Used to decorate an item, granting a minor stat boost preset by equipment type."
+ },
+ "Long Staff (Legendary) A": {
+  "grade": "Legendary",
+  "itemType": "Staff - Lv. 10",
+  "materialCategory": null,
+  "requiredLevel": 10,
+  "slots": {
+   "decoration": 2,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [
+   {
+    "key": "attack_damage",
+    "label": "Attack Damage",
+    "valueMin": 1900,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Damage 19"
+   },
+   {
+    "key": "attack_speed",
+    "label": "Attack Speed",
+    "valueMin": 70,
+    "valueMax": null,
+    "unit": "FLAT",
+    "raw": "- Attack Speed 0.70"
+   }
+  ],
+  "inherentStats": [
+   {
+    "key": "critical_damage",
+    "label": "Critical Damage",
+    "valueMin": 3200,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Critical Damage +32%"
+   },
+   {
+    "key": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "valueMin": 510,
+    "valueMax": null,
+    "unit": "PCT",
+    "raw": "- Cooldown Reduction +5.1%"
+   }
+  ],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": null
+ },
+ "Opal": {
+  "grade": "Immortal",
+  "itemType": "Decoration Material",
+  "materialCategory": "DECORATION",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [
+   {
+    "key": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "valueMin": 1100,
+    "valueMax": 1300,
+    "unit": "PCT",
+    "raw": "- [T6] 11~13% Increased Attack Speed",
+    "target": "WEAPON",
+    "tier": 6
+   },
+   {
+    "key": "increased_max_hp",
+    "label": "Increased Max HP",
+    "valueMin": 1700,
+    "valueMax": 2000,
+    "unit": "PCT",
+    "raw": "- [T5] 17~20% Increased Max HP",
+    "target": "ARMOR",
+    "tier": 5
+   },
+   {
+    "key": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "valueMin": 300,
+    "valueMax": 400,
+    "unit": "FLAT",
+    "raw": "- [T5] HP Regen Per Sec +3.0~4.0",
+    "target": "ACCESSORY",
+    "tier": 5
+   }
+  ],
+  "flavor": "Intermediate decoration material. Used to decorate an item, granting a special stat boost preset by equipment type."
+ },
+ "Soulstone - Hell": {
+  "grade": "Beyond",
+  "itemType": "Soulstone",
+  "materialCategory": "SOULSTONE",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "Material required to summon Hell difficulty bosses."
+ },
+ "Bronze Ingot": {
+  "grade": "Uncommon",
+  "itemType": "Crafting Material",
+  "materialCategory": "CRAFTING",
+  "requiredLevel": null,
+  "slots": {
+   "decoration": null,
+   "engraving": null,
+   "inscription": null
+  },
+  "baseStats": [],
+  "inherentStats": [],
+  "uniqueStats": [],
+  "materialEffects": [],
+  "flavor": "A common crafting material used to make something."
+ }
+}

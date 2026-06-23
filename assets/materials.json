@@ -1,0 +1,5220 @@
+[
+ {
+  "name": "Minor Ruby",
+  "category": "DECORATION",
+  "rarity": "COMMON",
+  "slug": "minor-ruby",
+  "wikiImage": "/game/items/materials/Item_110001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUehzqKcH8X1Pc4b",
+  "refPriceYen": 930,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+5~10%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+1~2",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Minor Sapphire",
+  "category": "DECORATION",
+  "rarity": "COMMON",
+  "slug": "minor-sapphire",
+  "wikiImage": "/game/items/materials/Item_110002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
+  "refPriceYen": 7,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+25~50",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+10~15%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Minor Topaz",
+  "category": "DECORATION",
+  "rarity": "COMMON",
+  "slug": "minor-topaz",
+  "wikiImage": "/game/items/materials/Item_110003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUejzqKcHzzzPvQ-",
+  "refPriceYen": 16,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+10~15%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+8~10%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Minor Emerald",
+  "category": "DECORATION",
+  "rarity": "COMMON",
+  "slug": "minor-emerald",
+  "wikiImage": "/game/items/materials/Item_110004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUekzqKcH3anKO86",
+  "refPriceYen": 3568,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+5~6%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+1",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+10~15%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Minor Amethyst",
+  "category": "DECORATION",
+  "rarity": "COMMON",
+  "slug": "minor-amethyst",
+  "wikiImage": "/game/items/materials/Item_110005.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
+  "refPriceYen": 8,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+10~30",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+1~2.5%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Obsidian Shard",
+  "category": "DECORATION",
+  "rarity": "UNCOMMON",
+  "slug": "obsidian-shard",
+  "wikiImage": "/game/items/materials/Item_111001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw9yUehzqKcH8v9Hz6A",
+  "refPriceYen": 18,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+3~6",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+3.5~4.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "value": "+10~15%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Coral Piece",
+  "category": "DECORATION",
+  "rarity": "UNCOMMON",
+  "slug": "coral-piece",
+  "wikiImage": "/game/items/materials/Item_111002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw9yUeizqKcH0tmeyHr",
+  "refPriceYen": 43,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+1~2",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+1.5~2",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+1.5~2.5%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Jade Stone",
+  "category": "DECORATION",
+  "rarity": "UNCOMMON",
+  "slug": "jade-stone",
+  "wikiImage": "/game/items/materials/Item_111003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw9yUejzqKcHzoNjncj",
+  "refPriceYen": 8,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+20~25%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+3.5~4.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+5~6%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Amber Gem",
+  "category": "DECORATION",
+  "rarity": "UNCOMMON",
+  "slug": "amber-gem",
+  "wikiImage": "/game/items/materials/Item_111004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw9yUekzqKcHy_IhoYK",
+  "refPriceYen": 9,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+20~25%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "increased_max_hp",
+    "label": "Increased Max HP",
+    "value": "+8~11%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+8~9%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Ruby",
+  "category": "DECORATION",
+  "rarity": "RARE",
+  "slug": "ruby",
+  "wikiImage": "/game/items/materials/Item_112001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+30~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+15~20%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+3~6",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Sapphire",
+  "category": "DECORATION",
+  "rarity": "RARE",
+  "slug": "sapphire",
+  "wikiImage": "/game/items/materials/Item_112002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw-yUeizqKcHwj4TlzP",
+  "refPriceYen": 186,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+20~25%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Topaz",
+  "category": "DECORATION",
+  "rarity": "RARE",
+  "slug": "topaz",
+  "wikiImage": "/game/items/materials/Item_112003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw-yUejzqKcH_Ra0Nr4",
+  "refPriceYen": 100,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+12~14%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Emerald",
+  "category": "DECORATION",
+  "rarity": "RARE",
+  "slug": "emerald",
+  "wikiImage": "/game/items/materials/Item_112004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw-yUekzqKcH-x4iUkH",
+  "refPriceYen": 31451,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+7~9%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+20~25%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Amethyst",
+  "category": "DECORATION",
+  "rarity": "RARE",
+  "slug": "amethyst",
+  "wikiImage": "/game/items/materials/Item_112005.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw-yUelzqKcH7ua2ZYv",
+  "refPriceYen": 4455,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+60~90",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+4~5.5%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Crystal Quartz",
+  "category": "DECORATION",
+  "rarity": "LEGENDARY",
+  "slug": "crystal-quartz",
+  "wikiImage": "/game/items/materials/Item_113001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw_yUehzqKcH-Wb62BD",
+  "refPriceYen": 1177,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+10~15",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+2.5~3",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+25~30%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Pearl",
+  "category": "DECORATION",
+  "rarity": "LEGENDARY",
+  "slug": "pearl",
+  "wikiImage": "/game/items/materials/Item_113002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw_yUeizqKcH9N8U5WV",
+  "refPriceYen": 2249,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+7~8.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+4~5.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+25~30%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Turquoise",
+  "category": "DECORATION",
+  "rarity": "LEGENDARY",
+  "slug": "turquoise",
+  "wikiImage": "/game/items/materials/Item_113003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw_yUejzqKcH7vcACro",
+  "refPriceYen": 1200,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+30~35%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+5.5~7%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+90~120",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Garnet",
+  "category": "DECORATION",
+  "rarity": "LEGENDARY",
+  "slug": "garnet",
+  "wikiImage": "/game/items/materials/Item_113004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw_yUekzqKcH3RPkBnz",
+  "refPriceYen": 3568,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+25~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+7~9%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Diamond",
+  "category": "DECORATION",
+  "rarity": "IMMORTAL",
+  "slug": "diamond",
+  "wikiImage": "/game/items/materials/Item_114001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw4yUehzqKcHyyb1pX1",
+  "refPriceYen": 4918,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+15~30",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "value": "+13~15%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+12~14%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Opal",
+  "category": "DECORATION",
+  "rarity": "IMMORTAL",
+  "slug": "opal",
+  "wikiImage": "/game/items/materials/Item_114002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw4yUeizqKcH3lQRqrM",
+  "refPriceYen": 6476,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+11~13%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "increased_max_hp",
+    "label": "Increased Max HP",
+    "value": "+17~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+3~4",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Lapis Lazuli",
+  "category": "DECORATION",
+  "rarity": "IMMORTAL",
+  "slug": "lapis-lazuli",
+  "wikiImage": "/game/items/materials/Item_114003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw4yUejzqKcH1P7M0MP",
+  "refPriceYen": 10546,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+35~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+7~9%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+30~35%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Black Pearl",
+  "category": "DECORATION",
+  "rarity": "IMMORTAL",
+  "slug": "black-pearl",
+  "wikiImage": "/game/items/materials/Item_114004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw4yUekzqKcH990Y8xz",
+  "refPriceYen": 2680,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+14~17%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+7~9%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+16~20%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Arcane Crystal",
+  "category": "DECORATION",
+  "rarity": "ARCANA",
+  "slug": "arcane-crystal",
+  "wikiImage": "/game/items/materials/Item_115001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+25~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+8.5~10%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+400~500%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Mystic Topaz",
+  "category": "DECORATION",
+  "rarity": "ARCANA",
+  "slug": "mystic-topaz",
+  "wikiImage": "/game/items/materials/Item_115002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+80~100%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+30~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+20~25%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Enchanted Ruby",
+  "category": "DECORATION",
+  "rarity": "ARCANA",
+  "slug": "enchanted-ruby",
+  "wikiImage": "/game/items/materials/Item_115003.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+80~100%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+30~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+15~30",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Starlight Sapphire",
+  "category": "DECORATION",
+  "rarity": "ARCANA",
+  "slug": "starlight-sapphire",
+  "wikiImage": "/game/items/materials/Item_115004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw5yUekzqKcH_ezFaja",
+  "refPriceYen": 2459,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+80~100%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+30~35%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+35~40%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Void Opal",
+  "category": "DECORATION",
+  "rarity": "BEYOND",
+  "slug": "void-opal",
+  "wikiImage": "/game/items/materials/Item_116001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+11.5~13%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+25~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+180~210",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Astral Diamond",
+  "category": "DECORATION",
+  "rarity": "BEYOND",
+  "slug": "astral-diamond",
+  "wikiImage": "/game/items/materials/Item_116002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+50~100",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "value": "+17~19%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+17~20%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Phantom Emerald",
+  "category": "DECORATION",
+  "rarity": "BEYOND",
+  "slug": "phantom-emerald",
+  "wikiImage": "/game/items/materials/Item_116003.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+15~17%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+35~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "movement_speed",
+    "label": "Movement Speed",
+    "value": "+40~45%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Twilight Amethyst",
+  "category": "DECORATION",
+  "rarity": "BEYOND",
+  "slug": "twilight-amethyst",
+  "wikiImage": "/game/items/materials/Item_116004.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+100~130%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+180~210",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+8.5~10%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Celestial Pearl",
+  "category": "DECORATION",
+  "rarity": "CELESTIAL",
+  "slug": "celestial-pearl",
+  "wikiImage": "/game/items/materials/Item_117001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw7yUehzqKcHyzWDWRq",
+  "refPriceYen": 6939,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 9,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+50~55%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 8,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+4~5",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+40~45%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Dragonite Crystal",
+  "category": "DECORATION",
+  "rarity": "CELESTIAL",
+  "slug": "dragonite-crystal",
+  "wikiImage": "/game/items/materials/Item_117002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw7yUeizqKcH_X42nrV",
+  "refPriceYen": 3548,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 9,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+80~100%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 8,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+45~50%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 8,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+60~80%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Void Crystal",
+  "category": "DECORATION",
+  "rarity": "DIVINE",
+  "slug": "void-crystal",
+  "wikiImage": "/game/items/materials/Item_118001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+100~150%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 9,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+13~14.5%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 9,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+70~100%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Abyssal Pearl",
+  "category": "DECORATION",
+  "rarity": "DIVINE",
+  "slug": "abyssal-pearl",
+  "wikiImage": "/game/items/materials/Item_118002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+10~12",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 9,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+1000~1500",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 9,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+50~60%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Ethereal Gem",
+  "category": "DECORATION",
+  "rarity": "COSMIC",
+  "slug": "ethereal-gem",
+  "wikiImage": "/game/items/materials/Item_119001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "multistrike",
+    "label": "Multistrike",
+    "value": "+1",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 10,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+140~160%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 10,
+    "statKey": "basic_attack_requirement_reduction",
+    "label": "Basic Attack Requirement Reduction",
+    "value": "+1",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Chaos Diamond",
+  "category": "DECORATION",
+  "rarity": "COSMIC",
+  "slug": "chaos-diamond",
+  "wikiImage": "/game/items/materials/Item_119002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "projectile_count",
+    "label": "Projectile Count",
+    "value": "+1",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 10,
+    "statKey": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "value": "+25~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 10,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+1000~1500%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Goblin Hide",
+  "category": "ENGRAVING",
+  "rarity": "COMMON",
+  "slug": "goblin-hide",
+  "wikiImage": "/game/items/materials/Item_120001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE88yUehzqKcH3BSI2ZW",
+  "refPriceYen": 6,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+5~10%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+5~10%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+4~5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+10~30",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Skeleton Bone",
+  "category": "ENGRAVING",
+  "rarity": "COMMON",
+  "slug": "skeleton-bone",
+  "wikiImage": "/game/items/materials/Item_120002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE88yUeizqKcH-mix536",
+  "refPriceYen": 6,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+20~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+25~50",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+10~15%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+1~2",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+4~5%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Slime Jelly",
+  "category": "ENGRAVING",
+  "rarity": "COMMON",
+  "slug": "slime-jelly",
+  "wikiImage": "/game/items/materials/Item_120003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE88yUejzqKcH-bZ6kdS",
+  "refPriceYen": 6,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+5~6%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 2,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+2~3",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+1",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 1,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+2.5~3.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+10~30",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 1,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+10~15%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Wolf Fang",
+  "category": "ENGRAVING",
+  "rarity": "UNCOMMON",
+  "slug": "wolf-fang",
+  "wikiImage": "/game/items/materials/Item_121001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUehzqKcH5e444t4",
+  "refPriceYen": 8,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+9~10%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+20~25%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+10~15%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+2~4",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+2~3",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Spider Silk",
+  "category": "ENGRAVING",
+  "rarity": "UNCOMMON",
+  "slug": "spider-silk",
+  "wikiImage": "/game/items/materials/Item_121002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+9~10%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+30~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+10~15%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+2.5~4%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+2.5~4%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+30~60",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Poisonous Herb",
+  "category": "ENGRAVING",
+  "rarity": "UNCOMMON",
+  "slug": "poisonous-herb",
+  "wikiImage": "/game/items/materials/Item_121003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUejzqKcH04pe3mk",
+  "refPriceYen": 9,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+2~3%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+50~100",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+1~1.4",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+2~3",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+15~20%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Healing Herb",
+  "category": "ENGRAVING",
+  "rarity": "UNCOMMON",
+  "slug": "healing-herb",
+  "wikiImage": "/game/items/materials/Item_121004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUekzqKcHxk82PZ5",
+  "refPriceYen": 8,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 3,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+30~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+3.5~4.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 2,
+    "statKey": "increased_max_hp",
+    "label": "Increased Max HP",
+    "value": "+8~11%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 2,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+2~3",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Bat Wing Membrane",
+  "category": "ENGRAVING",
+  "rarity": "RARE",
+  "slug": "bat-wing-membrane",
+  "wikiImage": "/game/items/materials/Item_122001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE8-yUehzqKcH7WRrVMn",
+  "refPriceYen": 888,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+40~50%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+40~50%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+3~4%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+60~90",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+20~25%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+1~2",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Ogre Blood",
+  "category": "ENGRAVING",
+  "rarity": "RARE",
+  "slug": "ogre-blood",
+  "wikiImage": "/game/items/materials/Item_122002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+10~12%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+200~250",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+15~20%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+60~90",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+3~6",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Mushroom Spore",
+  "category": "ENGRAVING",
+  "rarity": "RARE",
+  "slug": "mushroom-spore",
+  "wikiImage": "/game/items/materials/Item_122003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE8-yUejzqKcH25W-dcP",
+  "refPriceYen": 315,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+5.5~7%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+4~6",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+4.5~5.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+15~20%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+2~2.5",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+60~90",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Ancient Tree Sap",
+  "category": "ENGRAVING",
+  "rarity": "RARE",
+  "slug": "ancient-tree-sap",
+  "wikiImage": "/game/items/materials/Item_122004.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+250~300%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 4,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+10~12%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+200~250",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 3,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+30~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+200~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 3,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+6~7%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Skull",
+  "category": "ENGRAVING",
+  "rarity": "LEGENDARY",
+  "slug": "skull",
+  "wikiImage": "/game/items/materials/Item_123001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+7~8.5%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+50~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+14~16%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+250~300%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Harpy Feather",
+  "category": "ENGRAVING",
+  "rarity": "LEGENDARY",
+  "slug": "harpy-feather",
+  "wikiImage": "/game/items/materials/Item_123002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE8_yUeizqKcH_84G2al",
+  "refPriceYen": 2354,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+50~60%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "value": "+25~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+5.5~7%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+4~5.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+6~10",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+90~120",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Mandrake Root",
+  "category": "ENGRAVING",
+  "rarity": "LEGENDARY",
+  "slug": "mandrake-root",
+  "wikiImage": "/game/items/materials/Item_123003.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+5~7",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+50~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+90~120",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+25~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+250~300",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Nightshade Extract",
+  "category": "ENGRAVING",
+  "rarity": "LEGENDARY",
+  "slug": "nightshade-extract",
+  "wikiImage": "/game/items/materials/Item_123004.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+25~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 5,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+30~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 4,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+4~6",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 4,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+250~300%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Basilisk Scale",
+  "category": "ENGRAVING",
+  "rarity": "IMMORTAL",
+  "slug": "basilisk-scale",
+  "wikiImage": "/game/items/materials/Item_124001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE84yUehzqKcH8PGKm7G",
+  "refPriceYen": 14845,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+3.5~4.5%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+15~30",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+120~150",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+5.5~7%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+30~35%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+16~20%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Wyvern Claw",
+  "category": "ENGRAVING",
+  "rarity": "IMMORTAL",
+  "slug": "wyvern-claw",
+  "wikiImage": "/game/items/materials/Item_124002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE84yUeizqKcH7YICqC4",
+  "refPriceYen": 1150,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+60~80%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+6~8",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+25~30%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+200~250",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+30~35%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+3~4",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Dice",
+  "category": "ENGRAVING",
+  "rarity": "IMMORTAL",
+  "slug": "dice",
+  "wikiImage": "/game/items/materials/Item_124003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE84yUejzqKcH2xBhXA3",
+  "refPriceYen": 5750,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+60~80%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+60~80%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+2.2~2.6",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+7~9%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+7~8.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+30~35%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Demon Blood",
+  "category": "ENGRAVING",
+  "rarity": "IMMORTAL",
+  "slug": "demon-blood",
+  "wikiImage": "/game/items/materials/Item_124004.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+14~17%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 6,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+60~80%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+70~90%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 5,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+70~90%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+30~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 5,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+30~35%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Minotaur Horn",
+  "category": "ENGRAVING",
+  "rarity": "ARCANA",
+  "slug": "minotaur-horn",
+  "wikiImage": "/game/items/materials/Item_125001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+80~100%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+13~15%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+30~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+400~500",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+14~17%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+8.5~10%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Griffin Beak",
+  "category": "ENGRAVING",
+  "rarity": "ARCANA",
+  "slug": "griffin-beak",
+  "wikiImage": "/game/items/materials/Item_125002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE85yUeizqKcH_ThvPIp",
+  "refPriceYen": 647,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+80~100%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+30~50",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+30~35%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "increased_max_hp",
+    "label": "Increased Max HP",
+    "value": "+20~25%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+20~25%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+40~50%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Phoenix Ash",
+  "category": "ENGRAVING",
+  "rarity": "ARCANA",
+  "slug": "phoenix-ash",
+  "wikiImage": "/game/items/materials/Item_125003.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+40~45%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+30~50",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+26~30",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+70~85%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+11~13%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+400~500%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Dragon Bile",
+  "category": "ENGRAVING",
+  "rarity": "ARCANA",
+  "slug": "dragon-bile",
+  "wikiImage": "/game/items/materials/Item_125004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE85yUekzqKcH3Dqz1IF",
+  "refPriceYen": 3788,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+50~60%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 7,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+40~45%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+9~11%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 6,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+9~11%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+35~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 6,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+6~8",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Wraith Essence",
+  "category": "ENGRAVING",
+  "rarity": "BEYOND",
+  "slug": "wraith-essence",
+  "wikiImage": "/game/items/materials/Item_126001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+600~800%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+100~130%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+110~130%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+180~210",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+7~9",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+500~600%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Kraken Ink",
+  "category": "ENGRAVING",
+  "rarity": "BEYOND",
+  "slug": "kraken-ink",
+  "wikiImage": "/game/items/materials/Item_126002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+100~130%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+20~23%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+35~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+110~130%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+7~9",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+30~50",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Titan Marrow",
+  "category": "ENGRAVING",
+  "rarity": "BEYOND",
+  "slug": "titan-marrow",
+  "wikiImage": "/game/items/materials/Item_126003.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+50~70%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+100~130%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+35~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+85~100%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+500~700",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+180~210",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Void Ichor",
+  "category": "ENGRAVING",
+  "rarity": "BEYOND",
+  "slug": "void-ichor",
+  "wikiImage": "/game/items/materials/Item_126004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE86yUekzqKcH6Z-opbH",
+  "refPriceYen": 2825,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+45~50%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 8,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+8~10",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "damage_reduction",
+    "label": "Damage Reduction",
+    "value": "+8.5~10%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 7,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+35~40%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+40~45%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 7,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+40~45%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Abyssal Mucus",
+  "category": "ENGRAVING",
+  "rarity": "CELESTIAL",
+  "slug": "abyssal-mucus",
+  "wikiImage": "/game/items/materials/Item_127001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE87yUehzqKcH18edAOT",
+  "refPriceYen": 10713,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 9,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+130~180%",
+    "source": "steam"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 9,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+13~14.5%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 8,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+45~50%",
+    "source": "steam"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 8,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+13~16%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 8,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+15~17%",
+    "source": "steam"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 8,
+    "statKey": "increased_movement_speed",
+    "label": "Increased Movement Speed",
+    "value": "+45~50%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Chaos Spore",
+  "category": "ENGRAVING",
+  "rarity": "CELESTIAL",
+  "slug": "chaos-spore",
+  "wikiImage": "/game/items/materials/Item_127002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 9,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+130~180%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 9,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+100~150",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 8,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+40~45%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 8,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+40~45%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 8,
+    "statKey": "movement_speed",
+    "label": "Movement Speed",
+    "value": "+45~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 8,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+700~1000",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Primordial Sap",
+  "category": "ENGRAVING",
+  "rarity": "DIVINE",
+  "slug": "primordial-sap",
+  "wikiImage": "/game/items/materials/Item_128001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+28~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+180~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 9,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+45~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 9,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+1000~1500",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 9,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+35~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 9,
+    "statKey": "movement_speed",
+    "label": "Movement Speed",
+    "value": "+50~55%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Eldritch Venom",
+  "category": "ENGRAVING",
+  "rarity": "DIVINE",
+  "slug": "eldritch-venom",
+  "wikiImage": "/game/items/materials/Item_128002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+10~12",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 9,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+160~200%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 9,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+50~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 9,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+50~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 9,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+13~14.5%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Chaso Dice",
+  "category": "ENGRAVING",
+  "rarity": "COSMIC",
+  "slug": "chaso-dice",
+  "wikiImage": "/game/items/materials/Item_129001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+25~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+150~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 10,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+270~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 10,
+    "statKey": "damage_absorption",
+    "label": "Damage Absorption",
+    "value": "+60~80",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 10,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+40~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 10,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+150~300",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Void Tendril",
+  "category": "ENGRAVING",
+  "rarity": "COSMIC",
+  "slug": "void-tendril",
+  "wikiImage": "/game/items/materials/Item_129002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+100~150%",
+    "source": "wiki"
+   },
+   {
+    "target": "WEAPON",
+    "tier": 10,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+1000~1500%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 10,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+50~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ARMOR",
+    "tier": 10,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+14.5~16%",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 10,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+270~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ACCESSORY",
+    "tier": 10,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+55~60%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Common Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "COMMON",
+  "slug": "scroll-of-common-inscription",
+  "wikiImage": "/game/items/materials/Item_130001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE48yUehzqKcH49PpVTj",
+  "refPriceYen": 3568,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+1~6",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "value": "+5~20%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+25~150",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+10~25%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+10~90",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+4~7%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+8~14%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+7~10%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+10~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+10~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+10~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+10~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+5~20%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+5~20%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+5~20%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 1,
+    "statKey": "add_hp_per_kill",
+    "label": "Add Hp Per Kill",
+    "value": "+2~8",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Uncommon Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "UNCOMMON",
+  "slug": "scroll-of-uncommon-inscription",
+  "wikiImage": "/game/items/materials/Item_131001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+2~10",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+10~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+35~70%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+35~70%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+30~120",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+2.5~7%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+15~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+150~300%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+20~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+20~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+20~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+20~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+10~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+10~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+10~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 2,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+150~300",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Rare Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "RARE",
+  "slug": "scroll-of-rare-inscription",
+  "wikiImage": "/game/items/materials/Item_132001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+3~15",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+15~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+100~250",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+20~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+60~150",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+6~11%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+12~20%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+9~14%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "increased_area_of_effect_damage",
+    "label": "Increase Area Of Effect Damage",
+    "value": "+30~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "increased_melee_damage",
+    "label": "Increase Melee Damage",
+    "value": "+30~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "increased_projectile_damage",
+    "label": "Increase Projectile Damage",
+    "value": "+30~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "increased_summon_damage",
+    "label": "Increase Summon Damage",
+    "value": "+30~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+15~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+15~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+15~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 3,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+1~7",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Legendary Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "LEGENDARY",
+  "slug": "scroll-of-legendary-inscription",
+  "wikiImage": "/game/items/materials/Item_133001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+6~30",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+20~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+150~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+25~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+55~110%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+55~110%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+90~180",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+5.5~10%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+25~40%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+250~500%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+40~80%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+40~80%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+40~80%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+40~80%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+20~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+20~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+20~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 4,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+250~500",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Immortal Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "IMMORTAL",
+  "slug": "scroll-of-immortal-inscription",
+  "wikiImage": "/game/items/materials/Item_134001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE44yUehzqKcH8fX-NGf",
+  "refPriceYen": 3200,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+10~50",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "value": "+25~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+120~210",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+9~15%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+16~30%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+12~20%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "increased_skill_duration",
+    "label": "Increased Skill Duration",
+    "value": "+22~36%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+50~100%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+50~100%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+50~100%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+50~100%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+25~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+25~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+25~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 5,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+3~5%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Arcana Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "ARCANA",
+  "slug": "scroll-of-arcana-inscription",
+  "wikiImage": "/game/items/materials/Item_135001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE45yUehzqKcH1Pki_Ke",
+  "refPriceYen": 3799,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+15~100",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "value": "+30~70%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+250~400",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+35~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_max_hp",
+    "label": "Increased Max HP",
+    "value": "+20~35%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+8.5~13%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_critical_chance_multiplier",
+    "label": "Increased Critical Chance Multiplier",
+    "value": "+35~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+40~80%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_area_of_effect_damage",
+    "label": "Increased Area of Effect Damage",
+    "value": "+60~130%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_melee_damage",
+    "label": "Increased Melee Damage",
+    "value": "+60~130%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_projectile_damage",
+    "label": "Increased Projectile Damage",
+    "value": "+60~130%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_summon_damage",
+    "label": "Increased Summon Damage",
+    "value": "+60~130%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+30~45%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+30~45%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+30~45%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+30~45%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+4~10",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 6,
+    "statKey": "increased_skill_heal",
+    "label": "Increased Skill Heal",
+    "value": "+27~41%",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Beyond Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "BEYOND",
+  "slug": "scroll-of-beyond-inscription",
+  "wikiImage": "/game/items/materials/Item_136001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE46yUehzqKcH7A26Pxu",
+  "refPriceYen": 559,
+  "onMarket": true,
+  "effects": [
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+30~150",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "increased_attack_damage",
+    "label": "Increased Attack Damage",
+    "value": "+40~100%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+300~450",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "increased_armor",
+    "label": "Increased Armor",
+    "value": "+40~55%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+180~270",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "increased_attack_speed",
+    "label": "Increased Attack Speed",
+    "value": "+13~20%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "increased_cast_speed",
+    "label": "Increased Cast Speed",
+    "value": "+25~40%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "increased_area_of_effect",
+    "label": "Increased Area of Effect",
+    "value": "+17~28%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+80~180%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+80~180%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+80~180%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+80~180%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+35~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+35~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+35~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+35~50%",
+    "source": "steam"
+   },
+   {
+    "target": "NONE",
+    "tier": 7,
+    "statKey": "add_hp_per_kill",
+    "label": "Add Hp Per Kill",
+    "value": "+16~30",
+    "source": "steam"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Celestial Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "CELESTIAL",
+  "slug": "scroll-of-celestial-inscription",
+  "wikiImage": "/game/items/materials/Item_137001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+50~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+50~150%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+350~500",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+45~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+30~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+45~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+600~1500%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "skill_duration_increase",
+    "label": "Skill Duration Increase",
+    "value": "+36~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "increased_area_of_effect_damage",
+    "label": "Increase Area Of Effect Damage",
+    "value": "+100~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "increased_melee_damage",
+    "label": "Increase Melee Damage",
+    "value": "+100~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "increased_projectile_damage",
+    "label": "Increase Projectile Damage",
+    "value": "+100~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "increased_summon_damage",
+    "label": "Increase Summon Damage",
+    "value": "+100~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+40~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+40~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+40~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+40~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 8,
+    "statKey": "hp_per_hit",
+    "label": "HP Per Hit",
+    "value": "+8~12",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Divine Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "DIVINE",
+  "slug": "scroll-of-divine-inscription",
+  "wikiImage": "/game/items/materials/Item_138001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+100~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+70~150%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+400~500",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "armor",
+    "label": "Armor",
+    "value": "+50~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+240~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+17~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+35~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "physical_damage",
+    "label": "Physical Damage",
+    "value": "+130~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "fire_damage",
+    "label": "Fire Damage",
+    "value": "+130~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "cold_damage",
+    "label": "Cold Damage",
+    "value": "+130~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "lightning_damage",
+    "label": "Lightning Damage",
+    "value": "+130~250%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "fire_resistance",
+    "label": "Fire Resistance",
+    "value": "+45~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "cold_resistance",
+    "label": "Cold Resistance",
+    "value": "+45~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "lightning_resistance",
+    "label": "Lightning Resistance",
+    "value": "+45~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+45~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "hp_regen_per_sec",
+    "label": "HP Regen Per Sec",
+    "value": "+1000~2000",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 9,
+    "statKey": "skill_heal_increase",
+    "label": "Skill Heal Increase",
+    "value": "+40.6~50%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Scroll of Cosmic Inscription",
+  "category": "INSCRIPTION",
+  "rarity": "COSMIC",
+  "slug": "scroll-of-cosmic-inscription",
+  "wikiImage": "/game/items/materials/Item_139001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+150~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "attack_damage",
+    "label": "Attack Damage",
+    "value": "+100~150%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+270~300",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "max_hp",
+    "label": "Max HP",
+    "value": "+40~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "dodge_chance",
+    "label": "Dodge Chance",
+    "value": "+200~300%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "block_chance",
+    "label": "Block Chance",
+    "value": "+200~300%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "attack_speed",
+    "label": "Attack Speed",
+    "value": "+20~25%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "increased_cast_speed",
+    "label": "Cast Speed",
+    "value": "+40~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "increased_area_of_effect",
+    "label": "Area of Effect",
+    "value": "+28~35%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "cooldown_reduction",
+    "label": "Cooldown Reduction",
+    "value": "+14.5~16%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "skill_duration_increase",
+    "label": "Skill Duration Increase",
+    "value": "+45.3~50%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "movement_speed",
+    "label": "Movement Speed",
+    "value": "+76~83",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "movement_speed",
+    "label": "Movement Speed",
+    "value": "+55~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "critical_chance",
+    "label": "Critical Chance",
+    "value": "+55~60%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "critical_damage",
+    "label": "Critical Damage",
+    "value": "+1000~1500%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "all_elemental_resistance",
+    "label": "All Elemental Resistance",
+    "value": "+25~30%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "chaos_resistance",
+    "label": "Chaos Resistance",
+    "value": "+50~55%",
+    "source": "wiki"
+   },
+   {
+    "target": "ANY",
+    "tier": 10,
+    "statKey": "life_leech",
+    "label": "Life Leech",
+    "value": "+50~65%",
+    "source": "wiki"
+   }
+  ]
+ },
+ {
+  "name": "Wood",
+  "category": "CRAFTING",
+  "rarity": "COMMON",
+  "slug": "wood",
+  "wikiImage": "/game/items/materials/Item_140001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk8yUehzqKcH8g_E54J",
+  "refPriceYen": 8,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Stone",
+  "category": "CRAFTING",
+  "rarity": "COMMON",
+  "slug": "stone",
+  "wikiImage": "/game/items/materials/Item_140002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Leather",
+  "category": "CRAFTING",
+  "rarity": "COMMON",
+  "slug": "leather",
+  "wikiImage": "/game/items/materials/Item_140003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk8yUejzqKcHw9udK7N",
+  "refPriceYen": 9,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Copper Nugget",
+  "category": "CRAFTING",
+  "rarity": "COMMON",
+  "slug": "copper-nugget",
+  "wikiImage": "/game/items/materials/Item_140004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk8yUekzqKcH5ujE5yY",
+  "refPriceYen": 11500,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Bronze Ingot",
+  "category": "CRAFTING",
+  "rarity": "UNCOMMON",
+  "slug": "bronze-ingot",
+  "wikiImage": "/game/items/materials/Item_141001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk9yUehzqKcH9Q6J038",
+  "refPriceYen": 3568,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Iron Ingot",
+  "category": "CRAFTING",
+  "rarity": "UNCOMMON",
+  "slug": "iron-ingot",
+  "wikiImage": "/game/items/materials/Item_141002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk9yUeizqKcHwZM78KK",
+  "refPriceYen": 114514,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Silver Ingot",
+  "category": "CRAFTING",
+  "rarity": "RARE",
+  "slug": "silver-ingot",
+  "wikiImage": "/game/items/materials/Item_142001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk-yUehzqKcH-2mFwsN",
+  "refPriceYen": 3568,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Gold Ingot",
+  "category": "CRAFTING",
+  "rarity": "RARE",
+  "slug": "gold-ingot",
+  "wikiImage": "/game/items/materials/Item_142002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk-yUeizqKcHzLFc8Bf",
+  "refPriceYen": 2706,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Stardust Ingot",
+  "category": "CRAFTING",
+  "rarity": "LEGENDARY",
+  "slug": "stardust-ingot",
+  "wikiImage": "/game/items/materials/Item_143001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk_yUehzqKcH4B_KzXB",
+  "refPriceYen": 13341,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Void Iron",
+  "category": "CRAFTING",
+  "rarity": "LEGENDARY",
+  "slug": "void-iron",
+  "wikiImage": "/game/items/materials/Item_143002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk_yUeizqKcHxmHpgxD",
+  "refPriceYen": 3568,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Bloodstone",
+  "category": "CRAFTING",
+  "rarity": "IMMORTAL",
+  "slug": "bloodstone",
+  "wikiImage": "/game/items/materials/Item_144001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk4yUehzqKcHxmOrOzz",
+  "refPriceYen": 788,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Thunderstone",
+  "category": "CRAFTING",
+  "rarity": "IMMORTAL",
+  "slug": "thunderstone",
+  "wikiImage": "/game/items/materials/Item_144002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk4yUeizqKcH7GMk-FS",
+  "refPriceYen": 1899,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Chaos Shard",
+  "category": "CRAFTING",
+  "rarity": "ARCANA",
+  "slug": "chaos-shard",
+  "wikiImage": "/game/items/materials/Item_145001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk5yUehzqKcH2O0ZKDU",
+  "refPriceYen": 650,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Arcane Ore",
+  "category": "CRAFTING",
+  "rarity": "ARCANA",
+  "slug": "arcane-ore",
+  "wikiImage": "/game/items/materials/Item_145002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk5yUeizqKcH0-PzwLX",
+  "refPriceYen": 1954,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Darksteel Ingot",
+  "category": "CRAFTING",
+  "rarity": "BEYOND",
+  "slug": "darksteel-ingot",
+  "wikiImage": "/game/items/materials/Item_146001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Orichalcum Ore",
+  "category": "CRAFTING",
+  "rarity": "BEYOND",
+  "slug": "orichalcum-ore",
+  "wikiImage": "/game/items/materials/Item_146002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk6yUeizqKcH3aOcmKy",
+  "refPriceYen": 1158,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Moonstone",
+  "category": "CRAFTING",
+  "rarity": "CELESTIAL",
+  "slug": "moonstone",
+  "wikiImage": "/game/items/materials/Item_147001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk7yUehzqKcH8-0390m",
+  "refPriceYen": 1471,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Sunstone",
+  "category": "CRAFTING",
+  "rarity": "CELESTIAL",
+  "slug": "sunstone",
+  "wikiImage": "/game/items/materials/Item_147002.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk7yUeizqKcHwoXLTs0",
+  "refPriceYen": 1717,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Mithril Ore",
+  "category": "CRAFTING",
+  "rarity": "DIVINE",
+  "slug": "mithril-ore",
+  "wikiImage": "/game/items/materials/Item_148001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Ethereal Ingot",
+  "category": "CRAFTING",
+  "rarity": "DIVINE",
+  "slug": "ethereal-ingot",
+  "wikiImage": "/game/items/materials/Item_148002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Adamantium Ore",
+  "category": "CRAFTING",
+  "rarity": "COSMIC",
+  "slug": "adamantium-ore",
+  "wikiImage": "/game/items/materials/Item_149001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Aeon Ingot",
+  "category": "CRAFTING",
+  "rarity": "COSMIC",
+  "slug": "aeon-ingot",
+  "wikiImage": "/game/items/materials/Item_149002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Kingdom 1st Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "COMMON",
+  "slug": "kingdom-1st-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160001.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "RARE",
+    "pct": 69.8
+   },
+   {
+    "rarity": "LEGENDARY",
+    "pct": 30
+   },
+   {
+    "rarity": "BEYOND",
+    "pct": 0.2
+   }
+  ]
+ },
+ {
+  "name": "Empire 1st Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "UNCOMMON",
+  "slug": "empire-1st-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Kingdom 10th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "RARE",
+  "slug": "kingdom-10th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160003.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Empire 10th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "LEGENDARY",
+  "slug": "empire-10th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160004.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "LEGENDARY",
+    "pct": 28.34
+   },
+   {
+    "rarity": "IMMORTAL",
+    "pct": 28.34
+   },
+   {
+    "rarity": "ARCANA",
+    "pct": 17
+   },
+   {
+    "rarity": "BEYOND",
+    "pct": 6.61
+   },
+   {
+    "rarity": "CELESTIAL",
+    "pct": 2.66
+   },
+   {
+    "rarity": "RARE / UNCOMMON",
+    "pct": null,
+    "note": "残り"
+   }
+  ]
+ },
+ {
+  "name": "Kingdom 50th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "IMMORTAL",
+  "slug": "kingdom-50th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160005.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "LEGENDARY",
+    "pct": 46.5
+   },
+   {
+    "rarity": "IMMORTAL",
+    "pct": 31
+   },
+   {
+    "rarity": "CELESTIAL",
+    "pct": 17
+   },
+   {
+    "rarity": "DIVINE",
+    "pct": 3.1
+   },
+   {
+    "rarity": "UNIQUE",
+    "pct": 2.4
+   }
+  ]
+ },
+ {
+  "name": "Empire 50th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "ARCANA",
+  "slug": "empire-50th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160006.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEs8yUemzqKcHwOasiT6",
+  "refPriceYen": 14799,
+  "onMarket": true,
+  "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "ARCANA",
+    "pct": 98.9
+   },
+   {
+    "rarity": "BEYOND",
+    "pct": 1
+   },
+   {
+    "rarity": "DIVINE",
+    "pct": 0.1
+   }
+  ],
+  "coinNote": "アルカナ等級以上"
+ },
+ {
+  "name": "Kingdom 100th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "BEYOND",
+  "slug": "kingdom-100th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160007.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "unreleased": true
+ },
+ {
+  "name": "Empire 100th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "CELESTIAL",
+  "slug": "empire-100th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160008.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "unreleased": true
+ },
+ {
+  "name": "Sacred Kingdom 1000th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "DIVINE",
+  "slug": "sacred-kingdom-1000th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160009.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "unreleased": true
+ },
+ {
+  "name": "Eternal Empire 1000th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "COSMIC",
+  "slug": "eternal-empire-1000th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160010.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "unreleased": true
+ },
+ {
+  "name": "Soulstone - Normal",
+  "category": "SOULSTONE",
+  "rarity": "IMMORTAL",
+  "slug": "soulstone-normal",
+  "wikiImage": "/game/items/materials/Item_190001.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEQ8yUehzqKcH5CC7Jxm",
+  "refPriceYen": 922,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Soulstone - Nightmare",
+  "category": "SOULSTONE",
+  "rarity": "ARCANA",
+  "slug": "soulstone-nightmare",
+  "wikiImage": "/game/items/materials/Item_190002.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": []
+ },
+ {
+  "name": "Soulstone - Hell",
+  "category": "SOULSTONE",
+  "rarity": "BEYOND",
+  "slug": "soulstone-hell",
+  "wikiImage": "/game/items/materials/Item_190003.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEQ8yUejzqKcH19gLfqH",
+  "refPriceYen": 11451,
+  "onMarket": true,
+  "effects": []
+ },
+ {
+  "name": "Soulstone - Torment",
+  "category": "SOULSTONE",
+  "rarity": "CELESTIAL",
+  "slug": "soulstone-torment",
+  "wikiImage": "/game/items/materials/Item_190004.png",
+  "steamIcon": "https://community.steamstatic.com/economy/image/eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEQ8yUekzqKcHyTvp7Ey",
+  "refPriceYen": 6400,
+  "onMarket": true,
+  "effects": []
+ }
+]

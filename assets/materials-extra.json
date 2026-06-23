@@ -1,0 +1,36 @@
+{
+  "_README": "wiki/手元に無い手動データの上書き。素材名(英語)をキーに追記する。build-materials.mjs が materials.json へマージ。",
+  "_FORMAT_craftLevel": "製作素材の使用レベル。例: \"Wood\": { \"craftLevel\": \"1-9\" }  (文字列。単一なら \"60\"、範囲なら \"60-69\")",
+  "_FORMAT_coinOutput": "記念コイン使用時の出力。例: { \"coinOutput\": [{\"rarity\":\"RARE\",\"pct\":69.8}], \"coinNote\":\"アルカナ等級以上\" }  pct は数値 or null(残り等は note を付ける). rarity が既知グレードならバッジ表示、それ以外(UNIQUE/RARE+UNCOMMON等)は文字表示。",
+
+  "Kingdom 1st Anniversary Coin": { "coinOutput": [
+    { "rarity": "RARE", "pct": 69.8 },
+    { "rarity": "LEGENDARY", "pct": 30.0 },
+    { "rarity": "BEYOND", "pct": 0.2 }
+  ] },
+  "Empire 10th Anniversary Coin": { "coinOutput": [
+    { "rarity": "LEGENDARY", "pct": 28.34 },
+    { "rarity": "IMMORTAL", "pct": 28.34 },
+    { "rarity": "ARCANA", "pct": 17.0 },
+    { "rarity": "BEYOND", "pct": 6.61 },
+    { "rarity": "CELESTIAL", "pct": 2.66 },
+    { "rarity": "RARE / UNCOMMON", "pct": null, "note": "残り" }
+  ] },
+  "Kingdom 50th Anniversary Coin": { "coinOutput": [
+    { "rarity": "LEGENDARY", "pct": 46.5 },
+    { "rarity": "IMMORTAL", "pct": 31.0 },
+    { "rarity": "CELESTIAL", "pct": 17.0 },
+    { "rarity": "DIVINE", "pct": 3.1 },
+    { "rarity": "UNIQUE", "pct": 2.4 }
+  ] },
+  "Empire 50th Anniversary Coin": { "coinOutput": [
+    { "rarity": "ARCANA", "pct": 98.9 },
+    { "rarity": "BEYOND", "pct": 1.0 },
+    { "rarity": "DIVINE", "pct": 0.1 }
+  ], "coinNote": "アルカナ等級以上" },
+
+  "Kingdom 100th Anniversary Coin": { "unreleased": true },
+  "Empire 100th Anniversary Coin": { "unreleased": true },
+  "Sacred Kingdom 1000th Anniversary Coin": { "unreleased": true },
+  "Eternal Empire 1000th Anniversary Coin": { "unreleased": true }
+}

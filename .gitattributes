@@ -1,0 +1,4 @@
+# シェルスクリプトは LF を強制 (alpine コンテナで実行するため)
+*.sh text eol=lf
+docker/entrypoint.sh text eol=lf
+* text=auto

@@ -1,0 +1,468 @@
+// Taskbar Hero Steam Market Analysis — Prisma schema
+// Postgres. 価格は全て「最小通貨単位 (Int)」で保持する (例: 123 = 1.23 / 12300 = 123円)。
+// 通貨換算の丸め誤差を避けるため Float は使わない。
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =====================================================================
+// マスタ: アイテム
+// =====================================================================
+model Item {
+  id              String   @id @default(cuid())
+  appId           Int      @default(3678970)
+  marketHashName  String   @unique
+  name            String
+  imageUrl        String?
+
+  // 分類 (Steam appfilters の実ファセット)
+  type            ItemType @default(MATERIAL)   // Equipment(GEAR) / Materials(MATERIAL)
+  part            Part     @default(NONE)        // 部位 (装備のみ)
+  grade           Grade    @default(COMMON)      // 10レアリティ
+  classType       ClassType @default(NONE)       // 6職 (装備のみ / 職業不問はNONE)
+  level           Int?                            // 装備のみ (素材はnull)
+
+  // 説明文(リスティングページ)由来の追加分類・属性
+  materialCategory MaterialCategory @default(NONE) // 素材サブ分類 (装飾/彫刻/碑文/製作/ソウルストーン)
+  requiredLevel    Int?                            // 装備の必要レベル (説明文の Requires Lv.)
+  decoSlots        Int?                            // 装飾スロット数
+  engraveSlots     Int?                            // 彫刻スロット数
+  inscriptSlots    Int?                            // 碑文スロット数
+
+  active          Boolean  @default(true) // マーケットから消えた=false
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // 最新の集計スナップショット (1:1, 一覧/詳細の高速表示用に非正規化)
+  latest          ItemLatest?
+  analysis        ItemAnalysis?
+
+  snapshots       MarketSnapshot[]
+  priceHistory    PriceHistory[]
+  favorites       Favorite[]
+  alerts          PriceAlert[]
+  anomalies       Anomaly[]
+  favoriteCount   FavoriteStat?
+  statLines       ItemStatLine[]
+
+  @@index([type])
+  @@index([part])
+  @@index([grade])
+  @@index([classType])
+  @@index([level])
+  @@index([materialCategory])
+  @@index([active])
+}
+
+// アイテムのステータス1行 (説明文由来)。正規化して「stat X が value 以上」を SQL で高速検索する。
+// 値は ×100 した整数で保持 (例: 36.9 -> 3690 / 38% -> 3800)。範囲は valueMin~valueMax。
+model ItemStatLine {
+  id        String       @id @default(cuid())
+  itemId    String
+  item      Item         @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  kind      StatKind     // BASE(基礎) / INHERENT(固有) / SPECIAL(特殊=Unique) / MATERIAL_EFFECT(素材付与効果)
+  statKey   String       // 正規化キー "critical_damage"
+  label     String       // 表示用ラベル "Critical Damage"
+  valueMin  Int?         // ×100 整数。TEXT(効果文)のみのときは null
+  valueMax  Int?         // 範囲の上限 (素材効果)。単一値は null
+  unit      StatUnit     @default(FLAT) // FLAT / PCT / TEXT
+  tier      Int?         // 素材効果の [T2] -> 2
+  appliesTo EffectTarget @default(NONE) // 素材効果の対象 (WEAPON/ARMOR/ACCESSORY)
+  rawText   String       // 原文行 (表示用)
+
+  @@index([statKey, valueMin])
+  @@index([kind])
+  @@index([itemId])
+}
+
+// 最新スナップショット (Item と 1:1)。一覧・ソート・検索の高速化用。
+model ItemLatest {
+  itemId        String   @id
+  item          Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  lowestPrice   Int?     // 最安
+  highestPrice  Int?     // 最高
+  medianPrice   Int?     // 中間
+  averagePrice  Int?     // 平均
+  quantity      Int      @default(0) // 販売数量
+
+  // 変化率 (basis points: 100 = 1.00%) — ランキング/表示用
+  changePrev    Int?     // 前日比
+  change7d      Int?     // 7日比
+  change30d     Int?     // 30日比
+
+  fetchedAt     DateTime @default(now())
+
+  @@index([lowestPrice])
+  @@index([quantity])
+  @@index([change7d])
+}
+
+// =====================================================================
+// 時系列: 15分毎の集計スナップショット
+// =====================================================================
+model MarketSnapshot {
+  id            String   @id @default(cuid())
+  itemId        String
+  item          Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  lowestPrice   Int?
+  highestPrice  Int?
+  medianPrice   Int?
+  averagePrice  Int?
+  quantity      Int      @default(0)
+
+  createdAt     DateTime @default(now())
+
+  @@index([itemId, createdAt])
+}
+
+// 時系列: Steam の売買履歴 (pricehistory) 由来の個別ポイント
+model PriceHistory {
+  id            String   @id @default(cuid())
+  itemId        String
+  item          Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  price         Int      // 最安出品価格 (最安の売り注文 = priceoverview lowest_price)。約定価格ではない
+  quantity      Int      // その時間帯の出来高
+  timestamp     DateTime
+
+  @@unique([itemId, timestamp])
+  @@index([itemId, timestamp])
+}
+
+// =====================================================================
+// 分析結果 (Item と 1:1, 毎回再生成)
+// =====================================================================
+model ItemAnalysis {
+  itemId          String   @id
+  item            Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  ma7             Int?     // 7日移動平均
+  ma30            Int?     // 30日移動平均
+  ma90            Int?     // 90日移動平均
+  volatility      Int?     // ボラティリティ (bps, 標準偏差/平均)
+
+  fairPrice       Int?     // 推定適正価格
+  undervaluedRate Int?     // 割安率 (bps, +なら割安)
+  overvaluedRate  Int?     // 割高率 (bps, +なら割高)
+
+  trend           Trend    @default(FLAT)
+  investmentScore Int      @default(0)   // 0-100
+  riskLevel       RiskLevel @default(CAUTION)
+  recommendation  Recommendation @default(C)
+
+  // スコア内訳
+  scorePrice      Int      @default(0)  // 価格推移 /25
+  scoreVolume     Int      @default(0)  // 出来高 /25
+  scoreStability  Int      @default(0)  // 安定性 /20
+  scoreVolatility Int      @default(0)  // ボラティリティ /15
+  scorePopularity Int      @default(0)  // 市場人気度 /15
+
+  // 将来予測
+  forecast7       Int?
+  forecast30      Int?
+  forecast90      Int?
+  forecastLow     Int?     // 予測レンジ下限(30日)
+  forecastHigh    Int?     // 予測レンジ上限(30日)
+  forecastConf    Int?     // 信頼度 (0-100)
+
+  aiComment       String?  // 自動生成コメント
+
+  updatedAt       DateTime @updatedAt
+
+  @@index([investmentScore])
+  @@index([undervaluedRate])
+  @@index([recommendation])
+}
+
+// =====================================================================
+// 異常値 / アラート (システム検知)
+// =====================================================================
+model Anomaly {
+  id          String      @id @default(cuid())
+  itemId      String
+  item        Item        @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  type        AnomalyType
+  window      TimeWindow
+  changeBps   Int          // 変化率 (bps)。出来高異常は「平均の何倍か」を bps で
+  detectedAt  DateTime     @default(now())
+  resolved    Boolean      @default(false)
+
+  @@index([type, detectedAt])
+  @@index([itemId, detectedAt])
+}
+
+// =====================================================================
+// ユーザー / お気に入り
+// =====================================================================
+model User {
+  id          String     @id @default(cuid())
+  email       String     @unique
+  name        String?
+  createdAt   DateTime   @default(now())
+
+  favorites   Favorite[]
+  folders     Folder[]
+  alerts      PriceAlert[]
+  notifications Notification[]
+}
+
+model Folder {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  color     String?    @default("#64748b")
+  sortOrder Int        @default(0)
+  createdAt DateTime   @default(now())
+
+  favorites Favorite[]
+
+  @@index([userId])
+}
+
+model Favorite {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemId        String
+  item          Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  folderId      String?
+  folder        Folder?  @relation(fields: [folderId], references: [id], onDelete: SetNull)
+
+  memo          String?  // メモ機能
+  purchasePrice Int?     // 損益シミュレーション用の購入価格
+  createdAt     DateTime @default(now())
+
+  @@unique([userId, itemId])
+  @@index([userId])
+  @@index([folderId])
+}
+
+// お気に入り登録数の集計 (ランキング用, Item と 1:1)
+model FavoriteStat {
+  itemId     String   @id
+  item       Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  total      Int      @default(0)  // 累計登録数
+  last24h    Int      @default(0)  // 直近24h 新規
+  updatedAt  DateTime @updatedAt
+
+  @@index([total])
+}
+
+// =====================================================================
+// 価格通知
+// =====================================================================
+model PriceAlert {
+  id            String        @id @default(cuid())
+  userId        String
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  itemId        String
+  item          Item          @relation(fields: [itemId], references: [id], onDelete: Cascade)
+
+  condition     AlertCondition
+  threshold     Int?          // 価格(最小通貨単位) または 変化率(bps)
+  channel       NotifyChannel @default(WEB)
+  enabled       Boolean       @default(true)
+  lastTriggered DateTime?
+  createdAt     DateTime      @default(now())
+
+  notifications Notification[]
+
+  @@index([userId])
+  @@index([itemId])
+  @@index([enabled])
+}
+
+model Notification {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  alertId   String?
+  alert     PriceAlert? @relation(fields: [alertId], references: [id], onDelete: SetNull)
+
+  title     String
+  body      String
+  channel   NotifyChannel @default(WEB)
+  read      Boolean    @default(false)
+  createdAt DateTime   @default(now())
+
+  @@index([userId, read])
+}
+
+// =====================================================================
+// 管理: 取得ジョブのログ
+// =====================================================================
+model FetchLog {
+  id          String     @id @default(cuid())
+  kind        String     // "market" | "history" | "analysis" | "manual"
+  status      JobStatus  @default(RUNNING)
+  itemsTotal  Int        @default(0)
+  itemsOk     Int        @default(0)
+  itemsFailed Int        @default(0)
+  message     String?
+  startedAt   DateTime   @default(now())
+  finishedAt  DateTime?
+
+  @@index([kind, startedAt])
+}
+
+// =====================================================================
+// ニュース (Steam GetNewsForApp をキャッシュ。translations に言語別タイトル/要約)
+// =====================================================================
+model NewsArticle {
+  gid          String   @id            // Steam の gid
+  title        String                  // 原文(英語)タイトル
+  contents     String                  // 原文本文 (bbcode除去後)
+  url          String
+  feedLabel    String?
+  publishedAt  DateTime
+  translations Json?                   // { ja:{title,summary}, ko:{...}, zh:{...}, ru:{...} }
+  fetchedAt    DateTime @default(now())
+
+  @@index([publishedAt])
+}
+
+// =====================================================================
+// Enums
+// =====================================================================
+// 素材サブ分類 (Steam の type 文字列由来)
+enum MaterialCategory {
+  DECORATION   // 装飾素材
+  ENGRAVING    // 彫刻素材
+  INSCRIPTION  // 碑文素材
+  CRAFTING     // 製作素材
+  SOULSTONE    // ソウルストーン
+  NONE         // 装備など素材以外
+}
+
+// ステータス種別
+enum StatKind {
+  BASE             // 基礎ステータス
+  INHERENT         // 固有ステータス
+  SPECIAL          // 特殊ステータス (Unique Stats)
+  MATERIAL_EFFECT  // 素材の付与効果プリセット
+}
+
+enum StatUnit {
+  FLAT  // 実数 (×100 整数で保持)
+  PCT   // パーセント (×100 整数で保持)
+  TEXT  // 数値なしの効果文
+}
+
+// 素材付与効果の対象部位
+enum EffectTarget {
+  WEAPON
+  ARMOR
+  ACCESSORY
+  NONE
+}
+
+// Steam appfilters(3678970) の実ファセット
+enum ItemType {
+  GEAR        // Equipment 装備
+  MATERIAL    // Materials 素材
+}
+
+enum Part {
+  MAIN_WEAPON // Main Weapon
+  SUB_WEAPON  // Sub Weapon
+  ARMOR
+  HELMET
+  GLOVES
+  BOOTS
+  AMULET
+  RING
+  BRACER
+  EARRING
+  NONE        // 素材など部位なし
+}
+
+enum Grade {
+  COSMIC
+  DIVINE
+  CELESTIAL
+  BEYOND
+  ARCANA
+  IMMORTAL
+  LEGENDARY
+  RARE
+  UNCOMMON
+  COMMON
+}
+
+enum ClassType {
+  KNIGHT
+  SLAYER
+  HUNTER
+  RANGER
+  SORCERER
+  PRIEST
+  NONE        // 職業不問 / 素材
+}
+
+enum Trend {
+  UP
+  DOWN
+  FLAT
+}
+
+enum RiskLevel {
+  DANGER     // 0-39
+  CAUTION    // 40-59
+  GOOD       // 60-79
+  PROMISING  // 80-100
+}
+
+enum Recommendation {
+  S
+  A
+  B
+  C
+}
+
+enum AnomalyType {
+  SPIKE_UP     // 急騰
+  SPIKE_DOWN   // 急落
+  VOLUME_SPIKE // 出来高急増
+  VOLUME_DROP  // 出来高急減
+}
+
+enum TimeWindow {
+  H1
+  H24
+  D7
+  D30
+  D90
+}
+
+enum AlertCondition {
+  PRICE_BELOW   // しきい値以下
+  PRICE_ABOVE   // しきい値以上
+  CHANGE_UP     // 前日比 +X% 以上
+  CHANGE_DOWN   // 前日比 -X% 以上
+  SPIKE_UP      // 急騰検知
+  SPIKE_DOWN    // 急落検知
+  VOLUME_SPIKE  // 出来高急増
+}
+
+enum NotifyChannel {
+  WEB
+  DISCORD
+  EMAIL
+}
+
+enum JobStatus {
+  RUNNING
+  SUCCESS
+  FAILED
+}

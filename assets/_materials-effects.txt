@@ -1,0 +1,240 @@
+Ruby :: Weapon | T3 | Fire Damage | +30~40%
+Ruby :: Armor | T3 | Fire Resistance | +15~20%
+Ruby :: Accessory | T3 | Attack Damage | +3~6
+Arcane Crystal :: Weapon | T7 | Cast Speed | +25~30%
+Arcane Crystal :: Armor | T6 | Cooldown Reduction | +8.5~10%
+Arcane Crystal :: Accessory | T6 | Critical Damage | +400~500%
+Mystic Topaz :: Weapon | T7 | Lightning Damage | +80~100%
+Mystic Topaz :: Armor | T6 | Lightning Resistance | +30~35%
+Mystic Topaz :: Accessory | T6 | Cast Speed | +20~25%
+Enchanted Ruby :: Weapon | T7 | Fire Damage | +80~100%
+Enchanted Ruby :: Armor | T6 | Fire Resistance | +30~35%
+Enchanted Ruby :: Accessory | T6 | Attack Damage | +15~30
+Void Opal :: Weapon | T8 | Cooldown Reduction | +11.5~13%
+Void Opal :: Armor | T7 | Max HP | +25~30%
+Void Opal :: Accessory | T7 | Max HP | +180~210
+Astral Diamond :: Weapon | T8 | Attack Damage | +50~100
+Astral Diamond :: Armor | T7 | All Elemental Resistance | +17~19%
+Astral Diamond :: Accessory | T7 | Area of Effect | +17~20%
+Phantom Emerald :: Weapon | T8 | Attack Speed | +15~17%
+Phantom Emerald :: Armor | T7 | Chaos Resistance | +35~40%
+Phantom Emerald :: Accessory | T7 | Movement Speed | +40~45%
+Twilight Amethyst :: Weapon | T8 | Physical Damage | +100~130%
+Twilight Amethyst :: Armor | T7 | Max HP | +180~210
+Twilight Amethyst :: Accessory | T6 | Cooldown Reduction | +8.5~10%
+Void Crystal :: Weapon | T10 | Attack Damage | +100~150%
+Void Crystal :: Armor | T9 | Cooldown Reduction | +13~14.5%
+Void Crystal :: Accessory | T9 | Attack Damage | +70~100%
+Abyssal Pearl :: Weapon | T10 | HP Per Hit | +10~12
+Abyssal Pearl :: Armor | T9 | HP Regen Per Sec | +1000~1500
+Abyssal Pearl :: Accessory | T9 | Life Leech | +50~60%
+Ethereal Gem :: Weapon | T10 | Multistrike | +1
+Ethereal Gem :: Armor | T10 | Damage Reduction | +140~160%
+Ethereal Gem :: Accessory | T10 | Basic Attack Requirement Reduction | +1
+Chaos Diamond :: Weapon | T10 | Projectile Count | +1
+Chaos Diamond :: Armor | T10 | All Elemental Resistance | +25~30%
+Chaos Diamond :: Accessory | T10 | Critical Damage | +1000~1500%
+Spider Silk :: Weapon | T3 | Area of Effect | +9~10%
+Spider Silk :: Weapon | T3 | Physical Damage | +30~40%
+Spider Silk :: Armor | T2 | Cold Resistance | +10~15%
+Spider Silk :: Armor | T2 | Cooldown Reduction | +2.5~4%
+Spider Silk :: Accessory | T2 | Cooldown Reduction | +2.5~4%
+Spider Silk :: Accessory | T2 | Max HP | +30~60
+Ogre Blood :: Weapon | T4 | Area of Effect | +10~12%
+Ogre Blood :: Weapon | T4 | Attack Damage | +20~25%
+Ogre Blood :: Armor | T3 | HP Regen Per Sec | +200~250
+Ogre Blood :: Armor | T3 | Cold Resistance | +15~20%
+Ogre Blood :: Accessory | T3 | Max HP | +60~90
+Ogre Blood :: Accessory | T3 | Attack Damage | +3~6
+Ancient Tree Sap :: Weapon | T4 | Critical Damage | +250~300%
+Ancient Tree Sap :: Weapon | T4 | Area of Effect | +10~12%
+Ancient Tree Sap :: Armor | T3 | HP Regen Per Sec | +200~250
+Ancient Tree Sap :: Armor | T3 | Damage Reduction | +30~40%
+Ancient Tree Sap :: Accessory | T3 | Critical Damage | +200~250%
+Ancient Tree Sap :: Accessory | T3 | Attack Speed | +6~7%
+Skull :: Weapon | T5 | Cooldown Reduction | +7~8.5%
+Skull :: Weapon | T5 | Lightning Damage | +50~60%
+Skull :: Armor | T4 | Lightning Resistance | +20~25%
+Skull :: Armor | T4 | Chaos Resistance | +20~25%
+Skull :: Accessory | T4 | Cast Speed | +14~16%
+Skull :: Accessory | T4 | Critical Damage | +250~300%
+Mandrake Root :: Weapon | T5 | HP Per Hit | +5~7
+Mandrake Root :: Weapon | T5 | Fire Damage | +50~60%
+Mandrake Root :: Armor | T4 | Cold Resistance | +20~25%
+Mandrake Root :: Armor | T4 | Max HP | +90~120
+Mandrake Root :: Accessory | T4 | Life Leech | +25~35%
+Mandrake Root :: Accessory | T4 | HP Regen Per Sec | +250~300
+Nightshade Extract :: Weapon | T5 | Attack Damage | +25~30%
+Nightshade Extract :: Weapon | T5 | Critical Chance | +30~35%
+Nightshade Extract :: Armor | T4 | Lightning Resistance | +20~25%
+Nightshade Extract :: Armor | T4 | Cold Resistance | +20~25%
+Nightshade Extract :: Accessory | T4 | HP Per Hit | +4~6
+Nightshade Extract :: Accessory | T4 | Critical Damage | +250~300%
+Demon Blood :: Weapon | T6 | Area of Effect | +14~17%
+Demon Blood :: Weapon | T6 | Lightning Damage | +60~80%
+Demon Blood :: Armor | T5 | Block Chance | +70~90%
+Demon Blood :: Armor | T5 | Dodge Chance | +70~90%
+Demon Blood :: Accessory | T5 | Life Leech | +30~40%
+Demon Blood :: Accessory | T5 | Critical Chance | +30~35%
+Minotaur Horn :: Weapon | T7 | Cold Damage | +80~100%
+Minotaur Horn :: Weapon | T7 | Attack Speed | +13~15%
+Minotaur Horn :: Armor | T6 | Lightning Resistance | +30~35%
+Minotaur Horn :: Armor | T6 | HP Regen Per Sec | +400~500
+Minotaur Horn :: Accessory | T6 | Area of Effect | +14~17%
+Minotaur Horn :: Accessory | T6 | Cooldown Reduction | +8.5~10%
+Phoenix Ash :: Weapon | T7 | Critical Chance | +40~45%
+Phoenix Ash :: Weapon | T7 | Attack Damage | +30~50
+Phoenix Ash :: Armor | T6 | Damage Absorption | +26~30
+Phoenix Ash :: Armor | T6 | Damage Reduction | +70~85%
+Phoenix Ash :: Accessory | T6 | Attack Speed | +11~13%
+Phoenix Ash :: Accessory | T6 | Critical Damage | +400~500%
+Wraith Essence :: Weapon | T8 | Critical Damage | +600~800%
+Wraith Essence :: Weapon | T8 | Fire Damage | +100~130%
+Wraith Essence :: Armor | T7 | Block Chance | +110~130%
+Wraith Essence :: Armor | T7 | Max HP | +180~210
+Wraith Essence :: Accessory | T7 | HP Per Hit | +7~9
+Wraith Essence :: Accessory | T7 | Critical Damage | +500~600%
+Kraken Ink :: Weapon | T8 | Cold Damage | +100~130%
+Kraken Ink :: Weapon | T8 | Area of Effect | +20~23%
+Kraken Ink :: Armor | T7 | Lightning Resistance | +35~40%
+Kraken Ink :: Armor | T7 | Dodge Chance | +110~130%
+Kraken Ink :: Accessory | T7 | HP Per Hit | +7~9
+Kraken Ink :: Accessory | T7 | Attack Damage | +30~50
+Titan Marrow :: Weapon | T8 | Attack Damage | +50~70%
+Titan Marrow :: Weapon | T8 | Fire Damage | +100~130%
+Titan Marrow :: Armor | T7 | Lightning Resistance | +35~40%
+Titan Marrow :: Armor | T7 | Damage Reduction | +85~100%
+Titan Marrow :: Accessory | T7 | HP Regen Per Sec | +500~700
+Titan Marrow :: Accessory | T7 | Max HP | +180~210
+Chaos Spore :: Weapon | T9 | Physical Damage | +130~180%
+Chaos Spore :: Weapon | T9 | Attack Damage | +100~150
+Chaos Spore :: Armor | T8 | Cold Resistance | +40~45%
+Chaos Spore :: Armor | T8 | Chaos Resistance | +40~45%
+Chaos Spore :: Accessory | T8 | Movement Speed | +45~50%
+Chaos Spore :: Accessory | T8 | HP Regen Per Sec | +700~1000
+Primordial Sap :: Weapon | T10 | Area of Effect | +28~35%
+Primordial Sap :: Weapon | T10 | Fire Damage | +180~250%
+Primordial Sap :: Armor | T9 | Chaos Resistance | +45~50%
+Primordial Sap :: Armor | T9 | HP Regen Per Sec | +1000~1500
+Primordial Sap :: Accessory | T9 | Cast Speed | +35~40%
+Primordial Sap :: Accessory | T9 | Movement Speed | +50~55%
+Eldritch Venom :: Weapon | T10 | HP Per Hit | +10~12
+Eldritch Venom :: Weapon | T10 | Attack Speed | +20~25%
+Eldritch Venom :: Armor | T9 | Block Chance | +160~200%
+Eldritch Venom :: Armor | T9 | Armor | +50~55%
+Eldritch Venom :: Accessory | T9 | Critical Chance | +50~55%
+Eldritch Venom :: Accessory | T9 | Cooldown Reduction | +13~14.5%
+Chaso Dice :: Weapon | T10 | Critical Chance | +25~30%
+Chaso Dice :: Weapon | T10 | Attack Damage | +150~300
+Chaso Dice :: Armor | T10 | Max HP | +270~300
+Chaso Dice :: Armor | T10 | Damage Absorption | +60~80
+Chaso Dice :: Accessory | T10 | Cast Speed | +40~50%
+Chaso Dice :: Accessory | T10 | Attack Damage | +150~300
+Void Tendril :: Weapon | T10 | Attack Damage | +100~150%
+Void Tendril :: Weapon | T10 | Critical Damage | +1000~1500%
+Void Tendril :: Armor | T10 | Fire Resistance | +50~55%
+Void Tendril :: Armor | T10 | Cooldown Reduction | +14.5~16%
+Void Tendril :: Accessory | T10 | Max HP | +270~300
+Void Tendril :: Accessory | T10 | Critical Chance | +55~60%
+Scroll of Uncommon Inscription :: ANY | T2 | Attack Damage | +2~10
+Scroll of Uncommon Inscription :: ANY | T2 | Attack Damage | +10~25%
+Scroll of Uncommon Inscription :: ANY | T2 | Dodge Chance | +35~70%
+Scroll of Uncommon Inscription :: ANY | T2 | Block Chance | +35~70%
+Scroll of Uncommon Inscription :: ANY | T2 | Max HP | +30~120
+Scroll of Uncommon Inscription :: ANY | T2 | Cooldown Reduction | +2.5~7%
+Scroll of Uncommon Inscription :: ANY | T2 | Critical Chance | +15~30%
+Scroll of Uncommon Inscription :: ANY | T2 | Critical Damage | +150~300%
+Scroll of Uncommon Inscription :: ANY | T2 | Physical Damage | +20~50%
+Scroll of Uncommon Inscription :: ANY | T2 | Fire Damage | +20~50%
+Scroll of Uncommon Inscription :: ANY | T2 | Cold Damage | +20~50%
+Scroll of Uncommon Inscription :: ANY | T2 | Lightning Damage | +20~50%
+Scroll of Uncommon Inscription :: ANY | T2 | Fire Resistance | +10~25%
+Scroll of Uncommon Inscription :: ANY | T2 | Cold Resistance | +10~25%
+Scroll of Uncommon Inscription :: ANY | T2 | Lightning Resistance | +10~25%
+Scroll of Uncommon Inscription :: ANY | T2 | HP Regen Per Sec | +150~300
+Scroll of Rare Inscription :: ANY | T3 | Attack Damage | +3~15
+Scroll of Rare Inscription :: ANY | T3 | Attack Damage | +15~30%
+Scroll of Rare Inscription :: ANY | T3 | Armor | +100~250
+Scroll of Rare Inscription :: ANY | T3 | Armor | +20~35%
+Scroll of Rare Inscription :: ANY | T3 | Max HP | +60~150
+Scroll of Rare Inscription :: ANY | T3 | Attack Speed | +6~11%
+Scroll of Rare Inscription :: ANY | T3 | Cast Speed | +12~20%
+Scroll of Rare Inscription :: ANY | T3 | Area of Effect | +9~14%
+Scroll of Rare Inscription :: ANY | T3 | Increase Area Of Effect Damage | +30~60%
+Scroll of Rare Inscription :: ANY | T3 | Increase Melee Damage | +30~60%
+Scroll of Rare Inscription :: ANY | T3 | Increase Projectile Damage | +30~60%
+Scroll of Rare Inscription :: ANY | T3 | Increase Summon Damage | +30~60%
+Scroll of Rare Inscription :: ANY | T3 | Fire Resistance | +15~30%
+Scroll of Rare Inscription :: ANY | T3 | Cold Resistance | +15~30%
+Scroll of Rare Inscription :: ANY | T3 | Lightning Resistance | +15~30%
+Scroll of Rare Inscription :: ANY | T3 | HP Per Hit | +1~7
+Scroll of Legendary Inscription :: ANY | T4 | Attack Damage | +6~30
+Scroll of Legendary Inscription :: ANY | T4 | Attack Damage | +20~40%
+Scroll of Legendary Inscription :: ANY | T4 | Armor | +150~300
+Scroll of Legendary Inscription :: ANY | T4 | Armor | +25~40%
+Scroll of Legendary Inscription :: ANY | T4 | Dodge Chance | +55~110%
+Scroll of Legendary Inscription :: ANY | T4 | Block Chance | +55~110%
+Scroll of Legendary Inscription :: ANY | T4 | Max HP | +90~180
+Scroll of Legendary Inscription :: ANY | T4 | Cooldown Reduction | +5.5~10%
+Scroll of Legendary Inscription :: ANY | T4 | Critical Chance | +25~40%
+Scroll of Legendary Inscription :: ANY | T4 | Critical Damage | +250~500%
+Scroll of Legendary Inscription :: ANY | T4 | Physical Damage | +40~80%
+Scroll of Legendary Inscription :: ANY | T4 | Fire Damage | +40~80%
+Scroll of Legendary Inscription :: ANY | T4 | Cold Damage | +40~80%
+Scroll of Legendary Inscription :: ANY | T4 | Lightning Damage | +40~80%
+Scroll of Legendary Inscription :: ANY | T4 | Fire Resistance | +20~35%
+Scroll of Legendary Inscription :: ANY | T4 | Cold Resistance | +20~35%
+Scroll of Legendary Inscription :: ANY | T4 | Lightning Resistance | +20~35%
+Scroll of Legendary Inscription :: ANY | T4 | HP Regen Per Sec | +250~500
+Scroll of Celestial Inscription :: ANY | T8 | Attack Damage | +50~300
+Scroll of Celestial Inscription :: ANY | T8 | Attack Damage | +50~150%
+Scroll of Celestial Inscription :: ANY | T8 | Armor | +350~500
+Scroll of Celestial Inscription :: ANY | T8 | Armor | +45~60%
+Scroll of Celestial Inscription :: ANY | T8 | Max HP | +30~50%
+Scroll of Celestial Inscription :: ANY | T8 | Critical Chance | +45~60%
+Scroll of Celestial Inscription :: ANY | T8 | Critical Damage | +600~1500%
+Scroll of Celestial Inscription :: ANY | T8 | Skill Duration Increase | +36~50%
+Scroll of Celestial Inscription :: ANY | T8 | Increase Area Of Effect Damage | +100~250%
+Scroll of Celestial Inscription :: ANY | T8 | Increase Melee Damage | +100~250%
+Scroll of Celestial Inscription :: ANY | T8 | Increase Projectile Damage | +100~250%
+Scroll of Celestial Inscription :: ANY | T8 | Increase Summon Damage | +100~250%
+Scroll of Celestial Inscription :: ANY | T8 | Fire Resistance | +40~55%
+Scroll of Celestial Inscription :: ANY | T8 | Cold Resistance | +40~55%
+Scroll of Celestial Inscription :: ANY | T8 | Lightning Resistance | +40~55%
+Scroll of Celestial Inscription :: ANY | T8 | Chaos Resistance | +40~55%
+Scroll of Celestial Inscription :: ANY | T8 | HP Per Hit | +8~12
+Scroll of Divine Inscription :: ANY | T9 | Attack Damage | +100~300
+Scroll of Divine Inscription :: ANY | T9 | Attack Damage | +70~150%
+Scroll of Divine Inscription :: ANY | T9 | Armor | +400~500
+Scroll of Divine Inscription :: ANY | T9 | Armor | +50~60%
+Scroll of Divine Inscription :: ANY | T9 | Max HP | +240~300
+Scroll of Divine Inscription :: ANY | T9 | Attack Speed | +17~25%
+Scroll of Divine Inscription :: ANY | T9 | Cast Speed | +35~50%
+Scroll of Divine Inscription :: ANY | T9 | Physical Damage | +130~250%
+Scroll of Divine Inscription :: ANY | T9 | Fire Damage | +130~250%
+Scroll of Divine Inscription :: ANY | T9 | Cold Damage | +130~250%
+Scroll of Divine Inscription :: ANY | T9 | Lightning Damage | +130~250%
+Scroll of Divine Inscription :: ANY | T9 | Fire Resistance | +45~55%
+Scroll of Divine Inscription :: ANY | T9 | Cold Resistance | +45~55%
+Scroll of Divine Inscription :: ANY | T9 | Lightning Resistance | +45~55%
+Scroll of Divine Inscription :: ANY | T9 | Chaos Resistance | +45~55%
+Scroll of Divine Inscription :: ANY | T9 | HP Regen Per Sec | +1000~2000
+Scroll of Divine Inscription :: ANY | T9 | Skill Heal Increase | +40.6~50%
+Scroll of Cosmic Inscription :: ANY | T10 | Attack Damage | +150~300
+Scroll of Cosmic Inscription :: ANY | T10 | Attack Damage | +100~150%
+Scroll of Cosmic Inscription :: ANY | T10 | Max HP | +270~300
+Scroll of Cosmic Inscription :: ANY | T10 | Max HP | +40~50%
+Scroll of Cosmic Inscription :: ANY | T10 | Dodge Chance | +200~300%
+Scroll of Cosmic Inscription :: ANY | T10 | Block Chance | +200~300%
+Scroll of Cosmic Inscription :: ANY | T10 | Attack Speed | +20~25%
+Scroll of Cosmic Inscription :: ANY | T10 | Cast Speed | +40~50%
+Scroll of Cosmic Inscription :: ANY | T10 | Area of Effect | +28~35%
+Scroll of Cosmic Inscription :: ANY | T10 | Cooldown Reduction | +14.5~16%
+Scroll of Cosmic Inscription :: ANY | T10 | Skill Duration Increase | +45.3~50%
+Scroll of Cosmic Inscription :: ANY | T10 | Movement Speed | +76~83
+Scroll of Cosmic Inscription :: ANY | T10 | Movement Speed | +55~60%
+Scroll of Cosmic Inscription :: ANY | T10 | Critical Chance | +55~60%
+Scroll of Cosmic Inscription :: ANY | T10 | Critical Damage | +1000~1500%
+Scroll of Cosmic Inscription :: ANY | T10 | All Elemental Resistance | +25~30%
+Scroll of Cosmic Inscription :: ANY | T10 | Chaos Resistance | +50~55%
+Scroll of Cosmic Inscription :: ANY | T10 | Life Leech | +50~65%
