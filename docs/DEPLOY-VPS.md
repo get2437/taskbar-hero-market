@@ -40,7 +40,7 @@
 3. 契約時に **root パスワード** を設定。VPSの **IPアドレス** を控える。210.131.223.41
 4. 手元のPCからSSH接続（初期ユーザーは root / ポート22）:
    ```bash
-   ssh root@<VPSのIP>
+   ssh root@210.131.223.41
    ```
 
 > **重要（Xserver固有）**: Xserver VPSは**コントロールパネルの「パケットフィルター」**という独自ファイアウォールがあります。まず §1.5 でこれを設定しないと、SSH以外（HTTP/HTTPS）が通らない、または逆に全開放のままになります。
@@ -55,7 +55,7 @@ rsync --archive --chown=deploy:deploy ~/.ssh /home/deploy
 以降は `deploy` ユーザーでログインし直します:
 ```bash
 exit
-ssh deploy@<VPSのIP>
+ssh deploy@210.131.223.41
 ```
 
 ---
@@ -122,11 +122,11 @@ docker compose version            # v2 が出ればOK
 2. DNSの **Aレコード** を VPS の IP に向ける:
    | ホスト | 種類 | 値 |
    |---|---|---|
-   | `@`（または `taskbarhero`） | A | `<VPSのIP>` |
+   | `@`（または `taskbarhero`） | A | `<VPSのIP>` |taskbarhero.space
    | `www`（任意） | A | `<VPSのIP>` |
 3. 反映確認（数分〜数十分）:
    ```bash
-   dig +short <あなたのドメイン>     # VPSのIPが返ればOK
+   dig +short taskbarhero.space     # VPSのIPが返ればOK
    ```
 
 ---
@@ -139,13 +139,13 @@ docker compose version            # v2 が出ればOK
 # 手元のプロジェクトフォルダで
 git init && git add -A && git commit -m "init"
 git branch -M main
-git remote add origin git@github.com:<you>/taskbar-hero-market.git
+git remote add origin git@github.com:get2437/taskbar-hero-market.git
 git push -u origin main
 ```
 VPS側:
 ```bash
 cd ~
-git clone https://github.com/<you>/taskbar-hero-market.git
+git clone https://github.com/get2437/taskbar-hero-market.git
 cd taskbar-hero-market
 ```
 
@@ -217,6 +217,7 @@ DISCORD_WEBHOOK_URL=
 ## 6. 起動（ここが本番の山場）
 
 ```bash
+★ここが上手くいかなかった
 docker compose up -d --build       # 初回はビルドに時間がかかる（2GBプランはスワップ利用で5-15分・固まらず通る）
 docker compose ps                  # 4サービスが Up / healthy になるか確認
 docker compose logs -f app         # appの起動ログを追う

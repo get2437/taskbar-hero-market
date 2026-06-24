@@ -5,6 +5,7 @@ import { getTranslator } from "@/lib/i18n/server";
 import { getLastUpdated } from "@/lib/queries";
 import { AdBanner } from "@/components/ads";
 import { LiveRefresh } from "@/components/live-refresh";
+import { safeJsonLd } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +33,7 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-4">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(siteLd) }} />
       <LiveRefresh />
       <div>
         <h1 className="text-2xl font-bold">{t("items.title")}</h1>

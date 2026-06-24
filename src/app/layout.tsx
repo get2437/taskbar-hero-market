@@ -20,7 +20,8 @@ const ANALYTICS_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const ANALYTICS_SRC = process.env.NEXT_PUBLIC_PLAUSIBLE_SRC ?? "https://plausible.io/js/script.js";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  // `||` で空文字もフォールバック (Docker build は未設定時に空文字を渡すため。`??` だと new URL("") で失敗)
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: {
     default: "Taskbar Hero Market Analytics",
     template: "%s · Taskbar Hero Market",

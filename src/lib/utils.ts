@@ -6,6 +6,19 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /**
+ * JSON-LD を <script type="application/ld+json"> に埋め込む際の安全な文字列化。
+ * JSON.stringify は < / > / & を逃がさないため、item名等に "</script>" が含まれると
+ * タグを突破される。HTML的に危険な文字を \u エスケープして無害化する
+ * (ld+json は実行されないデータなので U+2028/2029 のエスケープは不要)。
+ */
+export function safeJsonLd(obj: unknown): string {
+  return JSON.stringify(obj)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026");
+}
+
+/**
  * 価格は「最小通貨単位 (Int)」で保持している。
  * JPY(23) は最小単位=1円なので 12300 -> "¥12,300"。
  * USD(1) は最小単位=セントなので 1234 -> "$12.34"。

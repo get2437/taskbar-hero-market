@@ -21,7 +21,7 @@ import { ItemTable } from "@/components/item-table";
 import { LiveRefresh } from "@/components/live-refresh";
 import { AdInContent } from "@/components/ads";
 import { GradeBadge, PriceChange, RecBadge, ItemThumb } from "@/components/domain";
-import { formatNumber, formatDateTime, formatBps, cn, priceParts } from "@/lib/utils";
+import { formatNumber, formatDateTime, formatBps, cn, priceParts, safeJsonLd } from "@/lib/utils";
 import { getMoney } from "@/lib/money/server";
 
 const STEAM_APP_ID = Number(process.env.NEXT_PUBLIC_STEAM_APP_ID ?? process.env.STEAM_APP_ID ?? 3678970);
@@ -96,7 +96,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
 
   return (
     <div className="space-y-4">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(productLd) }} />
       <Link
         href="/"
         className="sticky top-[64px] z-20 inline-flex w-fit items-center gap-1.5 self-start rounded-lg border bg-card px-3.5 py-2 text-sm font-semibold shadow-md hover:bg-accent hover:border-primary"
