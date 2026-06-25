@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import {
-  LayoutDashboard, List, Star, TrendingUp, AlertTriangle, Settings, Moon, Sun, Bell, Activity, Newspaper, Sword, Gem,
+  LayoutDashboard, List, Star, TrendingUp, AlertTriangle, Settings, Moon, Sun, Bell, Activity, Newspaper, Sword, Gem, BarChart3,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ const NAV = [
   { href: "/favorites", key: "nav.favorites", icon: Star },
   { href: "/anomalies", key: "nav.anomalies", icon: AlertTriangle },
   { href: "/news", key: "nav.news", icon: Newspaper },
+  { href: "/analytics", key: "nav.analytics", icon: BarChart3 },
   { href: "/admin", key: "nav.admin", icon: Settings },
 ];
 

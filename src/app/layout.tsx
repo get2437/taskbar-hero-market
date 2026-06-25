@@ -12,6 +12,7 @@ import { MoneyProvider } from "@/lib/money/provider";
 import { getMoney } from "@/lib/money/server";
 import { ADS_ENABLED, ADSENSE_CLIENT } from "@/lib/ads/config";
 import { ConsentBanner } from "@/components/consent-banner";
+import { PageViewTracker } from "@/components/page-view-tracker";
 
 const LOAD_ADSENSE = ADS_ENABLED && !!ADSENSE_CLIENT;
 
@@ -78,6 +79,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 </div>
               </div>
               <ConsentBanner />
+              <PageViewTracker />
             </ModeProvider>
             </MoneyProvider>
           </I18nProvider>
