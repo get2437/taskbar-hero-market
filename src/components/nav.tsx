@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import {
-  LayoutDashboard, List, Star, TrendingUp, AlertTriangle, Settings, Moon, Sun, Bell, Activity, Newspaper, Sword, Gem, BarChart3,
+  LayoutDashboard, List, Star, TrendingUp, AlertTriangle, Settings, Moon, Sun, Bell, Activity, Newspaper, Sword, Gem, BarChart3, Menu, X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -105,20 +105,36 @@ export function Sidebar() {
 export function Topbar() {
   const pathname = usePathname();
   const { t } = useT();
+  const [open, setOpen] = useState(false);
+
+  // ルート変更でドロワーを閉じる
+  useEffect(() => setOpen(false), [pathname]);
+  // ドロワー表示中は背面スクロールを抑制
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur">
-      {/* モバイル用の簡易ナビ (狭幅では縮小して横スクロール) */}
-      <nav className="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto md:hidden">
-        {NAV.map((n) => {
-          const active = n.href === "/" ? pathname === "/" : pathname.startsWith(n.href);
-          return (
-            <Link key={n.href} href={n.href} className={cn("rounded p-2", active ? "text-primary" : "text-muted-foreground")} aria-label={t(n.key)}>
-              <n.icon className="h-5 w-5" />
-            </Link>
-          );
-        })}
-      </nav>
-      <div className="hidden md:block text-sm text-muted-foreground">{t("app.tagline")}</div>
+      <div className="flex min-w-0 flex-1 items-center gap-2">
+        {/* モバイル: ハンバーガー → ドロワー */}
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label={t("nav.menu")}
+          aria-expanded={open}
+          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground md:hidden"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+        <Link href="/" className="flex min-w-0 items-center gap-2 md:hidden">
+          <Activity className="h-5 w-5 shrink-0 text-primary" />
+          <span className="truncate font-bold">Taskbar Hero</span>
+        </Link>
+        <div className="hidden text-sm text-muted-foreground md:block">{t("app.tagline")}</div>
+      </div>
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
         <LiveIndicator />
         <NotificationBell />
@@ -126,6 +142,48 @@ export function Topbar() {
         <CurrencySelector />
         <LanguageSelector />
       </div>
+
+      {/* モバイル用ドロワー */}
+      {open && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(false)} aria-hidden="true" />
+          <div className="absolute left-0 top-0 flex h-full w-64 max-w-[80%] flex-col border-r bg-card shadow-xl">
+            <div className="flex h-14 shrink-0 items-center justify-between border-b px-4">
+              <span className="flex items-center gap-2 font-bold leading-tight">
+                <Activity className="h-5 w-5 text-primary" />
+                Taskbar Hero
+              </span>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label={t("common.close")}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <nav className="flex-1 space-y-1 overflow-y-auto p-2">
+              {NAV.map((n) => {
+                const active = n.href === "/" ? pathname === "/" : pathname.startsWith(n.href);
+                return (
+                  <Link
+                    key={n.href}
+                    href={n.href}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                      active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                    )}
+                  >
+                    <n.icon className="h-4 w-4" />
+                    {t(n.key)}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

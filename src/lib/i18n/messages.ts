@@ -57,6 +57,8 @@ export const messages: Record<string, M> = {
   "cond.VOLUME_SPIKE": { en: "Volume spike", ja: "出来高急増", ko: "거래량 급증", zh: "成交量激增", ru: "Всплеск объёма", pt: "Pico de volume", es: "Pico de volumen", fr: "Pic de volume", de: "Volumen-Spitze" },
   "nav.news": { en: "News", ja: "ニュース", ko: "뉴스", zh: "新闻", ru: "Новости", pt: "Notícias", es: "Noticias", fr: "Actualités", de: "News" },
   "nav.admin": { en: "Admin", ja: "管理画面", ko: "관리", zh: "管理", ru: "Админ", pt: "Admin", es: "Admin", fr: "Admin", de: "Admin" },
+  "nav.menu": { en: "Menu", ja: "メニュー", ko: "메뉴", zh: "菜单", ru: "Меню", pt: "Menu", es: "Menú", fr: "Menu", de: "Menü" },
+  "common.close": { en: "Close", ja: "閉じる", ko: "닫기", zh: "关闭", ru: "Закрыть", pt: "Fechar", es: "Cerrar", fr: "Fermer", de: "Schließen" },
   "app.tagline": { en: "Stock-style analytics for the Steam Market", ja: "Steamマーケット版 株式分析ツール", ko: "스팀 마켓용 주식형 분석 도구", zh: "Steam 市场版股票分析工具", ru: "Биржевая аналитика для Steam Маркета", pt: "Análise estilo bolsa para o Mercado da Steam", es: "Análisis estilo bolsa para el Mercado de Steam", fr: "Analyse boursière pour le marché Steam", de: "Börsen-Analyse für den Steam-Markt" },
 
   // 購入/販売モード
