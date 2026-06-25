@@ -55,3 +55,20 @@ export function formatMoney(
   }).format(value);
   return currency === "JPY" ? s : "≈" + s; // ≈ (換算値)
 }
+
+/**
+ * 価格の出所はSteamのUSD建て。その換算基準を「$1 ≈ <選択通貨>」で表す。
+ * USD選択時は換算なし(原価)なので null。FX由来なので常に ≈ 付き。
+ */
+export function usdRateLabel(currency: Currency, rates: Record<string, number>): string | null {
+  if (currency === "USD") return null;
+  const r = rates ?? STATIC_RATES;
+  const per = r[currency] ?? STATIC_RATES[currency]; // 1 USD = per (選択通貨), rates は USD 基準
+  const m = META[currency];
+  const s = new Intl.NumberFormat(m.locale, {
+    style: "currency",
+    currency,
+    maximumFractionDigits: m.dec === 0 ? 0 : 2,
+  }).format(per);
+  return `$1≈${s}`;
+}
