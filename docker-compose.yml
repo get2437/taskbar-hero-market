@@ -61,6 +61,8 @@ services:
       ADMIN_TOKEN: ${ADMIN_TOKEN:-change_me_admin_token}
       MARKET_REFRESH_CRON: ${MARKET_REFRESH_CRON:-*/15 * * * *}
       DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      # ニュース自動翻訳 (管理画面の手動更新で呼ばれる経路用)。
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       SEED_ON_START: ${SEED_ON_START:-true}
       NODE_ENV: production
       SENTRY_DSN: ${SENTRY_DSN:-}
@@ -95,6 +97,8 @@ services:
       # ステータス(説明文)の更新間隔。既定 24h。初回/アップグレード時は DESC_REFRESH_ON_START=true で起動後1回取得。
       DESC_REFRESH_MS: ${DESC_REFRESH_MS:-86400000}
       DESC_REFRESH_ON_START: ${DESC_REFRESH_ON_START:-false}
+      # ニュース自動翻訳 (Claude API)。未設定なら翻訳せず英語のまま表示。
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
       SEED_ON_START: "false"
       NODE_ENV: production
       SENTRY_DSN: ${SENTRY_DSN:-}
