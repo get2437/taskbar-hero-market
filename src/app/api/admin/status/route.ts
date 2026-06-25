@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { isAdmin } from "@/lib/admin-auth";
 import { monitoringStatus } from "@/lib/monitoring";
+import { refreshState } from "@/lib/refresh-state";
 
 export const dynamic = "force-dynamic";
 
@@ -20,6 +21,7 @@ export async function GET(req: NextRequest) {
     counts: { itemCount, snapshotCount, historyCount, anomalyCount },
     lastUpdated: lastLatest?.fetchedAt ?? null,
     monitoring: monitoringStatus(),
+    refresh: refreshState,
     logs,
   });
 }
