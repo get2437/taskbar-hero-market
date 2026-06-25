@@ -10,6 +10,8 @@
  */
 import { classify, parseSteamPrice } from "./classify";
 import { steamFetch } from "./http";
+import { getRates } from "@/lib/fx";
+import { STATIC_RATES } from "@/lib/money";
 
 const APP_ID = Number(process.env.STEAM_APP_ID ?? 1056450);
 const CURRENCY = Number(process.env.STEAM_CURRENCY ?? 8);
@@ -38,6 +40,7 @@ interface SearchResult {
   name: string;
   hash_name: string;
   sell_listings: number;
+  sell_price: number; // 最安出品価格 (USDセント。検索APIは currency を無視し常にUSD)
   sell_price_text: string;
   asset_description?: {
     icon_url?: string;
@@ -56,15 +59,26 @@ async function getJson(url: string): Promise<any> {
   return res.json();
 }
 
-/** マーケット検索を全ページ走査してアイテム一覧を返す。 */
+/**
+ * マーケット検索を全ページ走査してアイテム一覧を返す。
+ * 注意 (実APIで確認):
+ *  - 検索APIは currency を無視し価格を常にUSD(`sell_price`=USDセント)で返す → FX で円換算して保存。
+ *  - count を 100 等にしても1ページ最大10件しか返さない → start は実取得件数ぶん進める(でないと取りこぼす)。
+ */
 export async function searchAllItems(maxItems = 2000): Promise<FetchedItem[]> {
   const out: FetchedItem[] = [];
   let start = 0;
-  const count = 100;
+  // USD→JPY 換算レート (検索価格はUSD。アプリは JPY を基軸に保持)。
+  const rates = await getRates().catch(() => STATIC_RATES);
+  const jpyPerUsd = rates.JPY || STATIC_RATES.JPY;
+  const toJpy = (usdCents: unknown): number | null => {
+    const c = typeof usdCents === "number" ? usdCents : Number(usdCents);
+    if (!Number.isFinite(c) || c <= 0) return null;
+    return Math.round((c / 100) * jpyPerUsd);
+  };
 
   while (out.length < maxItems) {
-    // currency を渡さないと Steam は既定(USD)で返し、安い素材($0.01等)が JPY 0桁丸めで ¥0 になる。
-    const url = `${BASE}/search/render/?appid=${APP_ID}&norender=1&count=${count}&start=${start}&search_descriptions=0&sort_column=popular&currency=${CURRENCY}`;
+    const url = `${BASE}/search/render/?appid=${APP_ID}&norender=1&count=100&start=${start}&search_descriptions=0&sort_column=popular`;
     const data = await getJson(url);
     const results: SearchResult[] = data?.results ?? [];
     if (!results.length) break;
@@ -75,13 +89,13 @@ export async function searchAllItems(maxItems = 2000): Promise<FetchedItem[]> {
         name: r.name,
         imageUrl: iconUrl(r.asset_description?.icon_url),
         sellListings: r.sell_listings ?? 0,
-        lowestPrice: parseSteamPrice(r.sell_price_text, FRACTION),
+        lowestPrice: toJpy(r.sell_price),
         attrs: classify(r.name),
       });
     }
 
     const total: number = data?.total_count ?? out.length;
-    start += count;
+    start += results.length; // 1ページの実取得件数ぶん進める (Steamは最大10件/ページ)
     if (start >= total) break;
     await sleep(INTERVAL);
   }
