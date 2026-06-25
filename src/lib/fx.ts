@@ -1,4 +1,6 @@
-import "server-only";
+// このモジュールはサーバ専用 (Redis/外部fetch)。client から import してはいけない。
+// `import "server-only"` は付けない: worker (tsx で生tsを実行) が fx.ts を import するが、
+// server-only は Next が内部解決する疑似モジュールで node_modules に無く、tsx で MODULE_NOT_FOUND になるため。
 import { cached, invalidate } from "@/lib/redis";
 import { captureException } from "@/lib/monitoring";
 import { CURRENCIES, STATIC_RATES, type Currency } from "@/lib/money";
