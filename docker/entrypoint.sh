@@ -1,10 +1,12 @@
 #!/bin/sh
 set -e
 
-echo "[entrypoint] Waiting for database..."
-# DATABASE_URL から host:port を抽出して待機
-until npx prisma migrate deploy 2>/dev/null; do
-  echo "[entrypoint] DB not ready / migration pending, retrying in 3s..."
+echo "[entrypoint] Waiting for database / applying migrations..."
+# DB 起動待ち + マイグレーション適用。失敗理由(DB未起動か依存不足か)が分かるよう stderr は隠さない。
+tries=0
+until npx prisma migrate deploy; do
+  tries=$((tries+1))
+  echo "[entrypoint] migrate deploy failed (attempt ${tries}). DB not ready or error above — retrying in 3s..."
   sleep 3
 done
 

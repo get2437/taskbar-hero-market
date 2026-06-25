@@ -55,12 +55,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Prisma (マイグレーション/シード/フェッチを runner で実行するため)
-COPY --from=builder /app/node_modules/.bin ./node_modules/.bin
-COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
-COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/node_modules/tsx ./node_modules/tsx
+# Prisma CLI / tsx を runner で実行 (migrate deploy・seed・fetch)。
+# prisma 6.19 の `@prisma/config` は effect / c12 等の hoist 依存を必要とし、
+# node_modules のサブフォルダだけ抜き出すと `Cannot find module 'effect'` で
+# migrate deploy が失敗し続ける(起動しない)。node_modules を丸ごとコピーして依存を完全に揃える。
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/src ./src
