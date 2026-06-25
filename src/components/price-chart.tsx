@@ -64,7 +64,7 @@ export function PriceChart({ itemId, forecast }: { itemId: string; forecast?: { 
               <Tooltip
                 contentStyle={{ background: "hsl(var(--popover))", border: "1px solid hsl(var(--border))", borderRadius: 8, fontSize: 12 }}
                 formatter={(value: any, name: any) =>
-                  name === "price" ? [fmt(value as number), t("common.price")] : [formatNumber(value as number), t("score.volume")]
+                  name === "price" ? [fmt(value as number), t("common.price")] : [formatNumber(value as number), t("chart.listings")]
                 }
                 labelStyle={{ color: "hsl(var(--muted-foreground))" }}
               />
@@ -72,7 +72,7 @@ export function PriceChart({ itemId, forecast }: { itemId: string; forecast?: { 
                 verticalAlign="top"
                 height={28}
                 wrapperStyle={{ fontSize: 12 }}
-                formatter={(value) => (value === "price" ? t("chart.lowestListing") : t("score.volume"))}
+                formatter={(value) => (value === "price" ? t("chart.lowestListing") : t("chart.listings"))}
               />
               <Bar yAxisId="vol" dataKey="quantity" fill="hsl(var(--muted-foreground))" opacity={0.4} />
               <Line yAxisId="price" type="monotone" dataKey="price" stroke="hsl(var(--primary))" strokeWidth={2.5} dot={false} />

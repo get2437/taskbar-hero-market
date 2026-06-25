@@ -11,8 +11,8 @@ const DAY = 86_400_000;
 export interface StoreOptions {
   /** スナップショット/履歴の時刻 (シードで過去日付を入れる用) */
   at?: Date;
-  /** 中間/平均/出来高を上書き (priceOverview の結果がある場合) */
-  enrich?: Map<string, { medianPrice?: number | null; averagePrice?: number | null; volume?: number }>;
+  /** 中間/平均/最高/出来高を上書き (priceOverview の結果がある場合) */
+  enrich?: Map<string, { medianPrice?: number | null; averagePrice?: number | null; highestPrice?: number | null; volume?: number }>;
 }
 
 export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}): Promise<number> {
@@ -22,7 +22,9 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
   for (const f of items) {
     const enrich = opts.enrich?.get(f.marketHashName);
     const median = enrich?.medianPrice ?? null;
-    const average = enrich?.averagePrice ?? f.lowestPrice;
+    // 検索取得では平均/最高は得られない。捏造(=最安のコピー)せず、実値が無ければ null。
+    const average = enrich?.averagePrice ?? null;
+    const highest = enrich?.highestPrice ?? null;
     const quantity = enrich?.volume ?? f.sellListings;
 
     const item = await prisma.item.upsert({
@@ -56,7 +58,7 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
       data: {
         itemId: item.id,
         lowestPrice: f.lowestPrice,
-        highestPrice: f.lowestPrice,
+        highestPrice: highest,
         medianPrice: median,
         averagePrice: average,
         quantity,
@@ -80,7 +82,7 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
       create: {
         itemId: item.id,
         lowestPrice: f.lowestPrice,
-        highestPrice: f.lowestPrice,
+        highestPrice: highest,
         medianPrice: median,
         averagePrice: average,
         quantity,
@@ -89,7 +91,7 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
       },
       update: {
         lowestPrice: f.lowestPrice,
-        highestPrice: f.lowestPrice,
+        highestPrice: highest,
         medianPrice: median,
         averagePrice: average,
         quantity,

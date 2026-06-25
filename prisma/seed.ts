@@ -195,9 +195,10 @@ async function main() {
       }
       history[history.length - 1].price = cur; // 末尾=実価格
     } else {
+      // 既定: 実価格1点のみ。最高/中間/平均は実値が無いので null (捏造しない)。
       const ts = new Date(now);
       history.push({ itemId: item.id, price: cur, quantity: todayQty, timestamp: ts });
-      snapshots.push({ itemId: item.id, lowestPrice: cur, highestPrice: Math.round(cur * 1.1), medianPrice: cur, averagePrice: cur, quantity: todayQty, createdAt: ts });
+      snapshots.push({ itemId: item.id, lowestPrice: cur, highestPrice: null, medianPrice: null, averagePrice: null, quantity: todayQty, createdAt: ts });
     }
 
     await prisma.priceHistory.createMany({ data: history });
@@ -209,13 +210,14 @@ async function main() {
     };
     await prisma.itemLatest.create({
       data: {
-        itemId: item.id, lowestPrice: cur, highestPrice: Math.round(cur * 1.1),
-        medianPrice: cur, averagePrice: cur, quantity: history[history.length - 1].quantity,
+        itemId: item.id, lowestPrice: cur, highestPrice: synthetic ? Math.round(cur * 1.1) : null,
+        medianPrice: synthetic ? cur : null, averagePrice: synthetic ? cur : null, quantity: history[history.length - 1].quantity,
         changePrev: change(1), change7d: change(7), change30d: change(30),
         fetchedAt: history[history.length - 1].timestamp,
       },
     });
-    await prisma.favoriteStat.create({ data: { itemId: item.id, total: Math.round((s.volume || 0) / 80) + randInt(0, 40), last24h: randInt(0, 20) } });
+    // お気に入り数は捏造しない。実ユーザーが付けた分だけ adjustFavoriteStat で増える。
+    await prisma.favoriteStat.create({ data: { itemId: item.id, total: 0, last24h: 0 } });
   }
 
   // デモユーザー

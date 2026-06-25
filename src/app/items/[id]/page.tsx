@@ -68,6 +68,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
   // 注文板(LIVE)から実際の最安/最高/最高買取を取得 (Redis 60秒キャッシュ)
   const book = await getOrderBook(item.marketHashName).catch(() => null);
   const lowestAsk = book?.sell?.[0]?.price ?? l?.lowestPrice ?? null;
+  // 最高出品価格は注文板(実データ)からのみ。検索取得には最高値が無いので、無ければ — 表示。
   const highestAsk = book?.sell?.length ? Math.max(...book.sell.map((r) => r.price)) : (l?.highestPrice ?? null);
   const highestBid = book?.buy?.[0]?.price ?? null;
   const related = await getRelatedItems(item).catch(() => []);
@@ -171,6 +172,9 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
         <Card>
           <CardHeader><CardTitle>{t("detail.analysis")}</CardTitle></CardHeader>
           <CardContent className="space-y-4">
+            <p className="rounded-md border border-amber-500/30 bg-amber-500/5 p-2 text-[11px] leading-snug text-muted-foreground">
+              {t("detail.estimateNote")}
+            </p>
             <div className="flex items-end justify-between">
               <div>
                 <div className="text-xs text-muted-foreground">{t("detail.investScore")}</div>

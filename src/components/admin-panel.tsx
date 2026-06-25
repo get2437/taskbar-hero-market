@@ -74,13 +74,13 @@ export function AdminPanel() {
   async function action(kind: "refresh" | "reanalyze" | "cache" | "history") {
     setMsg(null);
     if (kind === "history") {
-      if (typeof window !== "undefined" && !window.confirm("価格履歴とスナップショットを全削除します(現在価格は維持)。シードの合成データを消し、以後は実データだけで推移を積み上げます。よろしいですか?")) return;
+      if (typeof window !== "undefined" && !window.confirm("シード由来の偽データを掃除します。価格履歴/スナップショットを全削除し(現在価格は維持)、騰落率と偽の異常をクリア、お気に入り数を実件数で再計算します。以後は実データだけで積み上がります。よろしいですか?")) return;
       setBusy("history");
       try {
         const res = await fetch("/api/admin/reset-history", { method: "POST", headers: { "x-admin-token": token } });
         const data = await res.json().catch(() => null);
         if (!res.ok) setMsg({ ok: false, text: data?.error ?? "失敗しました" });
-        else setMsg({ ok: true, text: `履歴をリセットしました (履歴${data.removedHistory} / スナップショット${data.removedSnapshots} 件削除)` });
+        else setMsg({ ok: true, text: `掃除しました (履歴${data.removedHistory} / スナップショット${data.removedSnapshots} / 異常${data.clearedAnomalies} / お気に入り再計算${data.favoritesRecomputed})` });
         loadStatus();
       } catch (e) {
         setMsg({ ok: false, text: (e as Error).message });
@@ -155,7 +155,7 @@ export function AdminPanel() {
             </Button>
             <Button variant="outline" onClick={() => action("history")} disabled={running || busy != null} className="border-destructive/40 text-destructive hover:bg-destructive/10">
               {busy === "history" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-              価格履歴リセット
+              偽データ掃除
             </Button>
             <Button variant="ghost" onClick={() => loadStatus()} disabled={busy != null}>
               <Database className="h-4 w-4" /> 状況更新
