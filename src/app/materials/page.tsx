@@ -4,8 +4,9 @@ import { getTranslator } from "@/lib/i18n/server";
 import { MaterialsTable } from "@/components/materials-table";
 import { AdBanner } from "@/components/ads";
 
-// 静的データ(assets/materials.json)のみ。DB不要。
-export const dynamic = "force-static";
+// データは静的(assets/materials.json)でDB不要だが、レイアウトが cookie(通貨/言語)を読むため
+// dynamic にする。static にすると cookie を読まず通貨/言語が常に既定になる(他ページと不一致)。
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getTranslator();
