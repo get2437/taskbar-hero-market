@@ -117,73 +117,68 @@ export function Topbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur">
-      <div className="flex min-w-0 flex-1 items-center gap-2">
-        {/* モバイル: ハンバーガー → ドロワー */}
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label={t("nav.menu")}
-          aria-expanded={open}
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground md:hidden"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
-        <Link href="/" className="flex min-w-0 items-center gap-2 md:hidden">
-          <Activity className="h-5 w-5 shrink-0 text-primary" />
-          <span className="truncate font-bold">Taskbar Hero</span>
-        </Link>
-        <div className="hidden text-sm text-muted-foreground md:block">{t("app.tagline")}</div>
-      </div>
-      <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-        <LiveIndicator />
-        <NotificationBell />
-        <ThemeToggle />
-        <CurrencySelector />
-        <LanguageSelector />
-      </div>
-
-      {/* モバイル用ドロワー */}
-      {open && (
-        <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(false)} aria-hidden="true" />
-          <div className="absolute left-0 top-0 flex h-full w-64 max-w-[80%] flex-col border-r bg-card shadow-xl">
-            <div className="flex h-14 shrink-0 items-center justify-between border-b px-4">
-              <span className="flex items-center gap-2 font-bold leading-tight">
-                <Activity className="h-5 w-5 text-primary" />
-                Taskbar Hero
-              </span>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                aria-label={t("common.close")}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <nav className="flex-1 space-y-1 overflow-y-auto p-2">
-              {NAV.map((n) => {
-                const active = n.href === "/" ? pathname === "/" : pathname.startsWith(n.href);
-                return (
-                  <Link
-                    key={n.href}
-                    href={n.href}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
-                      active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-accent hover:text-foreground",
-                    )}
-                  >
-                    <n.icon className="h-4 w-4" />
-                    {t(n.key)}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
+    <>
+      <header className="sticky top-0 z-50 flex h-14 items-center justify-between border-b bg-background/80 px-4 backdrop-blur">
+        <div className="flex min-w-0 flex-1 items-center gap-2">
+          {/* モバイル: ハンバーガー (トグル。再タップで閉じる) */}
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-label={t("nav.menu")}
+            aria-expanded={open}
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground md:hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+          <Link href="/" className="flex min-w-0 items-center gap-2 md:hidden">
+            <Activity className="h-5 w-5 shrink-0 text-primary" />
+            <span className="truncate font-bold">Taskbar Hero</span>
+          </Link>
+          <div className="hidden text-sm text-muted-foreground md:block">{t("app.tagline")}</div>
         </div>
-      )}
-    </header>
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <LiveIndicator />
+          <NotificationBell />
+          <ThemeToggle />
+          <CurrencySelector />
+          <LanguageSelector />
+        </div>
+      </header>
+
+      {/* モバイル用ドロワー (ヘッダーの外=viewport基準。左からスライド。背景タップ/選択/再タップで閉じる) */}
+      <div
+        onClick={() => setOpen(false)}
+        aria-hidden={!open}
+        className={cn(
+          "fixed inset-x-0 bottom-0 top-14 z-40 bg-black/50 transition-opacity duration-200 md:hidden",
+          open ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
+      <nav
+        aria-label={t("nav.menu")}
+        className={cn(
+          "fixed bottom-0 left-0 top-14 z-40 flex w-[85%] max-w-sm flex-col overflow-y-auto border-r bg-card p-2 shadow-xl transition-transform duration-200 ease-out md:hidden",
+          open ? "translate-x-0" : "-translate-x-full",
+        )}
+      >
+        {NAV.map((n) => {
+          const active = n.href === "/" ? pathname === "/" : pathname.startsWith(n.href);
+          return (
+            <Link
+              key={n.href}
+              href={n.href}
+              onClick={() => setOpen(false)}
+              className={cn(
+                "flex items-center gap-3 rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                active ? "bg-primary/10 text-primary" : "text-foreground hover:bg-accent",
+              )}
+            >
+              <n.icon className="h-5 w-5 shrink-0" />
+              {t(n.key)}
+            </Link>
+          );
+        })}
+      </nav>
+    </>
   );
 }
