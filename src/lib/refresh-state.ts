@@ -6,7 +6,7 @@
  */
 export interface RefreshState {
   running: boolean;
-  kind: "refresh" | "reanalyze" | null;
+  kind: "refresh" | "reanalyze" | "descriptions" | null;
   startedAt: number | null;
   finishedAt: number | null;
   result: {
@@ -15,6 +15,9 @@ export interface RefreshState {
     anomalies?: number;
     notified?: number;
     skippedFetch?: boolean;
+    // 説明文クロール (ステータス/特殊ステータス取得) 用
+    updated?: number;
+    total?: number;
   } | null;
   error: string | null;
 }

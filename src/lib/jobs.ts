@@ -130,11 +130,18 @@ export async function refreshHotOrderBooks(maxItems = 8): Promise<number> {
  * 説明文由来のステータス(基礎/固有/特殊/素材効果/スロット/必要Lv/素材分類)を更新する。
  * 説明文は静的なので worker から低頻度(日次)で呼ぶ。リスティングページを逐次取得するため
  * Steamレート制限を守って interval を空ける。1件失敗してもジョブ全体は止めない。
+ *
+ * onlyMissing=true の時はステータス行(statLines)を1件も持たないアイテムだけを対象にする。
+ * 再デプロイで日次タイマーがリセットされクロールが走らない/レート制限で取りこぼした分を
+ * 起動時に安価に埋めるための「穴埋め」モード。
  */
-export async function refreshDescriptions(maxItems = 5000): Promise<{ updated: number; total: number }> {
+export async function refreshDescriptions(
+  opts: { maxItems?: number; onlyMissing?: boolean } = {},
+): Promise<{ updated: number; total: number }> {
+  const maxItems = opts.maxItems ?? 5000;
   const log = await prisma.fetchLog.create({ data: { kind: "descriptions", status: "RUNNING" } });
   const items = await prisma.item.findMany({
-    where: { active: true },
+    where: { active: true, ...(opts.onlyMissing ? { statLines: { none: {} } } : {}) },
     select: { id: true, marketHashName: true },
     take: maxItems,
   });

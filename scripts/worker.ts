@@ -50,6 +50,17 @@ async function descTick() {
   }
 }
 
+// 起動時の穴埋め: ステータス未取得のアイテムだけ説明文を取得する。
+// 日次タイマーは再デプロイでリセットされ走らないことがあるため、未取得分を毎起動で確実に埋める。
+async function descGapFill() {
+  try {
+    const r = await refreshDescriptions({ onlyMissing: true });
+    if (r.total > 0) console.log(`[worker] descriptions gap-fill: ${r.updated}/${r.total}`);
+  } catch (e) {
+    captureException(e, { source: "worker/descGapFill", level: "warning" });
+  }
+}
+
 async function main() {
   const minutes = intervalMinutes();
   console.log(
@@ -61,8 +72,10 @@ async function main() {
   setInterval(hotTick, HOT_INTERVAL_MS); // 閲覧中銘柄を高頻度で最新化
   setInterval(descTick, DESC_INTERVAL_MS); // 説明文(ステータス)を日次で最新化
   setInterval(() => refreshRates().catch((e) => captureException(e, { source: "worker/fx", level: "warning" })), 12 * 3_600_000); // 為替を12時間毎
-  // 初回デプロイ時は seed 後の取りこぼし対策に起動後1回実行 (Steam負荷を避け60秒遅延)
+  // 初回デプロイ時は seed 後の取りこぼし対策に起動後1回フル取得 (Steam負荷を避け60秒遅延)
   if (DESC_ON_START) setTimeout(descTick, 60_000);
+  // フル取得しない場合でも、ステータス未取得アイテムは毎起動で穴埋めする (90秒遅延で重複起動を回避)
+  else setTimeout(descGapFill, 90_000);
 }
 
 main();

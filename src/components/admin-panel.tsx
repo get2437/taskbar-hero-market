@@ -9,10 +9,10 @@ import { formatNumber, formatDateTime } from "@/lib/utils";
 
 interface RefreshInfo {
   running: boolean;
-  kind: "refresh" | "reanalyze" | null;
+  kind: "refresh" | "reanalyze" | "descriptions" | null;
   startedAt: number | null;
   finishedAt: number | null;
-  result: { fetched?: number; analyzed?: number; anomalies?: number; notified?: number; skippedFetch?: boolean } | null;
+  result: { fetched?: number; analyzed?: number; anomalies?: number; notified?: number; skippedFetch?: boolean; updated?: number; total?: number } | null;
   error: string | null;
 }
 
@@ -58,10 +58,14 @@ export function AdminPanel() {
       if (r.error) setMsg({ ok: false, text: `失敗: ${r.error}` });
       else if (r.result) {
         const d = r.result;
-        setMsg({
-          ok: true,
-          text: `完了: 取得${d.fetched ?? 0} / 分析${d.analyzed ?? 0} / 異常${d.anomalies ?? 0} / 通知${d.notified ?? 0}${d.skippedFetch ? " (取得スキップ)" : ""}`,
-        });
+        if (r.kind === "descriptions") {
+          setMsg({ ok: true, text: `ステータス取得 完了: ${d.updated ?? 0}/${d.total ?? 0} 件更新` });
+        } else {
+          setMsg({
+            ok: true,
+            text: `完了: 取得${d.fetched ?? 0} / 分析${d.analyzed ?? 0} / 異常${d.anomalies ?? 0} / 通知${d.notified ?? 0}${d.skippedFetch ? " (取得スキップ)" : ""}`,
+          });
+        }
       }
     }
   }, [status, loadStatus]);
@@ -71,8 +75,24 @@ export function AdminPanel() {
     if (typeof window !== "undefined") localStorage.setItem("adminToken", v);
   }
 
-  async function action(kind: "refresh" | "reanalyze" | "cache" | "history") {
+  async function action(kind: "refresh" | "reanalyze" | "cache" | "history" | "descriptions") {
     setMsg(null);
+    if (kind === "descriptions") {
+      try {
+        const res = await fetch("/api/admin/refresh-descriptions", { method: "POST", headers: { "x-admin-token": token } });
+        const data = await res.json().catch(() => null);
+        if (!res.ok) {
+          setMsg({ ok: false, text: data?.error ?? "失敗しました" });
+          return;
+        }
+        if (data?.started === false && data?.running) setMsg({ ok: true, text: "既に処理が進行中です" });
+        else setMsg({ ok: true, text: "ステータス取得を開始しました（全件で数十分かかります）" });
+        loadStatus();
+      } catch (e) {
+        setMsg({ ok: false, text: (e as Error).message });
+      }
+      return;
+    }
     if (kind === "history") {
       if (typeof window !== "undefined" && !window.confirm("シード由来の偽データを掃除します。価格履歴/スナップショットを全削除し(現在価格は維持)、騰落率と偽の異常をクリア、お気に入り数を実件数で再計算します。以後は実データだけで積み上がります。よろしいですか?")) return;
       setBusy("history");
@@ -149,6 +169,10 @@ export function AdminPanel() {
               {running && runningKind === "reanalyze" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Activity className="h-4 w-4" />}
               再分析のみ
             </Button>
+            <Button variant="secondary" onClick={() => action("descriptions")} disabled={running || busy != null}>
+              {running && runningKind === "descriptions" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Database className="h-4 w-4" />}
+              ステータス取得 (特殊ステータス/Lv)
+            </Button>
             <Button variant="outline" onClick={() => action("cache")} disabled={running || busy != null}>
               {busy === "cache" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
               キャッシュ削除
@@ -164,7 +188,11 @@ export function AdminPanel() {
           {running && (
             <p className="flex items-center gap-2 text-sm text-muted-foreground">
               <Loader2 className="h-4 w-4 animate-spin" />
-              {runningKind === "refresh" ? "取得+分析を実行中…（数分かかります。画面を離れても継続します）" : "再分析を実行中…"}
+              {runningKind === "refresh"
+                ? "取得+分析を実行中…（数分かかります。画面を離れても継続します）"
+                : runningKind === "descriptions"
+                  ? "ステータス取得を実行中…（全件で数十分。画面を離れても継続します）"
+                  : "再分析を実行中…"}
             </p>
           )}
           {msg && (
