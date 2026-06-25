@@ -63,7 +63,8 @@ export async function searchAllItems(maxItems = 2000): Promise<FetchedItem[]> {
   const count = 100;
 
   while (out.length < maxItems) {
-    const url = `${BASE}/search/render/?appid=${APP_ID}&norender=1&count=${count}&start=${start}&search_descriptions=0&sort_column=popular`;
+    // currency を渡さないと Steam は既定(USD)で返し、安い素材($0.01等)が JPY 0桁丸めで ¥0 になる。
+    const url = `${BASE}/search/render/?appid=${APP_ID}&norender=1&count=${count}&start=${start}&search_descriptions=0&sort_column=popular&currency=${CURRENCY}`;
     const data = await getJson(url);
     const results: SearchResult[] = data?.results ?? [];
     if (!results.length) break;

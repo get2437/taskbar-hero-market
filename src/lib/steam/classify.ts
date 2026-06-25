@@ -55,14 +55,17 @@ export function classify(name: string): ClassifiedAttrs {
   else if (/earring|earing/i.test(name)) part = "EARRING";
   else if (/ring/i.test(name)) part = "RING";
 
-  let classType: ClassType;
-  if (/priest|cleric|holy|sacred/i.test(name)) classType = "PRIEST";
-  else if (/hunter/i.test(name)) classType = "HUNTER";
-  else if (/ranger|bow|arrow/i.test(name)) classType = "RANGER";
-  else if (/sorcer|mage|wizard|arcane|staff|scepter|tome|orb|wand/i.test(name)) classType = "SORCERER";
-  else if (/knight|guard|fighter|warrior|sword|lance/i.test(name)) classType = "KNIGHT";
-  else if (/slayer|assassin|rogue|dagger/i.test(name)) classType = "SLAYER";
-  else classType = CLASSES[seed % CLASSES.length];
+  // クラスは武器(メイン/サブ)のみ。防具・装飾はクラス非依存なので NONE。
+  let classType: ClassType = "NONE";
+  if (part === "MAIN_WEAPON" || part === "SUB_WEAPON") {
+    if (/priest|cleric|holy|sacred/i.test(name)) classType = "PRIEST";
+    else if (/hunter/i.test(name)) classType = "HUNTER";
+    else if (/ranger|bow|arrow/i.test(name)) classType = "RANGER";
+    else if (/sorcer|mage|wizard|arcane|staff|scepter|tome|orb|wand/i.test(name)) classType = "SORCERER";
+    else if (/knight|guard|fighter|warrior|sword|lance/i.test(name)) classType = "KNIGHT";
+    else if (/slayer|assassin|rogue|dagger/i.test(name)) classType = "SLAYER";
+    else classType = CLASSES[seed % CLASSES.length];
+  }
 
   const level = LEVELS[seed % LEVELS.length];
   return { type: "GEAR", part, grade, classType, level };
