@@ -92,7 +92,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
       <div className="rounded-lg border bg-card p-3">
         <div className="flex items-start justify-between gap-2">
           <Link href={`/items/${it.id}`} className="flex min-w-0 items-center gap-2">
-            <ItemThumb src={null} alt={it.name} size={32} />
+            <ItemThumb src={it.imageUrl} alt={it.name} size={32} />
             <div className="min-w-0">
               <div className="truncate text-sm font-medium hover:underline">{it.name}</div>
               <div className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground">
