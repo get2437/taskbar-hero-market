@@ -198,6 +198,7 @@ export async function getGearTable() {
     select: {
       id: true,
       name: true,
+      imageUrl: true,
       grade: true,
       part: true,
       classType: true,
@@ -233,6 +234,7 @@ export async function getGearTable() {
     return {
       id: it.id,
       name: it.name,
+      imageUrl: it.imageUrl,
       grade: it.grade,
       part: it.part,
       classType: it.classType,
