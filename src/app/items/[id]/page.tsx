@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { BackButton } from "@/components/back-button";
 import { getItemDetail, getRecentTrades, getRelatedItems } from "@/lib/queries";
 import { getCurrentUserId } from "@/lib/session";
 import { isFavorited } from "@/lib/favorites";
@@ -97,12 +97,10 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
   return (
     <div className="space-y-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(productLd) }} />
-      <Link
-        href="/"
-        className="sticky top-[64px] z-20 inline-flex w-fit items-center gap-1.5 self-start rounded-lg border bg-card px-3.5 py-2 text-sm font-semibold shadow-md hover:bg-accent hover:border-primary"
-      >
-        <ArrowLeft className="h-4 w-4" /> {t("detail.back")}
-      </Link>
+      <BackButton
+        label={t("detail.back")}
+        className="sticky top-[64px] z-20 inline-flex w-fit cursor-pointer items-center gap-1.5 self-start rounded-lg border bg-card px-3.5 py-2 text-sm font-semibold shadow-md hover:bg-accent hover:border-primary"
+      />
 
       {/* ヘッダ */}
       <div className="flex flex-wrap items-start gap-4">

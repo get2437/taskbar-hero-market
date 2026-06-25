@@ -100,22 +100,23 @@ export function ItemsBrowser() {
   const sp = useSearchParams();
   // C: 詳細のステータスから飛んできたとき、URL の statKeys/matCategories を初期フィルタにする
   const initCsv = (key: string) => (sp.get(key) ? sp.get(key)!.split(",").filter(Boolean) : []);
-  const [q, setQ] = useState("");
+  // 全フィルタを URL から初期化 (アイテム詳細→戻る でフィルタを保持するため)
+  const [q, setQ] = useState(() => sp.get("q") ?? "");
   const debouncedQ = useDebounced(q, 300);
-  const [types, setTypes] = useState<string[]>([]);
-  const [parts, setParts] = useState<string[]>([]);
-  const [grades, setGrades] = useState<string[]>([]);
-  const [classes, setClasses] = useState<string[]>([]);
+  const [types, setTypes] = useState<string[]>(() => initCsv("types"));
+  const [parts, setParts] = useState<string[]>(() => initCsv("parts"));
+  const [grades, setGrades] = useState<string[]>(() => initCsv("grades"));
+  const [classes, setClasses] = useState<string[]>(() => initCsv("classes"));
   const [matcats, setMatcats] = useState<string[]>(() => initCsv("matCategories"));
   const [statKeys, setStatKeys] = useState<string[]>(() => initCsv("statKeys").filter((k) => STAT_KEYS.includes(k)));
   const [withUnique, setWithUnique] = useState(sp.get("withUnique") === "1");
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
-  const [levelMin, setLevelMin] = useState("");
-  const [levelMax, setLevelMax] = useState("");
-  const [sort, setSort] = useState("quantity");
-  const [order, setOrder] = useState("desc");
-  const [page, setPage] = useState(1);
+  const [priceMin, setPriceMin] = useState(() => sp.get("priceMin") ?? "");
+  const [priceMax, setPriceMax] = useState(() => sp.get("priceMax") ?? "");
+  const [levelMin, setLevelMin] = useState(() => sp.get("levelMin") ?? "");
+  const [levelMax, setLevelMax] = useState(() => sp.get("levelMax") ?? "");
+  const [sort, setSort] = useState(() => sp.get("sort") ?? "quantity");
+  const [order, setOrder] = useState(() => sp.get("order") ?? "desc");
+  const [page, setPage] = useState(() => Number(sp.get("page")) || 1);
   const [filtersOpen, setFiltersOpen] = useState(false); // モバイルでフィルタ折りたたみ
 
   const [data, setData] = useState<ListResponse | null>(null);
@@ -150,6 +151,18 @@ export function ItemsBrowser() {
     p.set("pageSize", "24");
     return p.toString();
   }, [debouncedQ, types, parts, grades, classes, matcats, statKeys, withUnique, priceMin, priceMax, levelMin, levelMax, sort, order, page]);
+
+  // フィルタ状態を URL に反映 (再フェッチはせず address bar だけ更新)。
+  // → アイテム詳細へ遷移して「戻る」と、この URL に戻りフィルタが復元される。
+  useEffect(() => {
+    const p = new URLSearchParams(query);
+    p.delete("pageSize");
+    if (p.get("sort") === "quantity") p.delete("sort");
+    if (p.get("order") === "desc") p.delete("order");
+    if (p.get("page") === "1") p.delete("page");
+    const qs = p.toString();
+    window.history.replaceState(null, "", qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
+  }, [query]);
 
   useEffect(() => {
     let active = true;
