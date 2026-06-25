@@ -71,8 +71,24 @@ export function AdminPanel() {
     if (typeof window !== "undefined") localStorage.setItem("adminToken", v);
   }
 
-  async function action(kind: "refresh" | "reanalyze" | "cache") {
+  async function action(kind: "refresh" | "reanalyze" | "cache" | "history") {
     setMsg(null);
+    if (kind === "history") {
+      if (typeof window !== "undefined" && !window.confirm("価格履歴とスナップショットを全削除します(現在価格は維持)。シードの合成データを消し、以後は実データだけで推移を積み上げます。よろしいですか?")) return;
+      setBusy("history");
+      try {
+        const res = await fetch("/api/admin/reset-history", { method: "POST", headers: { "x-admin-token": token } });
+        const data = await res.json().catch(() => null);
+        if (!res.ok) setMsg({ ok: false, text: data?.error ?? "失敗しました" });
+        else setMsg({ ok: true, text: `履歴をリセットしました (履歴${data.removedHistory} / スナップショット${data.removedSnapshots} 件削除)` });
+        loadStatus();
+      } catch (e) {
+        setMsg({ ok: false, text: (e as Error).message });
+      } finally {
+        setBusy(null);
+      }
+      return;
+    }
     if (kind === "cache") {
       setBusy("cache");
       try {
@@ -136,6 +152,10 @@ export function AdminPanel() {
             <Button variant="outline" onClick={() => action("cache")} disabled={running || busy != null}>
               {busy === "cache" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
               キャッシュ削除
+            </Button>
+            <Button variant="outline" onClick={() => action("history")} disabled={running || busy != null} className="border-destructive/40 text-destructive hover:bg-destructive/10">
+              {busy === "history" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+              価格履歴リセット
             </Button>
             <Button variant="ghost" onClick={() => loadStatus()} disabled={busy != null}>
               <Database className="h-4 w-4" /> 状況更新

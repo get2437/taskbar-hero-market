@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import {
-  canShow, slotFor, formatFor, MIN_HEIGHT,
+  canShow, slotFor, formatFor, MIN_HEIGHT, hideOnMobile,
   ADSENSE_CLIENT, ADS_ENABLED, ADS_PLACEHOLDER, AD_NETWORK, type Placement,
 } from "@/lib/ads/config";
 import { trackAdEvent } from "@/lib/ads/analytics";
@@ -75,7 +75,7 @@ export function AdUnit({ placement, className, responsive = true }: { placement:
       ref={ref}
       data-ad-placement={placement}
       aria-label="Advertisement"
-      className={cn("relative w-full overflow-hidden rounded-lg", className)}
+      className={cn("relative w-full overflow-hidden rounded-lg", hideOnMobile(placement) && "hidden md:block", className)}
       style={{ minHeight: minH }}
     >
       <span className="pointer-events-none absolute left-1 top-0 z-10 text-[9px] uppercase tracking-wide text-muted-foreground/50">

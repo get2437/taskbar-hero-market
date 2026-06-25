@@ -156,6 +156,8 @@ export async function refreshDescriptions(maxItems = 5000): Promise<{ updated: n
               data: {
                 materialCategory: fields.materialCategory as any,
                 requiredLevel: fields.requiredLevel,
+                // 実レベル(Requires Lv.)を装備のレベルとして反映 (捏造値を上書きして正す)
+                ...(fields.requiredLevel != null && { level: fields.requiredLevel }),
                 decoSlots: fields.decoSlots,
                 engraveSlots: fields.engraveSlots,
                 inscriptSlots: fields.inscriptSlots,

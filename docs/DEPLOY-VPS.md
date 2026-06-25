@@ -139,7 +139,7 @@ docker compose version            # v2 が出ればOK
 # 手元のプロジェクトフォルダで
 git init && git add -A && git commit -m "init"
 git branch -M main
-git remote add origin git@github.com:get2437/taskbar-hero-market.git
+git remote add origin git@github.com:get2437/musicAI.git
 git push -u origin main
 ```
 VPS側:
@@ -268,7 +268,7 @@ sudo nano /etc/nginx/sites-available/taskbarhero
 ```nginx
 server {
   listen 80;
-  server_name <あなたのドメイン>;
+  server_name taskbarhero.space;
 
   # アップロードや長いレスポンスの余裕
   client_max_body_size 2m;
@@ -303,7 +303,7 @@ sudo nginx -t && sudo systemctl reload nginx
 HTTPS化（Let's Encrypt 無料証明書・自動更新付き）:
 ```bash
 sudo apt -y install certbot python3-certbot-nginx
-sudo certbot --nginx -d <あなたのドメイン>
+sudo certbot --nginx -d taskbarhero.space
 # メール入力 → 規約同意(A) → HTTPSリダイレクトは "2"(有効) を選ぶ
 ```
 証明書の自動更新テスト:

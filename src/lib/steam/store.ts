@@ -45,7 +45,9 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
         part: f.attrs.part,
         grade: f.attrs.grade,
         classType: f.attrs.classType,
-        level: f.attrs.level,
+        // level は説明文由来の実レベル(Requires Lv.)を refreshDescriptions が保持するため、
+        // 検索取得(レベル不明=null)では上書きしない。名前にLvがある場合のみ更新。
+        ...(f.attrs.level != null && { level: f.attrs.level }),
         active: true,
       },
     });

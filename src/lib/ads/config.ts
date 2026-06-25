@@ -86,6 +86,22 @@ export function formatFor(p: Placement): AdFormat {
   return FORMAT[p];
 }
 
+// スマホでは広告を「画面下部だけ」に絞る方針。
+// 上部バナーやコンテンツ中間の枠はモバイルで非表示にし、各ページ下部の枠だけ残す。
+const MOBILE_HIDDEN = new Set<Placement>([
+  "home_top",
+  "items_top",
+  "rankings_top",
+  "gear_top",
+  "materials_top",
+  "detail_chart", // 詳細ページ中間。下部寄りの detail_related は残す
+]);
+
+/** その配置をモバイル(〜md)で隠すか。true なら hidden md:block を付与する。 */
+export function hideOnMobile(p: Placement): boolean {
+  return MOBILE_HIDDEN.has(p);
+}
+
 /** その配置の広告を表示してよいか（master switch + client + slot が揃う、または開発プレースホルダ）。 */
 export function canShow(p: Placement): boolean {
   if (ADS_PLACEHOLDER) return true;

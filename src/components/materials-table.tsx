@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
 import { GradeBadge } from "@/components/domain";
@@ -14,7 +15,7 @@ const TARGET_UI: Record<string, string> = { WEAPON: "weapon", ARMOR: "armor", AC
 const TARGET_ORDER = ["WEAPON", "ARMOR", "ACCESSORY", "ANY"];
 
 
-export function MaterialsTable({ items }: { items: Material[] }) {
+export function MaterialsTable({ items, linkMap = {} }: { items: Material[]; linkMap?: Record<string, string> }) {
   const { t, f, s, su } = useT();
   const { fmt } = useMoney();
   const [cats, setCats] = useState<string[]>([]);
@@ -137,30 +138,40 @@ export function MaterialsTable({ items }: { items: Material[] }) {
 
       {/* 1素材 = 1カード (横スクロール無し) */}
       <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-        {sorted.map((m) => (
-          <div key={m.slug} className={cn("rounded-lg border bg-card p-3", m.unreleased && "opacity-60")}>
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex min-w-0 items-center gap-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={materialImage(m)} alt={m.name} width={32} height={32} className="h-8 w-8 shrink-0 rounded [image-rendering:pixelated]" />
-                <div className="min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <span className="truncate text-sm font-medium">{m.name}</span>
-                    {m.unreleased && <span className="shrink-0 rounded bg-amber-500/15 px-1 text-[10px] font-semibold text-amber-500">{t("mat.unreleased")}</span>}
-                  </div>
-                  <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
-                    <GradeBadge grade={m.rarity} />
-                    <span>{f(m.category)}</span>
-                  </div>
+        {sorted.map((m) => {
+          const id = linkMap[m.slug];
+          const head = (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={materialImage(m)} alt={m.name} width={32} height={32} className="h-8 w-8 shrink-0 rounded [image-rendering:pixelated]" />
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className={cn("truncate text-sm font-medium", id && "hover:underline")}>{m.name}</span>
+                  {m.unreleased && <span className="shrink-0 rounded bg-amber-500/15 px-1 text-[10px] font-semibold text-amber-500">{t("mat.unreleased")}</span>}
+                </div>
+                <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
+                  <GradeBadge grade={m.rarity} />
+                  <span>{f(m.category)}</span>
                 </div>
               </div>
-              <div className="shrink-0 text-right text-xs tabular">
-                {m.onMarket && m.refPriceYen != null ? fmt(m.refPriceYen) : <span className="text-muted-foreground">—</span>}
+            </>
+          );
+          return (
+            <div key={m.slug} className={cn("rounded-lg border bg-card p-3", m.unreleased && "opacity-60")}>
+              <div className="flex items-start justify-between gap-2">
+                {id ? (
+                  <Link href={`/items/${id}`} className="flex min-w-0 items-center gap-2">{head}</Link>
+                ) : (
+                  <div className="flex min-w-0 items-center gap-2">{head}</div>
+                )}
+                <div className="shrink-0 text-right text-xs tabular">
+                  {m.onMarket && m.refPriceYen != null ? fmt(m.refPriceYen) : <span className="text-muted-foreground">—</span>}
+                </div>
               </div>
+              <div className="mt-2"><EffCell m={m} /></div>
             </div>
-            <div className="mt-2"><EffCell m={m} /></div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

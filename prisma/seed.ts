@@ -154,7 +154,8 @@ async function main() {
         part: s.attrs.part,
         grade: s.attrs.grade,
         classType: s.attrs.classType,
-        level: s.attrs.level,
+        // 実レベル(説明文の Requires Lv.)を優先。無ければ名前由来(多くは null)。
+        level: desc?.requiredLevel ?? s.attrs.level,
         ...(desc && {
           materialCategory: desc.materialCategory,
           requiredLevel: desc.requiredLevel,
@@ -173,22 +174,31 @@ async function main() {
       }
     }
 
-    // 実価格を末尾に合わせた90日ランダムウォーク (合成)
-    const vol = 0.01 + rand() * 0.06;
-    const trend = (rand() - 0.45) * 0.012;
+    // 価格履歴。既定は「今日の実価格1点」のみ(=偽の推移を作らない)。
+    // デモ目的で過去の推移を埋めたい時だけ SEED_SYNTHETIC_HISTORY=true で90日ランダムウォークを生成する。
+    const synthetic = process.env.SEED_SYNTHETIC_HISTORY === "true";
     const baseQty = Math.max(1, Math.round((s.volume || 30) / 30));
-    let price = Math.max(1, cur * (1 - trend * 45));
+    const todayQty = Math.max(0, Math.round(baseQty * (0.5 + rand())));
     const history: { itemId: string; price: number; quantity: number; timestamp: Date }[] = [];
     const snapshots: any[] = [];
-    for (let d = DAYS - 1; d >= 0; d--) {
-      const shock = (rand() - 0.5) * 2 * vol;
-      price = Math.max(1, Math.round(price * (1 + trend + shock)));
-      const qty = Math.max(0, Math.round(baseQty * (0.5 + rand())));
-      const ts = new Date(now - d * DAY);
-      history.push({ itemId: item.id, price, quantity: qty, timestamp: ts });
-      snapshots.push({ itemId: item.id, lowestPrice: price, highestPrice: Math.round(price * 1.1), medianPrice: price, averagePrice: price, quantity: qty, createdAt: ts });
+    if (synthetic) {
+      const vol = 0.01 + rand() * 0.06;
+      const trend = (rand() - 0.45) * 0.012;
+      let price = Math.max(1, cur * (1 - trend * 45));
+      for (let d = DAYS - 1; d >= 0; d--) {
+        const shock = (rand() - 0.5) * 2 * vol;
+        price = Math.max(1, Math.round(price * (1 + trend + shock)));
+        const qty = Math.max(0, Math.round(baseQty * (0.5 + rand())));
+        const ts = new Date(now - d * DAY);
+        history.push({ itemId: item.id, price, quantity: qty, timestamp: ts });
+        snapshots.push({ itemId: item.id, lowestPrice: price, highestPrice: Math.round(price * 1.1), medianPrice: price, averagePrice: price, quantity: qty, createdAt: ts });
+      }
+      history[history.length - 1].price = cur; // 末尾=実価格
+    } else {
+      const ts = new Date(now);
+      history.push({ itemId: item.id, price: cur, quantity: todayQty, timestamp: ts });
+      snapshots.push({ itemId: item.id, lowestPrice: cur, highestPrice: Math.round(cur * 1.1), medianPrice: cur, averagePrice: cur, quantity: todayQty, createdAt: ts });
     }
-    history[history.length - 1].price = cur; // 末尾=実価格
 
     await prisma.priceHistory.createMany({ data: history });
     await prisma.marketSnapshot.createMany({ data: snapshots });

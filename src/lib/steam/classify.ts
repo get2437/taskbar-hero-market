@@ -20,22 +20,9 @@ const RARITY: Record<string, Grade> = {
   Celestial: "CELESTIAL", Cosmic: "COSMIC",
 };
 
-const CLASSES: ClassType[] = ["KNIGHT", "SLAYER", "HUNTER", "RANGER", "SORCERER", "PRIEST"];
-const LEVELS = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90];
-
-function hashSeed(s: string): number {
-  let h = 2166136261 >>> 0;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-
 export function classify(name: string): ClassifiedAttrs {
   const rm = name.match(/\(([^)]+)\)/);
   const isGear = !!(rm && RARITY[rm[1]]);
-  const seed = hashSeed(name);
 
   if (!isGear) {
     return { type: "MATERIAL", part: "NONE", grade: "COMMON", classType: "NONE", level: null };
@@ -55,7 +42,8 @@ export function classify(name: string): ClassifiedAttrs {
   else if (/earring|earing/i.test(name)) part = "EARRING";
   else if (/ring/i.test(name)) part = "RING";
 
-  // クラスは武器(メイン/サブ)のみ。防具・装飾はクラス非依存なので NONE。
+  // クラスは武器(メイン/サブ)で名前から判別できる時だけ。判別不能や防具/装飾は NONE。
+  // ※ 以前はハッシュで適当なクラスを当てていたが、実物と食い違うため廃止。
   let classType: ClassType = "NONE";
   if (part === "MAIN_WEAPON" || part === "SUB_WEAPON") {
     if (/priest|cleric|holy|sacred/i.test(name)) classType = "PRIEST";
@@ -64,10 +52,12 @@ export function classify(name: string): ClassifiedAttrs {
     else if (/sorcer|mage|wizard|arcane|staff|scepter|tome|orb|wand/i.test(name)) classType = "SORCERER";
     else if (/knight|guard|fighter|warrior|sword|lance/i.test(name)) classType = "KNIGHT";
     else if (/slayer|assassin|rogue|dagger/i.test(name)) classType = "SLAYER";
-    else classType = CLASSES[seed % CLASSES.length];
   }
 
-  const level = LEVELS[seed % LEVELS.length];
+  // レベルは捏造しない。名前に "Lv. N" があれば採用し、無ければ null。
+  // 実レベルは説明文の "Requires Lv." を refreshDescriptions が Item.level へ反映する。
+  const lvMatch = name.match(/Lv\.?\s*(\d+)/i);
+  const level = lvMatch ? parseInt(lvMatch[1], 10) : null;
   return { type: "GEAR", part, grade, classType, level };
 }
 
