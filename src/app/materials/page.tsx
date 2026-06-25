@@ -43,6 +43,9 @@ export default async function MaterialsPage() {
       <div>
         <h1 className="text-2xl font-bold">{t("mat.title")}</h1>
         <p className="text-sm text-muted-foreground">{t("mat.sub")}</p>
+        <p className="mt-2 rounded-md border border-amber-500/30 bg-amber-500/5 p-2 text-[11px] leading-snug text-muted-foreground">
+          {t("mat.dataNote")}
+        </p>
       </div>
       <AdBanner placement="materials_top" />
       <MaterialsTable items={items} linkMap={linkMap} />

@@ -5,6 +5,9 @@
 import { prisma } from "@/lib/prisma";
 import { formatPrice, formatBps } from "@/lib/utils";
 
+// 価格データの鮮度しきい値。これより古い価格では誤通知を防ぐため評価しない。
+const ALERT_MAX_STALENESS_MS = Number(process.env.ALERT_MAX_STALENESS_MS ?? 90 * 60_000);
+
 /** 全有効アラートを評価し、条件成立分を通知。戻り値=通知件数。 */
 export async function evaluateAlerts(): Promise<number> {
   const alerts = await prisma.priceAlert.findMany({
@@ -17,6 +20,9 @@ export async function evaluateAlerts(): Promise<number> {
     const latest = alert.item.latest;
     if (!latest) continue;
 
+    // 鮮度ガード: 取得が古い(=取得失敗/スキップで価格が更新されていない)場合は誤通知を避ける。
+    if (!latest.fetchedAt || Date.now() - latest.fetchedAt.getTime() > ALERT_MAX_STALENESS_MS) continue;
+
     // 連続通知の抑制 (1時間以内に再通知しない)
     if (alert.lastTriggered && Date.now() - alert.lastTriggered.getTime() < 3_600_000) continue;
 
@@ -25,15 +31,16 @@ export async function evaluateAlerts(): Promise<number> {
     let hit = false;
     let reason = "";
 
+    // 妥当性ガード: 価格条件は正の価格でのみ評価 (¥0/負値の異常データで誤発火させない)。
     switch (alert.condition) {
       case "PRICE_BELOW":
-        if (price != null && alert.threshold != null && price <= alert.threshold) {
+        if (price != null && price > 0 && alert.threshold != null && price <= alert.threshold) {
           hit = true;
           reason = `価格が ${formatPrice(alert.threshold)} 以下 (現在 ${formatPrice(price)})`;
         }
         break;
       case "PRICE_ABOVE":
-        if (price != null && alert.threshold != null && price >= alert.threshold) {
+        if (price != null && price > 0 && alert.threshold != null && price >= alert.threshold) {
           hit = true;
           reason = `価格が ${formatPrice(alert.threshold)} 以上 (現在 ${formatPrice(price)})`;
         }
