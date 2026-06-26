@@ -165,12 +165,8 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {} }: { items: 
                   <div className="flex min-w-0 items-center gap-2">{head}</div>
                 )}
                 <div className="shrink-0 text-right text-xs tabular">
-                  {(() => {
-                    // ライブの最安値(DB)を優先。無ければビルド時のスナップショット価格。
-                    const live = priceMap[m.slug];
-                    const yen = live != null ? live : m.onMarket ? m.refPriceYen : null;
-                    return yen != null ? fmt(yen) : <span className="text-muted-foreground">—</span>;
-                  })()}
+                  {/* ライブの最安値(DB)のみ表示。古いビルド時スナップショットは出さない(混乱防止)。 */}
+                  {priceMap[m.slug] != null ? fmt(priceMap[m.slug]) : <span className="text-muted-foreground">—</span>}
                 </div>
               </div>
               <div className="mt-2"><EffCell m={m} /></div>
