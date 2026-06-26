@@ -5,6 +5,7 @@ import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
 import { ItemThumb, GradeBadge } from "@/components/domain";
 import { ItemName } from "@/components/item-name";
+import { resolveStatLabel } from "@/lib/item-name";
 import { ClassIcon } from "@/components/class-icon";
 import { cn } from "@/lib/utils";
 import type { GearRow } from "@/lib/queries";
@@ -40,7 +41,7 @@ function fmtSpecialNum(vMin: number | null, vMax: number | null, unit: string): 
 }
 
 export function GearTable({ items }: { items: GearRow[] }) {
-  const { t, f, s, sq } = useT();
+  const { t, f, s, sq, locale } = useT();
   const { fmt } = useMoney();
   const [parts, setParts] = useState<string[]>([]);
   const [classes, setClasses] = useState<string[]>([]);
@@ -121,7 +122,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
           <div className="mt-1.5 flex flex-col gap-0.5 text-xs">
             {it.specials.map((sp, i) => {
               const num = sp.unit !== "TEXT" ? fmtSpecialNum(sp.vMin, sp.vMax, sp.unit) : "";
-              return <span key={i} className="text-primary">◆ {sq(sp.key, sp.label)}{num && <span className="ml-1 font-medium tabular">{num}</span>}</span>;
+              return <span key={i} className="text-primary">◆ {resolveStatLabel(sp.labelI18n, locale, sq(sp.key, sp.label))}{num && <span className="ml-1 font-medium tabular">{num}</span>}</span>;
             })}
           </div>
         )}

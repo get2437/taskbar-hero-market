@@ -63,8 +63,18 @@ const BATCH_SCHEMA = {
   additionalProperties: false,
 };
 
+const NAME_SYSTEM =
+  "You localize fantasy RPG equipment/material names from English into multiple languages. " +
+  "Translate each name naturally and concisely for in-game use; keep it short. " +
+  "Do NOT add explanations, quotes, or trailing punctuation. Preserve any numbers. " +
+  "Return exactly one object per input, in the same order.";
+const STAT_SYSTEM =
+  "You localize fantasy RPG item effect descriptions (special/unique stats) from English into multiple languages. " +
+  "Translate each effect sentence naturally for in-game use. Preserve all numbers, percentages and symbols exactly. " +
+  "Keep it concise; do NOT add explanations or quotes. Return exactly one object per input, in the same order.";
+
 /** 文字列の配列を8言語へ翻訳。戻り値は source -> {locale: text}。失敗分は欠落。 */
-async function translateBatch(sources: string[]): Promise<Map<string, Record<string, string>>> {
+async function translateBatch(sources: string[], system = NAME_SYSTEM, unit = "item names"): Promise<Map<string, Record<string, string>>> {
   const out = new Map<string, Record<string, string>>();
   const c = getClient();
   if (!c || !sources.length) return out;
@@ -72,18 +82,14 @@ async function translateBatch(sources: string[]): Promise<Map<string, Record<str
   const numbered = sources.map((s, i) => `${i + 1}. ${s}`).join("\n");
   const res = await c.messages.create({
     model: "claude-opus-4-8",
-    max_tokens: Math.min(8000, 600 + sources.length * 120),
+    max_tokens: Math.min(8000, 600 + sources.length * 160),
     output_config: { effort: "low", format: { type: "json_schema", schema: BATCH_SCHEMA } },
-    system:
-      "You localize fantasy RPG equipment/material names from English into multiple languages. " +
-      "Translate each name naturally and concisely for in-game use; keep it short. " +
-      "Do NOT add explanations, quotes, or trailing punctuation. Preserve any numbers. " +
-      "Return exactly one object per input, in the same order.",
+    system,
     messages: [
       {
         role: "user",
         content:
-          `Translate each of the following ${sources.length} item names into these locales (code=language): ${langs}.\n` +
+          `Translate each of the following ${sources.length} ${unit} into these locales (code=language): ${langs}.\n` +
           `Return { "items": [ {${TARGET_LOCALES.join(", ")}}, ... ] } with one entry per input in order.\n\n` +
           numbered,
       },
@@ -171,4 +177,53 @@ export async function translateItemNames(
     }
   }
   return { updated, total: items.length };
+}
+
+/**
+ * 特殊(Unique)ステータスの効果文を翻訳して ItemStatLine.labelI18n に保存する。
+ * 同じ効果文は複数アイテムで共有されるため、ユニークなラベルだけ翻訳して一括反映する。
+ * onlyMissing=true なら labelI18n 未設定の行だけ対象。戻り値=更新行数/対象ユニーク文数。
+ */
+export async function translateStatLines(
+  opts: { onlyMissing?: boolean; onProgress?: (current: number, total: number) => void } = {},
+): Promise<{ updated: number; total: number }> {
+  if (!getClient()) return { updated: 0, total: 0 };
+  // 翻訳が必要なユニークな効果文を収集 (kind=SPECIAL のみ)
+  const groups = await prisma.itemStatLine.groupBy({
+    by: ["label"],
+    where: { kind: "SPECIAL", ...(opts.onlyMissing ? { labelI18n: { equals: Prisma.DbNull } } : {}) },
+    _count: { _all: true },
+  });
+  const labels = groups.map((g) => g.label).filter((l) => l && l.trim().length > 1);
+  if (!labels.length) return { updated: 0, total: 0 };
+
+  const trMap = new Map<string, Record<string, string>>();
+  const BATCH = 30;
+  let done = 0;
+  for (let i = 0; i < labels.length; i += BATCH) {
+    const batch = labels.slice(i, i + BATCH);
+    try {
+      const m = await translateBatch(batch, STAT_SYSTEM, "item effect descriptions");
+      for (const [k, v] of m) trMap.set(k, v);
+    } catch (e) {
+      captureException(e, { source: "jobs/translateStats/batch", level: "warning" });
+    }
+    done += batch.length;
+    opts.onProgress?.(done, labels.length);
+  }
+
+  // 同一 label の行すべてに labelI18n を反映
+  let updated = 0;
+  for (const [label, tr] of trMap) {
+    try {
+      const res = await prisma.itemStatLine.updateMany({
+        where: { kind: "SPECIAL", label },
+        data: { labelI18n: tr as object },
+      });
+      updated += res.count;
+    } catch (e) {
+      captureException(e, { source: "jobs/translateStats/save", level: "warning" });
+    }
+  }
+  return { updated, total: labels.length };
 }

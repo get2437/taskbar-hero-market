@@ -23,6 +23,7 @@ const PHASE_LABEL: Record<string, string> = {
   analyze: "分析中",
   descriptions: "ステータス取得中",
   names: "アイテム名翻訳中",
+  stats: "特殊ステータス翻訳中",
 };
 
 /** ジョブのメッセージ/エラーから「原因」と「対処」を推測して分かりやすく補足する。 */
@@ -97,7 +98,7 @@ export function AdminPanel() {
         } else if (r.kind === "descriptions") {
           setMsg({ ok: true, text: `ステータス取得 完了: ${d.updated ?? 0}/${d.total ?? 0} 件更新` });
         } else if (r.kind === "names") {
-          setMsg({ ok: true, text: d.total === 0 ? "翻訳対象がありません（または翻訳APIキー未設定）" : `アイテム名翻訳 完了: ${d.updated ?? 0}/${d.total ?? 0} 件` });
+          setMsg({ ok: true, text: d.total === 0 ? "翻訳対象がありません（または翻訳APIキー未設定）" : `翻訳 完了: 名前・特殊ステータス ${d.updated ?? 0} 件` });
         } else {
           setMsg({
             ok: true,
@@ -117,7 +118,7 @@ export function AdminPanel() {
     setMsg(null);
     if (kind === "descriptions" || kind === "names") {
       const url = kind === "names" ? "/api/admin/translate-names" : "/api/admin/refresh-descriptions";
-      const startMsg = kind === "names" ? "アイテム名翻訳を開始しました（未翻訳分を機械翻訳します）" : "ステータス取得を開始しました（全件で数十分かかります）";
+      const startMsg = kind === "names" ? "翻訳を開始しました（アイテム名・特殊ステータスの未翻訳分）" : "ステータス取得を開始しました（全件で数十分かかります）";
       try {
         const res = await fetch(url, { method: "POST", headers: { "x-admin-token": token } });
         const data = await res.json().catch(() => null);
@@ -215,7 +216,7 @@ export function AdminPanel() {
             </Button>
             <Button variant="secondary" onClick={() => action("names")} disabled={running || busy != null}>
               {running && runningKind === "names" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Languages className="h-4 w-4" />}
-              アイテム名翻訳
+              翻訳 (名前・特殊ステータス)
             </Button>
             <Button variant="outline" onClick={() => action("cache")} disabled={running || busy != null}>
               {busy === "cache" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}

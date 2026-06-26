@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { translateItemNames } from "@/lib/steam/name-translate";
+import { translateItemNames, translateStatLines } from "@/lib/steam/name-translate";
 import { isAdmin } from "@/lib/admin-auth";
 import { refreshState } from "@/lib/refresh-state";
 import { invalidate } from "@/lib/redis";
@@ -25,7 +25,12 @@ export async function POST(req: NextRequest) {
   refreshState.result = null;
   refreshState.error = null;
 
-  translateItemNames({ onlyMissing, onProgress: (current, total) => { refreshState.progress = { phase: "names", current, total }; } })
+  // アイテム名 → 特殊ステータス効果文 の順に機械翻訳する。
+  (async () => {
+    const names = await translateItemNames({ onlyMissing, onProgress: (current, total) => { refreshState.progress = { phase: "names", current, total }; } });
+    const stats = await translateStatLines({ onlyMissing, onProgress: (current, total) => { refreshState.progress = { phase: "stats", current, total }; } });
+    return { updated: names.updated + stats.updated, total: names.total + stats.total };
+  })()
     .then(async (r) => {
       refreshState.result = { updated: r.updated, total: r.total };
       await invalidate("items:");

@@ -5,7 +5,7 @@
  * (軽量化のため完全な cron パーサは持たず、分間隔のみ解釈する)
  */
 import { runRefresh, refreshHotOrderBooks, refreshDescriptions } from "../src/lib/jobs";
-import { translateItemNames } from "../src/lib/steam/name-translate";
+import { translateItemNames, translateStatLines } from "../src/lib/steam/name-translate";
 import { refreshRates } from "../src/lib/fx";
 import { captureException, monitoringStatus } from "../src/lib/monitoring";
 
@@ -68,6 +68,8 @@ async function nameTranslateGapFill() {
   try {
     const r = await translateItemNames({ onlyMissing: true });
     if (r.updated > 0) console.log(`[worker] item-name translation gap-fill: ${r.updated}/${r.total}`);
+    const s = await translateStatLines({ onlyMissing: true });
+    if (s.updated > 0) console.log(`[worker] special-stat translation gap-fill: ${s.updated} rows / ${s.total} texts`);
   } catch (e) {
     captureException(e, { source: "worker/nameTranslateGapFill", level: "warning" });
   }

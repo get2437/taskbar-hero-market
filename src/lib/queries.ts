@@ -276,7 +276,7 @@ export async function getGearTable() {
       latest: { select: { lowestPrice: true, fetchedAt: true } },
       statLines: {
         where: { kind: { in: ["BASE", "INHERENT", "SPECIAL"] } },
-        select: { statKey: true, valueMin: true, valueMax: true, unit: true, kind: true, label: true },
+        select: { statKey: true, valueMin: true, valueMax: true, unit: true, kind: true, label: true, labelI18n: true },
       },
     },
   });
@@ -300,7 +300,7 @@ export async function getGearTable() {
     // 特殊ステータス (Unique Mod) — アイテム固有なので列ではなく一覧で持つ
     const specials = it.statLines
       .filter((l) => l.kind === "SPECIAL")
-      .map((l) => ({ key: l.statKey, label: l.label, vMin: l.valueMin, vMax: l.valueMax, unit: l.unit }));
+      .map((l) => ({ key: l.statKey, label: l.label, labelI18n: (l.labelI18n as Record<string, string> | null) ?? null, vMin: l.valueMin, vMax: l.valueMax, unit: l.unit }));
     return {
       id: it.id,
       name: it.name,

@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Translator } from "@/lib/i18n";
+import { resolveStatLabel } from "@/lib/item-name";
 
 // 説明文由来のステータス行 (ItemStatLine をシリアライズしたもの)。値は ×100 整数。
 export interface StatLineView {
   kind: string;
   statKey: string;
   label: string;
+  labelI18n?: unknown; // 機械翻訳(SPECIALのみ)。Json なので unknown で受ける。
   valueMin: number | null;
   valueMax: number | null;
   unit: string;
@@ -126,7 +128,7 @@ export function ItemStatCard({ item, tr }: { item: StatItemView; tr: Translator 
         {unique.length > 0 && (
           <CollapsibleSection title={tr.su("specialStats")} count={unique.length}>
             {unique.map((u, i) => (
-              <div key={i} className="py-1 text-sm text-primary">◆ {tr.sq(u.statKey, u.label)}</div>
+              <div key={i} className="py-1 text-sm text-primary">◆ {resolveStatLabel(u.labelI18n as Record<string, string> | null, tr.locale, tr.sq(u.statKey, u.label))}</div>
             ))}
           </CollapsibleSection>
         )}

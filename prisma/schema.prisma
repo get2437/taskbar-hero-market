@@ -74,6 +74,7 @@ model ItemStatLine {
   valueMin  Int?         // ×100 整数。TEXT(効果文)のみのときは null
   valueMax  Int?         // 範囲の上限 (素材効果)。単一値は null
   unit      StatUnit     @default(FLAT) // FLAT / PCT / TEXT
+  labelI18n Json?        // 特殊(Unique)効果文の機械翻訳 { ja, ko, zh, ru, pt, es, fr, de }
   tier      Int?         // 素材効果の [T2] -> 2
   appliesTo EffectTarget @default(NONE) // 素材効果の対象 (WEAPON/ARMOR/ACCESSORY)
   rawText   String       // 原文行 (表示用)
