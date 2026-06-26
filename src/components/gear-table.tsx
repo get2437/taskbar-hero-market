@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
+import { STAT_GROUP_OF, STAT_GROUP_ORDER, STAT_KEYS, statGroupLabelKey } from "@/lib/i18n";
 import { ItemThumb, GradeBadge } from "@/components/domain";
 import { ItemName } from "@/components/item-name";
 import { resolveStatLabel } from "@/lib/item-name";
@@ -10,11 +11,6 @@ import { ClassIcon } from "@/components/class-icon";
 import { cn } from "@/lib/utils";
 import type { GearRow } from "@/lib/queries";
 
-// 表に出すステータス列 (攻撃系→防御系)
-const COLS = [
-  "attack_damage", "attack_speed", "critical_chance", "critical_damage",
-  "cooldown_reduction", "armor", "max_hp", "hp_regen_per_sec",
-];
 const PARTS = ["MAIN_WEAPON", "SUB_WEAPON", "ARMOR", "HELMET", "GLOVES", "BOOTS", "AMULET", "RING", "BRACER", "EARRING"];
 const CLASSES = ["KNIGHT", "SLAYER", "HUNTER", "RANGER", "SORCERER", "PRIEST"];
 // 高レア順。index が小さいほど高レア → rank は大きく
@@ -41,8 +37,31 @@ function fmtSpecialNum(vMin: number | null, vMax: number | null, unit: string): 
 }
 
 export function GearTable({ items }: { items: GearRow[] }) {
-  const { t, f, s, sq, locale } = useT();
+  const { t, f, s, su, sq, locale } = useT();
   const { fmt } = useMoney();
+
+  // 表示/並び替え対象のステータス列は固定せず、実データに存在するキーから動的に作る
+  // (基礎・固有ステータスを取りこぼさない)。グループ(攻撃/防御/耐性/補助)→正準順で整列。
+  const grp = (k: string) => {
+    const g = STAT_GROUP_OF[k] ?? "other";
+    return STAT_GROUP_ORDER.includes(g) ? g : "other";
+  };
+  const cols = useMemo(() => {
+    const present = new Set<string>();
+    for (const it of items) for (const k in it.stats) present.add(k);
+    const order = [...STAT_GROUP_ORDER, "other"];
+    const canon = (k: string) => { const i = STAT_KEYS.indexOf(k); return i < 0 ? 9999 : i; };
+    return [...present].sort(
+      (a, b) => order.indexOf(grp(a)) - order.indexOf(grp(b)) || canon(a) - canon(b) || a.localeCompare(b),
+    );
+  }, [items]);
+  // グループ別 (ドロップダウンの optgroup 用)
+  const colsByGroup = useMemo(() => {
+    const order = [...STAT_GROUP_ORDER, "other"];
+    return order
+      .map((g) => ({ group: g, keys: cols.filter((k) => grp(k) === g) }))
+      .filter((x) => x.keys.length);
+  }, [cols]);
   const [parts, setParts] = useState<string[]>([]);
   const [classes, setClasses] = useState<string[]>([]);
   const [grades, setGrades] = useState<string[]>([]);
@@ -83,10 +102,11 @@ export function GearTable({ items }: { items: GearRow[] }) {
     return (typeof x === "string" ? x.localeCompare(y as string) : (x as number) - (y as number)) * dir;
   });
 
-  // 並び替え対象 (識別 + 各ステータス)
-  const SORT_KEYS = ["level", "price", "grade", "name", ...COLS];
+  // 識別系の並び替えはチップ、ステータスはドロップダウン (項目数が多いため)。
+  const ID_SORTS = ["level", "price", "grade", "name"];
   const sortLabel = (k: string) =>
     k === "level" ? "Lv" : k === "price" ? t("common.price") : k === "grade" ? t("filter.grade") : k === "name" ? t("common.item") : s(k, k);
+  const statSelected = cols.includes(sort);
 
   // 1アイテム = 1カード (横スクロール無し・全ステータス折り返し表示)
   function Card({ it }: { it: GearRow }) {
@@ -111,7 +131,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
           </div>
         </div>
         <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs">
-          {COLS.filter((k) => it.stats[k]?.v != null).map((k) => (
+          {cols.filter((k) => it.stats[k]?.v != null).map((k) => (
             <span key={k}>
               <span className="text-muted-foreground">{s(k, k)}</span>{" "}
               <span className={cn("font-medium tabular", sort === k && "text-primary")}>{fmtVal(it.stats[k])}</span>
@@ -154,11 +174,11 @@ export function GearTable({ items }: { items: GearRow[] }) {
             <input type="checkbox" checked={group} onChange={(e) => setGroup(e.target.checked)} /> {t("gear.group")}
           </label>
         </div>
-        {/* 並び替え */}
+        {/* 並び替え: 識別系はチップ、ステータスは項目数が多いのでドロップダウン */}
         <div className="mt-2 border-t pt-2">
           <div className="mb-1 text-[11px] font-semibold text-muted-foreground">{t("gear.sortBy")}</div>
-          <div className="flex flex-wrap gap-1.5">
-            {SORT_KEYS.map((k) => (
+          <div className="flex flex-wrap items-center gap-1.5">
+            {ID_SORTS.map((k) => (
               <button
                 key={k}
                 onClick={() => clickSort(k)}
@@ -167,6 +187,35 @@ export function GearTable({ items }: { items: GearRow[] }) {
                 {sortLabel(k)}{sort === k ? (order === "asc" ? " ▲" : " ▼") : ""}
               </button>
             ))}
+            {cols.length > 0 && (
+              <>
+                <select
+                  aria-label={t("gear.sortByStat")}
+                  value={statSelected ? sort : ""}
+                  onChange={(e) => { const v = e.target.value; if (v) { setSort(v); setOrder("desc"); } }}
+                  className={cn(
+                    "h-[26px] rounded-full border px-2 text-xs",
+                    statSelected ? "border-primary bg-primary/15 text-primary" : "border-border bg-background text-muted-foreground",
+                  )}
+                >
+                  <option value="">{t("gear.sortByStat")}</option>
+                  {colsByGroup.map(({ group, keys }) => (
+                    <optgroup key={group} label={group === "other" ? t("common.item") : su(statGroupLabelKey(group))}>
+                      {keys.map((k) => <option key={k} value={k}>{s(k, k)}</option>)}
+                    </optgroup>
+                  ))}
+                </select>
+                {statSelected && (
+                  <button
+                    onClick={() => setOrder((o) => (o === "asc" ? "desc" : "asc"))}
+                    className="rounded-full border border-primary bg-primary/15 px-2 py-0.5 text-xs text-primary"
+                    title={order === "asc" ? t("common.asc") : t("common.desc")}
+                  >
+                    {order === "asc" ? "▲" : "▼"}
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
