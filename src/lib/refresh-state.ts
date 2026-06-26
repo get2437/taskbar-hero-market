@@ -9,6 +9,8 @@ export interface RefreshState {
   kind: "refresh" | "reanalyze" | "descriptions" | null;
   startedAt: number | null;
   finishedAt: number | null;
+  // 進行中ジョブの進捗 (phase: 取得/説明文/分析 等)。current/total が分かるものだけ入れる。
+  progress: { phase: string; current: number; total: number } | null;
   result: {
     fetched?: number;
     analyzed?: number;
@@ -31,6 +33,7 @@ export const refreshState: RefreshState =
     kind: null,
     startedAt: null,
     finishedAt: null,
+    progress: null,
     result: null,
     error: null,
   });

@@ -65,7 +65,10 @@ async function getJson(url: string): Promise<any> {
  *  - 検索APIは currency を無視し価格を常にUSD(`sell_price`=USDセント)で返す → FX で円換算して保存。
  *  - count を 100 等にしても1ページ最大10件しか返さない → start は実取得件数ぶん進める(でないと取りこぼす)。
  */
-export async function searchAllItems(maxItems = 2000): Promise<FetchedItem[]> {
+export async function searchAllItems(
+  maxItems = 2000,
+  onProgress?: (current: number, total: number) => void,
+): Promise<FetchedItem[]> {
   const out: FetchedItem[] = [];
   let start = 0;
   // USD→JPY 換算レート (検索価格はUSD。アプリは JPY を基軸に保持)。
@@ -95,6 +98,7 @@ export async function searchAllItems(maxItems = 2000): Promise<FetchedItem[]> {
     }
 
     const total: number = data?.total_count ?? out.length;
+    onProgress?.(out.length, Math.min(total, maxItems));
     start += results.length; // 1ページの実取得件数ぶん進める (Steamは最大10件/ページ)
     if (start >= total) break;
     await sleep(INTERVAL);

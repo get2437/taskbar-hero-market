@@ -31,10 +31,11 @@ export async function POST(req: NextRequest) {
   refreshState.kind = "descriptions";
   refreshState.startedAt = Date.now();
   refreshState.finishedAt = null;
+  refreshState.progress = null;
   refreshState.result = null;
   refreshState.error = null;
 
-  refreshDescriptions()
+  refreshDescriptions({ onProgress: (p) => { refreshState.progress = p; } })
     .then((r) => {
       refreshState.result = { updated: r.updated, total: r.total };
     })
@@ -44,6 +45,7 @@ export async function POST(req: NextRequest) {
     .finally(() => {
       refreshState.running = false;
       refreshState.finishedAt = Date.now();
+      refreshState.progress = null;
     });
 
   return NextResponse.json({ started: true, kind: "descriptions" });

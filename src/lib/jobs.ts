@@ -28,8 +28,23 @@ export interface RefreshResult {
   message: string;
 }
 
-export async function runRefresh(opts: { fetch?: boolean } = {}): Promise<RefreshResult> {
+export type ProgressFn = (p: { phase: string; current: number; total: number }) => void;
+
+/** 取り残された RUNNING ログ(プロセス再起動/タイムアウトで更新されなかった分)を FAILED にする。 */
+async function markStaleRunningLogs(olderThanMs = 20 * 60_000): Promise<void> {
+  try {
+    await prisma.fetchLog.updateMany({
+      where: { status: "RUNNING", startedAt: { lt: new Date(Date.now() - olderThanMs) } },
+      data: { status: "FAILED", message: "中断(再起動またはタイムアウトで完了が記録されませんでした)", finishedAt: new Date() },
+    });
+  } catch {
+    /* ignore */
+  }
+}
+
+export async function runRefresh(opts: { fetch?: boolean; onProgress?: ProgressFn } = {}): Promise<RefreshResult> {
   const doFetch = opts.fetch ?? true;
+  await markStaleRunningLogs();
   const log = await prisma.fetchLog.create({ data: { kind: "manual", status: "RUNNING" } });
 
   let fetched = 0;
@@ -39,8 +54,10 @@ export async function runRefresh(opts: { fetch?: boolean } = {}): Promise<Refres
   try {
     if (doFetch) {
       try {
-        const items = await searchAllItems(2000);
+        opts.onProgress?.({ phase: "fetch", current: 0, total: 0 });
+        const items = await searchAllItems(2000, (c, t) => opts.onProgress?.({ phase: "fetch", current: c, total: t }));
         if (items.length > 0) {
+          opts.onProgress?.({ phase: "store", current: 0, total: items.length });
           fetched = await storeFetched(items);
         } else {
           skippedFetch = true;
@@ -54,6 +71,7 @@ export async function runRefresh(opts: { fetch?: boolean } = {}): Promise<Refres
       skippedFetch = true;
     }
 
+    opts.onProgress?.({ phase: "analyze", current: 0, total: 0 });
     const analysis = await runAnalysis();
     const notified = await evaluateAlerts();
 
@@ -136,9 +154,10 @@ export async function refreshHotOrderBooks(maxItems = 8): Promise<number> {
  * 起動時に安価に埋めるための「穴埋め」モード。
  */
 export async function refreshDescriptions(
-  opts: { maxItems?: number; onlyMissing?: boolean } = {},
+  opts: { maxItems?: number; onlyMissing?: boolean; onProgress?: ProgressFn } = {},
 ): Promise<{ updated: number; total: number }> {
   const maxItems = opts.maxItems ?? 5000;
+  await markStaleRunningLogs();
   const log = await prisma.fetchLog.create({ data: { kind: "descriptions", status: "RUNNING" } });
   const items = await prisma.item.findMany({
     where: { active: true, ...(opts.onlyMissing ? { statLines: { none: {} } } : {}) },
@@ -148,6 +167,7 @@ export async function refreshDescriptions(
   const interval = Number(process.env.STEAM_REQUEST_INTERVAL_MS ?? 3500);
   let updated = 0;
   let failed = 0;
+  let done = 0;
 
   try {
     for (const it of items) {
@@ -186,6 +206,8 @@ export async function refreshDescriptions(
         failed++;
         captureException(e, { source: "jobs/refreshDescriptions/item", level: "warning" });
       }
+      done++;
+      opts.onProgress?.({ phase: "descriptions", current: done, total: items.length });
       await sleep(interval);
     }
 

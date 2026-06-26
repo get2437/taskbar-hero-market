@@ -12,8 +12,39 @@ interface RefreshInfo {
   kind: "refresh" | "reanalyze" | "descriptions" | null;
   startedAt: number | null;
   finishedAt: number | null;
+  progress: { phase: string; current: number; total: number } | null;
   result: { fetched?: number; analyzed?: number; anomalies?: number; notified?: number; skippedFetch?: boolean; updated?: number; total?: number } | null;
   error: string | null;
+}
+
+const PHASE_LABEL: Record<string, string> = {
+  fetch: "Steam取得中",
+  store: "保存中",
+  analyze: "分析中",
+  descriptions: "ステータス取得中",
+};
+
+/** ジョブのメッセージ/エラーから「原因」と「対処」を推測して分かりやすく補足する。 */
+function explainMessage(raw: string | null | undefined): { cause: string; action: string } | null {
+  if (!raw) return null;
+  const m = raw.toLowerCase();
+  if (/\b429\b|rate limit|too many/.test(m))
+    return { cause: "Steamのレート制限(429)で取得を拒否されました。", action: "数分待ってから再実行してください。短時間に連続実行しないでください。" };
+  if (/timeout|timed out|etimedout|aborterror|aborted/.test(m))
+    return { cause: "Steamへの接続がタイムアウトしました。", action: "ネットワークまたはSteam混雑の可能性。少し待って再実行してください。" };
+  if (/\b5\d\d\b|server error|bad gateway|service unavailable/.test(m))
+    return { cause: "Steam側のサーバーエラーです。", action: "Steam側の一時的な不調です。時間をおいて再実行してください。" };
+  if (/econn|fetch failed|network|enotfound|getaddrinfo/.test(m))
+    return { cause: "ネットワークエラーで取得できませんでした。", action: "サーバーのネット接続を確認して再実行してください。" };
+  if (/検索結果が空|empty|no results/.test(m))
+    return { cause: "Steam検索結果が空でした。", action: "STEAM_APP_ID と、対象にマーケットが存在するか確認してください。" };
+  if (/anthropic|api key|translat/.test(m))
+    return { cause: "翻訳API(任意)の未設定または失敗です。", action: "ニュース翻訳が必要なら ANTHROPIC_API_KEY を設定してください。未設定でも他機能は動作します。" };
+  if (/unauthorized|401|admin_token/.test(m))
+    return { cause: "管理者トークンが不正です。", action: "ADMIN_TOKEN を正しく入力してください。" };
+  if (/中断|再起動|タイムアウトで完了/.test(raw))
+    return { cause: "前回のジョブが完了を記録できませんでした。", action: "再起動やタイムアウトが原因です。もう一度実行すれば解消します。" };
+  return null;
 }
 
 interface Status {
@@ -50,13 +81,15 @@ export function AdminPanel() {
     const r = status?.refresh;
     if (r?.running) {
       prevRunning.current = true;
-      const id = setTimeout(() => loadStatus(), 6000);
+      const id = setTimeout(() => loadStatus(), 4000);
       return () => clearTimeout(id);
     }
     if (prevRunning.current && r) {
       prevRunning.current = false;
-      if (r.error) setMsg({ ok: false, text: `失敗: ${r.error}` });
-      else if (r.result) {
+      if (r.error) {
+        const ex = explainMessage(r.error);
+        setMsg({ ok: false, text: ex ? `失敗: ${ex.cause} ${ex.action}` : `失敗: ${r.error}` });
+      } else if (r.result) {
         const d = r.result;
         if (r.kind === "descriptions") {
           setMsg({ ok: true, text: `ステータス取得 完了: ${d.updated ?? 0}/${d.total ?? 0} 件更新` });
@@ -185,16 +218,33 @@ export function AdminPanel() {
               <Database className="h-4 w-4" /> 状況更新
             </Button>
           </div>
-          {running && (
-            <p className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Loader2 className="h-4 w-4 animate-spin" />
-              {runningKind === "refresh"
-                ? "取得+分析を実行中…（数分かかります。画面を離れても継続します）"
-                : runningKind === "descriptions"
-                  ? "ステータス取得を実行中…（全件で数十分。画面を離れても継続します）"
-                  : "再分析を実行中…"}
-            </p>
-          )}
+          {running && (() => {
+            const pr = status?.refresh?.progress;
+            const pct = pr && pr.total > 0 ? Math.min(100, Math.round((pr.current / pr.total) * 100)) : null;
+            const phase = pr ? PHASE_LABEL[pr.phase] ?? pr.phase : null;
+            return (
+              <div className="space-y-1.5">
+                <p className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  {phase
+                    ? `${phase}…`
+                    : runningKind === "refresh"
+                      ? "取得+分析を実行中…"
+                      : runningKind === "descriptions"
+                        ? "ステータス取得を実行中…"
+                        : "再分析を実行中…"}
+                  {pr && pr.total > 0 && <span className="tabular font-medium text-foreground">{pr.current}/{pr.total}{pct != null ? ` (${pct}%)` : ""}</span>}
+                  <span className="text-xs text-muted-foreground/70">画面を離れても継続します</span>
+                </p>
+                <div className="h-1.5 w-full max-w-md overflow-hidden rounded-full bg-muted">
+                  <div
+                    className={pct == null ? "h-full w-1/3 animate-pulse rounded-full bg-primary/60" : "h-full rounded-full bg-primary transition-all"}
+                    style={pct == null ? undefined : { width: `${pct}%` }}
+                  />
+                </div>
+              </div>
+            );
+          })()}
           {msg && (
             <div className={`flex items-center gap-2 rounded-md border p-2 text-sm ${msg.ok ? "border-up/40 text-up" : "border-destructive/40 text-destructive"}`}>
               {msg.ok ? <CheckCircle2 className="h-4 w-4" /> : <XCircle className="h-4 w-4" />}
@@ -220,17 +270,41 @@ export function AdminPanel() {
                 </tr>
               </thead>
               <tbody>
-                {status?.logs.map((l) => (
-                  <tr key={l.id} className="border-b last:border-0">
-                    <td className="px-3 py-1.5">{l.kind}</td>
-                    <td className="px-3 py-1.5">
-                      <span className={l.status === "SUCCESS" ? "text-up" : l.status === "FAILED" ? "text-destructive" : "text-muted-foreground"}>{l.status}</span>
-                    </td>
-                    <td className="px-3 py-1.5 text-right tabular">{l.itemsTotal}</td>
-                    <td className="px-3 py-1.5 max-w-md truncate text-muted-foreground" title={l.message ?? ""}>{l.message ?? "—"}</td>
-                    <td className="px-3 py-1.5 text-muted-foreground">{formatDateTime(l.startedAt)}</td>
-                  </tr>
-                ))}
+                {(() => {
+                  // 進行中ジョブのログ行(=最新の RUNNING 行)に live 進捗を出すための id を特定。
+                  const liveKind = runningKind === "descriptions" ? "descriptions" : "manual";
+                  const liveLogId = running ? status?.logs.find((l) => l.status === "RUNNING" && l.kind === liveKind)?.id : null;
+                  const pr = status?.refresh?.progress;
+                  const pct = pr && pr.total > 0 ? Math.min(100, Math.round((pr.current / pr.total) * 100)) : null;
+                  return status?.logs.map((l) => {
+                    const ex = explainMessage(l.message);
+                    const isLive = l.id === liveLogId;
+                    return (
+                      <tr key={l.id} className="border-b last:border-0 align-top">
+                        <td className="px-3 py-1.5">{l.kind}</td>
+                        <td className="px-3 py-1.5">
+                          <span className={l.status === "SUCCESS" ? "text-up" : l.status === "FAILED" ? "text-destructive" : "text-muted-foreground"}>{l.status}</span>
+                          {isLive && (
+                            <span className="ml-1 inline-flex items-center gap-1 text-xs text-primary">
+                              <Loader2 className="h-3 w-3 animate-spin" />
+                              {pr && pr.total > 0 ? `${pr.current}/${pr.total}${pct != null ? ` (${pct}%)` : ""}` : (pr ? (PHASE_LABEL[pr.phase] ?? pr.phase) : "")}
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-3 py-1.5 text-right tabular">{l.itemsTotal}</td>
+                        <td className="px-3 py-1.5 max-w-md text-muted-foreground">
+                          <div className="truncate" title={l.message ?? ""}>{l.message ?? "—"}</div>
+                          {ex && (
+                            <div className="mt-0.5 text-[11px] leading-snug text-amber-600 dark:text-amber-400">
+                              <span className="font-semibold">原因:</span> {ex.cause}{ex.action && <> <span className="font-semibold">対処:</span> {ex.action}</>}
+                            </div>
+                          )}
+                        </td>
+                        <td className="px-3 py-1.5 whitespace-nowrap text-muted-foreground">{formatDateTime(l.startedAt)}</td>
+                      </tr>
+                    );
+                  });
+                })()}
                 {(!status || status.logs.length === 0) && <tr><td colSpan={5} className="p-6 text-center text-muted-foreground">ログがありません</td></tr>}
               </tbody>
             </table>
