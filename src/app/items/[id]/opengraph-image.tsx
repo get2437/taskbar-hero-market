@@ -1,8 +1,18 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 import { prisma } from "@/lib/prisma";
 import { getRates } from "@/lib/fx";
 import { formatMoney } from "@/lib/money";
 import { ogFallback } from "@/lib/og-fallback";
+
+function appIcon(): string | null {
+  try {
+    return `data:image/png;base64,${readFileSync(join(process.cwd(), "public/icon-512.png")).toString("base64")}`;
+  } catch {
+    return null;
+  }
+}
 
 // SNS/Discord 共有時のプレビュー画像 (アイテム別・動的生成)
 export const runtime = "nodejs";
@@ -36,6 +46,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   const up = changeBps > 0;
   const changePct = Math.abs(changeBps / 100).toFixed(1);
   const icon = item?.imageUrl ? `${item.imageUrl}/360fx360f` : null;
+  const brand = appIcon();
   const host = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/^https?:\/\//, "").replace(/\/$/, "");
 
   return new ImageResponse(
@@ -92,8 +103,11 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         </div>
 
         {/* フッター */}
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 22, color: "#64748b" }}>
-          <span>Steam Community Market · live order book &amp; analysis</span>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 22, color: "#64748b" }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            {brand && <img src={brand} width={36} height={36} style={{ borderRadius: 8 }} />}
+            Taskbar Hero · Market Analytics
+          </span>
           <span>{host}</span>
         </div>
       </div>
