@@ -3,6 +3,7 @@
  */
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
+import { facetMessages } from "@/lib/i18n/messages";
 
 // ---------------------------------------------------------------------------
 // アイテム一覧 (検索 / 絞り込み / ソート / ページング)
@@ -44,6 +45,61 @@ const onlyValid = (arr: string[] | undefined, set: Set<string>) => (arr ?? []).f
 const clampInt = (v: number | undefined, lo: number, hi: number) => (v == null || !Number.isFinite(v) ? undefined : Math.min(hi, Math.max(lo, Math.trunc(v))));
 const sanitizeKey = (s: string | undefined) => (s ? s.toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 60) : "");
 
+// ---------------------------------------------------------------------------
+// 多言語検索: ファセット(種別/グレード/部位/クラス/素材分類)の各言語ラベルから
+// enum 値を逆引きする索引。検索語がどの言語でも該当アイテムにヒットさせる
+// (表示名は英語のまま変えない)。
+// ---------------------------------------------------------------------------
+type FacetField = "type" | "grade" | "part" | "classType" | "materialCategory";
+const FACET_FIELDS: Record<FacetField, Set<string>> = {
+  type: VALID_TYPE,
+  grade: VALID_GRADE,
+  part: new Set(["MAIN_WEAPON", "SUB_WEAPON", "ARMOR", "HELMET", "GLOVES", "BOOTS", "AMULET", "RING", "BRACER", "EARRING"]),
+  classType: new Set(["KNIGHT", "SLAYER", "HUNTER", "RANGER", "SORCERER", "PRIEST"]),
+  materialCategory: new Set(["DECORATION", "ENGRAVING", "INSCRIPTION", "CRAFTING", "SOULSTONE"]),
+};
+
+const norm = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
+
+// { field -> [ { label(正規化), enum } ... ] }
+const FACET_INDEX: Record<FacetField, { label: string; value: string }[]> = (() => {
+  const idx = { type: [], grade: [], part: [], classType: [], materialCategory: [] } as Record<
+    FacetField,
+    { label: string; value: string }[]
+  >;
+  for (const field of Object.keys(FACET_FIELDS) as FacetField[]) {
+    for (const value of FACET_FIELDS[field]) {
+      const m = facetMessages[value];
+      if (!m) continue;
+      for (const label of Object.values(m)) {
+        const n = norm(label);
+        if (n && n !== "—" && !idx[field].some((e) => e.label === n && e.value === value)) {
+          idx[field].push({ label: n, value });
+        }
+      }
+    }
+  }
+  return idx;
+})();
+
+/**
+ * 検索語をファセット enum へ展開する。語(全体および空白区切りの各トークン)が
+ * いずれかの言語のラベルと一致/部分一致すれば、その enum を該当フィールドに加える。
+ */
+function expandSearchToFacets(q: string): Partial<Record<FacetField, string[]>> {
+  const tokens = [norm(q), ...norm(q).split(" ")].filter((t) => t.length >= 1);
+  const out: Partial<Record<FacetField, Set<string>>> = {};
+  for (const field of Object.keys(FACET_INDEX) as FacetField[]) {
+    for (const { label, value } of FACET_INDEX[field]) {
+      const hit = tokens.some((tok) => (tok.length >= 2 ? label.includes(tok) || tok.includes(label) : label === tok));
+      if (hit) (out[field] ??= new Set()).add(value);
+    }
+  }
+  const res: Partial<Record<FacetField, string[]>> = {};
+  for (const field of Object.keys(out) as FacetField[]) res[field] = [...out[field]!];
+  return res;
+}
+
 export async function listItems(params: ItemListParams) {
   const page = Math.max(1, clampInt(params.page, 1, 100000) ?? 1);
   const pageSize = Math.min(100, Math.max(1, clampInt(params.pageSize, 1, 100) ?? 24));
@@ -65,7 +121,19 @@ export async function listItems(params: ItemListParams) {
   const statKind = VALID_STATKIND.has(params.statKind ?? "") ? params.statKind! : undefined;
 
   const where: Prisma.ItemWhereInput = { active: true };
-  if (params.q) where.name = { contains: params.q.slice(0, 100), mode: "insensitive" };
+  if (params.q) {
+    const q = params.q.slice(0, 100);
+    // 英語名の部分一致 OR 多言語ファセット展開(部位/グレード/クラス/種別/素材分類)。
+    // 例: "靴"/"Boots"→part=BOOTS、"アルカナ"→grade=ARCANA、"ナイト"→class=KNIGHT。
+    const ex = expandSearchToFacets(q);
+    const facetAnd: Prisma.ItemWhereInput[] = [];
+    if (ex.type?.length) facetAnd.push({ type: { in: ex.type as any } });
+    if (ex.grade?.length) facetAnd.push({ grade: { in: ex.grade as any } });
+    if (ex.part?.length) facetAnd.push({ part: { in: ex.part as any } });
+    if (ex.classType?.length) facetAnd.push({ classType: { in: ex.classType as any } });
+    if (ex.materialCategory?.length) facetAnd.push({ materialCategory: { in: ex.materialCategory as any } });
+    where.OR = [{ name: { contains: q, mode: "insensitive" } }, ...(facetAnd.length ? [{ AND: facetAnd }] : [])];
+  }
   if (types.length) where.type = { in: types as any };
   if (parts.length) where.part = { in: parts as any };
   if (grades.length) where.grade = { in: grades as any };
