@@ -16,7 +16,7 @@ import { translatePendingNews } from "@/lib/steam/news-translate";
 import { publishLive } from "@/lib/live";
 import { getHotItemIds } from "@/lib/hot";
 import { refreshOrderBook } from "@/lib/steam/orderbook";
-import { fetchItemDescription, toItemDescriptionFields, toStatLines } from "@/lib/steam/descriptions";
+import { fetchItemDescription, toItemDescriptionFields, toStatLines, gradeFromDescription, partFromItemType } from "@/lib/steam/descriptions";
 import { captureException } from "@/lib/monitoring";
 
 export interface RefreshResult {
@@ -156,6 +156,9 @@ export async function refreshDescriptions(
         if (parsed) {
           const fields = toItemDescriptionFields(parsed);
           const lines = toStatLines(parsed);
+          // 説明文由来の正確なグレード/部位 (名前推定より正確。素材のレア度やメイン/サブ武器を正す)
+          const grade = gradeFromDescription(parsed);
+          const part = partFromItemType(parsed.itemType);
           // Item更新 + 既存statLines差し替えを1トランザクションで (途中状態を作らない)
           await prisma.$transaction([
             prisma.item.update({
@@ -165,6 +168,8 @@ export async function refreshDescriptions(
                 requiredLevel: fields.requiredLevel,
                 // 実レベル(Requires Lv.)を装備のレベルとして反映 (捏造値を上書きして正す)
                 ...(fields.requiredLevel != null && { level: fields.requiredLevel }),
+                ...(grade && { grade }),
+                ...(part && { part }),
                 decoSlots: fields.decoSlots,
                 engraveSlots: fields.engraveSlots,
                 inscriptSlots: fields.inscriptSlots,

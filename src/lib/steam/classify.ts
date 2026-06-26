@@ -31,8 +31,9 @@ export function classify(name: string): ClassifiedAttrs {
   const grade = RARITY[rm![1]];
 
   let part: Part = "MAIN_WEAPON";
-  if (/shield|buckler|tome|orb|grimoire|quiver/i.test(name)) part = "SUB_WEAPON";
-  else if (/sword|hatchet|axe|blade|dagger|spear|bow|crossbow|bolt|arrow|staff|scepter|wand|mace|hammer|lance|katana/i.test(name)) part = "MAIN_WEAPON";
+  // サブ武器(オフハンド/弾): 盾・魔道書・宝珠・矢/ボルトなど。先に判定する。
+  if (/shield|buckler|tome|orb|grimoire|quiver|arrow|bolt/i.test(name)) part = "SUB_WEAPON";
+  else if (/sword|hatchet|axe|blade|dagger|spear|bow|crossbow|staff|scepter|wand|mace|hammer|lance|katana/i.test(name)) part = "MAIN_WEAPON";
   else if (/helmet|helm|cap|crown|hood|mask/i.test(name)) part = "HELMET";
   else if (/gloves|gauntlet|fist/i.test(name)) part = "GLOVES";
   else if (/boots|greaves|sabaton|shoes/i.test(name)) part = "BOOTS";

@@ -44,9 +44,10 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
         name: f.name,
         imageUrl: f.imageUrl,
         type: f.attrs.type,
-        part: f.attrs.part,
-        grade: f.attrs.grade,
         classType: f.attrs.classType,
+        // grade/part は名前から確信できる装備(GEAR)のときだけ更新。素材など名前にレア度/種別が
+        // 無いものは classify が COMMON/NONE になるため、説明文由来の正確な値を上書きしない。
+        ...(f.attrs.type === "GEAR" && { grade: f.attrs.grade, part: f.attrs.part }),
         // level は説明文由来の実レベル(Requires Lv.)を refreshDescriptions が保持するため、
         // 検索取得(レベル不明=null)では上書きしない。名前にLvがある場合のみ更新。
         ...(f.attrs.level != null && { level: f.attrs.level }),

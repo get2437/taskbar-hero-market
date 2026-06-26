@@ -324,6 +324,49 @@ export async function fetchItemDescription(
 
 // ---- DB マッピング (seed / 本番取得層で共有) ---------------------------------
 
+import type { Grade, Part } from "@prisma/client";
+
+// 説明文の "X Grade" 行 → Grade enum。素材など名前にレア度が無いアイテムでも正確に取れる。
+const GRADE_MAP: Record<string, Grade> = {
+  common: "COMMON", uncommon: "UNCOMMON", rare: "RARE", legendary: "LEGENDARY",
+  arcana: "ARCANA", immortal: "IMMORTAL", beyond: "BEYOND", divine: "DIVINE",
+  celestial: "CELESTIAL", cosmic: "COSMIC",
+};
+export function gradeFromDescription(d: ParsedDescription): Grade | null {
+  if (!d.grade) return null;
+  return GRADE_MAP[d.grade.trim().toLowerCase()] ?? null;
+}
+
+// itemType の先頭カテゴリ語 ("Tome - Lv. 80" → "tome") → Part enum。
+// メイン/サブ武器の区別もここで確定する(名前推定より正確)。
+const TYPE_PART_MAP: Record<string, Part> = {
+  // メイン武器 (攻撃用)
+  sword: "MAIN_WEAPON", blade: "MAIN_WEAPON", hatchet: "MAIN_WEAPON", axe: "MAIN_WEAPON",
+  dagger: "MAIN_WEAPON", spear: "MAIN_WEAPON", lance: "MAIN_WEAPON", katana: "MAIN_WEAPON",
+  mace: "MAIN_WEAPON", hammer: "MAIN_WEAPON", bow: "MAIN_WEAPON", crossbow: "MAIN_WEAPON",
+  staff: "MAIN_WEAPON", scepter: "MAIN_WEAPON", wand: "MAIN_WEAPON",
+  // サブ武器 (オフハンド / 弾)
+  shield: "SUB_WEAPON", buckler: "SUB_WEAPON", tome: "SUB_WEAPON", orb: "SUB_WEAPON",
+  grimoire: "SUB_WEAPON", quiver: "SUB_WEAPON", arrow: "SUB_WEAPON", bolt: "SUB_WEAPON",
+  // 防具
+  helmet: "HELMET", helm: "HELMET", cap: "HELMET", crown: "HELMET", hood: "HELMET", mask: "HELMET",
+  gloves: "GLOVES", gauntlet: "GLOVES", gauntlets: "GLOVES", fist: "GLOVES",
+  boots: "BOOTS", greaves: "BOOTS", sabaton: "BOOTS", sabatons: "BOOTS", shoes: "BOOTS",
+  armor: "ARMOR", armour: "ARMOR", mail: "ARMOR", plate: "ARMOR", robe: "ARMOR",
+  cuirass: "ARMOR", vest: "ARMOR", cloak: "ARMOR", chestplate: "ARMOR",
+  // 装飾品
+  bracer: "BRACER", bracers: "BRACER", bracelet: "BRACER", vambrace: "BRACER",
+  amulet: "AMULET", necklace: "AMULET", pendant: "AMULET",
+  earring: "EARRING", earrings: "EARRING", ring: "RING",
+};
+export function partFromItemType(itemType: string | null): Part | null {
+  if (!itemType) return null;
+  const head = itemType.split(/[-–—]/)[0].trim().toLowerCase();
+  if (TYPE_PART_MAP[head]) return TYPE_PART_MAP[head];
+  const w = head.split(/\s+/)[0];
+  return TYPE_PART_MAP[w] ?? null;
+}
+
 export type StatLineKind = "BASE" | "INHERENT" | "SPECIAL" | "MATERIAL_EFFECT";
 
 /** ItemStatLine 1行ぶんの素データ (itemId は呼び出し側で付与)。 */
