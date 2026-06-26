@@ -4,9 +4,10 @@
  * 例: "*" + "/15 * * * *" なら15分毎。
  * (軽量化のため完全な cron パーサは持たず、分間隔のみ解釈する)
  */
-import { runRefresh, refreshHotOrderBooks, refreshDescriptions } from "../src/lib/jobs";
+import { runRefresh, refreshHotOrderBooks, refreshDescriptions, refreshClassTags } from "../src/lib/jobs";
 import { translateItemNames, translateStatLines } from "../src/lib/steam/name-translate";
 import { refreshRates } from "../src/lib/fx";
+import { withLock, STEAM_JOB_LOCK } from "../src/lib/lock";
 import { captureException, monitoringStatus } from "../src/lib/monitoring";
 
 const HOT_INTERVAL_MS = Number(process.env.HOT_REFRESH_MS ?? 20_000); // 閲覧中銘柄の鮮度
@@ -63,6 +64,18 @@ async function descGapFill() {
   }
 }
 
+// 起動時にクラスタグ(権威データ)を同期する。武器/サブ武器のクラスを Steam の class タグで確定。
+// 日次の説明文クロールだけだと再デプロイ時に走らないことがあるため、起動毎に1回適用する。
+async function classTagGapFill() {
+  try {
+    // Steam取得系と直列化 (取得ジョブと競合しない)
+    const r = await withLock(STEAM_JOB_LOCK, 10 * 60, () => refreshClassTags());
+    if (r.ran && r.value > 0) console.log(`[worker] class tags applied: ${r.value}`);
+  } catch (e) {
+    captureException(e, { source: "worker/classTagGapFill", level: "warning" });
+  }
+}
+
 // 起動時の穴埋め: アイテム名が未翻訳のものだけ機械翻訳する (ANTHROPIC_API_KEY 未設定なら no-op)。
 async function nameTranslateGapFill() {
   try {
@@ -73,6 +86,17 @@ async function nameTranslateGapFill() {
   } catch (e) {
     captureException(e, { source: "worker/nameTranslateGapFill", level: "warning" });
   }
+}
+
+// 起動時の穴埋めを順番に実行する (各ジョブが Steamロックを順に取得するので競合しない)。
+async function startupTasks() {
+  if (DESC_ON_START) {
+    await descTick(); // フル説明文クロール (内部でクラスタグも同期)
+  } else {
+    await classTagGapFill(); // クラスタグ(武器/サブ武器のクラス)を確実に同期
+    await descGapFill(); // ステータス未取得アイテムの穴埋め
+  }
+  await nameTranslateGapFill(); // 名前/特殊ステータスの未翻訳分 (Steamロック不要)
 }
 
 async function main() {
@@ -86,12 +110,8 @@ async function main() {
   setInterval(hotTick, HOT_INTERVAL_MS); // 閲覧中銘柄を高頻度で最新化
   setInterval(descTick, DESC_INTERVAL_MS); // 説明文(ステータス)を日次で最新化
   setInterval(() => refreshRates().catch((e) => captureException(e, { source: "worker/fx", level: "warning" })), 12 * 3_600_000); // 為替を12時間毎
-  // 初回デプロイ時は seed 後の取りこぼし対策に起動後1回フル取得 (Steam負荷を避け60秒遅延)
-  if (DESC_ON_START) setTimeout(descTick, 60_000);
-  // フル取得しない場合でも、ステータス未取得アイテムは毎起動で穴埋めする (90秒遅延で重複起動を回避)
-  else setTimeout(descGapFill, 90_000);
-  // アイテム名の未翻訳分を起動時に穴埋め (120秒遅延でSteam取得と重ならないように)
-  setTimeout(nameTranslateGapFill, 120_000);
+  // 起動時の穴埋めは直列実行 (Steamロックで互いに競合しないよう順番に)。初回 tick 完了後に開始。
+  setTimeout(startupTasks, 60_000);
 }
 
 main();
