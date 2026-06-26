@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { refreshDescriptions } from "@/lib/jobs";
 import { isAdmin } from "@/lib/admin-auth";
 import { refreshState } from "@/lib/refresh-state";
+import { isLocked, STEAM_JOB_LOCK } from "@/lib/lock";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
@@ -25,7 +26,7 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  if (refreshState.running) return NextResponse.json({ started: false, running: true });
+  if (refreshState.running || (await isLocked(STEAM_JOB_LOCK))) return NextResponse.json({ started: false, running: true });
 
   refreshState.running = true;
   refreshState.kind = "descriptions";

@@ -13,7 +13,7 @@ interface RefreshInfo {
   startedAt: number | null;
   finishedAt: number | null;
   progress: { phase: string; current: number; total: number } | null;
-  result: { fetched?: number; analyzed?: number; anomalies?: number; notified?: number; skippedFetch?: boolean; updated?: number; total?: number } | null;
+  result: { fetched?: number; analyzed?: number; anomalies?: number; notified?: number; skippedFetch?: boolean; updated?: number; total?: number; skipped?: boolean } | null;
   error: string | null;
 }
 
@@ -92,7 +92,9 @@ export function AdminPanel() {
         setMsg({ ok: false, text: ex ? `失敗: ${ex.cause} ${ex.action}` : `失敗: ${r.error}` });
       } else if (r.result) {
         const d = r.result;
-        if (r.kind === "descriptions") {
+        if (d.skipped) {
+          setMsg({ ok: false, text: "別のジョブ(定期更新など)が実行中のためスキップしました。少し待って再実行してください。" });
+        } else if (r.kind === "descriptions") {
           setMsg({ ok: true, text: `ステータス取得 完了: ${d.updated ?? 0}/${d.total ?? 0} 件更新` });
         } else if (r.kind === "names") {
           setMsg({ ok: true, text: d.total === 0 ? "翻訳対象がありません（または翻訳APIキー未設定）" : `アイテム名翻訳 完了: ${d.updated ?? 0}/${d.total ?? 0} 件` });

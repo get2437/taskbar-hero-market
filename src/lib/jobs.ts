@@ -19,6 +19,7 @@ import { getHotItemIds } from "@/lib/hot";
 import { refreshOrderBook } from "@/lib/steam/orderbook";
 import { fetchItemDescription, toItemDescriptionFields, toStatLines, gradeFromDescription, partFromItemType } from "@/lib/steam/descriptions";
 import { captureException } from "@/lib/monitoring";
+import { withLock, isLocked, STEAM_JOB_LOCK } from "@/lib/lock";
 
 export interface RefreshResult {
   fetched: number;
@@ -27,6 +28,8 @@ export interface RefreshResult {
   notified: number;
   skippedFetch: boolean;
   message: string;
+  /** 他のSteamジョブが実行中でロックを取れず、丸ごとスキップした場合 true。 */
+  skipped?: boolean;
 }
 
 export type ProgressFn = (p: { phase: string; current: number; total: number }) => void;
@@ -43,7 +46,19 @@ async function markStaleRunningLogs(olderThanMs = 20 * 60_000): Promise<void> {
   }
 }
 
+/**
+ * Steam取得+分析。手動(管理画面)と worker(15分毎)の双方から呼ばれる。
+ * 共有ロックで直列化し、別プロセスのジョブと競合(二重取得→429)しないようにする。
+ */
 export async function runRefresh(opts: { fetch?: boolean; onProgress?: ProgressFn } = {}): Promise<RefreshResult> {
+  const r = await withLock(STEAM_JOB_LOCK, 20 * 60, () => runRefreshLocked(opts));
+  if (!r.ran) {
+    return { fetched: 0, analyzed: 0, anomalies: 0, notified: 0, skippedFetch: true, skipped: true, message: "別のSteam取得/更新ジョブが実行中のためスキップしました。" };
+  }
+  return r.value;
+}
+
+async function runRefreshLocked(opts: { fetch?: boolean; onProgress?: ProgressFn }): Promise<RefreshResult> {
   const doFetch = opts.fetch ?? true;
   await markStaleRunningLogs();
   const log = await prisma.fetchLog.create({ data: { kind: "manual", status: "RUNNING" } });
@@ -160,6 +175,8 @@ export async function refreshClassTags(): Promise<number> {
  * worker から高頻度(例:20秒毎)に呼ぶ。Steamレート制限を守るため件数/間隔を制限。
  */
 export async function refreshHotOrderBooks(maxItems = 8): Promise<number> {
+  // 重いSteamジョブ(取得/説明文)実行中は、注文板取得を控えてSteam負荷の競合を避ける。
+  if (await isLocked(STEAM_JOB_LOCK)) return 0;
   const ids = await getHotItemIds(maxItems);
   if (ids.length === 0) return 0;
   const items = await prisma.item.findMany({ where: { id: { in: ids } }, select: { marketHashName: true } });
@@ -188,6 +205,15 @@ export async function refreshHotOrderBooks(maxItems = 8): Promise<number> {
  */
 export async function refreshDescriptions(
   opts: { maxItems?: number; onlyMissing?: boolean; onProgress?: ProgressFn } = {},
+): Promise<{ updated: number; total: number; skipped?: boolean }> {
+  // 他のSteamジョブと直列化 (取得と説明文クロールの二重実行を防ぐ)。
+  const r = await withLock(STEAM_JOB_LOCK, 60 * 60, () => refreshDescriptionsLocked(opts));
+  if (!r.ran) return { updated: 0, total: 0, skipped: true };
+  return r.value;
+}
+
+async function refreshDescriptionsLocked(
+  opts: { maxItems?: number; onlyMissing?: boolean; onProgress?: ProgressFn },
 ): Promise<{ updated: number; total: number }> {
   const maxItems = opts.maxItems ?? 5000;
   await markStaleRunningLogs();

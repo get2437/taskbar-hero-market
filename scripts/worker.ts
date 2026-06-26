@@ -26,7 +26,8 @@ async function tick() {
   console.log(`[worker] refresh start @ ${started.toISOString()}`);
   try {
     const r = await runRefresh({ fetch: true });
-    console.log(`[worker] done: fetched=${r.fetched} analyzed=${r.analyzed} anomalies=${r.anomalies} notified=${r.notified} ${r.skippedFetch ? "(fetch skipped)" : ""}`);
+    if (r.skipped) console.log("[worker] refresh skipped (another job is running / lock held)");
+    else console.log(`[worker] done: fetched=${r.fetched} analyzed=${r.analyzed} anomalies=${r.anomalies} notified=${r.notified} ${r.skippedFetch ? "(fetch skipped)" : ""}`);
   } catch (e) {
     captureException(e, { source: "worker/tick", level: "error" });
   }
