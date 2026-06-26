@@ -282,8 +282,12 @@ export function forecast(
   if (currentPrice == null) {
     return { forecast7: null, forecast30: null, forecast90: null, low: null, high: null, confidence: 0 };
   }
-  const dailyRate = trend.slopeBps / 10_000; // 価格比/日
-  const project = (days: number) => Math.max(1, Math.round(currentPrice * (1 + dailyRate * days)));
+  // 日次変化率は ±5%/日 に制限 (まばら/異常データで予測が指数的に暴走しないように)。
+  const dailyRate = clamp(trend.slopeBps / 10_000, -0.05, 0.05); // 価格比/日
+  // 予測値は現在価格の 0.1〜10倍に収める (非現実的な値・INT4 溢れを防止)。
+  const lo = Math.max(1, currentPrice * 0.1);
+  const hi = currentPrice * 10;
+  const project = (days: number) => Math.round(clamp(currentPrice * (1 + dailyRate * days), lo, hi));
 
   const f7 = project(7);
   const f30 = project(30);
@@ -295,8 +299,8 @@ export function forecast(
   const sampleScore = clamp(Math.log10(sampleSize + 1) * 33, 0, 100);
   const confidence = Math.round(volScore * 0.6 + sampleScore * 0.4);
 
-  // レンジ: 30日予測 ± ボラティリティ
-  const band = Math.round((f30 * (vol / 10_000)) || f30 * 0.1);
+  // レンジ: 30日予測 ± ボラティリティ。バンドも 30日予測の等倍までに制限。
+  const band = Math.round(clamp((f30 * (vol / 10_000)) || f30 * 0.1, 0, f30));
   return {
     forecast7: f7,
     forecast30: f30,

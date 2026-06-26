@@ -76,53 +76,33 @@ export async function runAnalysis(now = Date.now()): Promise<{ analyzed: number;
       volumeAnomaly: volAnoms[0],
     });
 
+    // DB の Int は 32bit。まばら/異常データで計算値が溢れても落ちないよう INT4 にクランプ。
+    const data = {
+      ma7: i32(ma7), ma30: i32(ma30), ma90: i32(ma90), volatility: i32(vol),
+      fairPrice: i32(fair.fairPrice),
+      undervaluedRate: i32(fair.undervaluedRate),
+      overvaluedRate: i32(fair.overvaluedRate),
+      trend: trend.trend,
+      investmentScore: i32(score.total) ?? 0,
+      riskLevel: score.riskLevel,
+      recommendation: score.recommendation,
+      scorePrice: i32(score.price) ?? 0,
+      scoreVolume: i32(score.volume) ?? 0,
+      scoreStability: i32(score.stability) ?? 0,
+      scoreVolatility: i32(score.volatility) ?? 0,
+      scorePopularity: i32(score.popularity) ?? 0,
+      forecast7: i32(fc.forecast7),
+      forecast30: i32(fc.forecast30),
+      forecast90: i32(fc.forecast90),
+      forecastLow: i32(fc.low),
+      forecastHigh: i32(fc.high),
+      forecastConf: i32(fc.confidence) ?? 0,
+      aiComment: comment,
+    };
     await prisma.itemAnalysis.upsert({
       where: { itemId: it.id },
-      create: {
-        itemId: it.id,
-        ma7, ma30, ma90, volatility: vol,
-        fairPrice: fair.fairPrice,
-        undervaluedRate: fair.undervaluedRate,
-        overvaluedRate: fair.overvaluedRate,
-        trend: trend.trend,
-        investmentScore: score.total,
-        riskLevel: score.riskLevel,
-        recommendation: score.recommendation,
-        scorePrice: score.price,
-        scoreVolume: score.volume,
-        scoreStability: score.stability,
-        scoreVolatility: score.volatility,
-        scorePopularity: score.popularity,
-        forecast7: fc.forecast7,
-        forecast30: fc.forecast30,
-        forecast90: fc.forecast90,
-        forecastLow: fc.low,
-        forecastHigh: fc.high,
-        forecastConf: fc.confidence,
-        aiComment: comment,
-      },
-      update: {
-        ma7, ma30, ma90, volatility: vol,
-        fairPrice: fair.fairPrice,
-        undervaluedRate: fair.undervaluedRate,
-        overvaluedRate: fair.overvaluedRate,
-        trend: trend.trend,
-        investmentScore: score.total,
-        riskLevel: score.riskLevel,
-        recommendation: score.recommendation,
-        scorePrice: score.price,
-        scoreVolume: score.volume,
-        scoreStability: score.stability,
-        scoreVolatility: score.volatility,
-        scorePopularity: score.popularity,
-        forecast7: fc.forecast7,
-        forecast30: fc.forecast30,
-        forecast90: fc.forecast90,
-        forecastLow: fc.low,
-        forecastHigh: fc.high,
-        forecastConf: fc.confidence,
-        aiComment: comment,
-      },
+      create: { itemId: it.id, ...data },
+      update: data,
     });
 
     // 異常値を記録 (同一ウィンドウの未解決を重複させない)
@@ -132,7 +112,7 @@ export async function runAnalysis(now = Date.now()): Promise<{ analyzed: number;
       });
       if (!existing) {
         await prisma.anomaly.create({
-          data: { itemId: it.id, type: a.type, window: a.window, changeBps: a.changeBps },
+          data: { itemId: it.id, type: a.type, window: a.window, changeBps: i32(a.changeBps) ?? 0 },
         });
         anomalyCount++;
       }
@@ -143,6 +123,13 @@ export async function runAnalysis(now = Date.now()): Promise<{ analyzed: number;
 }
 
 // --- helpers ---
+
+// DB の Int は 32bit 符号付き。計算値が範囲外でも保存で落ちないようクランプする。
+const INT4_MAX = 2_147_483_647;
+function i32(n: number | null | undefined): number | null {
+  if (n == null || !Number.isFinite(n)) return null;
+  return Math.max(-INT4_MAX, Math.min(INT4_MAX, Math.round(n)));
+}
 
 function toPoints(history: { price: number; quantity: number; timestamp: Date }[]): PricePoint[] {
   return history.map((h) => ({ t: h.timestamp.getTime(), price: h.price, quantity: h.quantity }));
