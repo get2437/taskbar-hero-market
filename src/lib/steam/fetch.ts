@@ -107,6 +107,36 @@ export async function searchAllItems(
   return out.slice(0, maxItems);
 }
 
+// Steam マーケットの権威的なクラスタグ (appfilters の 3678970_class)。
+const CLASS_TAGS = ["knight", "slayer", "hunter", "ranger", "sorcerer", "priest"] as const;
+
+/**
+ * クラスタグで絞り込み検索し、クラス → market_hash_name 配列 を返す。
+ * 名前推定では分からない正確なクラス(例: Bow=Ranger, Shield=Knight)が得られる。
+ * 戻り値のキーは ClassType enum (KNIGHT 等)。
+ */
+export async function fetchClassHashes(): Promise<Record<string, string[]>> {
+  const out: Record<string, string[]> = {};
+  for (const tag of CLASS_TAGS) {
+    const hashes: string[] = [];
+    let start = 0;
+    while (true) {
+      const url = `${BASE}/search/render/?appid=${APP_ID}&norender=1&count=100&start=${start}&sort_column=popular&category_${APP_ID}_class%5B%5D=tag_${tag}`;
+      const data = await getJson(url);
+      const results: SearchResult[] = data?.results ?? [];
+      if (!results.length) break;
+      for (const r of results) hashes.push(r.hash_name);
+      const total: number = data?.total_count ?? 0;
+      start += results.length;
+      if (start >= total) break;
+      await sleep(INTERVAL);
+    }
+    out[tag.toUpperCase()] = hashes;
+    await sleep(INTERVAL);
+  }
+  return out;
+}
+
 export interface PriceOverview {
   lowestPrice: number | null;
   medianPrice: number | null;

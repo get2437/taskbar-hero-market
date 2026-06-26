@@ -7,7 +7,7 @@
  */
 import { prisma } from "@/lib/prisma";
 import { invalidate } from "@/lib/redis";
-import { searchAllItems } from "@/lib/steam/fetch";
+import { searchAllItems, fetchClassHashes } from "@/lib/steam/fetch";
 import { storeFetched } from "@/lib/steam/store";
 import { runAnalysis } from "@/lib/analysis/engine";
 import { evaluateAlerts } from "@/lib/alerts";
@@ -130,6 +130,32 @@ export async function runRefresh(opts: { fetch?: boolean; onProgress?: ProgressF
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * Steam の権威的なクラスタグで Item.classType を確定する。
+ * 名前推定では取りこぼす武器/サブ武器のクラスを正す(例: Crossbow/Shield)。
+ * 一旦すべて NONE にしてからタグで再設定するため、古い誤クラスも一掃される。
+ * 取得が不十分(合計が極端に少ない)な場合は誤って NONE 化しないよう何もしない。
+ */
+export async function refreshClassTags(): Promise<number> {
+  const byClass = await fetchClassHashes();
+  const total = Object.values(byClass).reduce((a, h) => a + h.length, 0);
+  if (total < 100) return 0; // サニティ: 取得不十分なら中断(誤NONE防止)
+  await prisma.item.updateMany({ where: { classType: { not: "NONE" } }, data: { classType: "NONE" } });
+  let n = 0;
+  for (const [cls, hashes] of Object.entries(byClass)) {
+    for (let i = 0; i < hashes.length; i += 200) {
+      const res = await prisma.item.updateMany({
+        where: { marketHashName: { in: hashes.slice(i, i + 200) } },
+        data: { classType: cls as any },
+      });
+      n += res.count;
+    }
+  }
+  await invalidate("items:");
+  await invalidate("dashboard");
+  return n;
+}
+
+/**
  * 閲覧中(ホット)アイテムの注文板を優先的に最新化し、SSEで配信する。
  * worker から高頻度(例:20秒毎)に呼ぶ。Steamレート制限を守るため件数/間隔を制限。
  */
@@ -175,6 +201,16 @@ export async function refreshDescriptions(
   let updated = 0;
   let failed = 0;
   let done = 0;
+
+  // フル取得時はクラスタグ(権威データ)で classType を確定 (穴埋めモードでは負荷回避でスキップ)。
+  if (!opts.onlyMissing) {
+    try {
+      const updatedClasses = await refreshClassTags();
+      console.log(`[jobs] class tags applied: ${updatedClasses}`);
+    } catch (e) {
+      captureException(e, { source: "jobs/refreshClassTags", level: "warning" });
+    }
+  }
 
   try {
     for (const it of items) {

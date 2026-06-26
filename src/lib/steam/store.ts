@@ -44,7 +44,8 @@ export async function storeFetched(items: FetchedItem[], opts: StoreOptions = {}
         name: f.name,
         imageUrl: f.imageUrl,
         type: f.attrs.type,
-        classType: f.attrs.classType,
+        // classType は権威的なクラスタグ(refreshClassTags)が保持するため検索取得では上書きしない。
+        // (名前推定は Crossbow/Shield 等を取りこぼすため)
         // grade/part は名前から確信できる装備(GEAR)のときだけ更新。素材など名前にレア度/種別が
         // 無いものは classify が COMMON/NONE になるため、説明文由来の正確な値を上書きしない。
         ...(f.attrs.type === "GEAR" && { grade: f.attrs.grade, part: f.attrs.part }),
