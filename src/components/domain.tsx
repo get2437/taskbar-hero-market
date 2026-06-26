@@ -2,6 +2,9 @@ import Image from "next/image";
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
 import { cn, formatBps } from "@/lib/utils";
 
+// 投資スコアバッジは i18n を使うため別ファイル(client)。互換のためここから再エクスポート。
+export { ScoreBadge } from "./score-badge";
+
 // ライトテーマでも読めるよう、文字色は light=濃いめ / dark=明るめ。
 const GRADE_STYLE: Record<string, string> = {
   COMMON: "bg-slate-500/15 text-slate-700 dark:text-slate-400 border-slate-500/30",
@@ -37,27 +40,6 @@ export function PriceChange({ bps, className }: { bps: number | null | undefined
     <span className={cn("inline-flex items-center gap-0.5 tabular font-medium", color, className)}>
       <Icon className="h-3 w-3" />
       {formatBps(bps)}
-    </span>
-  );
-}
-
-const RISK_VARIANT: Record<string, string> = {
-  DANGER: "bg-down/15 text-down",
-  CAUTION: "bg-amber-500/15 text-amber-700 dark:text-amber-400",
-  GOOD: "bg-up/15 text-up",
-  PROMISING: "bg-emerald-500/20 text-emerald-700 dark:text-emerald-400",
-};
-const RISK_LABEL: Record<string, string> = {
-  DANGER: "危険", CAUTION: "注意", GOOD: "良好", PROMISING: "有望",
-};
-
-export function ScoreBadge({ score, risk }: { score: number | null; risk?: string | null }) {
-  if (score == null) return <span className="text-muted-foreground">—</span>;
-  const r = risk ?? (score >= 80 ? "PROMISING" : score >= 60 ? "GOOD" : score >= 40 ? "CAUTION" : "DANGER");
-  return (
-    <span className={cn("inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-xs font-bold tabular", RISK_VARIANT[r])}>
-      {score}
-      <span className="font-normal opacity-70">{RISK_LABEL[r]}</span>
     </span>
   );
 }

@@ -395,7 +395,7 @@ export function ItemsBrowser() {
             <table className="w-full text-sm">
               <thead className={`border-b text-xs text-muted-foreground ${bgActive ? "bg-black/35" : "bg-muted/40"}`}>
                 <tr>
-                  <th className="w-8 px-2 py-2" title="比較"><Scale className="h-3.5 w-3.5" /></th>
+                  <th className="w-8 px-2 py-2" title={t("common.compare")}><Scale className="h-3.5 w-3.5" /></th>
                   <th className="w-8 px-2 py-2"></th>
                   <th className="px-3 py-2 text-left">{t("common.item")}</th>
                   <th className="px-3 py-2 text-right">{t("common.price")}</th>
@@ -449,9 +449,9 @@ export function ItemsBrowser() {
         {/* ページネーション */}
         {data && data.totalPages > 1 && (
           <div className="flex items-center justify-center gap-2">
-            <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>前へ</Button>
+            <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>{t("common.prev")}</Button>
             <span className="text-sm tabular text-muted-foreground">{page} / {data.totalPages}</span>
-            <Button variant="outline" size="sm" disabled={page >= data.totalPages} onClick={() => setPage((p) => p + 1)}>次へ</Button>
+            <Button variant="outline" size="sm" disabled={page >= data.totalPages} onClick={() => setPage((p) => p + 1)}>{t("common.next")}</Button>
           </div>
         )}
       </div>
@@ -479,8 +479,8 @@ export function ItemsBrowser() {
                 ))}
               </div>
               <div className="flex items-center gap-3 text-sm tabular">
-                <span>合計 <b>{fmt(compareTotal)}</b></span>
-                <span>平均 <b>{fmt(compareAvg)}</b></span>
+                <span>{t("common.total")} <b>{fmt(compareTotal)}</b></span>
+                <span>{t("common.average")} <b>{fmt(compareAvg)}</b></span>
                 {compare.length >= 2 && (
                   <Button size="sm" variant={showCompareStats ? "default" : "outline"} onClick={() => setShowCompareStats((v) => !v)}>
                     {su("stats")}

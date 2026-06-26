@@ -43,10 +43,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-const TREND_LABEL: Record<string, { label: string; color: string }> = {
-  UP: { label: "上昇トレンド", color: "text-up" },
-  DOWN: { label: "下落トレンド", color: "text-down" },
-  FLAT: { label: "横ばい", color: "text-muted-foreground" },
+// 色のみ参照（表示テキストは t(`trend.${...}`) で多言語化）。
+const TREND_COLOR: Record<string, string> = {
+  UP: "text-up",
+  DOWN: "text-down",
+  FLAT: "text-muted-foreground",
 };
 
 export default async function ItemDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -62,7 +63,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
   const mode = await getMode();
   const a = item.analysis;
   const l = item.latest;
-  const trend = a?.trend ? TREND_LABEL[a.trend] : null;
+  const trendColor = a?.trend ? TREND_COLOR[a.trend] : null;
   const steamUrl = `https://steamcommunity.com/market/listings/${STEAM_APP_ID}/${encodeURIComponent(item.marketHashName)}`;
 
   // 注文板(LIVE)から実際の最安/最高/最高買取を取得 (Redis 60秒キャッシュ)
@@ -180,7 +181,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
                 <div className="text-xs text-muted-foreground">{t("detail.investScore")}</div>
                 <div className="text-3xl font-bold tabular">{a?.investmentScore ?? "—"}<span className="text-base text-muted-foreground">/100</span></div>
               </div>
-              {trend && a?.trend && <span className={cn("text-sm font-semibold", trend.color)}>{t(`trend.${a.trend}`)}</span>}
+              {trendColor && a?.trend && <span className={cn("text-sm font-semibold", trendColor)}>{t(`trend.${a.trend}`)}</span>}
             </div>
 
             {a && <ScoreBreakdown a={a} labels={{

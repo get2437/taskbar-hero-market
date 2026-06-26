@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/i18n/provider";
 
 export function FavoriteButton({
   itemId,
@@ -16,6 +17,7 @@ export function FavoriteButton({
 }) {
   const [fav, setFav] = useState(initial);
   const [busy, setBusy] = useState(false);
+  const { t } = useT();
 
   async function toggle(e: React.MouseEvent) {
     e.preventDefault();
@@ -41,7 +43,7 @@ export function FavoriteButton({
   return (
     <button
       onClick={toggle}
-      aria-label={fav ? "お気に入り解除" : "お気に入り登録"}
+      aria-label={fav ? t("fav.remove") : t("fav.add")}
       aria-pressed={fav}
       className={cn("inline-flex items-center justify-center text-muted-foreground transition-colors hover:text-amber-400", fav && "text-amber-400", className)}
     >
