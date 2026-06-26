@@ -72,7 +72,7 @@ export function Sidebar() {
   const pathname = usePathname();
   const { t } = useT();
   return (
-    <aside className="hidden w-56 shrink-0 border-r bg-card/40 md:flex md:flex-col">
+    <aside className="sticky top-0 hidden h-screen w-56 shrink-0 self-start overflow-y-auto border-r bg-card/40 md:flex md:flex-col">
       <div className="flex h-14 items-center gap-2 border-b px-4">
         <Activity className="h-5 w-5 text-primary" />
         <span className="font-bold leading-tight">
