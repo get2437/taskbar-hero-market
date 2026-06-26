@@ -12,6 +12,7 @@ import { storeFetched } from "@/lib/steam/store";
 import { runAnalysis } from "@/lib/analysis/engine";
 import { evaluateAlerts } from "@/lib/alerts";
 import { fetchNews } from "@/lib/steam/news";
+import { fetchDevPosts } from "@/lib/steam/dev-posts";
 import { translatePendingNews } from "@/lib/steam/news-translate";
 import { publishLive } from "@/lib/live";
 import { getHotItemIds } from "@/lib/hot";
@@ -78,7 +79,13 @@ export async function runRefresh(opts: { fetch?: boolean; onProgress?: ProgressF
     // ニュース取得 (失敗してもジョブは止めない)
     try {
       await fetchNews(10);
-      // 新着記事を多言語へ自動翻訳 (ANTHROPIC_API_KEY 未設定なら no-op)
+      // 掲示板の開発者投稿も取得 (スクレイプ。失敗しても続行)
+      try {
+        await fetchDevPosts(12);
+      } catch (e) {
+        captureException(e, { source: "jobs/devPosts", level: "warning" });
+      }
+      // 新着記事(ニュース+開発者投稿)を多言語へ自動翻訳 (ANTHROPIC_API_KEY 未設定なら no-op)
       await translatePendingNews();
     } catch (e) {
       captureException(e, { source: "jobs/news", level: "warning" });

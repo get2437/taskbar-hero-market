@@ -321,7 +321,8 @@ model FetchLog {
 // ニュース (Steam GetNewsForApp をキャッシュ。translations に言語別タイトル/要約)
 // =====================================================================
 model NewsArticle {
-  gid          String   @id            // Steam の gid
+  gid          String   @id            // Steam の gid (掲示板は forum_<topicid>)
+  source       String   @default("news") // "news"(公式ニュース) / "forum"(掲示板の開発者投稿)
   title        String                  // 原文(英語)タイトル
   contents     String                  // 原文本文 (bbcode除去後)
   url          String
@@ -331,6 +332,7 @@ model NewsArticle {
   fetchedAt    DateTime @default(now())
 
   @@index([publishedAt])
+  @@index([source, publishedAt])
 }
 
 // =====================================================================

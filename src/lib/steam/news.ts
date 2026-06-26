@@ -77,20 +77,26 @@ export interface NewsView {
   translated: boolean;
 }
 
-/** locale 向けニュース。翻訳があれば使い、無ければ原文(英語)にフォールバック。 */
-export async function getNews(locale: string, limit = 10): Promise<NewsView[]> {
-  const rows = await prisma.newsArticle.findMany({ orderBy: { publishedAt: "desc" }, take: limit });
+function mapNews(
+  rows: { gid: string; title: string; contents: string; url: string; publishedAt: Date; translations: unknown }[],
+  locale: string,
+): NewsView[] {
   return rows.map((r) => {
     const tr = (r.translations as NewsTranslations | null) ?? null;
     const t = locale !== "en" && tr ? tr[locale as keyof NewsTranslations] : undefined;
     const summary = (t?.summary ?? r.contents).slice(0, 400);
-    return {
-      gid: r.gid,
-      title: t?.title ?? r.title,
-      summary,
-      url: r.url,
-      publishedAt: r.publishedAt,
-      translated: !!t,
-    };
+    return { gid: r.gid, title: t?.title ?? r.title, summary, url: r.url, publishedAt: r.publishedAt, translated: !!t };
   });
+}
+
+/** locale 向け公式ニュース。翻訳があれば使い、無ければ原文(英語)にフォールバック。 */
+export async function getNews(locale: string, limit = 10): Promise<NewsView[]> {
+  const rows = await prisma.newsArticle.findMany({ where: { source: "news" }, orderBy: { publishedAt: "desc" }, take: limit });
+  return mapNews(rows, locale);
+}
+
+/** locale 向け 掲示板の開発者投稿。表示/翻訳はニュースと同じ。 */
+export async function getDevPosts(locale: string, limit = 10): Promise<NewsView[]> {
+  const rows = await prisma.newsArticle.findMany({ where: { source: "forum" }, orderBy: { publishedAt: "desc" }, take: limit });
+  return mapNews(rows, locale);
 }
