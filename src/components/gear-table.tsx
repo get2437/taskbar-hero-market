@@ -1,6 +1,7 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
 import { STAT_GROUP_OF, STAT_GROUP_ORDER, STAT_KEYS, statGroupLabelKey } from "@/lib/i18n";
@@ -62,13 +63,30 @@ export function GearTable({ items }: { items: GearRow[] }) {
       .map((g) => ({ group: g, keys: cols.filter((k) => grp(k) === g) }))
       .filter((x) => x.keys.length);
   }, [cols]);
-  const [parts, setParts] = useState<string[]>([]);
-  const [classes, setClasses] = useState<string[]>([]);
-  const [grades, setGrades] = useState<string[]>([]);
-  const [onlySpecial, setOnlySpecial] = useState(false);
-  const [group, setGroup] = useState(false);
-  const [sort, setSort] = useState("level");
-  const [order, setOrder] = useState<"asc" | "desc">("asc");
+  // フィルタ/並び替えを URL から初期化 (アイテム詳細→戻る で状態を保持するため)。
+  const sp = useSearchParams();
+  const initCsv = (k: string) => (sp.get(k) ? sp.get(k)!.split(",").filter(Boolean) : []);
+  const [parts, setParts] = useState<string[]>(() => initCsv("parts"));
+  const [classes, setClasses] = useState<string[]>(() => initCsv("classes"));
+  const [grades, setGrades] = useState<string[]>(() => initCsv("grades"));
+  const [onlySpecial, setOnlySpecial] = useState(sp.get("onlySpecial") === "1");
+  const [group, setGroup] = useState(sp.get("group") === "1");
+  const [sort, setSort] = useState(() => sp.get("sort") ?? "level");
+  const [order, setOrder] = useState<"asc" | "desc">(() => (sp.get("order") === "desc" ? "desc" : "asc"));
+
+  // 状態を URL に反映 (再フェッチはせず address bar だけ更新)。戻ると復元される。
+  useEffect(() => {
+    const p = new URLSearchParams();
+    if (parts.length) p.set("parts", parts.join(","));
+    if (classes.length) p.set("classes", classes.join(","));
+    if (grades.length) p.set("grades", grades.join(","));
+    if (onlySpecial) p.set("onlySpecial", "1");
+    if (group) p.set("group", "1");
+    if (sort !== "level") p.set("sort", sort);
+    if (order !== "asc") p.set("order", order);
+    const qs = p.toString();
+    window.history.replaceState(null, "", qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
+  }, [parts, classes, grades, onlySpecial, group, sort, order]);
 
   const toggle = (arr: string[], set: (v: string[]) => void, v: string) =>
     set(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
