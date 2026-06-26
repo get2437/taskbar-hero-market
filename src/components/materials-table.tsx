@@ -22,7 +22,7 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {
   const [cats, setCats] = useState<string[]>([]);
   const [grades, setGrades] = useState<string[]>([]);
   const [q, setQ] = useState("");
-  const [sort, setSort] = useState<"rarity" | "name" | "category">("category");
+  const [sort, setSort] = useState<"rarity" | "name" | "category" | "priceDesc" | "priceAsc">("category");
 
   const toggle = (arr: string[], set: (v: string[]) => void, v: string) =>
     set(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
@@ -38,6 +38,15 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {
   const sorted = [...filtered].sort((a, b) => {
     if (sort === "name") return a.name.localeCompare(b.name);
     if (sort === "rarity") return (GRADE_RANK[b.rarity] ?? 0) - (GRADE_RANK[a.rarity] ?? 0) || a.name.localeCompare(b.name);
+    if (sort === "priceDesc" || sort === "priceAsc") {
+      // 価格(ライブ最安値)で並べ替え。価格が無い素材は常に末尾。
+      const pa = priceMap[a.slug] ?? null;
+      const pb = priceMap[b.slug] ?? null;
+      if (pa == null && pb == null) return a.name.localeCompare(b.name);
+      if (pa == null) return 1;
+      if (pb == null) return -1;
+      return sort === "priceDesc" ? pb - pa : pa - pb;
+    }
     // category: カテゴリ順 → レア度 → 名前
     return catRank(a.category) - catRank(b.category) || (GRADE_RANK[a.rarity] ?? 0) - (GRADE_RANK[b.rarity] ?? 0) || a.name.localeCompare(b.name);
   });
@@ -131,6 +140,13 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {
                 {k === "category" ? t("filter.type") : k === "rarity" ? t("filter.grade") : t("common.item")}
               </button>
             ))}
+            {/* 価格ソート: クリックで 高い順 ▼ → 安い順 ▲ をトグル */}
+            <button
+              onClick={() => setSort(sort === "priceDesc" ? "priceAsc" : "priceDesc")}
+              className={cn("rounded px-2 py-0.5", sort === "priceDesc" || sort === "priceAsc" ? "bg-primary/15 text-primary" : "hover:bg-accent")}
+            >
+              {t("common.price")}{sort === "priceDesc" ? " ▼" : sort === "priceAsc" ? " ▲" : ""}
+            </button>
           </div>
         </div>
       </div>
