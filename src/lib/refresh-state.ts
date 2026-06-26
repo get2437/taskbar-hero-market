@@ -6,7 +6,7 @@
  */
 export interface RefreshState {
   running: boolean;
-  kind: "refresh" | "reanalyze" | "descriptions" | null;
+  kind: "refresh" | "reanalyze" | "descriptions" | "names" | null;
   startedAt: number | null;
   finishedAt: number | null;
   // 進行中ジョブの進捗 (phase: 取得/説明文/分析 等)。current/total が分かるものだけ入れる。

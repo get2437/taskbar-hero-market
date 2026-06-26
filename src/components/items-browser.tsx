@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox, Skeleton } from "@/components/ui/misc";
 import { Card, CardContent } from "@/components/ui/card";
 import { ItemThumb, GradeBadge, PriceChange, ScoreBadge, RecBadge } from "@/components/domain";
+import { ItemName } from "@/components/item-name";
 import { ClassIcon } from "@/components/class-icon";
 import { FavoriteButton } from "@/components/favorite-button";
 import { formatNumber, cn } from "@/lib/utils";
@@ -418,7 +419,7 @@ export function ItemsBrowser() {
                         <ItemThumb src={it.imageUrl} alt={it.name} size={32} />
                         <div className="min-w-0">
                           <div className="flex items-center gap-1.5">
-                            <span className="truncate font-medium hover:underline">{it.name}</span>
+                            <ItemName name={it.name} nameI18n={it.nameI18n} className="truncate font-medium hover:underline" inline />
                             <RecBadge rec={it.recommendation} />
                           </div>
                           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">

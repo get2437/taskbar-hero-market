@@ -23,6 +23,7 @@ import { AdInContent } from "@/components/ads";
 import { GradeBadge, PriceChange, RecBadge, ItemThumb } from "@/components/domain";
 import { formatNumber, formatDateTime, formatBps, cn, priceParts, safeJsonLd } from "@/lib/utils";
 import { getMoney } from "@/lib/money/server";
+import { resolveItemName } from "@/lib/item-name";
 
 const STEAM_APP_ID = Number(process.env.NEXT_PUBLIC_STEAM_APP_ID ?? process.env.STEAM_APP_ID ?? 3678970);
 
@@ -59,6 +60,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
 
   const tr = await getTranslator();
   const { t, f } = tr;
+  const itemName = resolveItemName(item.name, item.nameI18n as Record<string, string> | null, tr.locale);
   const money = await getMoney();
   const mode = await getMode();
   const a = item.analysis;
@@ -109,9 +111,10 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
         <ItemThumb src={item.imageUrl} alt={item.name} size={72} />
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold">{item.name}</h1>
+            <h1 className="text-2xl font-bold">{itemName.display}</h1>
             <RecBadge rec={a?.recommendation ?? null} />
           </div>
+          {itemName.original && <p className="text-sm text-muted-foreground/70">{itemName.original}</p>}
           <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
             <GradeBadge grade={item.grade} />
             <span>{f(item.type)}</span>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useCallback, useRef } from "react";
-import { RefreshCw, Database, Trash2, Activity, CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { RefreshCw, Database, Trash2, Activity, CheckCircle2, XCircle, Loader2, Languages } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ import { formatNumber, formatDateTime } from "@/lib/utils";
 
 interface RefreshInfo {
   running: boolean;
-  kind: "refresh" | "reanalyze" | "descriptions" | null;
+  kind: "refresh" | "reanalyze" | "descriptions" | "names" | null;
   startedAt: number | null;
   finishedAt: number | null;
   progress: { phase: string; current: number; total: number } | null;
@@ -22,6 +22,7 @@ const PHASE_LABEL: Record<string, string> = {
   store: "保存中",
   analyze: "分析中",
   descriptions: "ステータス取得中",
+  names: "アイテム名翻訳中",
 };
 
 /** ジョブのメッセージ/エラーから「原因」と「対処」を推測して分かりやすく補足する。 */
@@ -93,6 +94,8 @@ export function AdminPanel() {
         const d = r.result;
         if (r.kind === "descriptions") {
           setMsg({ ok: true, text: `ステータス取得 完了: ${d.updated ?? 0}/${d.total ?? 0} 件更新` });
+        } else if (r.kind === "names") {
+          setMsg({ ok: true, text: d.total === 0 ? "翻訳対象がありません（または翻訳APIキー未設定）" : `アイテム名翻訳 完了: ${d.updated ?? 0}/${d.total ?? 0} 件` });
         } else {
           setMsg({
             ok: true,
@@ -108,18 +111,20 @@ export function AdminPanel() {
     if (typeof window !== "undefined") localStorage.setItem("adminToken", v);
   }
 
-  async function action(kind: "refresh" | "reanalyze" | "cache" | "history" | "descriptions") {
+  async function action(kind: "refresh" | "reanalyze" | "cache" | "history" | "descriptions" | "names") {
     setMsg(null);
-    if (kind === "descriptions") {
+    if (kind === "descriptions" || kind === "names") {
+      const url = kind === "names" ? "/api/admin/translate-names" : "/api/admin/refresh-descriptions";
+      const startMsg = kind === "names" ? "アイテム名翻訳を開始しました（未翻訳分を機械翻訳します）" : "ステータス取得を開始しました（全件で数十分かかります）";
       try {
-        const res = await fetch("/api/admin/refresh-descriptions", { method: "POST", headers: { "x-admin-token": token } });
+        const res = await fetch(url, { method: "POST", headers: { "x-admin-token": token } });
         const data = await res.json().catch(() => null);
         if (!res.ok) {
           setMsg({ ok: false, text: data?.error ?? "失敗しました" });
           return;
         }
         if (data?.started === false && data?.running) setMsg({ ok: true, text: "既に処理が進行中です" });
-        else setMsg({ ok: true, text: "ステータス取得を開始しました（全件で数十分かかります）" });
+        else setMsg({ ok: true, text: startMsg });
         loadStatus();
       } catch (e) {
         setMsg({ ok: false, text: (e as Error).message });
@@ -206,6 +211,10 @@ export function AdminPanel() {
               {running && runningKind === "descriptions" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Database className="h-4 w-4" />}
               ステータス取得 (特殊ステータス/Lv)
             </Button>
+            <Button variant="secondary" onClick={() => action("names")} disabled={running || busy != null}>
+              {running && runningKind === "names" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Languages className="h-4 w-4" />}
+              アイテム名翻訳
+            </Button>
             <Button variant="outline" onClick={() => action("cache")} disabled={running || busy != null}>
               {busy === "cache" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
               キャッシュ削除
@@ -232,7 +241,9 @@ export function AdminPanel() {
                       ? "取得+分析を実行中…"
                       : runningKind === "descriptions"
                         ? "ステータス取得を実行中…"
-                        : "再分析を実行中…"}
+                        : runningKind === "names"
+                          ? "アイテム名翻訳を実行中…"
+                          : "再分析を実行中…"}
                   {pr && pr.total > 0 && <span className="tabular font-medium text-foreground">{pr.current}/{pr.total}{pct != null ? ` (${pct}%)` : ""}</span>}
                   <span className="text-xs text-muted-foreground/70">画面を離れても継続します</span>
                 </p>

@@ -19,6 +19,7 @@ model Item {
   appId           Int      @default(3678970)
   marketHashName  String   @unique
   name            String
+  nameI18n        Json?    // 機械翻訳したアイテム名 { ja, ko, zh, ru, pt, es, fr, de }
   imageUrl        String?
 
   // 分類 (Steam appfilters の実ファセット)

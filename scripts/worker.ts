@@ -5,6 +5,7 @@
  * (軽量化のため完全な cron パーサは持たず、分間隔のみ解釈する)
  */
 import { runRefresh, refreshHotOrderBooks, refreshDescriptions } from "../src/lib/jobs";
+import { translateItemNames } from "../src/lib/steam/name-translate";
 import { refreshRates } from "../src/lib/fx";
 import { captureException, monitoringStatus } from "../src/lib/monitoring";
 
@@ -61,6 +62,16 @@ async function descGapFill() {
   }
 }
 
+// 起動時の穴埋め: アイテム名が未翻訳のものだけ機械翻訳する (ANTHROPIC_API_KEY 未設定なら no-op)。
+async function nameTranslateGapFill() {
+  try {
+    const r = await translateItemNames({ onlyMissing: true });
+    if (r.updated > 0) console.log(`[worker] item-name translation gap-fill: ${r.updated}/${r.total}`);
+  } catch (e) {
+    captureException(e, { source: "worker/nameTranslateGapFill", level: "warning" });
+  }
+}
+
 async function main() {
   const minutes = intervalMinutes();
   console.log(
@@ -76,6 +87,8 @@ async function main() {
   if (DESC_ON_START) setTimeout(descTick, 60_000);
   // フル取得しない場合でも、ステータス未取得アイテムは毎起動で穴埋めする (90秒遅延で重複起動を回避)
   else setTimeout(descGapFill, 90_000);
+  // アイテム名の未翻訳分を起動時に穴埋め (120秒遅延でSteam取得と重ならないように)
+  setTimeout(nameTranslateGapFill, 120_000);
 }
 
 main();

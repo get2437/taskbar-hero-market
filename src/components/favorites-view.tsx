@@ -8,12 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent, Skeleton } from "@/components/ui/misc";
 import { StatCard } from "@/components/stat-card";
 import { ItemThumb, GradeBadge, PriceChange, ScoreBadge } from "@/components/domain";
+import { ItemName } from "@/components/item-name";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
 import { formatBps, formatNumber, cn } from "@/lib/utils";
 
 interface FavView {
-  favoriteId: string; id: string; name: string; imageUrl: string | null; grade: string; type: string; level: number | null;
+  favoriteId: string; id: string; name: string; nameI18n?: Record<string, string> | null; imageUrl: string | null; grade: string; type: string; level: number | null;
   lowestPrice: number | null; change7d: number | null; changePrev: number | null; investmentScore: number | null; riskLevel: string | null;
   folderId: string | null; memo: string | null; purchasePrice: number | null;
   profit: number | null; profitAfterFee: number | null; profitRate: number | null;
@@ -173,7 +174,7 @@ function FavoriteCard({ fav, folders, onRemove, onSaved }: { fav: FavView; folde
           <Link href={`/items/${fav.id}`} className="flex min-w-0 flex-1 items-center gap-2">
             <ItemThumb src={fav.imageUrl} alt={fav.name} size={40} />
             <div className="min-w-0">
-              <div className="truncate font-medium hover:underline">{fav.name}</div>
+              <ItemName name={fav.name} nameI18n={fav.nameI18n} className="truncate font-medium hover:underline" inline />
               <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <GradeBadge grade={fav.grade} /><span>{ft(fav.type)}</span>{fav.level != null && <span>Lv{fav.level}</span>}
               </div>

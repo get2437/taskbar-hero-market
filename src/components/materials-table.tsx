@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
 import { GradeBadge } from "@/components/domain";
+import { ItemName } from "@/components/item-name";
 import { cn } from "@/lib/utils";
 import type { Material, MaterialEffect } from "@/lib/materials";
 import { materialImage } from "@/lib/materials";
@@ -15,7 +16,7 @@ const TARGET_UI: Record<string, string> = { WEAPON: "weapon", ARMOR: "armor", AC
 const TARGET_ORDER = ["WEAPON", "ARMOR", "ACCESSORY", "ANY"];
 
 
-export function MaterialsTable({ items, linkMap = {}, priceMap = {} }: { items: Material[]; linkMap?: Record<string, string>; priceMap?: Record<string, number> }) {
+export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {} }: { items: Material[]; linkMap?: Record<string, string>; priceMap?: Record<string, number>; nameMap?: Record<string, Record<string, string>> }) {
   const { t, f, s, su } = useT();
   const { fmt } = useMoney();
   const [cats, setCats] = useState<string[]>([]);
@@ -146,7 +147,7 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {} }: { items: 
               <img src={materialImage(m)} alt={m.name} width={32} height={32} className="h-8 w-8 shrink-0 rounded [image-rendering:pixelated]" />
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className={cn("truncate text-sm font-medium", id && "hover:underline")}>{m.name}</span>
+                  <ItemName name={m.name} nameI18n={nameMap[m.slug]} className={cn("truncate text-sm font-medium", id && "hover:underline")} inline />
                   {m.unreleased && <span className="shrink-0 rounded bg-amber-500/15 px-1 text-[10px] font-semibold text-amber-500">{t("mat.unreleased")}</span>}
                 </div>
                 <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">

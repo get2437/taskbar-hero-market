@@ -24,22 +24,24 @@ export default async function MaterialsPage() {
   const dbItems = await prisma.item
     .findMany({
       where: { OR: [{ name: { in: names } }, { marketHashName: { in: names } }] },
-      select: { id: true, name: true, marketHashName: true, latest: { select: { lowestPrice: true } } },
+      select: { id: true, name: true, marketHashName: true, nameI18n: true, latest: { select: { lowestPrice: true } } },
     })
     .catch(() => []);
-  const byName = new Map<string, { id: string; price: number | null }>();
+  const byName = new Map<string, { id: string; price: number | null; nameI18n: Record<string, string> | null }>();
   for (const it of dbItems) {
-    const v = { id: it.id, price: it.latest?.lowestPrice ?? null };
+    const v = { id: it.id, price: it.latest?.lowestPrice ?? null, nameI18n: (it.nameI18n as Record<string, string> | null) ?? null };
     byName.set(it.name, v);
     byName.set(it.marketHashName, v);
   }
   const linkMap: Record<string, string> = {};
   const priceMap: Record<string, number> = {}; // slug -> ライブ最安値(円)
+  const nameMap: Record<string, Record<string, string>> = {}; // slug -> 翻訳名
   for (const m of items) {
     const hit = byName.get(m.name);
     if (hit) {
       linkMap[m.slug] = hit.id;
       if (hit.price != null) priceMap[m.slug] = hit.price;
+      if (hit.nameI18n) nameMap[m.slug] = hit.nameI18n;
     }
   }
 
@@ -53,7 +55,7 @@ export default async function MaterialsPage() {
         </p>
       </div>
       <AdBanner placement="materials_top" />
-      <MaterialsTable items={items} linkMap={linkMap} priceMap={priceMap} />
+      <MaterialsTable items={items} linkMap={linkMap} priceMap={priceMap} nameMap={nameMap} />
       <AdBanner placement="materials_bottom" />
     </div>
   );

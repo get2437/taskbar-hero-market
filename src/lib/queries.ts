@@ -215,6 +215,7 @@ export function serializeItemRow(it: Prisma.ItemGetPayload<{ include: { latest: 
   return {
     id: it.id,
     name: it.name,
+    nameI18n: (it.nameI18n as Record<string, string> | null) ?? null,
     marketHashName: it.marketHashName,
     imageUrl: it.imageUrl,
     type: it.type,
@@ -266,6 +267,7 @@ export async function getGearTable() {
     select: {
       id: true,
       name: true,
+      nameI18n: true,
       imageUrl: true,
       grade: true,
       part: true,
@@ -302,6 +304,7 @@ export async function getGearTable() {
     return {
       id: it.id,
       name: it.name,
+      nameI18n: (it.nameI18n as Record<string, string> | null) ?? null,
       imageUrl: it.imageUrl,
       grade: it.grade,
       part: it.part,
@@ -325,6 +328,7 @@ export async function getItemsForCompare(ids: string[]) {
     select: {
       id: true,
       name: true,
+      nameI18n: true,
       grade: true,
       materialCategory: true,
       requiredLevel: true,

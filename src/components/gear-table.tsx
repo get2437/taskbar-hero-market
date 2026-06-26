@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
 import { ItemThumb, GradeBadge } from "@/components/domain";
+import { ItemName } from "@/components/item-name";
 import { ClassIcon } from "@/components/class-icon";
 import { cn } from "@/lib/utils";
 import type { GearRow } from "@/lib/queries";
@@ -94,7 +95,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
           <Link href={`/items/${it.id}`} className="flex min-w-0 items-center gap-2">
             <ItemThumb src={it.imageUrl} alt={it.name} size={32} />
             <div className="min-w-0">
-              <div className="truncate text-sm font-medium hover:underline">{it.name}</div>
+              <ItemName name={it.name} nameI18n={it.nameI18n} className="truncate text-sm font-medium hover:underline" inline />
               <div className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-muted-foreground">
                 <GradeBadge grade={it.grade} />
                 <span>{f(it.part)}</span>
