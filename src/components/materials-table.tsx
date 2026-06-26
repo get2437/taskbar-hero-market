@@ -15,7 +15,7 @@ const TARGET_UI: Record<string, string> = { WEAPON: "weapon", ARMOR: "armor", AC
 const TARGET_ORDER = ["WEAPON", "ARMOR", "ACCESSORY", "ANY"];
 
 
-export function MaterialsTable({ items, linkMap = {} }: { items: Material[]; linkMap?: Record<string, string> }) {
+export function MaterialsTable({ items, linkMap = {}, priceMap = {} }: { items: Material[]; linkMap?: Record<string, string>; priceMap?: Record<string, number> }) {
   const { t, f, s, su } = useT();
   const { fmt } = useMoney();
   const [cats, setCats] = useState<string[]>([]);
@@ -165,7 +165,12 @@ export function MaterialsTable({ items, linkMap = {} }: { items: Material[]; lin
                   <div className="flex min-w-0 items-center gap-2">{head}</div>
                 )}
                 <div className="shrink-0 text-right text-xs tabular">
-                  {m.onMarket && m.refPriceYen != null ? fmt(m.refPriceYen) : <span className="text-muted-foreground">—</span>}
+                  {(() => {
+                    // ライブの最安値(DB)を優先。無ければビルド時のスナップショット価格。
+                    const live = priceMap[m.slug];
+                    const yen = live != null ? live : m.onMarket ? m.refPriceYen : null;
+                    return yen != null ? fmt(yen) : <span className="text-muted-foreground">—</span>;
+                  })()}
                 </div>
               </div>
               <div className="mt-2"><EffCell m={m} /></div>

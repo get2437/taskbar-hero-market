@@ -18,24 +18,29 @@ export default async function MaterialsPage() {
   const { t } = await getTranslator();
   const items = getMaterials();
 
-  // 素材 → DBアイテムidの対応付け (出品中の素材は詳細ページへ飛べるように)。
+  // 素材 → DBアイテムの対応付け。詳細リンク用の id と、表示用のライブ最安値(円)を取得する。
   // 素材の market_hash_name は名前と一致するため name / marketHashName 両方で照合する。
   const names = items.map((m) => m.name);
   const dbItems = await prisma.item
     .findMany({
       where: { OR: [{ name: { in: names } }, { marketHashName: { in: names } }] },
-      select: { id: true, name: true, marketHashName: true },
+      select: { id: true, name: true, marketHashName: true, latest: { select: { lowestPrice: true } } },
     })
     .catch(() => []);
-  const byName = new Map<string, string>();
+  const byName = new Map<string, { id: string; price: number | null }>();
   for (const it of dbItems) {
-    byName.set(it.name, it.id);
-    byName.set(it.marketHashName, it.id);
+    const v = { id: it.id, price: it.latest?.lowestPrice ?? null };
+    byName.set(it.name, v);
+    byName.set(it.marketHashName, v);
   }
   const linkMap: Record<string, string> = {};
+  const priceMap: Record<string, number> = {}; // slug -> ライブ最安値(円)
   for (const m of items) {
-    const id = byName.get(m.name);
-    if (id) linkMap[m.slug] = id;
+    const hit = byName.get(m.name);
+    if (hit) {
+      linkMap[m.slug] = hit.id;
+      if (hit.price != null) priceMap[m.slug] = hit.price;
+    }
   }
 
   return (
@@ -48,7 +53,7 @@ export default async function MaterialsPage() {
         </p>
       </div>
       <AdBanner placement="materials_top" />
-      <MaterialsTable items={items} linkMap={linkMap} />
+      <MaterialsTable items={items} linkMap={linkMap} priceMap={priceMap} />
       <AdBanner placement="materials_bottom" />
     </div>
   );
