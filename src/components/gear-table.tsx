@@ -37,6 +37,11 @@ function fmtSpecialNum(vMin: number | null, vMax: number | null, unit: string): 
   return one(vMin);
 }
 
+// 辞書に無いステータスキーの保険: snake_case を読める英語に整形 (例 all_skill_level -> All Skill Level)。
+const humanizeKey = (k: string) => k.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+// 翻訳優先・無ければ humanize した英語をフォールバックにする。
+const statName = (s: (k: string, fb?: string) => string, k: string) => s(k, humanizeKey(k));
+
 export function GearTable({ items }: { items: GearRow[] }) {
   const { t, f, s, su, sq, locale } = useT();
   const { fmt } = useMoney();
@@ -123,7 +128,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
   // 識別系の並び替えはチップ、ステータスはドロップダウン (項目数が多いため)。
   const ID_SORTS = ["level", "price", "grade", "name"];
   const sortLabel = (k: string) =>
-    k === "level" ? "Lv" : k === "price" ? t("common.price") : k === "grade" ? t("filter.grade") : k === "name" ? t("common.item") : s(k, k);
+    k === "level" ? "Lv" : k === "price" ? t("common.price") : k === "grade" ? t("filter.grade") : k === "name" ? t("common.item") : statName(s, k);
   const statSelected = cols.includes(sort);
 
   // 1アイテム = 1カード (横スクロール無し・全ステータス折り返し表示)
@@ -151,7 +156,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
         <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs">
           {cols.filter((k) => it.stats[k]?.v != null).map((k) => (
             <span key={k}>
-              <span className="text-muted-foreground">{s(k, k)}</span>{" "}
+              <span className="text-muted-foreground">{statName(s, k)}</span>{" "}
               <span className={cn("font-medium tabular", sort === k && "text-primary")}>{fmtVal(it.stats[k])}</span>
             </span>
           ))}
@@ -219,7 +224,7 @@ export function GearTable({ items }: { items: GearRow[] }) {
                   <option value="">{t("gear.sortByStat")}</option>
                   {colsByGroup.map(({ group, keys }) => (
                     <optgroup key={group} label={group === "other" ? t("common.item") : su(statGroupLabelKey(group))}>
-                      {keys.map((k) => <option key={k} value={k}>{s(k, k)}</option>)}
+                      {keys.map((k) => <option key={k} value={k}>{statName(s, k)}</option>)}
                     </optgroup>
                   ))}
                 </select>
