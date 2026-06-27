@@ -399,7 +399,18 @@ export async function getPriceHistory(itemId: string, range: string) {
     orderBy: { timestamp: "asc" },
     select: { price: true, quantity: true, timestamp: true },
   });
-  return rows.map((r) => ({ t: r.timestamp.getTime(), price: r.price, quantity: r.quantity }));
+  const points = rows.map((r) => ({ t: r.timestamp.getTime(), price: r.price, quantity: r.quantity }));
+
+  // 外れ値除去: 0以下や、中央値から極端に離れた点(旧汚染データ/取得グリッチ)はチャートを壊すため除外。
+  // 1アイテムの価格はそこまで乱高下しないので、中央値の 1/15〜15倍の範囲外は捨てる(実変動は保持)。
+  const sorted = points.map((p) => p.price).filter((v) => v > 0).sort((a, b) => a - b);
+  if (sorted.length >= 4) {
+    const median = sorted[Math.floor(sorted.length / 2)];
+    const lo = median / 15;
+    const hi = median * 15;
+    return points.filter((p) => p.price > 0 && p.price >= lo && p.price <= hi);
+  }
+  return points.filter((p) => p.price > 0);
 }
 
 export async function getRecentTrades(itemId: string, limit = 30) {
