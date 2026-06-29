@@ -1,9 +1,23 @@
 /**
  * Steam向け共通HTTP。指数バックオフ+ジッタ+タイムアウトで、
  * Steam障害・レート制限(429)・タイムアウト・一時的5xxに耐える。
+ * 429が続く時はサーキットブレーカー(クールダウン)で一定時間Steamへの要求を止める。
  */
+import { steamCooldownRemainingMs, setSteamCooldown } from "./cooldown";
+
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+// 429 を受けた後に Steam へ一切要求しない時間 (IP回復のため)。Retry-After があれば尊重。
+const COOLDOWN_MS = Number(process.env.STEAM_COOLDOWN_MS ?? 15 * 60_000);
+const COOLDOWN_MAX_MS = 60 * 60_000;
+
+export class SteamCooldownError extends Error {
+  constructor(remainingMs: number) {
+    super(`Steam rate-limit cooldown: ${Math.ceil(remainingMs / 1000)}s remaining (429)`);
+    this.name = "SteamCooldownError";
+  }
+}
 
 function backoffMs(attempt: number, baseMs: number): number {
   const exp = baseMs * 2 ** attempt;
@@ -19,6 +33,10 @@ export interface SteamFetchOptions {
 
 /** 失敗時は指数バックオフで再試行。最終的に失敗したら例外。 */
 export async function steamFetch(url: string, opts: SteamFetchOptions = {}): Promise<Response> {
+  // クールダウン中は一切要求しない (制限中に叩き続けて429が解消しないのを防ぐ)。
+  const cd = await steamCooldownRemainingMs();
+  if (cd > 0) throw new SteamCooldownError(cd);
+
   const retries = opts.retries ?? 3;
   const timeoutMs = opts.timeoutMs ?? 12_000;
   const base = opts.baseBackoffMs ?? 600;
@@ -39,9 +57,17 @@ export async function steamFetch(url: string, opts: SteamFetchOptions = {}): Pro
         await sleep(backoffMs(attempt, res.status === 429 ? base * 4 : base));
         continue;
       }
+      // リトライしても429 → クールダウン発動 (Retry-Afterを尊重しつつ上限内)。以降は即スキップ。
+      if (res.status === 429) {
+        const ra = Number(res.headers.get("retry-after")) * 1000;
+        const ms = Math.min(COOLDOWN_MAX_MS, Math.max(COOLDOWN_MS, Number.isFinite(ra) && ra > 0 ? ra : 0));
+        await setSteamCooldown(ms);
+        throw new SteamCooldownError(ms);
+      }
       return res;
     } catch (e) {
       clearTimeout(timer);
+      if (e instanceof SteamCooldownError) throw e;
       lastErr = e;
       if (attempt < retries) {
         await sleep(backoffMs(attempt, base));

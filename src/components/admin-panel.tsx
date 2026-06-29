@@ -30,8 +30,8 @@ const PHASE_LABEL: Record<string, string> = {
 function explainMessage(raw: string | null | undefined): { cause: string; action: string } | null {
   if (!raw) return null;
   const m = raw.toLowerCase();
-  if (/\b429\b|rate limit|too many/.test(m))
-    return { cause: "Steamのレート制限(429)で取得を拒否されました。", action: "数分待ってから再実行してください。短時間に連続実行しないでください。" };
+  if (/cooldown|\b429\b|rate limit|too many/.test(m))
+    return { cause: "Steamのレート制限(429)です。現在は自動クールダウン中で、その間Steam取得を停止しています。", action: "数分〜十数分で自動回復します。手動更新の連続実行は避けてください（再発を早めます）。" };
   if (/timeout|timed out|etimedout|aborterror|aborted/.test(m))
     return { cause: "Steamへの接続がタイムアウトしました。", action: "ネットワークまたはSteam混雑の可能性。少し待って再実行してください。" };
   if (/\b5\d\d\b|server error|bad gateway|service unavailable/.test(m))
