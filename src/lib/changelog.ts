@@ -15,8 +15,6 @@ export interface ChangeEntry {
 
 export const CHANGELOG: ChangeEntry[] = [
   { at: "2026-06-29T10:00", title: "cl.lang17.t", detail: "cl.lang17.d" },
-  { at: "2026-06-29T09:51", title: "cl.steam429.t", detail: "cl.steam429.d" },
-  { at: "2026-06-29T09:46", title: "cl.admintoken.t", detail: "cl.admintoken.d" },
   { at: "2026-06-29T09:39", title: "cl.favsep.t", detail: "cl.favsep.d" },
   { at: "2026-06-27T18:07", title: "cl.chart.t", detail: "cl.chart.d" },
   { at: "2026-06-27T08:45", title: "cl.gear.t", detail: "cl.gear.d" },
