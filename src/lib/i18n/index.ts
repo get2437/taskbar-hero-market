@@ -1,10 +1,21 @@
 import { messages, facetMessages, LOCALES, type Locale } from "./messages";
 import statI18n from "../../../assets/stat-i18n.json";
+import i18nExtra from "../../../assets/i18n-extra.json";
 
 export { LOCALES, DEFAULT_LOCALE, LOCALE_LABEL } from "./messages";
 export type { Locale } from "./messages";
 
 export const LOCALE_COOKIE = "locale";
+
+// 機械翻訳で生成した追加翻訳 (scripts/translate-ui.ts が assets/i18n-extra.json を生成)。
+// 手書き辞書(messages/stat-i18n)に無い言語をこれで補い、最終的に英語へフォールバック。
+const EX = i18nExtra as {
+  t?: Record<string, Record<string, string>>;
+  f?: Record<string, Record<string, string>>;
+  s?: Record<string, Record<string, string>>;
+  su?: Record<string, Record<string, string>>;
+  sq?: Record<string, Record<string, string>>;
+};
 
 // 説明文由来のステータス名・見出し辞書 (assets/stat-i18n.json と共有)。
 type LMap = Partial<Record<Locale, string>> & { en: string; g?: string };
@@ -47,12 +58,13 @@ export interface Translator {
 }
 
 export function createTranslator(locale: Locale): Translator {
+  // 解決順: 手書き辞書(locale) → 機械翻訳の追加(locale) → 英語 → fallback/キー
   return {
     locale,
-    t: (id) => messages[id]?.[locale] ?? messages[id]?.en ?? id,
-    f: (value) => facetMessages[value]?.[locale] ?? facetMessages[value]?.en ?? value,
-    s: (key, fallback) => SI.stats[key]?.[locale] ?? SI.stats[key]?.en ?? fallback ?? key,
-    su: (key) => SI.ui[key]?.[locale] ?? SI.ui[key]?.en ?? key,
-    sq: (key, fallback) => SI.unique[key]?.[locale] ?? SI.unique[key]?.en ?? fallback ?? key,
+    t: (id) => messages[id]?.[locale] ?? EX.t?.[locale]?.[id] ?? messages[id]?.en ?? id,
+    f: (value) => facetMessages[value]?.[locale] ?? EX.f?.[locale]?.[value] ?? facetMessages[value]?.en ?? value,
+    s: (key, fallback) => SI.stats[key]?.[locale] ?? EX.s?.[locale]?.[key] ?? SI.stats[key]?.en ?? fallback ?? key,
+    su: (key) => SI.ui[key]?.[locale] ?? EX.su?.[locale]?.[key] ?? SI.ui[key]?.en ?? key,
+    sq: (key, fallback) => SI.unique[key]?.[locale] ?? EX.sq?.[locale]?.[key] ?? SI.unique[key]?.en ?? fallback ?? key,
   };
 }
