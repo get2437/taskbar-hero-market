@@ -174,6 +174,8 @@ export const messages: Record<string, M> = {
   // 更新履歴（アクセス数ページ下部）
   "cl.title": { en: "Update History", ja: "更新履歴", ko: "업데이트 내역", zh: "更新历史", ru: "История обновлений", pt: "Histórico de atualizações", es: "Historial de cambios", fr: "Historique des mises à jour", de: "Änderungsverlauf" },
   "cl.sub": { en: "What changed and what was added, newest first.", ja: "変更点・追加点を新しい順に掲載しています。", ko: "변경 및 추가 사항을 최신순으로 표시합니다.", zh: "按时间倒序展示更改与新增内容。", ru: "Изменения и дополнения, начиная с новых.", pt: "O que mudou e o que foi adicionado, do mais recente.", es: "Qué cambió y qué se añadió, de lo más reciente.", fr: "Ce qui a changé et a été ajouté, du plus récent.", de: "Was sich geändert hat und neu ist, neueste zuerst." },
+  "cl.refresh.t": { en: "System update & data refresh", ja: "システム更新とデータ刷新" },
+  "cl.refresh.d": { en: "We rolled out a platform update and refreshed the database as part of routine maintenance. Price history is being recorded fresh from today and fills back in over time, and item-name translations regenerate automatically. If you had saved favorites, please add them again. Thanks for your patience!", ja: "基盤のアップデートに伴い、メンテナンスの一環としてデータベースを刷新しました。価格チャートの履歴は本日から改めて記録を開始し、時間とともに充実していきます。アイテム名の翻訳は自動で再生成されます。お気に入りを登録されていた方は、お手数ですが再登録をお願いします。ご不便をおかけしますが、よろしくお願いします。" },
   "cl.coinodds.t": { en: "Anniversary coin offering odds", ja: "記念コインの使用時確率を表示" },
   "cl.coinodds.d": { en: "Anniversary coin item pages now show the grade distribution (odds) you get when offering the coin in the Cube.", ja: "記念コインのアイテムページに、キューブで使用したときに得られる等級の確率分布を表示するようにしました。" },
   "cl.itemsort.t": { en: "Sort the item list by clicking column headers", ja: "アイテム一覧をヘッダクリックで並び替え" },
