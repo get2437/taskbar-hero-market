@@ -58,23 +58,45 @@ interface Status {
 
 export function AdminPanel() {
   const [token, setToken] = useState("");
+  const [authed, setAuthed] = useState(false); // トークンが有効か (内容表示の可否)
   const [status, setStatus] = useState<Status | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const prevRunning = useRef(false);
 
-  const loadStatus = useCallback((tok?: string) => {
+  // status 取得の成否で認証状態を判定する。成功=トークン有効。
+  const loadStatus = useCallback(async (tok?: string): Promise<boolean> => {
     const t = tok ?? (typeof window !== "undefined" ? localStorage.getItem("adminToken") ?? "" : "");
-    fetch("/api/admin/status", { headers: { "x-admin-token": t } })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => d && setStatus(d))
-      .catch(() => {});
+    try {
+      const r = await fetch("/api/admin/status", { headers: { "x-admin-token": t } });
+      if (!r.ok) { setAuthed(false); return false; }
+      setStatus(await r.json());
+      setAuthed(true);
+      return true;
+    } catch {
+      setAuthed(false);
+      return false;
+    }
   }, []);
+  // 保存済みトークンがあれば自動で認証を試みる (無ければ入力フォームを表示)。
   useEffect(() => {
     const saved = typeof window !== "undefined" ? localStorage.getItem("adminToken") : null;
-    if (saved) setToken(saved);
-    loadStatus(saved ?? "");
+    if (saved) { setToken(saved); void loadStatus(saved); }
   }, [loadStatus]);
+
+  async function submitToken(e?: React.FormEvent) {
+    e?.preventDefault();
+    persistToken(token);
+    const ok = await loadStatus(token);
+    setMsg(ok ? null : { ok: false, text: "トークンが正しくありません" });
+  }
+  function logout() {
+    if (typeof window !== "undefined") localStorage.removeItem("adminToken");
+    setToken("");
+    setAuthed(false);
+    setStatus(null);
+    setMsg(null);
+  }
 
   // 取得/分析の進行中はサーバ状態をポーリングし、完了したら結果を表示する。
   const running = status?.refresh?.running ?? false;
@@ -182,6 +204,29 @@ export function AdminPanel() {
     }
   }
 
+  // 未認証: トークン入力フォームだけ表示し、内容は隠す。
+  if (!authed) {
+    return (
+      <Card className="mx-auto max-w-md">
+        <CardHeader><CardTitle>管理者ログイン</CardTitle></CardHeader>
+        <CardContent>
+          <form onSubmit={submitToken} className="space-y-3">
+            <div className="space-y-1">
+              <label className="text-xs text-muted-foreground">管理者トークン (ADMIN_TOKEN)</label>
+              <Input type="password" value={token} onChange={(e) => setToken(e.target.value)} placeholder="ADMIN_TOKEN を入力" autoFocus />
+            </div>
+            <Button type="submit" disabled={!token.trim()}>表示</Button>
+            {msg && !msg.ok && (
+              <div className="flex items-center gap-2 rounded-md border border-destructive/40 p-2 text-sm text-destructive">
+                <XCircle className="h-4 w-4" /> {msg.text}
+              </div>
+            )}
+          </form>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
     <div className="space-y-4">
       {/* ステータス */}
@@ -191,16 +236,15 @@ export function AdminPanel() {
         <StatCard label="価格履歴" value={formatNumber(status?.counts.historyCount)} />
         <StatCard label="未解決の異常" value={formatNumber(status?.counts.anomalyCount)} accent="warning" />
       </div>
-      <p className="text-sm text-muted-foreground">最終更新: {status?.lastUpdated ? formatDateTime(status.lastUpdated) : "—"}</p>
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-muted-foreground">最終更新: {status?.lastUpdated ? formatDateTime(status.lastUpdated) : "—"}</p>
+        <Button variant="ghost" size="sm" onClick={logout}>ログアウト</Button>
+      </div>
 
       {/* 操作 */}
       <Card>
         <CardHeader><CardTitle>操作</CardTitle></CardHeader>
         <CardContent className="space-y-3">
-          <div className="space-y-1">
-            <label className="text-xs text-muted-foreground">管理者トークン (ADMIN_TOKEN)</label>
-            <Input type="password" value={token} onChange={(e) => persistToken(e.target.value)} placeholder="ADMIN_TOKEN を入力" className="max-w-sm" />
-          </div>
           <div className="flex flex-wrap gap-2">
             <Button onClick={() => action("refresh")} disabled={running || busy != null}>
               {running && runningKind === "refresh" ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
