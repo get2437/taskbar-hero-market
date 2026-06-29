@@ -29,7 +29,9 @@ export type Placement =
 // マスタースイッチ + ネットワーク設定
 export const ADS_ENABLED = process.env.NEXT_PUBLIC_ADS_ENABLED === "true";
 export const AD_NETWORK: AdNetwork = "adsense";
-export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "";
+// このサイトの AdSense パブリッシャーID。env で上書き可。
+// 既定値を持たせることで、サイト所有確認(meta タグ / ads.txt)は ADS_ENABLED に関係なく機能する。
+export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-5326925561428482";
 // 開発時に枠位置を確認するためのプレースホルダ表示
 export const ADS_PLACEHOLDER = process.env.NEXT_PUBLIC_ADS_PLACEHOLDER === "true";
 

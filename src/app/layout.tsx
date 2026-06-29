@@ -47,6 +47,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        {/* AdSense サイト所有確認。client があれば常に出す(ADS_ENABLED に依存しない)→公開前でも審査が通る。 */}
+        {!!ADSENSE_CLIENT && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
         {LOAD_ADSENSE && (
           <>
             {/* Consent Mode v2 の既定(denied)。AdSense読込より前に実行する。 */}
