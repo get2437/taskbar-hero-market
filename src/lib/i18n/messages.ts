@@ -174,6 +174,10 @@ export const messages: Record<string, M> = {
   // 更新履歴（アクセス数ページ下部）
   "cl.title": { en: "Update History", ja: "更新履歴", ko: "업데이트 내역", zh: "更新历史", ru: "История обновлений", pt: "Histórico de atualizações", es: "Historial de cambios", fr: "Historique des mises à jour", de: "Änderungsverlauf" },
   "cl.sub": { en: "What changed and what was added, newest first.", ja: "変更点・追加点を新しい順に掲載しています。", ko: "변경 및 추가 사항을 최신순으로 표시합니다.", zh: "按时间倒序展示更改与新增内容。", ru: "Изменения и дополнения, начиная с новых.", pt: "O que mudou e o que foi adicionado, do mais recente.", es: "Qué cambió y qué se añadió, de lo más reciente.", fr: "Ce qui a changé et a été ajouté, du plus récent.", de: "Was sich geändert hat und neu ist, neueste zuerst." },
+  "cl.coinodds.t": { en: "Anniversary coin offering odds", ja: "記念コインの使用時確率を表示" },
+  "cl.coinodds.d": { en: "Anniversary coin item pages now show the grade distribution (odds) you get when offering the coin in the Cube.", ja: "記念コインのアイテムページに、キューブで使用したときに得られる等級の確率分布を表示するようにしました。" },
+  "cl.itemsort.t": { en: "Sort the item list by clicking column headers", ja: "アイテム一覧をヘッダクリックで並び替え" },
+  "cl.itemsort.d": { en: "Click a column header (price, daily/7-day change, median, quantity, score, name) in the item list to sort; click again to flip ascending or descending.", ja: "アイテム一覧の列ヘッダ（価格・前日比・7日比・中間値・数量・スコア・名前）をクリックで並び替え、再クリックで昇順/降順を切り替えできるようにしました。" },
   "cl.lang17.t": { en: "Languages & currencies greatly expanded", ja: "言語・通貨を大幅に追加" },
   "cl.lang17.d": { en: "Added 5 display languages (Italian, Polish, Turkish, Thai, Vietnamese) for 14 total, and 10 currencies (GBP, CAD, AUD, INR, TWD, HKD, SGD, THB, IDR, PHP) for 17 total. The exchange rate now shows on mobile too, your language is auto-selected from your browser, and the Materials table gained stat-based sorting.", ja: "表示言語を5つ（イタリア語・ポーランド語・トルコ語・タイ語・ベトナム語）追加し計14言語に、通貨を10種類（GBP, CAD, AUD, INR, TWD, HKD, SGD, THB, IDR, PHP）追加し計17通貨にしました。為替レートをスマホでも表示し、ブラウザの言語設定から表示言語を自動選択。素材まとめ表にステータスでの並び替えも追加しました。" },
   "cl.favsep.t": { en: "Favorites are now per-visitor", ja: "お気に入りを利用者ごとに分離" },
