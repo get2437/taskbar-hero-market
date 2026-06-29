@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Search, X, Scale, SlidersHorizontal, ChevronDown } from "lucide-react";
+import { Search, X, Scale, SlidersHorizontal, ChevronDown, ArrowUp, ArrowDown, ChevronsUpDown } from "lucide-react";
 import { Input, Select } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox, Skeleton } from "@/components/ui/misc";
@@ -221,6 +221,34 @@ export function ItemsBrowser() {
     );
   }, []);
 
+  // 列ヘッダのクリックでソート: 同じ列なら昇順/降順をトグル、別の列なら既定の向き(名前=昇順, それ以外=降順)。
+  const clickSort = (k: string) => {
+    if (sort === k) setOrder(order === "asc" ? "desc" : "asc");
+    else { setSort(k); setOrder(k === "name" ? "asc" : "desc"); }
+    setPage(1);
+  };
+  // ソート可能なヘッダセル。align は右寄せ既定(数値列)、名前列は左寄せ。
+  const sortTh = (k: string, label: string, opts?: { className?: string; align?: "left" | "right" }) => {
+    const align = opts?.align ?? "right";
+    const active = sort === k;
+    return (
+      <th className={cn("px-3 py-2", opts?.className)} aria-sort={active ? (order === "asc" ? "ascending" : "descending") : "none"}>
+        <button
+          type="button"
+          onClick={() => clickSort(k)}
+          className={cn(
+            "flex w-full items-center gap-1 whitespace-nowrap hover:text-foreground",
+            align === "right" ? "justify-end" : "justify-start",
+            active && "font-semibold text-foreground",
+          )}
+        >
+          {label}
+          {active ? (order === "asc" ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />) : <ChevronsUpDown className="h-3 w-3 opacity-40" />}
+        </button>
+      </th>
+    );
+  };
+
   const resetFilters = () => {
     setTypes([]); setParts([]); setGrades([]); setClasses([]);
     setMatcats([]); setStatKeys([]); setWithUnique(false);
@@ -365,6 +393,8 @@ export function ItemsBrowser() {
               <option value="name">{t("sort.name")}</option>
               <option value="score">{t("sort.score")}</option>
               <option value="change7d">{t("sort.change7d")}</option>
+              <option value="changePrev">{t("common.daily")}</option>
+              <option value="median">{t("common.median")}</option>
             </Select>
             <Select value={order} onChange={(e) => setOrder(e.target.value)} className="w-auto">
               <option value="desc">{t("common.desc")}</option>
@@ -398,13 +428,13 @@ export function ItemsBrowser() {
                 <tr>
                   <th className="w-8 px-2 py-2" title={t("common.compare")}><Scale className="h-3.5 w-3.5" /></th>
                   <th className="w-8 px-2 py-2"></th>
-                  <th className="px-3 py-2 text-left">{t("common.item")}</th>
-                  <th className="px-3 py-2 text-right">{t("common.price")}</th>
-                  <th className="hidden px-3 py-2 text-right sm:table-cell">{t("common.daily")}</th>
-                  <th className="hidden px-3 py-2 text-right md:table-cell">{t("common.d7")}</th>
-                  <th className="hidden px-3 py-2 text-right md:table-cell">{t("common.median")}</th>
-                  <th className="hidden px-3 py-2 text-right sm:table-cell">{t("common.qty")}</th>
-                  <th className="px-3 py-2 text-right">{t("common.score")}</th>
+                  {sortTh("name", t("common.item"), { align: "left" })}
+                  {sortTh("price", t("common.price"))}
+                  {sortTh("changePrev", t("common.daily"), { className: "hidden sm:table-cell" })}
+                  {sortTh("change7d", t("common.d7"), { className: "hidden md:table-cell" })}
+                  {sortTh("median", t("common.median"), { className: "hidden md:table-cell" })}
+                  {sortTh("quantity", t("common.qty"), { className: "hidden sm:table-cell" })}
+                  {sortTh("score", t("common.score"))}
                 </tr>
               </thead>
               <tbody>

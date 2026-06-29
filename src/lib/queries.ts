@@ -26,13 +26,13 @@ export interface ItemListParams {
   statKeys?: string[];               // ステータスキー (チップ選択)。複数=全て持つ(AND)
   statKind?: string;                 // 対象種別 (BASE/INHERENT/SPECIAL/MATERIAL_EFFECT)。未指定=種別不問
   withUnique?: boolean;             // 特殊ステータス(Unique)を持つものだけ
-  sort?: "price" | "quantity" | "level" | "name" | "score" | "change7d";
+  sort?: "price" | "quantity" | "level" | "name" | "score" | "change7d" | "changePrev" | "median";
   order?: "asc" | "desc";
   page?: number;
   pageSize?: number;
 }
 
-const SORTABLE = new Set(["price", "quantity", "level", "name", "score", "change7d"]);
+const SORTABLE = new Set(["price", "quantity", "level", "name", "score", "change7d", "changePrev", "median"]);
 
 // enum許可リスト (不正値はPrismaがエラーになるため事前にサニタイズ)
 const VALID_TYPE = new Set(["GEAR", "MATERIAL"]);
@@ -177,6 +177,12 @@ export async function listItems(params: ItemListParams) {
       break;
     case "change7d":
       orderBy = { latest: { change7d: order } };
+      break;
+    case "changePrev":
+      orderBy = { latest: { changePrev: order } };
+      break;
+    case "median":
+      orderBy = { latest: { medianPrice: order } };
       break;
     case "score":
       orderBy = { analysis: { investmentScore: order } };
