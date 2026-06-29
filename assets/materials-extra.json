@@ -29,7 +29,12 @@
     { "rarity": "DIVINE", "pct": 0.1 }
   ], "coinNote": "アルカナ等級以上" },
 
-  "Kingdom 100th Anniversary Coin": { "unreleased": true },
+  "Kingdom 100th Anniversary Coin": { "coinOutput": [
+    { "rarity": "ARCANA", "pct": 50.5 },
+    { "rarity": "CELESTIAL", "pct": 40.01 },
+    { "rarity": "DIVINE", "pct": 8.38 },
+    { "rarity": "COSMIC", "pct": 1.11 }
+  ] },
   "Empire 100th Anniversary Coin": { "unreleased": true },
   "Sacred Kingdom 1000th Anniversary Coin": { "unreleased": true },
   "Eternal Empire 1000th Anniversary Coin": { "unreleased": true }

@@ -24,6 +24,10 @@ import { GradeBadge, PriceChange, RecBadge, ItemThumb } from "@/components/domai
 import { formatNumber, formatDateTime, formatBps, cn, priceParts, safeJsonLd } from "@/lib/utils";
 import { getMoney } from "@/lib/money/server";
 import { resolveItemName } from "@/lib/item-name";
+import { getMaterialByName } from "@/lib/materials";
+
+// coinOutput のバッジ表示に使う既知グレード (それ以外は文字表示)。
+const COIN_GRADES = ["COSMIC", "DIVINE", "CELESTIAL", "BEYOND", "ARCANA", "IMMORTAL", "LEGENDARY", "RARE", "UNCOMMON", "COMMON"];
 
 const STEAM_APP_ID = Number(process.env.NEXT_PUBLIC_STEAM_APP_ID ?? process.env.STEAM_APP_ID ?? 3678970);
 
@@ -98,6 +102,10 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
       : {}),
   };
 
+  // 記念コイン等の「使用時の出力(確率)」を素材データ(assets/materials.json)から引く。
+  const material = getMaterialByName(item.name) ?? getMaterialByName(item.marketHashName);
+  const coinOutput = material?.coinOutput ?? null;
+
   return (
     <div className="space-y-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(productLd) }} />
@@ -158,6 +166,25 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
 
       {/* ステータス (Steam 説明文由来) */}
       <ItemStatCard item={item} tr={tr} />
+
+      {/* 記念コイン等: 使用時の出力(等級確率)。素材データ由来。 */}
+      {coinOutput && coinOutput.length > 0 && (
+        <Card>
+          <CardHeader><CardTitle>{t("detail.coinOutput")}</CardTitle></CardHeader>
+          <CardContent>
+            <p className="mb-2 text-xs text-muted-foreground">{t("detail.coinOutputNote")}</p>
+            <ul className="space-y-1">
+              {coinOutput.map((o, i) => (
+                <li key={i} className="flex items-center justify-between gap-3 border-b border-border/40 py-1.5 text-sm last:border-0">
+                  {COIN_GRADES.includes(o.rarity) ? <GradeBadge grade={o.rarity} /> : <span className="text-muted-foreground">{o.rarity}</span>}
+                  <span className="font-semibold tabular text-primary">{o.pct != null ? `≈${o.pct}%` : (o.note ?? "—")}</span>
+                </li>
+              ))}
+            </ul>
+            {material?.coinNote && <p className="mt-2 text-xs text-muted-foreground">※ {material.coinNote}</p>}
+          </CardContent>
+        </Card>
+      )}
 
       {/* 注文板 (LIVE) */}
       <OrderBook itemId={item.id} hash={item.marketHashName} />

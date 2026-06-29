@@ -37,6 +37,12 @@ export function getMaterials(): Material[] {
   return MATERIALS;
 }
 
+const BY_NAME = new Map(MATERIALS.map((m) => [m.name, m]));
+/** 素材を英語名で引く (アイテム詳細から coinOutput/効果を参照するため)。 */
+export function getMaterialByName(name: string | null | undefined): Material | undefined {
+  return name ? BY_NAME.get(name) : undefined;
+}
+
 // 画像: ローカルにDL済の wiki アイコンを使う (全件あり)。
 export function materialImage(m: Pick<Material, "slug">): string {
   return `/materials/${m.slug}.png`;

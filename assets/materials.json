@@ -5135,7 +5135,24 @@
   "refPriceYen": null,
   "onMarket": false,
   "effects": [],
-  "unreleased": true
+  "coinOutput": [
+   {
+    "rarity": "ARCANA",
+    "pct": 50.5
+   },
+   {
+    "rarity": "CELESTIAL",
+    "pct": 40.01
+   },
+   {
+    "rarity": "DIVINE",
+    "pct": 8.38
+   },
+   {
+    "rarity": "COSMIC",
+    "pct": 1.11
+   }
+  ]
  },
  {
   "name": "Empire 100th Anniversary Coin",
