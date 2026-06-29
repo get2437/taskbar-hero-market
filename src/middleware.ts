@@ -78,7 +78,7 @@ export function middleware(req: NextRequest) {
   }
   const res = NextResponse.next({ request: { headers: requestHeaders } });
   if (!existingUid) {
-    res.cookies.set("uid", uid, { path: "/", maxAge: 60 * 60 * 24 * 730, sameSite: "lax", httpOnly: true });
+    res.cookies.set("uid", uid, { path: "/", maxAge: 60 * 60 * 24 * 730, sameSite: "lax", httpOnly: true, secure: process.env.NODE_ENV === "production" });
   }
   return res;
 }
