@@ -48,21 +48,42 @@ function ruleFor(pathname: string): { group: string; max: number; windowMs: numb
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const { group, max, windowMs } = ruleFor(pathname);
-  const ip = clientIp(req);
-  if (!allow(`${ip}:${group}`, max, windowMs)) {
-    return new NextResponse(JSON.stringify({ error: "Too many requests" }), {
-      status: 429,
-      headers: {
-        "Content-Type": "application/json",
-        "Retry-After": String(Math.ceil(windowMs / 1000)),
-        "Cache-Control": "no-store",
-      },
-    });
+
+  // API はレート制限 (ページ遷移は対象外)
+  if (pathname.startsWith("/api")) {
+    const { group, max, windowMs } = ruleFor(pathname);
+    const ip = clientIp(req);
+    if (!allow(`${ip}:${group}`, max, windowMs)) {
+      return new NextResponse(JSON.stringify({ error: "Too many requests" }), {
+        status: 429,
+        headers: {
+          "Content-Type": "application/json",
+          "Retry-After": String(Math.ceil(windowMs / 1000)),
+          "Cache-Control": "no-store",
+        },
+      });
+    }
   }
-  return NextResponse.next();
+
+  // 匿名セッションID(uid)を訪問者ごとに発行。お気に入り/通知/アラートを一人ひとりに分離する。
+  // 認証は無いが、ブラウザごとに固有の uid を割り当てることで他人のデータが混ざらないようにする。
+  const existingUid = req.cookies.get("uid")?.value;
+  const uid = existingUid || crypto.randomUUID();
+
+  // 新規発行時は、同一リクエストのサーバ処理からも読めるよう Cookie ヘッダへ追記して転送する。
+  const requestHeaders = new Headers(req.headers);
+  if (!existingUid) {
+    const cookie = requestHeaders.get("cookie");
+    requestHeaders.set("cookie", (cookie ? cookie + "; " : "") + `uid=${uid}`);
+  }
+  const res = NextResponse.next({ request: { headers: requestHeaders } });
+  if (!existingUid) {
+    res.cookies.set("uid", uid, { path: "/", maxAge: 60 * 60 * 24 * 730, sameSite: "lax", httpOnly: true });
+  }
+  return res;
 }
 
 export const config = {
-  matcher: ["/api/:path*"],
+  // ページと API で実行 (Next 内部と静的ファイルは除外)
+  matcher: ["/((?!_next/static|_next/image|.*\\.(?:png|jpg|jpeg|gif|svg|ico|webp|txt|xml|json|woff2?)$).*)"],
 };
