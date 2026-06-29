@@ -5,6 +5,8 @@ export const CURRENCIES = [
   "USD", "EUR", "JPY", "KRW", "CNY", "RUB", "BRL",
   // 追加: 英/加/豪/印/台 + 東南アジア(香/星/泰/尼/比)
   "GBP", "CAD", "AUD", "INR", "TWD", "HKD", "SGD", "THB", "IDR", "PHP",
+  // 追加言語向け: ポーランド/トルコ/ベトナム
+  "PLN", "TRY", "VND",
 ] as const;
 export type Currency = (typeof CURRENCIES)[number];
 export const DEFAULT_CURRENCY: Currency = "USD";
@@ -14,12 +16,13 @@ export const CURRENCY_COOKIE = "currency";
 export const STATIC_RATES: Record<Currency, number> = {
   USD: 1, EUR: 0.92, JPY: 150, KRW: 1350, CNY: 7.2, RUB: 90, BRL: 5.4,
   GBP: 0.79, CAD: 1.36, AUD: 1.52, INR: 83, TWD: 32, HKD: 7.8, SGD: 1.35, THB: 36, IDR: 16000, PHP: 58,
+  PLN: 4.0, TRY: 33, VND: 25000,
 };
 
 // 言語 -> 既定の表示通貨
 export const CURRENCY_BY_LOCALE: Record<string, Currency> = {
   en: "USD", ja: "JPY", ko: "KRW", zh: "CNY", ru: "RUB", pt: "BRL", es: "EUR", fr: "EUR", de: "EUR",
-  it: "EUR", pl: "EUR", tr: "EUR", th: "THB", vi: "USD",
+  it: "EUR", pl: "PLN", tr: "TRY", th: "THB", vi: "VND",
 };
 
 const META: Record<Currency, { locale: string; dec: number }> = {
@@ -40,6 +43,9 @@ const META: Record<Currency, { locale: string; dec: number }> = {
   THB: { locale: "th-TH", dec: 2 },
   IDR: { locale: "id-ID", dec: 0 },
   PHP: { locale: "en-PH", dec: 2 },
+  PLN: { locale: "pl-PL", dec: 2 },
+  TRY: { locale: "tr-TR", dec: 2 },
+  VND: { locale: "vi-VN", dec: 0 },
 };
 
 export function isCurrency(v: string | null | undefined): v is Currency {

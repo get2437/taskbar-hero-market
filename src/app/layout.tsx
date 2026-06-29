@@ -11,7 +11,6 @@ import { getMode } from "@/lib/mode/server";
 import { MoneyProvider } from "@/lib/money/provider";
 import { getMoney } from "@/lib/money/server";
 import { ADS_ENABLED, ADSENSE_CLIENT } from "@/lib/ads/config";
-import { ConsentBanner } from "@/components/consent-banner";
 import { PageViewTracker } from "@/components/page-view-tracker";
 
 const LOAD_ADSENSE = ADS_ENABLED && !!ADSENSE_CLIENT;
@@ -51,9 +50,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {!!ADSENSE_CLIENT && <meta name="google-adsense-account" content={ADSENSE_CLIENT} />}
         {LOAD_ADSENSE && (
           <>
-            {/* Consent Mode v2 の既定(denied)。AdSense読込より前に実行する。 */}
+            {/* Consent Mode v2 の既定(denied)。AdSense読込より前に実行する。
+                実際の同意収集は Google 認定 CMP (AdSense 側で設定) が地域別に行い、ここを update する。 */}
             <Script id="consent-default" strategy="beforeInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});try{if(localStorage.getItem('thb_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}}catch(e){}`}
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});`}
             </Script>
             <Script
               async
@@ -80,7 +80,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   <Footer />
                 </div>
               </div>
-              <ConsentBanner />
               <PageViewTracker />
             </ModeProvider>
             </MoneyProvider>
