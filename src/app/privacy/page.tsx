@@ -5,10 +5,10 @@ import type { Locale } from "@/lib/i18n";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Privacy Policy", robots: { index: true, follow: true } };
 
-// ⚠️ 公開前に内容を確認・調整してください（雛形）。連絡先メールは実際のものに。
+// ⚠️ 公開前に内容を確認・調整してください（雛形）。
 type Content = { title: string; updated: string; body: [string, string][] };
-const UPDATED = "2026-06-16";
-const CONTACT = "contact@<your-domain>";
+const UPDATED = "2026-06-29";
+const CONTACT = "contact@taskbarhero.space";
 
 const CONTENT: Partial<Record<Locale, Content>> & { en: Content } = {
   en: {
