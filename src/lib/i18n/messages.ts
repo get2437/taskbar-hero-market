@@ -2,16 +2,18 @@
  * UIメッセージ辞書 (EN既定 / JA / KO / ZH / RU)。
  * id をキーに各言語訳を持つ。アイテム名は翻訳しない (Steam準拠で英語)。
  */
-export const LOCALES = ["en", "ja", "ko", "zh", "ru", "pt", "es", "fr", "de"] as const;
+export const LOCALES = ["en", "ja", "ko", "zh", "ru", "pt", "es", "fr", "de", "it", "pl", "tr", "th", "vi"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
 export const LOCALE_LABEL: Record<Locale, string> = {
   en: "English", ja: "日本語", ko: "한국어", zh: "中文", ru: "Русский",
   pt: "Português", es: "Español", fr: "Français", de: "Deutsch",
+  it: "Italiano", pl: "Polski", tr: "Türkçe", th: "ไทย", vi: "Tiếng Việt",
 };
 
-type M = Record<Locale, string>;
+// en は必須。追加言語(it/pl/tr/th/vi 等)は未翻訳なら en にフォールバックするため任意。
+type M = { en: string } & Partial<Record<Locale, string>>;
 
 export const messages: Record<string, M> = {
   // nav / chrome

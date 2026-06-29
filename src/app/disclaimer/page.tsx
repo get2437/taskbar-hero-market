@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Disclaimer", robots: { index: true, 
 type Content = { title: string; updated: string; body: [string, string][] };
 const UPDATED = "2026-06-16";
 
-const CONTENT: Record<Locale, Content> = {
+const CONTENT: Partial<Record<Locale, Content>> & { en: Content } = {
   en: {
     title: "Disclaimer",
     updated: `Last updated: ${UPDATED}`,

@@ -12,6 +12,7 @@ import { captureException } from "@/lib/monitoring";
 const LANG_NAMES: Record<string, string> = {
   ja: "Japanese", ko: "Korean", zh: "Simplified Chinese", ru: "Russian",
   pt: "Portuguese", es: "Spanish", fr: "French", de: "German",
+  it: "Italian", pl: "Polish", tr: "Turkish", th: "Thai", vi: "Vietnamese",
 };
 
 // 構造化出力用の JSON Schema (各言語に title/summary)。

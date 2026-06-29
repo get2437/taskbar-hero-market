@@ -1,7 +1,11 @@
 // 通貨表示の純粋ロジック (クライアント/サーバ共用・redis等の副作用なし)。
 // JPY が Steam 実データの基軸。他通貨は USD 基準レートで換算表示する(≈付き)。
 
-export const CURRENCIES = ["USD", "EUR", "JPY", "KRW", "CNY", "RUB", "BRL"] as const;
+export const CURRENCIES = [
+  "USD", "EUR", "JPY", "KRW", "CNY", "RUB", "BRL",
+  // 追加: 英/加/豪/印/台 + 東南アジア(香/星/泰/尼/比)
+  "GBP", "CAD", "AUD", "INR", "TWD", "HKD", "SGD", "THB", "IDR", "PHP",
+] as const;
 export type Currency = (typeof CURRENCIES)[number];
 export const DEFAULT_CURRENCY: Currency = "USD";
 export const CURRENCY_COOKIE = "currency";
@@ -9,11 +13,13 @@ export const CURRENCY_COOKIE = "currency";
 // USD基準の静的フォールバックレート (1 USD = X)。本番は worker が日次でAPI更新。
 export const STATIC_RATES: Record<Currency, number> = {
   USD: 1, EUR: 0.92, JPY: 150, KRW: 1350, CNY: 7.2, RUB: 90, BRL: 5.4,
+  GBP: 0.79, CAD: 1.36, AUD: 1.52, INR: 83, TWD: 32, HKD: 7.8, SGD: 1.35, THB: 36, IDR: 16000, PHP: 58,
 };
 
 // 言語 -> 既定の表示通貨
 export const CURRENCY_BY_LOCALE: Record<string, Currency> = {
   en: "USD", ja: "JPY", ko: "KRW", zh: "CNY", ru: "RUB", pt: "BRL", es: "EUR", fr: "EUR", de: "EUR",
+  it: "EUR", pl: "EUR", tr: "EUR", th: "THB", vi: "USD",
 };
 
 const META: Record<Currency, { locale: string; dec: number }> = {
@@ -24,6 +30,16 @@ const META: Record<Currency, { locale: string; dec: number }> = {
   CNY: { locale: "zh-CN", dec: 2 },
   RUB: { locale: "ru-RU", dec: 0 },
   BRL: { locale: "pt-BR", dec: 2 },
+  GBP: { locale: "en-GB", dec: 2 },
+  CAD: { locale: "en-CA", dec: 2 },
+  AUD: { locale: "en-AU", dec: 2 },
+  INR: { locale: "en-IN", dec: 2 },
+  TWD: { locale: "zh-TW", dec: 0 },
+  HKD: { locale: "zh-HK", dec: 2 },
+  SGD: { locale: "en-SG", dec: 2 },
+  THB: { locale: "th-TH", dec: 2 },
+  IDR: { locale: "id-ID", dec: 0 },
+  PHP: { locale: "en-PH", dec: 2 },
 };
 
 export function isCurrency(v: string | null | undefined): v is Currency {

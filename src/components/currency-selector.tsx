@@ -18,7 +18,7 @@ export function CurrencySelector() {
     <div className="flex items-center gap-1.5">
       {rate && (
         <span
-          className="hidden whitespace-nowrap text-xs text-muted-foreground tabular sm:inline"
+          className="whitespace-nowrap text-[10px] leading-tight text-muted-foreground tabular sm:text-xs"
           title="Steam価格はUSD建て。表示はこのレートで換算（≈）"
         >
           {rate}

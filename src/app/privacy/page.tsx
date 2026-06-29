@@ -10,7 +10,7 @@ type Content = { title: string; updated: string; body: [string, string][] };
 const UPDATED = "2026-06-16";
 const CONTACT = "contact@<your-domain>";
 
-const CONTENT: Record<Locale, Content> = {
+const CONTENT: Partial<Record<Locale, Content>> & { en: Content } = {
   en: {
     title: "Privacy Policy",
     updated: `Last updated: ${UPDATED}`,

@@ -12,7 +12,7 @@ export interface NewsTranslation {
   summary: string;
 }
 // 英語以外の対応言語 (UIと同じ9言語のうち en を除く8言語)
-export const NEWS_LOCALES = ["ja", "ko", "zh", "ru", "pt", "es", "fr", "de"] as const;
+export const NEWS_LOCALES = ["ja", "ko", "zh", "ru", "pt", "es", "fr", "de", "it", "pl", "tr", "th", "vi"] as const;
 export type NewsLocale = (typeof NEWS_LOCALES)[number];
 export type NewsTranslations = Partial<Record<NewsLocale, NewsTranslation>>;
 

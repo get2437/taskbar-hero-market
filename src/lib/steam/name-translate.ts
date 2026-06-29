@@ -22,6 +22,7 @@ const TARGET_LOCALES = LOCALES.filter((l) => l !== "en");
 const LANG_NAMES: Record<string, string> = {
   ja: "Japanese", ko: "Korean", zh: "Simplified Chinese", ru: "Russian",
   pt: "Portuguese", es: "Spanish", fr: "French", de: "German",
+  it: "Italian", pl: "Polish", tr: "Turkish", th: "Thai", vi: "Vietnamese",
 };
 
 // レア度語 → Grade enum (facetMessages のキー)

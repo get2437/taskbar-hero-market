@@ -1,13 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useT } from "@/lib/i18n/provider";
 import { useMoney } from "@/lib/money/provider";
+import { STAT_GROUP_OF, STAT_GROUP_ORDER, STAT_KEYS, statGroupLabelKey } from "@/lib/i18n";
 import { GradeBadge } from "@/components/domain";
 import { ItemName } from "@/components/item-name";
 import { cn } from "@/lib/utils";
 import type { Material, MaterialEffect } from "@/lib/materials";
 import { materialImage } from "@/lib/materials";
+
+// 効果の表示値("+9~10%"等)から比較用の数値(範囲は最大)を取り出す。
+const parseMax = (val: string): number | null => {
+  const nums = (val.match(/-?\d+(?:\.\d+)?/g) || []).map((n) => Math.abs(Number(n)));
+  return nums.length ? Math.max(...nums) : null;
+};
+// 素材の指定ステータスの値 (対象/ティア違いがあれば最大)。無ければ null。
+const statValOf = (m: Material, key: string): number | null => {
+  let best: number | null = null;
+  for (const e of m.effects) {
+    if (e.statKey !== key) continue;
+    const v = parseMax(e.value);
+    if (v != null) best = best == null ? v : Math.max(best, v);
+  }
+  return best;
+};
 
 const CATS = ["DECORATION", "ENGRAVING", "INSCRIPTION", "CRAFTING", "ANNIVERSARY", "SOULSTONE"];
 const GRADES = ["COSMIC", "DIVINE", "CELESTIAL", "BEYOND", "ARCANA", "IMMORTAL", "LEGENDARY", "RARE", "UNCOMMON", "COMMON"];
@@ -23,9 +40,25 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {
   const [grades, setGrades] = useState<string[]>([]);
   const [q, setQ] = useState("");
   const [sort, setSort] = useState<"rarity" | "name" | "category" | "priceDesc" | "priceAsc">("category");
+  const [statSort, setStatSort] = useState<{ key: string; dir: "asc" | "desc" } | null>(null);
 
   const toggle = (arr: string[], set: (v: string[]) => void, v: string) =>
     set(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
+
+  // 素材の効果に出現するステータスキーを動的収集 → グループ別ドロップダウン用。
+  const grp = (k: string) => {
+    const g = STAT_GROUP_OF[k] ?? "other";
+    return STAT_GROUP_ORDER.includes(g) ? g : "other";
+  };
+  const statColsByGroup = useMemo(() => {
+    const present = new Set<string>();
+    for (const m of items) for (const e of m.effects) if (e.statKey) present.add(e.statKey);
+    const order = [...STAT_GROUP_ORDER, "other"];
+    const canon = (k: string) => { const i = STAT_KEYS.indexOf(k); return i < 0 ? 9999 : i; };
+    const keys = [...present].sort((a, b) => order.indexOf(grp(a)) - order.indexOf(grp(b)) || canon(a) - canon(b) || a.localeCompare(b));
+    return order.map((g) => ({ group: g, keys: keys.filter((k) => grp(k) === g) })).filter((x) => x.keys.length);
+  }, [items]);
+  const pickSort = (v: typeof sort) => { setSort(v); setStatSort(null); };
 
   const qn = q.trim().toLowerCase();
   const filtered = items.filter(
@@ -36,6 +69,15 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {
   );
   const catRank = (c: string) => CATS.indexOf(c);
   const sorted = [...filtered].sort((a, b) => {
+    if (statSort) {
+      // ステータス値で並べ替え。その効果を持たない素材は常に末尾。
+      const va = statValOf(a, statSort.key);
+      const vb = statValOf(b, statSort.key);
+      if (va == null && vb == null) return a.name.localeCompare(b.name);
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      return statSort.dir === "desc" ? vb - va : va - vb;
+    }
     if (sort === "name") return a.name.localeCompare(b.name);
     if (sort === "rarity") return (GRADE_RANK[b.rarity] ?? 0) - (GRADE_RANK[a.rarity] ?? 0) || a.name.localeCompare(b.name);
     if (sort === "priceDesc" || sort === "priceAsc") {
@@ -130,23 +172,49 @@ export function MaterialsTable({ items, linkMap = {}, priceMap = {}, nameMap = {
             placeholder={t("common.item")}
             className="h-8 w-44 rounded-md border bg-background px-2 text-sm"
           />
-          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
             {(["category", "rarity", "name"] as const).map((k) => (
               <button
                 key={k}
-                onClick={() => setSort(k)}
-                className={cn("rounded px-2 py-0.5", sort === k ? "bg-primary/15 text-primary" : "hover:bg-accent")}
+                onClick={() => pickSort(k)}
+                className={cn("rounded px-2 py-0.5", !statSort && sort === k ? "bg-primary/15 text-primary" : "hover:bg-accent")}
               >
                 {k === "category" ? t("filter.type") : k === "rarity" ? t("filter.grade") : t("common.item")}
               </button>
             ))}
             {/* 価格ソート: クリックで 高い順 ▼ → 安い順 ▲ をトグル */}
             <button
-              onClick={() => setSort(sort === "priceDesc" ? "priceAsc" : "priceDesc")}
-              className={cn("rounded px-2 py-0.5", sort === "priceDesc" || sort === "priceAsc" ? "bg-primary/15 text-primary" : "hover:bg-accent")}
+              onClick={() => pickSort(sort === "priceDesc" ? "priceAsc" : "priceDesc")}
+              className={cn("rounded px-2 py-0.5", !statSort && (sort === "priceDesc" || sort === "priceAsc") ? "bg-primary/15 text-primary" : "hover:bg-accent")}
             >
-              {t("common.price")}{sort === "priceDesc" ? " ▼" : sort === "priceAsc" ? " ▲" : ""}
+              {t("common.price")}{!statSort && sort === "priceDesc" ? " ▼" : !statSort && sort === "priceAsc" ? " ▲" : ""}
             </button>
+            {/* ステータスで並び替え (項目数が多いのでグループ別ドロップダウン) */}
+            {statColsByGroup.length > 0 && (
+              <>
+                <select
+                  aria-label={t("gear.sortByStat")}
+                  value={statSort?.key ?? ""}
+                  onChange={(e) => setStatSort(e.target.value ? { key: e.target.value, dir: "desc" } : null)}
+                  className={cn("h-[22px] rounded border px-1 text-xs", statSort ? "border-primary bg-primary/15 text-primary" : "border-border bg-background")}
+                >
+                  <option value="">{t("gear.sortByStat")}</option>
+                  {statColsByGroup.map(({ group, keys }) => (
+                    <optgroup key={group} label={group === "other" ? t("common.item") : su(statGroupLabelKey(group))}>
+                      {keys.map((k) => <option key={k} value={k}>{s(k, k)}</option>)}
+                    </optgroup>
+                  ))}
+                </select>
+                {statSort && (
+                  <button
+                    onClick={() => setStatSort({ key: statSort.key, dir: statSort.dir === "asc" ? "desc" : "asc" })}
+                    className="rounded border border-primary bg-primary/15 px-1.5 py-0.5 text-primary"
+                  >
+                    {statSort.dir === "asc" ? "▲" : "▼"}
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
