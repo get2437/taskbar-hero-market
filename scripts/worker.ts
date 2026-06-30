@@ -13,6 +13,10 @@ import { captureException, monitoringStatus } from "../src/lib/monitoring";
 const HOT_INTERVAL_MS = Number(process.env.HOT_REFRESH_MS ?? 20_000); // 閲覧中銘柄の鮮度
 const DESC_INTERVAL_MS = Number(process.env.DESC_REFRESH_MS ?? 24 * 3_600_000); // 説明文(ステータス)は静的→日次
 const DESC_ON_START = process.env.DESC_REFRESH_ON_START === "true"; // 初回デプロイ用に起動後1回実行
+// 説明文の穴埋めは「少量バッチ × 定期」で行う。一度に大量取得するとSteamの429を誘発し、
+// 中断→再試行のループで永久に埋まらなくなるため、毎回少しずつ取得して負荷を一定に保つ。
+const DESC_GAP_BATCH = Number(process.env.DESC_GAP_BATCH ?? 40); // 1回あたりの取得上限
+const DESC_GAP_INTERVAL_MS = Number(process.env.DESC_GAP_INTERVAL_MS ?? 15 * 60_000); // 穴埋めの実行間隔
 
 function intervalMinutes(): number {
   const cron = process.env.MARKET_REFRESH_CRON ?? "*/15 * * * *";
@@ -57,8 +61,9 @@ async function descTick() {
 // 日次タイマーは再デプロイでリセットされ走らないことがあるため、未取得分を毎起動で確実に埋める。
 async function descGapFill() {
   try {
-    const r = await refreshDescriptions({ onlyMissing: true });
-    if (r.total > 0) console.log(`[worker] descriptions gap-fill: ${r.updated}/${r.total}`);
+    // 少量(DESC_GAP_BATCH)だけ取得。残りは次回以降のインターバルで順次埋める(429回避)。
+    const r = await refreshDescriptions({ onlyMissing: true, maxItems: DESC_GAP_BATCH });
+    if (r.total > 0) console.log(`[worker] descriptions gap-fill: ${r.updated}/${r.total} (batch<=${DESC_GAP_BATCH})`);
   } catch (e) {
     captureException(e, { source: "worker/descGapFill", level: "warning" });
   }
@@ -108,7 +113,8 @@ async function main() {
   refreshRates().catch((e) => captureException(e, { source: "worker/fx", level: "warning" })); // 起動時に為替取得
   setInterval(tick, minutes * 60_000);
   setInterval(hotTick, HOT_INTERVAL_MS); // 閲覧中銘柄を高頻度で最新化
-  setInterval(descTick, DESC_INTERVAL_MS); // 説明文(ステータス)を日次で最新化
+  setInterval(descTick, DESC_INTERVAL_MS); // 説明文(ステータス)を日次で最新化(フル)
+  setInterval(descGapFill, DESC_GAP_INTERVAL_MS); // 未取得ステータスを少量ずつ継続的に穴埋め(429回避)
   setInterval(() => refreshRates().catch((e) => captureException(e, { source: "worker/fx", level: "warning" })), 12 * 3_600_000); // 為替を12時間毎
   // 起動時の穴埋めは直列実行 (Steamロックで互いに競合しないよう順番に)。初回 tick 完了後に開始。
   setTimeout(startupTasks, 60_000);

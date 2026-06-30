@@ -9,8 +9,9 @@ const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 // 429 を受けた後に Steam へ一切要求しない時間 (IP回復のため)。Retry-After があれば尊重。
-const COOLDOWN_MS = Number(process.env.STEAM_COOLDOWN_MS ?? 15 * 60_000);
-const COOLDOWN_MAX_MS = 60 * 60_000;
+// 15分だと制限が解ける前に再プローブして再び429→延長…のループに陥りやすいので、30分に延長。
+const COOLDOWN_MS = Number(process.env.STEAM_COOLDOWN_MS ?? 30 * 60_000);
+const COOLDOWN_MAX_MS = 90 * 60_000;
 
 export class SteamCooldownError extends Error {
   constructor(remainingMs: number) {
