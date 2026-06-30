@@ -11,7 +11,8 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getTranslator();
-  return { title: t("mat.title"), description: t("mat.sub") };
+  const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
+  return { title: t("mat.title"), description: t("mat.sub"), ...(site ? { alternates: { canonical: `${site}/materials` } } : {}) };
 }
 
 export default async function MaterialsPage() {

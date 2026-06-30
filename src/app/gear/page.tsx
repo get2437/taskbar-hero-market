@@ -9,7 +9,8 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getTranslator();
-  return { title: t("gear.title"), description: t("gear.sub") };
+  const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
+  return { title: t("gear.title"), description: t("gear.sub"), ...(site ? { alternates: { canonical: `${site}/gear` } } : {}) };
 }
 
 export default async function GearPage() {

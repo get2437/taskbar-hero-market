@@ -8,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { t } = await getTranslator();
-  return { title: t("rank.title"), description: t("rank.sub") };
+  const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
+  return { title: t("rank.title"), description: t("rank.sub"), ...(site ? { alternates: { canonical: `${site}/rankings` } } : {}) };
 }
 
 export default async function RankingsPage() {
