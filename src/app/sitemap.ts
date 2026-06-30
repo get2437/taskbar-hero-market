@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/dashboard`, changeFrequency: "hourly", priority: 0.7 },
     { url: `${BASE}/anomalies`, changeFrequency: "hourly", priority: 0.6 },
     { url: `${BASE}/news`, changeFrequency: "daily", priority: 0.6 },
+    { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.5 },
   ];
 
   // アイテム詳細 (DB未接続でも静的ルートは返す)

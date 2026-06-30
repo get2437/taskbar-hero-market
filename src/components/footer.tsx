@@ -12,6 +12,7 @@ export function Footer() {
         <p>{t("footer.notAffiliated")}</p>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pt-1">
           <span>© {year} Taskbar Hero Market</span>
+          <Link href="/about" className="hover:underline hover:text-foreground">{t("nav.about")}</Link>
           <Link href="/privacy" className="hover:underline hover:text-foreground">{t("nav.privacy")}</Link>
           <Link href="/disclaimer" className="hover:underline hover:text-foreground">{t("nav.disclaimer")}</Link>
         </div>

@@ -102,6 +102,15 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
       : {}),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Taskbar Hero Market", ...(site ? { item: `${site}/` } : {}) },
+      { "@type": "ListItem", position: 2, name: item.name, ...(site ? { item: `${site}/items/${id}` } : {}) },
+    ],
+  };
+
   // 記念コイン等の「使用時の出力(確率)」を素材データ(assets/materials.json)から引く。
   const material = getMaterialByName(item.name) ?? getMaterialByName(item.marketHashName);
   const coinOutput = material?.coinOutput ?? null;
@@ -109,6 +118,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ id:
   return (
     <div className="space-y-4">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(productLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbLd) }} />
       <BackButton
         label={t("detail.back")}
         className="sticky top-[64px] z-20 inline-flex w-fit cursor-pointer items-center gap-1.5 self-start rounded-lg border bg-card px-3.5 py-2 text-sm font-semibold shadow-md hover:bg-accent hover:border-primary"

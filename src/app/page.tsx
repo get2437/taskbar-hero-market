@@ -62,6 +62,7 @@ export default async function HomePage() {
     { href: "/rankings", label: t("nav.rankings") },
     { href: "/news", label: t("nav.news") },
     { href: "/dashboard", label: t("nav.dashboard") },
+    { href: "/about", label: t("nav.about") },
   ];
 
   return (
