@@ -10,8 +10,15 @@ import { safeJsonLd } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { t } = await getTranslator();
-  return { title: t("items.title"), description: t("items.sub") };
+  const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
+  // トップは検索で最重要。H1ラベルではなくキーワードを含む独立したSEOタイトル/説明にする。
+  // canonical をルートに固定し、?sort= や ?filter= の重複URLを正規化する。
+  return {
+    title: { absolute: "Taskbar Hero Market — Prices, Rankings & Price Forecasts" },
+    description:
+      "Live Steam Community Market prices, rankings, anomalies, order books and price forecasts for Taskbar Hero (TBH) items — free stock-style market analytics.",
+    ...(site ? { alternates: { canonical: site } } : {}),
+  };
 }
 
 // ホーム = アイテム一覧
