@@ -51,7 +51,7 @@ async function markStaleRunningLogs(olderThanMs = 20 * 60_000): Promise<void> {
  * Steam取得+分析。手動(管理画面)と worker(15分毎)の双方から呼ばれる。
  * 共有ロックで直列化し、別プロセスのジョブと競合(二重取得→429)しないようにする。
  */
-export async function runRefresh(opts: { fetch?: boolean; onProgress?: ProgressFn } = {}): Promise<RefreshResult> {
+export async function runRefresh(opts: { fetch?: boolean; kind?: string; onProgress?: ProgressFn } = {}): Promise<RefreshResult> {
   const r = await withLock(STEAM_JOB_LOCK, 20 * 60, () => runRefreshLocked(opts));
   if (!r.ran) {
     return { fetched: 0, analyzed: 0, anomalies: 0, notified: 0, skippedFetch: true, skipped: true, message: "別のSteam取得/更新ジョブが実行中のためスキップしました。" };
@@ -59,10 +59,11 @@ export async function runRefresh(opts: { fetch?: boolean; onProgress?: ProgressF
   return r.value;
 }
 
-async function runRefreshLocked(opts: { fetch?: boolean; onProgress?: ProgressFn }): Promise<RefreshResult> {
+async function runRefreshLocked(opts: { fetch?: boolean; kind?: string; onProgress?: ProgressFn }): Promise<RefreshResult> {
   const doFetch = opts.fetch ?? true;
   await markStaleRunningLogs();
-  const log = await prisma.fetchLog.create({ data: { kind: "manual", status: "RUNNING" } });
+  // 種別: 管理画面からの手動更新は "manual"、worker の自動更新は "scheduled"。
+  const log = await prisma.fetchLog.create({ data: { kind: opts.kind ?? "manual", status: "RUNNING" } });
 
   let fetched = 0;
   let skippedFetch = false;

@@ -15,7 +15,7 @@ const DESC_INTERVAL_MS = Number(process.env.DESC_REFRESH_MS ?? 24 * 3_600_000); 
 const DESC_ON_START = process.env.DESC_REFRESH_ON_START === "true"; // 初回デプロイ用に起動後1回実行
 // 説明文の穴埋めは「少量バッチ × 定期」で行う。一度に大量取得するとSteamの429を誘発し、
 // 中断→再試行のループで永久に埋まらなくなるため、毎回少しずつ取得して負荷を一定に保つ。
-const DESC_GAP_BATCH = Number(process.env.DESC_GAP_BATCH ?? 40); // 1回あたりの取得上限
+const DESC_GAP_BATCH = Number(process.env.DESC_GAP_BATCH ?? 20); // 1回あたりの取得上限(429中のIPでも過負荷にならない少量)
 const DESC_GAP_INTERVAL_MS = Number(process.env.DESC_GAP_INTERVAL_MS ?? 15 * 60_000); // 穴埋めの実行間隔
 
 function intervalMinutes(): number {
@@ -30,7 +30,7 @@ async function tick() {
   const started = new Date();
   console.log(`[worker] refresh start @ ${started.toISOString()}`);
   try {
-    const r = await runRefresh({ fetch: true });
+    const r = await runRefresh({ fetch: true, kind: "scheduled" });
     if (r.skipped) console.log("[worker] refresh skipped (another job is running / lock held)");
     else console.log(`[worker] done: fetched=${r.fetched} analyzed=${r.analyzed} anomalies=${r.anomalies} notified=${r.notified} ${r.skippedFetch ? "(fetch skipped)" : ""}`);
   } catch (e) {
