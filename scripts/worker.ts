@@ -4,7 +4,7 @@
  * 例: "*" + "/15 * * * *" なら15分毎。
  * (軽量化のため完全な cron パーサは持たず、分間隔のみ解釈する)
  */
-import { runRefresh, refreshHotOrderBooks, refreshDescriptions, refreshClassTags } from "../src/lib/jobs";
+import { runRefresh, refreshHotOrderBooks, refreshDescriptions, refreshClassTags, syncMaterialGrades } from "../src/lib/jobs";
 import { translateItemNames, translateStatLines } from "../src/lib/steam/name-translate";
 import { refreshRates } from "../src/lib/fx";
 import { withLock, STEAM_JOB_LOCK } from "../src/lib/lock";
@@ -102,6 +102,12 @@ async function startupTasks() {
     await descGapFill(); // ステータス未取得アイテムの穴埋め
   }
   await nameTranslateGapFill(); // 名前/特殊ステータスの未翻訳分 (Steamロック不要)
+  try {
+    const n = await syncMaterialGrades(); // 素材レア度をwiki(materials.json)で補正 (Steam不要・DBのみ)
+    if (n > 0) console.log(`[worker] material grades synced: ${n}`);
+  } catch (e) {
+    captureException(e, { source: "worker/syncMaterialGrades", level: "warning" });
+  }
 }
 
 async function main() {

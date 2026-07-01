@@ -7,6 +7,7 @@
  */
 import { prisma } from "@/lib/prisma";
 import { invalidate } from "@/lib/redis";
+import { getMaterials } from "@/lib/materials";
 import { searchAllItems, fetchClassHashes } from "@/lib/steam/fetch";
 import { storeFetched } from "@/lib/steam/store";
 import { runAnalysis } from "@/lib/analysis/engine";
@@ -203,6 +204,33 @@ export async function refreshHotOrderBooks(maxItems = 8): Promise<number> {
  * 再デプロイで日次タイマーがリセットされクロールが走らない/レート制限で取りこぼした分を
  * 起動時に安価に埋めるための「穴埋め」モード。
  */
+/**
+ * 素材のレア度(grade)を wiki 由来データ(materials.json)で DB に同期する。
+ * classify は「名前にレア度括弧の無い素材」を一律 COMMON にするため、素材の実グレードがズレる
+ * (例: Kraken Ink は本来 BEYOND だが COMMON になる)。materials.json は wiki のグレードを持つので、
+ * 名前一致で grade を上書きして正す。Steam 不要 (DB 更新のみ)。戻り値=更新件数。
+ */
+const VALID_GRADES = new Set(["COSMIC", "DIVINE", "CELESTIAL", "BEYOND", "ARCANA", "IMMORTAL", "LEGENDARY", "RARE", "UNCOMMON", "COMMON"]);
+export async function syncMaterialGrades(): Promise<number> {
+  let updated = 0;
+  for (const m of getMaterials()) {
+    if (!m.rarity || !VALID_GRADES.has(m.rarity)) continue;
+    try {
+      const res = await prisma.item.updateMany({
+        where: { OR: [{ name: m.name }, { marketHashName: m.name }], grade: { not: m.rarity as never } },
+        data: { grade: m.rarity as never },
+      });
+      updated += res.count;
+    } catch (e) {
+      captureException(e, { source: "jobs/syncMaterialGrades", level: "warning" });
+    }
+  }
+  if (updated > 0) {
+    try { await invalidate("items:*"); } catch { /* ignore */ }
+  }
+  return updated;
+}
+
 export async function refreshDescriptions(
   opts: { maxItems?: number; onlyMissing?: boolean; onProgress?: ProgressFn } = {},
 ): Promise<{ updated: number; total: number; skipped?: boolean }> {
