@@ -2,40 +2,73 @@
   "_README": "wiki/手元に無い手動データの上書き。素材名(英語)をキーに追記する。build-materials.mjs が materials.json へマージ。",
   "_FORMAT_craftLevel": "製作素材の使用レベル。例: \"Wood\": { \"craftLevel\": \"1-9\" }  (文字列。単一なら \"60\"、範囲なら \"60-69\")",
   "_FORMAT_coinOutput": "記念コイン使用時の出力。例: { \"coinOutput\": [{\"rarity\":\"RARE\",\"pct\":69.8}], \"coinNote\":\"アルカナ等級以上\" }  pct は数値 or null(残り等は note を付ける). rarity が既知グレードならバッジ表示、それ以外(UNIQUE/RARE+UNCOMMON等)は文字表示。",
+  "_SOURCE_coinOutput": "Cube Offering(コイン供物)のデータマイン済みドロップテーブル。出典 probonk.com/tbh-task-bar-hero/offering (= tbhwiki 系と同一データマイン)。有志作成の分布グラフと照合し10種中9種が一致。レジェンダリー(Empire 10th)のみグラフと相違があり、データマイン値を採用(グラフ側が旧パッチ/誤記の可能性)。並びは低→高グレード。",
 
   "Kingdom 1st Anniversary Coin": { "coinOutput": [
-    { "rarity": "RARE", "pct": 69.8 },
-    { "rarity": "LEGENDARY", "pct": 30.0 },
-    { "rarity": "BEYOND", "pct": 0.2 }
+    { "rarity": "COMMON", "pct": 2.44 },
+    { "rarity": "UNCOMMON", "pct": 12.39 },
+    { "rarity": "RARE", "pct": 28.4 },
+    { "rarity": "LEGENDARY", "pct": 35.48 },
+    { "rarity": "IMMORTAL", "pct": 21.29 }
   ] },
-  "Empire 10th Anniversary Coin": { "coinOutput": [
+  "Empire 1st Anniversary Coin": { "coinOutput": [
+    { "rarity": "UNCOMMON", "pct": 9.53 },
+    { "rarity": "RARE", "pct": 23.35 },
+    { "rarity": "LEGENDARY", "pct": 31.28 },
+    { "rarity": "IMMORTAL", "pct": 23.46 },
+    { "rarity": "ARCANA", "pct": 11.73 },
+    { "rarity": "BEYOND", "pct": 0.65 }
+  ] },
+  "Kingdom 10th Anniversary Coin": { "coinOutput": [
+    { "rarity": "UNCOMMON", "pct": 2.66 },
+    { "rarity": "RARE", "pct": 14.4 },
     { "rarity": "LEGENDARY", "pct": 28.34 },
     { "rarity": "IMMORTAL", "pct": 28.34 },
     { "rarity": "ARCANA", "pct": 17.0 },
     { "rarity": "BEYOND", "pct": 6.61 },
-    { "rarity": "CELESTIAL", "pct": 2.66 },
-    { "rarity": "RARE / UNCOMMON", "pct": null, "note": "残り" }
+    { "rarity": "CELESTIAL", "pct": 2.66 }
+  ] },
+  "Empire 10th Anniversary Coin": { "coinOutput": [
+    { "rarity": "UNCOMMON", "pct": 1.67 },
+    { "rarity": "LEGENDARY", "pct": 17.21 },
+    { "rarity": "IMMORTAL", "pct": 30.6 },
+    { "rarity": "ARCANA", "pct": 26.77 },
+    { "rarity": "BEYOND", "pct": 14.34 },
+    { "rarity": "CELESTIAL", "pct": 9.4 }
   ] },
   "Kingdom 50th Anniversary Coin": { "coinOutput": [
-    { "rarity": "LEGENDARY", "pct": 46.5 },
-    { "rarity": "IMMORTAL", "pct": 31.0 },
-    { "rarity": "CELESTIAL", "pct": 17.0 },
-    { "rarity": "DIVINE", "pct": 3.1 },
-    { "rarity": "UNIQUE", "pct": 2.4 }
+    { "rarity": "IMMORTAL", "pct": 20.61 },
+    { "rarity": "ARCANA", "pct": 29.98 },
+    { "rarity": "BEYOND", "pct": 26.23 },
+    { "rarity": "CELESTIAL", "pct": 20.05 },
+    { "rarity": "DIVINE", "pct": 3.12 }
   ] },
   "Empire 50th Anniversary Coin": { "coinOutput": [
-    { "rarity": "ARCANA", "pct": 98.9 },
-    { "rarity": "BEYOND", "pct": 1.0 },
-    { "rarity": "DIVINE", "pct": 0.1 }
-  ], "coinNote": "アルカナ等級以上" },
+    { "rarity": "ARCANA", "pct": 41.93 },
+    { "rarity": "BEYOND", "pct": 25.16 },
+    { "rarity": "CELESTIAL", "pct": 29.02 },
+    { "rarity": "DIVINE", "pct": 3.34 },
+    { "rarity": "COSMIC", "pct": 0.55 }
+  ] },
 
   "Kingdom 100th Anniversary Coin": { "coinOutput": [
-    { "rarity": "ARCANA", "pct": 50.5 },
+    { "rarity": "BEYOND", "pct": 50.5 },
     { "rarity": "CELESTIAL", "pct": 40.01 },
     { "rarity": "DIVINE", "pct": 8.38 },
     { "rarity": "COSMIC", "pct": 1.11 }
   ] },
-  "Empire 100th Anniversary Coin": { "unreleased": true },
-  "Sacred Kingdom 1000th Anniversary Coin": { "unreleased": true },
-  "Eternal Empire 1000th Anniversary Coin": { "unreleased": true }
+  "Empire 100th Anniversary Coin": { "coinOutput": [
+    { "rarity": "CELESTIAL", "pct": 79.76 },
+    { "rarity": "DIVINE", "pct": 17.37 },
+    { "rarity": "COSMIC", "pct": 2.88 }
+  ], "unreleased": true },
+  "Sacred Kingdom 1000th Anniversary Coin": { "coinOutput": [
+    { "rarity": "CELESTIAL", "pct": 14.86 },
+    { "rarity": "DIVINE", "pct": 79.31 },
+    { "rarity": "COSMIC", "pct": 5.84 }
+  ], "unreleased": true },
+  "Eternal Empire 1000th Anniversary Coin": { "coinOutput": [
+    { "rarity": "DIVINE", "pct": 18.35 },
+    { "rarity": "COSMIC", "pct": 81.65 }
+  ], "unreleased": true }
 }

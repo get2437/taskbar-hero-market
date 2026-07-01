@@ -4993,16 +4993,24 @@
   "effects": [],
   "coinOutput": [
    {
+    "rarity": "COMMON",
+    "pct": 2.44
+   },
+   {
+    "rarity": "UNCOMMON",
+    "pct": 12.39
+   },
+   {
     "rarity": "RARE",
-    "pct": 69.8
+    "pct": 28.4
    },
    {
     "rarity": "LEGENDARY",
-    "pct": 30
+    "pct": 35.48
    },
    {
-    "rarity": "BEYOND",
-    "pct": 0.2
+    "rarity": "IMMORTAL",
+    "pct": 21.29
    }
   ]
  },
@@ -5015,7 +5023,33 @@
   "steamIcon": null,
   "refPriceYen": null,
   "onMarket": false,
-  "effects": []
+  "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "UNCOMMON",
+    "pct": 9.53
+   },
+   {
+    "rarity": "RARE",
+    "pct": 23.35
+   },
+   {
+    "rarity": "LEGENDARY",
+    "pct": 31.28
+   },
+   {
+    "rarity": "IMMORTAL",
+    "pct": 23.46
+   },
+   {
+    "rarity": "ARCANA",
+    "pct": 11.73
+   },
+   {
+    "rarity": "BEYOND",
+    "pct": 0.65
+   }
+  ]
  },
  {
   "name": "Kingdom 10th Anniversary Coin",
@@ -5026,19 +5060,16 @@
   "steamIcon": null,
   "refPriceYen": null,
   "onMarket": false,
-  "effects": []
- },
- {
-  "name": "Empire 10th Anniversary Coin",
-  "category": "ANNIVERSARY",
-  "rarity": "LEGENDARY",
-  "slug": "empire-10th-anniversary-coin",
-  "wikiImage": "/game/items/materials/Item_160004.png",
-  "steamIcon": null,
-  "refPriceYen": null,
-  "onMarket": false,
   "effects": [],
   "coinOutput": [
+   {
+    "rarity": "UNCOMMON",
+    "pct": 2.66
+   },
+   {
+    "rarity": "RARE",
+    "pct": 14.4
+   },
    {
     "rarity": "LEGENDARY",
     "pct": 28.34
@@ -5058,11 +5089,43 @@
    {
     "rarity": "CELESTIAL",
     "pct": 2.66
+   }
+  ]
+ },
+ {
+  "name": "Empire 10th Anniversary Coin",
+  "category": "ANNIVERSARY",
+  "rarity": "LEGENDARY",
+  "slug": "empire-10th-anniversary-coin",
+  "wikiImage": "/game/items/materials/Item_160004.png",
+  "steamIcon": null,
+  "refPriceYen": null,
+  "onMarket": false,
+  "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "UNCOMMON",
+    "pct": 1.67
    },
    {
-    "rarity": "RARE / UNCOMMON",
-    "pct": null,
-    "note": "残り"
+    "rarity": "LEGENDARY",
+    "pct": 17.21
+   },
+   {
+    "rarity": "IMMORTAL",
+    "pct": 30.6
+   },
+   {
+    "rarity": "ARCANA",
+    "pct": 26.77
+   },
+   {
+    "rarity": "BEYOND",
+    "pct": 14.34
+   },
+   {
+    "rarity": "CELESTIAL",
+    "pct": 9.4
    }
   ]
  },
@@ -5078,24 +5141,24 @@
   "effects": [],
   "coinOutput": [
    {
-    "rarity": "LEGENDARY",
-    "pct": 46.5
+    "rarity": "IMMORTAL",
+    "pct": 20.61
    },
    {
-    "rarity": "IMMORTAL",
-    "pct": 31
+    "rarity": "ARCANA",
+    "pct": 29.98
+   },
+   {
+    "rarity": "BEYOND",
+    "pct": 26.23
    },
    {
     "rarity": "CELESTIAL",
-    "pct": 17
+    "pct": 20.05
    },
    {
     "rarity": "DIVINE",
-    "pct": 3.1
-   },
-   {
-    "rarity": "UNIQUE",
-    "pct": 2.4
+    "pct": 3.12
    }
   ]
  },
@@ -5112,18 +5175,25 @@
   "coinOutput": [
    {
     "rarity": "ARCANA",
-    "pct": 98.9
+    "pct": 41.93
    },
    {
     "rarity": "BEYOND",
-    "pct": 1
+    "pct": 25.16
+   },
+   {
+    "rarity": "CELESTIAL",
+    "pct": 29.02
    },
    {
     "rarity": "DIVINE",
-    "pct": 0.1
+    "pct": 3.34
+   },
+   {
+    "rarity": "COSMIC",
+    "pct": 0.55
    }
-  ],
-  "coinNote": "アルカナ等級以上"
+  ]
  },
  {
   "name": "Kingdom 100th Anniversary Coin",
@@ -5137,7 +5207,7 @@
   "effects": [],
   "coinOutput": [
    {
-    "rarity": "ARCANA",
+    "rarity": "BEYOND",
     "pct": 50.5
    },
    {
@@ -5164,6 +5234,20 @@
   "refPriceYen": null,
   "onMarket": false,
   "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "CELESTIAL",
+    "pct": 79.76
+   },
+   {
+    "rarity": "DIVINE",
+    "pct": 17.37
+   },
+   {
+    "rarity": "COSMIC",
+    "pct": 2.88
+   }
+  ],
   "unreleased": true
  },
  {
@@ -5176,6 +5260,20 @@
   "refPriceYen": null,
   "onMarket": false,
   "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "CELESTIAL",
+    "pct": 14.86
+   },
+   {
+    "rarity": "DIVINE",
+    "pct": 79.31
+   },
+   {
+    "rarity": "COSMIC",
+    "pct": 5.84
+   }
+  ],
   "unreleased": true
  },
  {
@@ -5188,6 +5286,16 @@
   "refPriceYen": null,
   "onMarket": false,
   "effects": [],
+  "coinOutput": [
+   {
+    "rarity": "DIVINE",
+    "pct": 18.35
+   },
+   {
+    "rarity": "COSMIC",
+    "pct": 81.65
+   }
+  ],
   "unreleased": true
  },
  {
